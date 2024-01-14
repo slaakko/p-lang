@@ -1,0 +1,10 @@
+module System, id=1989286620
+interface
+type
+  subrange type 'Byte'
+  0..255
+const
+  constant 'pi'
+    type 'real'
+    value '3.141593'
+implementation

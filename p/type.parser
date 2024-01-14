@@ -1,0 +1,247 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.type.parser;
+
+[interface]import p.lexer;
+[interface]import p.parsing_context;
+[interface]import p.ast;
+[interface]import p.type;
+[interface]import p.subroutine;
+[implementation]import p.token;
+[implementation]import p.expression.parser;
+[implementation]import p.parameter.parser;
+[implementation]import p.procedure.parser;
+[implementation]import p.function.parser;
+[implementation]import p.block.parser;
+
+parser TypeParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using ProcedureParser.ProcedureHeading;
+    using ExpressionParser.Expression;
+    using ExpressionParser.ConstantExpression;
+    using ExpressionParser.TypeIdentifier;
+    using ExpressionParser.Identifier;
+    using ExpressionParser.VariableReference;
+    using ParameterParser.IdentifierList;
+    using ParameterParser.ParameterList;
+    using BlockParser.SubroutineBlock;
+    using FunctionParser.FunctionHeading;
+
+    TypeDeclaration(ParsingContext* context)
+        ::= ID{ context->SetTypeName(lexer.GetToken(pos).ToString()); context->PushFlags(Flags::makeType); } 
+            EQUAL Type(context):typePtr
+            SEMICOLON{ context->PopFlags(); }
+        ;
+
+    Type(ParsingContext* context) : p::TypePtr
+        ::= SimpleType(context):simpleType{ return simpleType; }
+        |   StringType(context):stringType{ return stringType; }
+        |   PointerType(context):pointerType{ return pointerType; }
+        |   ObjectType(context):objectType{ return objectType; }
+        |   ArrayType(context):arrayType{ return arrayType; }
+        |   TypeIdentifier(context):typeIdentifier{ return p::TypePtr(typeIdentifier->GetType()); }
+        ;
+
+    SimpleType(ParsingContext* context) : p::TypePtr
+        ::= OrdinalType(context):ordinalType{ return ordinalType; }
+        |   RealType(context):realType{ return realType; }
+        ;
+
+    OrdinalType(ParsingContext* context) : p::TypePtr
+        ::= SubrangeType(context):subrangeType{ return subrangeType; }
+        |   EnumeratedType(context):enumeratedType{ return enumeratedType; }
+        |   OrdinalTypeName(context):ordinalTypeName{ return ordinalTypeName; }
+        ;
+
+    OrdinalTypeName(ParsingContext* context) : p::TypePtr
+        ::= INTEGER{ return p::TypePtr(context->GetBlock()->GetType("integer", lexer, pos)); }
+        |   BOOLEAN{ return p::TypePtr(context->GetBlock()->GetType("boolean", lexer, pos)); }
+        |   CHAR{ return p::TypePtr(context->GetBlock()->GetType("char", lexer, pos)); }
+        ;
+
+    SubrangeType(ParsingContext* context) : p::TypePtr
+        ::= 
+        (
+            ConstantExpression(context):rangeStart DOTDOT ConstantExpression(context):rangeEnd
+        )
+        {
+            return p::TypePtr(MakeSubrangeType(context, rangeStart, rangeEnd, lexer, pos));
+        }
+        ;
+
+    EnumeratedType(ParsingContext* context) : p::TypePtr
+        ::= 
+        (
+            LPAREN IdentifierList:identifierList RPAREN
+        )
+        {
+            return p::TypePtr(MakeEnumeratedType(context, identifierList, lexer, pos));
+        }
+        ;
+
+    RealType(ParsingContext* context) : p::TypePtr
+        ::= REAL{ return p::TypePtr(context->GetBlock()->GetType("real", lexer, pos)); }
+        ;
+
+    StringType(ParsingContext* context) : p::TypePtr
+        ::= STRING{ return p::TypePtr(context->GetBlock()->GetType("string", lexer, pos)); }
+        ;
+
+    PointerType(ParsingContext* context) : p::TypePtr
+        ::= POINTER{ return p::TypePtr(context->GetBlock()->GetType("pointer", lexer, pos)); }
+        ;
+
+    ObjectType(ParsingContext* context, var p::ObjectType* objectType) : p::TypePtr
+        ::= 
+        (
+            OBJECT{ objectType = MakeObjectType(context, lexer, pos); }
+            (Heritage(context):heritage{ SetHeritage(context, objectType, heritage, lexer, pos); })? 
+            ComponentList(context, objectType):componentList 
+            END
+        )
+        {
+            context->GetModulePart()->AddObjectType(objectType);
+            objectType->FinalizeLayout();
+            objectType->GenerateDefaults(context, lexer, pos);
+            return p::TypePtr(objectType);
+        }
+        ;
+
+    Heritage(ParsingContext* context) : IdentifierNode*
+        ::= 
+        (
+            LPAREN Identifier(context):objectTypeIdentifier RPAREN 
+        )
+        {
+            return objectTypeIdentifier;
+        }
+        ;
+
+    ObjectTypeIdentifier(ParsingContext* context) : IdentifierNode*
+        ::= ID{ return new IdentifierNode(lexer.GetToken(pos).ToString(), IdentifierKind::object, pos); }
+        ;
+
+    ComponentList(ParsingContext* context, p::ObjectType* objectType)
+        ::= ObjectFieldList(context, objectType):objectFieldList? 
+            MethodList(context, objectType):methodList?
+        ;
+
+    ObjectFieldList(ParsingContext* context, p::ObjectType* objectType)
+        ::= 
+        (
+            IdentifierList:identifierList COLON Type(context):typePtr SEMICOLON
+            {   
+                objectType->AddFields(identifierList, typePtr.GetType());
+            }
+        )+
+        ;
+
+    MethodList(ParsingContext* context, p::ObjectType* objectType)
+        ::= 
+        (
+            MethodHeading(context):methodHeading{ objectType->AddMethod(context, methodHeading, lexer, pos); } 
+            SEMICOLON
+        )+
+        ;
+
+    Virtuality : p::Virtuality
+        ::= VIRTUAL{ return p::Virtuality::virtual_; }
+        |   OVERRIDE{ return p::Virtuality::override_; }
+        ;
+
+    MethodHeading(ParsingContext* context, var p::ProcedureHeading* procedureHeading, var p::FunctionHeading* functionHeading) : p::SubroutineHeading*
+        ::= (
+                ProcedureHeading(context):procHeading{ procedureHeading = procHeading; } 
+                (
+                    SEMICOLON Virtuality:procVirtuality{ procedureHeading->SetVirtuality(procVirtuality); }
+                )?
+            )
+            { 
+                return procedureHeading; 
+            }
+        |   (
+                FunctionHeading(context):fnHeading{ functionHeading = fnHeading; } 
+                (
+                    SEMICOLON Virtuality:fnVirtuality{ functionHeading->SetVirtuality(fnVirtuality); }
+                )?
+            )
+            {
+                return functionHeading;
+            }
+        |   ConstructorHeading(context):constructorHeading{ return constructorHeading; }
+        ;
+
+    ConstructorDeclaration(ParsingContext* context, var std::unique_ptr<p::Constructor> constructor)
+        ::= ConstructorHeading(context):constructorHeading
+            { 
+                constructor.reset(new p::Constructor(constructorHeading)); 
+                context->PushConstructor(constructor.get());
+            }
+            (
+                ConstructorCall(context):constructorCall{ constructor->SetConstructorCall(constructorCall); }
+            )?
+            empty{ context->PopConstructor(); }
+            SEMICOLON 
+            SubroutineBlock(context, constructor.get()):subroutineBlock 
+            SEMICOLON
+            {
+                p::Constructor* ctor = constructor.get();
+                context->GetBlock()->AddConstructor(constructor.release(), lexer, pos);
+                context->GetModulePart()->AddSubroutine(ctor);
+                ctor->ResolveDeclaration(context, lexer, pos); 
+            }
+        ;
+
+    ConstructorHeading(ParsingContext* context, var std::unique_ptr<p::ConstructorHeading> heading) : p::ConstructorHeading*
+        ::= 
+        (
+            CONSTRUCTOR{ heading.reset(new p::ConstructorHeading()); } 
+            (ObjectName:objectName{ heading->SetObjectName(context, objectName, lexer, pos); })?
+            ParameterList(context, heading.get()):parameterList
+        )
+        {
+            return heading.release();
+        }
+        ;
+
+    ObjectName : std::string
+        ::= ID{ return lexer.GetToken(pos).ToString(); }
+        ;
+
+    ConstructorCall(ParsingContext* context, var std::unique_ptr<p::ConstructorCall> constructorCall) : p::ConstructorCall*
+        ::= 
+        (
+            COLON
+            (   BASE{ constructorCall.reset(new p::ConstructorCall(ConstructorCallKind::baseCall)); }
+            |   THIS{ constructorCall.reset(new p::ConstructorCall(ConstructorCallKind::thisCall)); }
+            )
+            LPAREN
+            (
+                Expression(context):first{ constructorCall->AddArgument(first); }
+                (
+                    COMMA
+                    Expression(context):next{ constructorCall->AddArgument(next); }
+                )*
+            )?
+            RPAREN
+        )
+        {
+            return constructorCall.release();
+        }
+        ;
+
+    ArrayType(ParsingContext* context) : p::TypePtr
+        ::= 
+        (
+            ARRAY OF Type(context):elementTypePtr
+        )
+        {
+            return p::TypePtr(MakeArrayType(context, elementTypePtr.GetType(), lexer, pos));
+        }
+        ;
+}

@@ -1,0 +1,10 @@
+<parserFile>
+ <grammar name="MainParser">
+  <rule first="{PROGRAM, UNIT}" name="Main">
+   <choice first="{PROGRAM, UNIT}">
+    <nonterminal first="{PROGRAM}" ruleName="Program"/>
+    <nonterminal first="{UNIT}" ruleName="Unit"/>
+   </choice>
+  </rule>
+ </grammar>
+</parserFile>

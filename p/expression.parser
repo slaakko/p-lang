@@ -1,0 +1,268 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.expression.parser;
+
+[interface]import p.lexer;
+[interface]import p.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.type.parser;
+
+parser ExpressionParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using TypeParser.ObjectTypeIdentifier;
+
+    Expression(ParsingContext* context, var std::unique_ptr<Node> node) : Node*
+        ::= 
+        (
+            SimpleExpression(context):first{ node.reset(first); } 
+            (   RelationalOperator:relationalOperator 
+                SimpleExpression(context):next{ node.reset(new BinaryExprNode(relationalOperator, node.release(), next, pos)); }
+            )?
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    RelationalOperator : Operator
+        ::= EQUAL{ return Operator::equal; }
+        |   NOT_EQUAL{ return Operator::notEqual; }
+        |   LESS{ return Operator::less; }
+        |   LESS_EQUAL{ return Operator::lessOrEqual; }
+        |   GREATER{ return Operator::greater; }
+        |   GREATER_EQUAL{ return Operator::greaterOrEqual; }
+        ;
+
+    ConstantExpression(ParsingContext* context) : Node* 
+        ::= Expression(context):expression{ return expression; }
+        ;
+
+    SimpleExpression(ParsingContext* context, var std::unique_ptr<Node> node) : Node*
+        ::= 
+        (
+            Term(context):first{ node.reset(first); }
+            (
+                WeakOperator:weakOperator 
+                Term(context):next{ node.reset(new BinaryExprNode(weakOperator, node.release(), next, pos)); }
+            )*
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    WeakOperator : Operator
+        ::= PLUS{ return Operator::plus; }
+        |   MINUS{ return Operator::minus; }
+        |   OR{ return Operator::or_; }
+        |   XOR{ return Operator::xor_; }
+        ;
+
+    Term(ParsingContext* context, var std::unique_ptr<Node> node) : Node*
+        ::= 
+        (
+            Factor(context):first{ node.reset(first); } 
+            (
+                StrongOperator:strongOperator 
+                Factor(context):next{ node.reset(new BinaryExprNode(strongOperator, node.release(), next, pos)); }
+            )*
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    StrongOperator : Operator
+        ::= STAR{ return Operator::mul; }
+        |   SLASH{ return Operator::fractionalDivide; }
+        |   DIV{ return Operator::div; }
+        |   MOD{ return Operator::mod; }
+        |   AND{ return Operator::and_; }
+        |   SHL{ return Operator::shl; }
+        |   SHR{ return Operator::shr; }
+        ;
+
+    Factor(ParsingContext* context, var std::unique_ptr<Node> node) : Node*
+        ::= 
+        (
+            Primary(context):primary{ node.reset(primary); }
+            (   &(LBRACKET | DOT) Qualifier(context, node.release()):qualifier{ node.reset(qualifier); }
+            |   &LPAREN{ node.reset(new InvokeExprNode(node.release(), pos)); } ArgumentList(context, node.get()):argumentList
+            )*
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    Primary(ParsingContext* context) : Node*
+        ::= VariableReference(context):variableReference{ return variableReference; }
+        |   UnsignedConstant(context):unsignedConstant{ return unsignedConstant; }
+        |   LPAREN Expression(context):expression RPAREN { return new ParenthesizedExprNode(expression, pos); }
+        |   NOT Factor(context):notFactor{ return new UnaryExprNode(Operator::not_, notFactor, pos); }
+        |   Sign:sign Factor(context):signFactor{ return new UnaryExprNode(sign, signFactor, pos); }
+        |   FunctionIdentifier(context):functionIdentifier{ return functionIdentifier;}
+        |   ValueTypecast(context):valueTypecast{ return valueTypecast; }
+        |   NewExpression(context):newExpression{ return newExpression; }
+        |   THIS{ return new ThisNode(pos); }
+        |   BASE{ return new BaseNode(pos); }
+        |   Field(context):field{ return field; }
+        |   Method(context):method{ return method; }
+        ;
+
+    UnsignedConstant(ParsingContext* context) : Node*
+        ::= UnsignedNumber:unsignedNumber{ return unsignedNumber; }
+        |   CharacterString:characterString{ return MakeCharacterStringConstant(characterString, pos); }
+        |   ConstantIdentifier(context):constantIdentifier{ return constantIdentifier; }
+        |   TRUE{ return new BooleanLiteralNode(true, pos); }
+        |   FALSE{ return new BooleanLiteralNode(false, pos); }
+        |   NIL{ return new NilNode(pos); }
+        ;
+
+    UnsignedNumber : Node*
+        ::= INTEGER_LITERAL{ return ParseIntegerLiteral(lexer, lexer.GetToken(pos), pos); }
+        |   REAL_LITERAL{ return ParseRealLiteral(lexer, lexer.GetToken(pos), pos); }
+        ;
+
+    CharacterString(var std::unique_ptr<StringLiteralNode> node) : StringLiteralNode*
+        ::= 
+        (
+            empty{ node.reset(new StringLiteralNode(pos)); }
+            (   QUOTED_STRING{ node->Append(ParseQuotedString(lexer, lexer.GetToken(pos), pos)); }
+            |   CONTROL_STRING{ node->Append(ParseControlString(lexer, lexer.GetToken(pos), pos)); }
+            )+
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    ConstantIdentifier(ParsingContext* context) : Node*
+        ::= ID{ IdentifierNode* constantId = MakeConstantId(context, lexer.GetToken(pos).ToString(), pos); pass = constantId != nullptr; if (pass) { return constantId; }}
+        ;
+
+    Sign : Operator
+        ::= PLUS{ return Operator::plus; }
+        |   MINUS{ return Operator::minus; }
+        ;
+
+    ArgumentList(ParsingContext* context, Node* owner)
+        ::= LPAREN 
+            (   Argument(context):first{ owner->AddNode(first, lexer, pos); } 
+                (
+                    COMMA 
+                    Argument(context):next{ owner->AddNode(next, lexer, pos); }
+                )*
+            )? 
+            RPAREN
+        ;
+
+    Argument(ParsingContext* context) : Node*
+        ::= Expression(context):expression{ return expression; }
+        ;
+
+    FunctionIdentifier(ParsingContext* context) : Node*
+        ::= ID{ IdentifierNode* functionId = MakeFunctionId(context, lexer.GetToken(pos).ToString(), pos); pass = functionId != nullptr; if (pass) { return functionId; }}
+        ;
+
+    TypeName(ParsingContext* context) : std::string
+        ::= TypeIdentifier(context):typeIdentifier{ return typeIdentifier->Str(); }
+        |   INTEGER{ return "integer"; }
+        |   REAL{ return "real"; }
+        |   CHAR{ return "char"; }
+        |   BOOLEAN{ return "boolean"; }
+        |   STRING{ return "string"; }
+        |   POINTER{ return "pointer"; }
+        ;
+
+    ValueTypecast(ParsingContext* context) : Node*
+        ::= 
+        (
+            TypeName(context):typeName LPAREN Expression(context):expression RPAREN
+        )
+        {
+            return new ValueTypecastNode(typeName, expression, pos);
+        }
+        ;
+
+    TypeIdentifier(ParsingContext* context) : IdentifierNode*
+        ::= ID{ IdentifierNode* typeId = MakeTypeId(context, lexer.GetToken(pos).ToString(), pos); pass = typeId != nullptr; if (pass) { return typeId; }}
+        ;
+
+    VariableReference(ParsingContext* context) : Node*
+        ::= VariableIdentifier(context):variableIdentifier{ return variableIdentifier; }
+        |   VariableTypecast(context):variableTypecast{ return variableTypecast; }
+        ;
+
+    VariableIdentifier(ParsingContext* context) : Node*
+        ::= ID{ IdentifierNode* variableId = MakeVariableId(context, lexer.GetToken(pos).ToString(), pos); pass = variableId != nullptr; if (pass) { return variableId; }}
+        ;
+
+    Field(ParsingContext* context) : Node*
+        ::= ID{ Node* fieldNode = MakeField(context, lexer.GetToken(pos).ToString(), pos); pass = fieldNode != nullptr; if (pass) { return fieldNode; }}
+        ;
+
+    Method(ParsingContext* context) : Node*
+        ::= ID{ Node* methodNode = MakeMethod(context, lexer.GetToken(pos).ToString(), pos); pass = methodNode != nullptr; if (pass) { return methodNode; }}
+        ;
+
+    Qualifier(ParsingContext* context, Node* primary) : Node*
+        ::= Index(context, primary):index{ return index; }
+        |   FieldDesignator(context, primary):fieldDesignator{ return fieldDesignator; }
+        ;
+
+    Index(ParsingContext* context, Node* primary, var std::unique_ptr<IndexExprNode> expr) : Node*
+        ::= 
+        (
+            LBRACKET{ expr.reset(new IndexExprNode(primary, pos)); } 
+            Expression(context):index{ expr->SetIndex(index); } 
+            RBRACKET
+        )
+        {
+            return expr.release();
+        }
+        ;
+
+    FieldDesignator(ParsingContext* context, Node* primary, var std::unique_ptr<DotNode> expr) : Node*
+        ::= 
+        (
+            DOT{ expr.reset(new DotNode(primary, pos)); } 
+            Identifier(context):id{ expr->SetId(id); }
+        )
+        {
+            return expr.release();
+        }
+        ;
+
+    Identifier(ParsingContext* context) : IdentifierNode*
+        ::= ID{ return new IdentifierNode(lexer.GetToken(pos).ToString(), IdentifierKind::none, pos); }
+        ;
+
+    VariableTypecast(ParsingContext* context) : Node*
+        ::= 
+        (
+            TypeName(context):typeName LPAREN VariableReference(context):variableReference RPAREN
+        )
+        {
+            return new VariableTypecastNode(typeName, variableReference, pos);
+        }
+        ;
+
+    NewExpression(ParsingContext* context) : Node*
+        ::= NEW TypeName(context):type
+        (   LBRACKET 
+            Expression(context):arraySize
+            RBRACKET
+            { 
+                return new NewArrayExprNode(type, arraySize, pos); 
+            }
+        |   empty{ return new NewExprNode(type, pos); }
+        )
+        ;
+}

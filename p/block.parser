@@ -1,0 +1,158 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.block.parser;
+
+[interface]import p.lexer;
+[interface]import p.parsing_context;
+[interface]import p.ast;
+[interface]import p.type;
+[interface]import p.constant;
+[interface]import p.subroutine;
+[interface]import p.block;
+[implementation]import p.token;
+[implementation]import p.parameter.parser;
+[implementation]import p.statement.parser;
+[implementation]import p.procedure.parser;
+[implementation]import p.function.parser;
+[implementation]import p.type.parser;
+[implementation]import p.expression.parser;
+[implementation]import p.execute;
+
+parser BlockParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using StatementParser.CompoundStatement;
+    using ExpressionParser.Expression;
+    using ExpressionParser.ConstantExpression;
+    using ParameterParser.IdentifierList;
+    using TypeParser.TypeDeclaration;
+    using TypeParser.Type;
+    using TypeParser.ConstructorDeclaration;
+    using ProcedureParser.ProcedureDeclaration;
+    using FunctionParser.FunctionDeclaration;
+
+    Block(ParsingContext* context, Subroutine* subroutine, bool root, var std::unique_ptr<p::Block> block)
+        ::= 
+        (
+            empty
+            { 
+                block.reset(new p::Block(context->GetBlock())); 
+                block->SetSubroutine(subroutine);
+                block->SetLevel(subroutine->Level());
+                subroutine->AddParameters(block.get());
+                context->PushBlock(block.get()); 
+                if (root) 
+                {
+                    block->ImportModules(context); 
+                }
+            }
+            DeclarationPart(context):declarationPart 
+            StatementPart(context):statementPart
+        )
+        {
+            if (subroutine) 
+            {
+                subroutine->SetBlock(block.release()); 
+            }
+            context->PopBlock();
+        }
+        ;
+
+    SubroutineBlock(ParsingContext* context, Subroutine* subroutine)
+        ::= FORWARD{ subroutine->SetForward(); }
+        |   EXTERNAL{ subroutine->SetExternal(); }
+        |   Block(context, subroutine, false):block
+        |   empty{ NoSubroutineBlock(lexer, pos); }
+        ;
+
+    DeclarationPart(ParsingContext* context)
+        ::= 
+        (   ConstantDeclarationPart(context):constantDeclarationPart
+        |   TypeDeclarationPart(context):typeDeclarationPart
+        |   VariableDeclarationPart(context):variableDeclarationPart
+        |   SubroutineDeclarationPart(context):subroutineDeclarationPart
+        )*
+        ;
+
+    ConstantDeclarationPart(ParsingContext* context)
+        ::= CONST ConstantDeclaration(context):constantDeclaration+
+        ;
+
+    TypeDeclarationPart(ParsingContext* context)
+        ::= TYPE TypeDeclaration(context):typeDeclaration+
+        ;
+
+    VariableDeclarationPart(ParsingContext* context)
+        ::= VAR VariableDeclaration(context):variableDeclaration+
+        ;
+
+    SubroutineDeclarationPart(ParsingContext* context)
+        ::= 
+        (   ProcedureDeclaration(context):procedureDeclaration
+        |   FunctionDeclaration(context):functionDeclaration
+        |   ConstructorDeclaration(context):constructorDeclaration
+        )+
+        ;
+
+    StatementPart(ParsingContext* context, var std::unique_ptr<CompoundStatementNode> compoundStatement)
+        ::= 
+        (
+            CompoundStatement(context):compoundStmt{ compoundStatement.reset(compoundStmt); }
+        )
+        {
+            CompileStatementPart(context, compoundStatement.get(), lexer);
+        }
+        ;
+
+    ConstantDeclaration(ParsingContext* context, var p::Type* type)
+        ::= ID{ context->SetConstantName(lexer.GetToken(pos).ToString()); context->PushFlags(Flags::makeConstant); }
+            COLON Type(context):typePtr{ type = typePtr.GetType(); } EQUAL Constant(context, type):constant SEMICOLON{ context->PopFlags(); }
+        ;
+
+    Constant(ParsingContext* context, p::Type* type) 
+        ::= ConstantExpression(context):constantExpression{ AddSimpleConstant(context, constantExpression, type, lexer, pos); }
+        |   ArrayConstant(context, type):arrayConstant
+        |   ObjectConstant(context, type):objectConstant
+        ;
+
+    ArrayConstant(ParsingContext* context, p::Type* type, var p::Type* elementType)
+        ::= LBRACKET{ MakeArrayConstant(context, type, elementType, lexer, pos); } 
+            Constant(context, elementType):first 
+            (   COMMA 
+                Constant(context, elementType):next
+            )* 
+            RBRACKET{ context->PopCurrentValue(); context->PopFlags(); }
+        ;
+
+    ObjectConstant(ParsingContext* context, p::Type* type, var p::Type* fieldType)
+        ::= LPAREN{ MakeObjectConstant(context, type, lexer, pos); } 
+            (
+                FieldName:fieldName
+                { 
+                    context->SetFieldName(fieldName); 
+                    fieldType = GetFieldType(type, context->FieldName(), lexer, pos); 
+                } 
+                COLON 
+                Constant(context, fieldType):constant
+            )+ 
+            RPAREN{ context->PopCurrentValue(); context->PopFlags(); }
+        ;
+
+    FieldName : std::string
+        ::= ID{ return lexer.GetToken(pos).ToString(); }
+        ;
+
+    VariableDeclaration(ParsingContext* context)
+        ::= 
+        (
+            IdentifierList:identifierList COLON Type(context):typePtr SEMICOLON
+        )
+        {
+            MakeVariables(context, identifierList, typePtr.GetType(), lexer, pos);
+        }
+        ;
+}

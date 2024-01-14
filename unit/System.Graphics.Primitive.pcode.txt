@@ -1,0 +1,1806 @@
+module System.Graphics.Primitive, id=1205691996
+interface
+uses System
+type
+  object type 'Point'
+    fields:
+      'x' index 0 type 'real'
+      'y' index 1 type 'real'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Point'
+      object type 'Point'
+      module id 1205691996
+      implementation id 1
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Point'
+      parameter 'x' index 1 type 'real'
+      parameter 'y' index 2 type 'real'
+      object type 'Point'
+      module id 1205691996
+      implementation id 2
+      frame size: 0
+
+      procedure 'Point.Print'
+      declaration
+      common name 'Print'
+      parameter 'this' index 0 type 'Point'
+      object type 'Point'
+      module id 1205691996
+      implementation id 3
+      frame size: 0
+
+      procedure 'Point.Offset'
+      declaration
+      common name 'Offset'
+      parameter 'this' index 0 type 'Point'
+      parameter 'dx' index 1 type 'real'
+      parameter 'dy' index 2 type 'real'
+      object type 'Point'
+      module id 1205691996
+      implementation id 4
+      frame size: 0
+
+  object type 'Size'
+    fields:
+      'h' index 1 type 'real'
+      'w' index 0 type 'real'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Size'
+      object type 'Size'
+      module id 1205691996
+      implementation id 5
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Size'
+      parameter 'w' index 1 type 'real'
+      parameter 'h' index 2 type 'real'
+      object type 'Size'
+      module id 1205691996
+      implementation id 6
+      frame size: 0
+
+      procedure 'Size.Print'
+      declaration
+      common name 'Print'
+      parameter 'this' index 0 type 'Size'
+      object type 'Size'
+      module id 1205691996
+      implementation id 7
+      frame size: 0
+
+  object type 'Rect'
+    fields:
+      'location' index 0 type 'Point'
+      'size' index 1 type 'Size'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Rect'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 8
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Rect'
+      parameter 'location' index 1 type 'Point'
+      parameter 'size' index 2 type 'Size'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 9
+      frame size: 0
+
+      procedure 'Rect.Print'
+      declaration
+      common name 'Print'
+      parameter 'this' index 0 type 'Rect'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 10
+      frame size: 0
+
+      procedure 'Rect.SetLocation'
+      declaration
+      common name 'SetLocation'
+      parameter 'this' index 0 type 'Rect'
+      parameter 'location' index 1 type 'Point'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 11
+      frame size: 0
+
+      procedure 'Rect.SetSize'
+      declaration
+      common name 'SetSize'
+      parameter 'this' index 0 type 'Rect'
+      parameter 'size' index 1 type 'Size'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 12
+      frame size: 0
+
+      function 'Rect.Left'
+      declaration
+      common name 'Left'
+      parameter 'this' index 0 type 'Rect'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 13
+      frame size: 0
+
+      function 'Rect.Top'
+      declaration
+      common name 'Top'
+      parameter 'this' index 0 type 'Rect'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 14
+      frame size: 0
+
+      function 'Rect.Right'
+      declaration
+      common name 'Right'
+      parameter 'this' index 0 type 'Rect'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 15
+      frame size: 0
+
+      function 'Rect.Bottom'
+      declaration
+      common name 'Bottom'
+      parameter 'this' index 0 type 'Rect'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 16
+      frame size: 0
+
+      function 'Rect.IsEmpty'
+      declaration
+      common name 'IsEmpty'
+      parameter 'this' index 0 type 'Rect'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 17
+      frame size: 0
+
+      function 'Rect.Contains'
+      declaration
+      common name 'Contains'
+      parameter 'this' index 0 type 'Rect'
+      parameter 'p' index 1 type 'Point'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 18
+      frame size: 0
+
+      function 'Rect.IntersectsWith'
+      declaration
+      common name 'IntersectsWith'
+      parameter 'this' index 0 type 'Rect'
+      parameter 'r' index 1 type 'Rect'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 19
+      frame size: 0
+
+      procedure 'Rect.Offset'
+      declaration
+      common name 'Offset'
+      parameter 'this' index 0 type 'Rect'
+      parameter 'dx' index 1 type 'real'
+      parameter 'dy' index 2 type 'real'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 20
+      frame size: 0
+
+      procedure 'Rect.Inflate'
+      declaration
+      common name 'Inflate'
+      parameter 'this' index 0 type 'Rect'
+      parameter 'dx' index 1 type 'real'
+      parameter 'dy' index 2 type 'real'
+      object type 'Rect'
+      module id 1205691996
+      implementation id 21
+      frame size: 0
+
+  object type 'Vector'
+    fields:
+      'x' index 0 type 'real'
+      'y' index 1 type 'real'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Vector'
+      object type 'Vector'
+      module id 1205691996
+      implementation id 22
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Vector'
+      parameter 'x' index 1 type 'real'
+      parameter 'y' index 2 type 'real'
+      object type 'Vector'
+      module id 1205691996
+      implementation id 23
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Vector'
+      parameter 'p' index 1 type 'Point'
+      object type 'Vector'
+      module id 1205691996
+      implementation id 24
+      frame size: 0
+
+      procedure 'Vector.Print'
+      declaration
+      common name 'Print'
+      parameter 'this' index 0 type 'Vector'
+      object type 'Vector'
+      module id 1205691996
+      implementation id 25
+      frame size: 0
+
+      function 'Vector.Length'
+      declaration
+      common name 'Length'
+      parameter 'this' index 0 type 'Vector'
+      object type 'Vector'
+      module id 1205691996
+      implementation id 26
+      frame size: 0
+
+      function 'Vector.ToPoint'
+      declaration
+      common name 'ToPoint'
+      parameter 'this' index 0 type 'Vector'
+      object type 'Vector'
+      module id 1205691996
+      implementation id 27
+      frame size: 0
+
+  enumerated type 'Direction'
+  (
+    constant 'noDir'
+      type 'Direction'
+      value 'noDir(0)'
+    constant 'north'
+      type 'Direction'
+      value 'north(1)'
+    constant 'east'
+      type 'Direction'
+      value 'east(2)'
+    constant 'south'
+      type 'Direction'
+      value 'south(3)'
+    constant 'west'
+      type 'Direction'
+      value 'west(4)'
+  )
+  object type 'LineSegment'
+    fields:
+      'e' index 1 type 'Point'
+      's' index 0 type 'Point'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'LineSegment'
+      parameter 's' index 1 type 'Point'
+      parameter 'e' index 2 type 'Point'
+      object type 'LineSegment'
+      module id 1205691996
+      implementation id 39
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'LineSegment'
+      parameter 's' index 1 type 'Point'
+      parameter 'v' index 2 type 'Vector'
+      object type 'LineSegment'
+      module id 1205691996
+      implementation id 40
+      frame size: 0
+
+      procedure 'LineSegment.Print'
+      declaration
+      common name 'Print'
+      parameter 'this' index 0 type 'LineSegment'
+      object type 'LineSegment'
+      module id 1205691996
+      implementation id 41
+      frame size: 0
+
+      function 'LineSegment.ToVector'
+      declaration
+      common name 'ToVector'
+      parameter 'this' index 0 type 'LineSegment'
+      object type 'LineSegment'
+      module id 1205691996
+      implementation id 42
+      frame size: 0
+
+      function 'LineSegment.Length'
+      declaration
+      common name 'Length'
+      parameter 'this' index 0 type 'LineSegment'
+      object type 'LineSegment'
+      module id 1205691996
+      implementation id 43
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'LineSegment'
+      object type 'LineSegment'
+      module id 1205691996
+      implementation id 0
+      frame size: 1
+
+const
+  constant 'noDir'
+    type 'Direction'
+    value 'noDir(0)'
+  constant 'north'
+    type 'Direction'
+    value 'north(1)'
+  constant 'east'
+    type 'Direction'
+    value 'east(2)'
+  constant 'south'
+    type 'Direction'
+    value 'south(3)'
+  constant 'west'
+    type 'Direction'
+    value 'west(4)'
+function 'Distance'
+declaration
+common name 'Distance'
+parameter 's' index 0 type 'Point'
+parameter 'e' index 1 type 'Point'
+module id 1205691996
+id 0
+implementation id 28
+frame size: 0
+
+function 'Union'
+declaration
+common name 'Union'
+parameter 'a' index 0 type 'Rect'
+parameter 'b' index 1 type 'Rect'
+module id 1205691996
+id 1
+implementation id 29
+frame size: 0
+
+function 'Sum'
+declaration
+common name 'Sum'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 2
+implementation id 30
+frame size: 0
+
+function 'Difference'
+declaration
+common name 'Difference'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 3
+implementation id 31
+frame size: 0
+
+function 'Product'
+declaration
+common name 'Product'
+parameter 'a' index 0 type 'real'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 4
+implementation id 32
+frame size: 0
+
+function 'Dot'
+declaration
+common name 'Dot'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 5
+implementation id 33
+frame size: 0
+
+function 'Unit'
+declaration
+common name 'Unit'
+parameter 'v' index 0 type 'Vector'
+module id 1205691996
+id 6
+implementation id 34
+frame size: 0
+
+function 'ProjectionFactor'
+declaration
+common name 'ProjectionFactor'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 7
+implementation id 35
+frame size: 0
+
+function 'Proj'
+declaration
+common name 'Proj'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 8
+implementation id 36
+frame size: 0
+
+function 'Rotate'
+declaration
+common name 'Rotate'
+parameter 'v' index 0 type 'Vector'
+parameter 'angleRad' index 1 type 'real'
+module id 1205691996
+id 9
+implementation id 37
+frame size: 0
+
+function 'GetDirection'
+declaration
+common name 'GetDirection'
+parameter 'source' index 0 type 'Point'
+parameter 'target' index 1 type 'Point'
+module id 1205691996
+id 10
+implementation id 38
+frame size: 0
+
+function 'RotateLineSegment'
+declaration
+common name 'RotateLineSegment'
+parameter 'line' index 0 type 'LineSegment'
+parameter 'angleDeg' index 1 type 'real'
+module id 1205691996
+id 11
+implementation id 44
+frame size: 0
+
+implementation
+uses System
+procedure 'Point.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'Point'
+object type 'Point'
+module id 1205691996
+id 3
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value('(')
+  2 : call_stdproc(Write, 0)
+  3 : load_local(0)
+  4 : load_field(0)
+  5 : call_stdproc(Write, 0)
+  6 : push_value(', ')
+  7 : call_stdproc(Write, 0)
+  8 : load_local(0)
+  9 : load_field(1)
+  10 : call_stdproc(Write, 0)
+  11 : push_value(')')
+  12 : call_stdproc(Write, 0)
+  13 : call_stdproc(Writeln, 1)
+  14 : nop
+
+procedure 'Point.Offset'
+definition
+common name 'Offset'
+parameter 'this' index 0 type 'Point'
+parameter 'dx' index 1 type 'real'
+parameter 'dy' index 2 type 'real'
+object type 'Point'
+module id 1205691996
+id 4
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_local(1)
+  4 : plus_real
+  5 : load_local(0)
+  6 : store_field(0)
+  7 : load_local(0)
+  8 : load_field(1)
+  9 : load_local(2)
+  10 : plus_real
+  11 : load_local(0)
+  12 : store_field(1)
+  13 : nop
+
+procedure 'Size.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'Size'
+object type 'Size'
+module id 1205691996
+id 7
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value('(')
+  2 : call_stdproc(Write, 0)
+  3 : load_local(0)
+  4 : load_field(0)
+  5 : call_stdproc(Write, 0)
+  6 : push_value(', ')
+  7 : call_stdproc(Write, 0)
+  8 : load_local(0)
+  9 : load_field(1)
+  10 : call_stdproc(Write, 0)
+  11 : push_value(')')
+  12 : call_stdproc(Write, 0)
+  13 : call_stdproc(Writeln, 1)
+  14 : nop
+
+procedure 'Rect.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'Rect'
+object type 'Rect'
+module id 1205691996
+id 10
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value('[')
+  2 : call_stdproc(Write, 0)
+  3 : load_local(0)
+  4 : load_field(0)
+  5 : load_field(0)
+  6 : call_stdproc(Write, 0)
+  7 : push_value(', ')
+  8 : call_stdproc(Write, 0)
+  9 : load_local(0)
+  10 : load_field(0)
+  11 : load_field(1)
+  12 : call_stdproc(Write, 0)
+  13 : push_value(', ')
+  14 : call_stdproc(Write, 0)
+  15 : load_local(0)
+  16 : load_field(1)
+  17 : load_field(0)
+  18 : call_stdproc(Write, 0)
+  19 : push_value(', ')
+  20 : call_stdproc(Write, 0)
+  21 : load_local(0)
+  22 : load_field(1)
+  23 : load_field(1)
+  24 : call_stdproc(Write, 0)
+  25 : push_value(']')
+  26 : call_stdproc(Write, 0)
+  27 : call_stdproc(Writeln, 1)
+  28 : nop
+
+procedure 'Rect.SetLocation'
+definition
+common name 'SetLocation'
+parameter 'this' index 0 type 'Rect'
+parameter 'location' index 1 type 'Point'
+object type 'Rect'
+module id 1205691996
+id 11
+frame size: 2
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : nop
+
+procedure 'Rect.SetSize'
+definition
+common name 'SetSize'
+parameter 'this' index 0 type 'Rect'
+parameter 'size' index 1 type 'Size'
+object type 'Rect'
+module id 1205691996
+id 12
+frame size: 2
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(1)
+  4 : nop
+
+procedure 'Rect.Offset'
+definition
+common name 'Offset'
+parameter 'this' index 0 type 'Rect'
+parameter 'dx' index 1 type 'real'
+parameter 'dy' index 2 type 'real'
+object type 'Rect'
+module id 1205691996
+id 20
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_local(1)
+  4 : load_local(2)
+  5 : call_procedure(System.Graphics.Primitive:Point.Offset, 1205691996, 4)
+  6 : nop
+
+procedure 'Rect.Inflate'
+definition
+common name 'Inflate'
+parameter 'this' index 0 type 'Rect'
+parameter 'dx' index 1 type 'real'
+parameter 'dy' index 2 type 'real'
+object type 'Rect'
+module id 1205691996
+id 21
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_local(1)
+  4 : unary_minus_real
+  5 : load_local(2)
+  6 : unary_minus_real
+  7 : call_procedure(System.Graphics.Primitive:Point.Offset, 1205691996, 4)
+  8 : load_local(0)
+  9 : load_field(1)
+  10 : load_field(0)
+  11 : load_local(0)
+  12 : load_field(1)
+  13 : load_field(0)
+  14 : push_value(2)
+  15 : int_to_real
+  16 : load_local(1)
+  17 : mul_real
+  18 : plus_real
+  19 : equal_real
+  20 : pop_value
+  21 : load_local(0)
+  22 : load_field(1)
+  23 : load_field(1)
+  24 : load_local(0)
+  25 : load_field(1)
+  26 : load_field(1)
+  27 : push_value(2)
+  28 : int_to_real
+  29 : load_local(2)
+  30 : mul_real
+  31 : plus_real
+  32 : equal_real
+  33 : pop_value
+  34 : nop
+
+procedure 'Vector.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'Vector'
+object type 'Vector'
+module id 1205691996
+id 25
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value('(')
+  2 : call_stdproc(Write, 0)
+  3 : load_local(0)
+  4 : load_field(0)
+  5 : call_stdproc(Write, 0)
+  6 : push_value(', ')
+  7 : call_stdproc(Write, 0)
+  8 : load_local(0)
+  9 : load_field(1)
+  10 : call_stdproc(Write, 0)
+  11 : push_value(')')
+  12 : call_stdproc(Write, 0)
+  13 : call_stdproc(Writeln, 1)
+  14 : nop
+
+procedure 'LineSegment.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'LineSegment'
+object type 'LineSegment'
+module id 1205691996
+id 41
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value('{(')
+  2 : call_stdproc(Write, 0)
+  3 : load_local(0)
+  4 : load_field(0)
+  5 : load_field(0)
+  6 : call_stdproc(Write, 0)
+  7 : push_value(', ')
+  8 : call_stdproc(Write, 0)
+  9 : load_local(0)
+  10 : load_field(0)
+  11 : load_field(1)
+  12 : call_stdproc(Write, 0)
+  13 : push_value('); (')
+  14 : call_stdproc(Write, 0)
+  15 : load_local(0)
+  16 : load_field(1)
+  17 : load_field(0)
+  18 : call_stdproc(Write, 0)
+  19 : push_value(', ')
+  20 : call_stdproc(Write, 0)
+  21 : load_local(0)
+  22 : load_field(1)
+  23 : load_field(1)
+  24 : call_stdproc(Write, 0)
+  25 : push_value(')}')
+  26 : call_stdproc(Write, 0)
+  27 : call_stdproc(Writeln, 1)
+  28 : nop
+
+function 'Rect.Left'
+definition
+common name 'Left'
+parameter 'this' index 0 type 'Rect'
+object type 'Rect'
+module id 1205691996
+id 13
+frame size: 2
+var
+  local '@result' index 1 type 'real'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_field(0)
+  4 : store_local(1)
+  5 : nop
+  6 : load_result_var(1)
+
+function 'Rect.Top'
+definition
+common name 'Top'
+parameter 'this' index 0 type 'Rect'
+object type 'Rect'
+module id 1205691996
+id 14
+frame size: 2
+var
+  local '@result' index 1 type 'real'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_field(1)
+  4 : store_local(1)
+  5 : nop
+  6 : load_result_var(1)
+
+function 'Rect.Right'
+definition
+common name 'Right'
+parameter 'this' index 0 type 'Rect'
+object type 'Rect'
+module id 1205691996
+id 15
+frame size: 2
+var
+  local '@result' index 1 type 'real'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_field(0)
+  4 : load_local(0)
+  5 : load_field(1)
+  6 : load_field(0)
+  7 : plus_real
+  8 : store_local(1)
+  9 : nop
+  10 : load_result_var(1)
+
+function 'Rect.Bottom'
+definition
+common name 'Bottom'
+parameter 'this' index 0 type 'Rect'
+object type 'Rect'
+module id 1205691996
+id 16
+frame size: 2
+var
+  local '@result' index 1 type 'real'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_field(1)
+  4 : load_local(0)
+  5 : load_field(1)
+  6 : load_field(1)
+  7 : plus_real
+  8 : store_local(1)
+  9 : nop
+  10 : load_result_var(1)
+
+function 'Rect.IsEmpty'
+definition
+common name 'IsEmpty'
+parameter 'this' index 0 type 'Rect'
+object type 'Rect'
+module id 1205691996
+id 17
+frame size: 2
+var
+  local '@result' index 1 type 'boolean'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(1)
+  3 : load_field(0)
+  4 : push_value(0)
+  5 : int_to_real
+  6 : equal_real
+  7 : load_local(0)
+  8 : load_field(1)
+  9 : load_field(1)
+  10 : push_value(0)
+  11 : int_to_real
+  12 : equal_real
+  13 : and_bool
+  14 : store_local(1)
+  15 : nop
+  16 : load_result_var(1)
+
+function 'Rect.Contains'
+definition
+common name 'Contains'
+parameter 'this' index 0 type 'Rect'
+parameter 'p' index 1 type 'Point'
+object type 'Rect'
+module id 1205691996
+id 18
+frame size: 3
+var
+  local '@result' index 2 type 'boolean'
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : load_field(0)
+  3 : load_local(0)
+  4 : call_function(System.Graphics.Primitive:Rect.Left, 1205691996, 13)
+  5 : greater_or_equal_real
+  6 : load_local(1)
+  7 : load_field(0)
+  8 : load_local(0)
+  9 : call_function(System.Graphics.Primitive:Rect.Right, 1205691996, 15)
+  10 : less_real
+  11 : and_bool
+  12 : load_local(1)
+  13 : load_field(1)
+  14 : load_local(0)
+  15 : call_function(System.Graphics.Primitive:Rect.Top, 1205691996, 14)
+  16 : greater_or_equal_real
+  17 : and_bool
+  18 : load_local(1)
+  19 : load_field(1)
+  20 : load_local(0)
+  21 : call_function(System.Graphics.Primitive:Rect.Bottom, 1205691996, 16)
+  22 : less_real
+  23 : and_bool
+  24 : store_local(2)
+  25 : nop
+  26 : load_result_var(2)
+
+function 'Rect.IntersectsWith'
+definition
+common name 'IntersectsWith'
+parameter 'this' index 0 type 'Rect'
+parameter 'r' index 1 type 'Rect'
+object type 'Rect'
+module id 1205691996
+id 19
+frame size: 3
+var
+  local '@result' index 2 type 'boolean'
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : call_function(System.Graphics.Primitive:Rect.Left, 1205691996, 13)
+  3 : load_local(1)
+  4 : call_function(System.Graphics.Primitive:Rect.Right, 1205691996, 15)
+  5 : less_real
+  6 : load_local(0)
+  7 : call_function(System.Graphics.Primitive:Rect.Top, 1205691996, 14)
+  8 : load_local(1)
+  9 : call_function(System.Graphics.Primitive:Rect.Bottom, 1205691996, 16)
+  10 : less_real
+  11 : and_bool
+  12 : load_local(0)
+  13 : call_function(System.Graphics.Primitive:Rect.Right, 1205691996, 15)
+  14 : load_local(1)
+  15 : call_function(System.Graphics.Primitive:Rect.Left, 1205691996, 13)
+  16 : greater_real
+  17 : and_bool
+  18 : load_local(0)
+  19 : call_function(System.Graphics.Primitive:Rect.Bottom, 1205691996, 16)
+  20 : load_local(1)
+  21 : call_function(System.Graphics.Primitive:Rect.Top, 1205691996, 14)
+  22 : greater_real
+  23 : and_bool
+  24 : store_local(2)
+  25 : nop
+  26 : load_result_var(2)
+
+function 'Vector.Length'
+definition
+common name 'Length'
+parameter 'this' index 0 type 'Vector'
+object type 'Vector'
+module id 1205691996
+id 26
+frame size: 2
+var
+  local '@result' index 1 type 'real'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_local(0)
+  4 : load_field(0)
+  5 : mul_real
+  6 : load_local(0)
+  7 : load_field(1)
+  8 : load_local(0)
+  9 : load_field(1)
+  10 : mul_real
+  11 : plus_real
+  12 : call_stdfn(Sqrt, 10)
+  13 : store_local(1)
+  14 : nop
+  15 : load_result_var(1)
+
+function 'Vector.ToPoint'
+definition
+common name 'ToPoint'
+parameter 'this' index 0 type 'Vector'
+object type 'Vector'
+module id 1205691996
+id 27
+frame size: 2
+var
+  local '@result' index 1 type 'Point'
+code
+  0 : receive(1)
+  1 : new_object(Point)
+  2 : load_local(0)
+  3 : load_field(0)
+  4 : load_local(0)
+  5 : load_field(1)
+  6 : call_ctor(Point, 1205691996, 2)
+  7 : store_local(1)
+  8 : nop
+  9 : load_result_var(1)
+
+function 'Distance'
+definition
+common name 'Distance'
+parameter 's' index 0 type 'Point'
+parameter 'e' index 1 type 'Point'
+module id 1205691996
+id 28
+frame size: 5
+var
+  local 'dx' index 2 type 'real'
+  local 'dy' index 3 type 'real'
+  local '@result' index 4 type 'real'
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_local(1)
+  4 : load_field(0)
+  5 : minus_real
+  6 : call_stdfn(Abs, 5)
+  7 : store_local(2)
+  8 : load_local(0)
+  9 : load_field(1)
+  10 : load_local(1)
+  11 : load_field(1)
+  12 : minus_real
+  13 : call_stdfn(Abs, 5)
+  14 : store_local(3)
+  15 : load_local(2)
+  16 : load_local(2)
+  17 : mul_real
+  18 : load_local(3)
+  19 : load_local(3)
+  20 : mul_real
+  21 : plus_real
+  22 : call_stdfn(Sqrt, 10)
+  23 : store_local(4)
+  24 : nop
+  25 : load_result_var(4)
+
+function 'Union'
+definition
+common name 'Union'
+parameter 'a' index 0 type 'Rect'
+parameter 'b' index 1 type 'Rect'
+module id 1205691996
+id 29
+frame size: 7
+var
+  local 'right' index 2 type 'real'
+  local 'bottom' index 3 type 'real'
+  local 'left' index 4 type 'real'
+  local 'top' index 5 type 'real'
+  local '@result' index 6 type 'Rect'
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : call_function(System.Graphics.Primitive:Rect.Right, 1205691996, 15)
+  3 : load_local(1)
+  4 : call_function(System.Graphics.Primitive:Rect.Right, 1205691996, 15)
+  5 : call_stdfn(Max, 9)
+  6 : store_local(2)
+  7 : load_local(0)
+  8 : call_function(System.Graphics.Primitive:Rect.Bottom, 1205691996, 16)
+  9 : load_local(1)
+  10 : call_function(System.Graphics.Primitive:Rect.Bottom, 1205691996, 16)
+  11 : call_stdfn(Max, 9)
+  12 : store_local(3)
+  13 : load_local(0)
+  14 : call_function(System.Graphics.Primitive:Rect.Left, 1205691996, 13)
+  15 : load_local(1)
+  16 : call_function(System.Graphics.Primitive:Rect.Left, 1205691996, 13)
+  17 : call_stdfn(Min, 8)
+  18 : store_local(4)
+  19 : load_local(0)
+  20 : call_function(System.Graphics.Primitive:Rect.Top, 1205691996, 14)
+  21 : load_local(1)
+  22 : call_function(System.Graphics.Primitive:Rect.Top, 1205691996, 14)
+  23 : call_stdfn(Min, 8)
+  24 : store_local(5)
+  25 : new_object(Rect)
+  26 : new_object(Point)
+  27 : load_local(4)
+  28 : load_local(5)
+  29 : call_ctor(Point, 1205691996, 2)
+  30 : new_object(Size)
+  31 : load_local(2)
+  32 : load_local(4)
+  33 : minus_real
+  34 : load_local(3)
+  35 : load_local(5)
+  36 : minus_real
+  37 : call_ctor(Size, 1205691996, 6)
+  38 : call_ctor(Rect, 1205691996, 9)
+  39 : store_local(6)
+  40 : nop
+  41 : load_result_var(6)
+
+function 'Sum'
+definition
+common name 'Sum'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 30
+frame size: 3
+var
+  local '@result' index 2 type 'Vector'
+code
+  0 : receive(2)
+  1 : new_object(Vector)
+  2 : load_local(0)
+  3 : load_field(0)
+  4 : load_local(1)
+  5 : load_field(0)
+  6 : plus_real
+  7 : load_local(0)
+  8 : load_field(1)
+  9 : load_local(1)
+  10 : load_field(1)
+  11 : plus_real
+  12 : call_ctor(Vector, 1205691996, 23)
+  13 : store_local(2)
+  14 : nop
+  15 : load_result_var(2)
+
+function 'Difference'
+definition
+common name 'Difference'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 31
+frame size: 3
+var
+  local '@result' index 2 type 'Vector'
+code
+  0 : receive(2)
+  1 : new_object(Vector)
+  2 : load_local(0)
+  3 : load_field(0)
+  4 : load_local(1)
+  5 : load_field(0)
+  6 : minus_real
+  7 : load_local(0)
+  8 : load_field(1)
+  9 : load_local(1)
+  10 : load_field(1)
+  11 : minus_real
+  12 : call_ctor(Vector, 1205691996, 23)
+  13 : store_local(2)
+  14 : nop
+  15 : load_result_var(2)
+
+function 'Product'
+definition
+common name 'Product'
+parameter 'a' index 0 type 'real'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 32
+frame size: 3
+var
+  local '@result' index 2 type 'Vector'
+code
+  0 : receive(2)
+  1 : new_object(Vector)
+  2 : load_local(0)
+  3 : load_local(1)
+  4 : load_field(0)
+  5 : mul_real
+  6 : load_local(0)
+  7 : load_local(1)
+  8 : load_field(1)
+  9 : mul_real
+  10 : call_ctor(Vector, 1205691996, 23)
+  11 : store_local(2)
+  12 : nop
+  13 : load_result_var(2)
+
+function 'Dot'
+definition
+common name 'Dot'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 33
+frame size: 3
+var
+  local '@result' index 2 type 'real'
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_local(1)
+  4 : load_field(0)
+  5 : mul_real
+  6 : load_local(0)
+  7 : load_field(1)
+  8 : load_local(1)
+  9 : load_field(1)
+  10 : mul_real
+  11 : plus_real
+  12 : store_local(2)
+  13 : nop
+  14 : load_result_var(2)
+
+function 'Unit'
+definition
+common name 'Unit'
+parameter 'v' index 0 type 'Vector'
+module id 1205691996
+id 34
+frame size: 3
+var
+  local 'length' index 1 type 'real'
+  local '@result' index 2 type 'Vector'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : call_function(System.Graphics.Primitive:Vector.Length, 1205691996, 26)
+  3 : store_local(1)
+  4 : push_value(1)
+  5 : int_to_real
+  6 : load_local(1)
+  7 : fractional_divide_real
+  8 : load_local(0)
+  9 : call_function(System.Graphics.Primitive:Product, 1205691996, 32)
+  10 : store_local(2)
+  11 : nop
+  12 : load_result_var(2)
+
+function 'ProjectionFactor'
+definition
+common name 'ProjectionFactor'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 35
+frame size: 3
+var
+  local '@result' index 2 type 'real'
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : push_value(1)
+  3 : int_to_real
+  4 : load_local(0)
+  5 : call_function(System.Graphics.Primitive:Vector.Length, 1205691996, 26)
+  6 : fractional_divide_real
+  7 : load_local(0)
+  8 : call_function(System.Graphics.Primitive:Product, 1205691996, 32)
+  9 : call_function(System.Graphics.Primitive:Dot, 1205691996, 33)
+  10 : store_local(2)
+  11 : nop
+  12 : load_result_var(2)
+
+function 'Proj'
+definition
+common name 'Proj'
+parameter 'u' index 0 type 'Vector'
+parameter 'v' index 1 type 'Vector'
+module id 1205691996
+id 36
+frame size: 3
+var
+  local '@result' index 2 type 'Vector'
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : call_function(System.Graphics.Primitive:ProjectionFactor, 1205691996, 35)
+  4 : load_local(0)
+  5 : call_function(System.Graphics.Primitive:Unit, 1205691996, 34)
+  6 : call_function(System.Graphics.Primitive:Product, 1205691996, 32)
+  7 : store_local(2)
+  8 : nop
+  9 : load_result_var(2)
+
+function 'Rotate'
+definition
+common name 'Rotate'
+parameter 'v' index 0 type 'Vector'
+parameter 'angleRad' index 1 type 'real'
+module id 1205691996
+id 37
+frame size: 5
+var
+  local 'cosTheta' index 2 type 'real'
+  local 'sinTheta' index 3 type 'real'
+  local '@result' index 4 type 'Vector'
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : call_stdfn(Cos, 3)
+  3 : store_local(2)
+  4 : load_local(1)
+  5 : call_stdfn(Sin, 2)
+  6 : store_local(3)
+  7 : new_object(Vector)
+  8 : load_local(0)
+  9 : load_field(0)
+  10 : load_local(2)
+  11 : mul_real
+  12 : load_local(0)
+  13 : load_field(1)
+  14 : load_local(3)
+  15 : mul_real
+  16 : minus_real
+  17 : load_local(0)
+  18 : load_field(0)
+  19 : load_local(3)
+  20 : mul_real
+  21 : load_local(0)
+  22 : load_field(1)
+  23 : load_local(2)
+  24 : mul_real
+  25 : plus_real
+  26 : call_ctor(Vector, 1205691996, 23)
+  27 : store_local(4)
+  28 : nop
+  29 : load_result_var(4)
+
+function 'GetDirection'
+definition
+common name 'GetDirection'
+parameter 'source' index 0 type 'Point'
+parameter 'target' index 1 type 'Point'
+module id 1205691996
+id 38
+frame size: 6
+var
+  local 'v' index 2 type 'Vector'
+  local 'u' index 3 type 'Vector'
+  local 'direction' index 4 type 'Direction'
+  local '@result' index 5 type 'Direction'
+code
+  0 : receive(2)
+  1 : new_object(Vector)
+  2 : load_local(1)
+  3 : load_field(0)
+  4 : load_local(0)
+  5 : load_field(0)
+  6 : minus_real
+  7 : load_local(1)
+  8 : load_field(1)
+  9 : load_local(0)
+  10 : load_field(1)
+  11 : minus_real
+  12 : call_ctor(Vector, 1205691996, 23)
+  13 : store_local(2)
+  14 : jump(15)
+  15 : load_local(2)
+  16 : load_field(0)
+  17 : push_value(0)
+  18 : int_to_real
+  19 : greater_or_equal_real
+  20 : branch(21, 79)
+  21 : jump(22)
+  22 : load_local(2)
+  23 : load_field(1)
+  24 : push_value(0)
+  25 : int_to_real
+  26 : greater_or_equal_real
+  27 : branch(28, 52)
+  28 : new_object(Vector)
+  29 : push_value(1)
+  30 : int_to_real
+  31 : push_value(1)
+  32 : unary_minus_int
+  33 : int_to_real
+  34 : call_ctor(Vector, 1205691996, 23)
+  35 : store_local(3)
+  36 : jump(37)
+  37 : load_local(2)
+  38 : load_local(3)
+  39 : call_function(System.Graphics.Primitive:Dot, 1205691996, 33)
+  40 : push_value(0)
+  41 : int_to_real
+  42 : greater_or_equal_real
+  43 : branch(44, 47)
+  44 : push_value(east(2))
+  45 : store_local(4)
+  46 : jump(50)
+  47 : push_value(south(3))
+  48 : store_local(4)
+  49 : jump(50)
+  50 : nop
+  51 : jump(77)
+  52 : new_object(Vector)
+  53 : push_value(1)
+  54 : unary_minus_int
+  55 : int_to_real
+  56 : push_value(1)
+  57 : unary_minus_int
+  58 : int_to_real
+  59 : call_ctor(Vector, 1205691996, 23)
+  60 : store_local(3)
+  61 : jump(62)
+  62 : load_local(2)
+  63 : load_local(3)
+  64 : call_function(System.Graphics.Primitive:Dot, 1205691996, 33)
+  65 : push_value(0)
+  66 : int_to_real
+  67 : greater_or_equal_real
+  68 : branch(69, 72)
+  69 : push_value(north(1))
+  70 : store_local(4)
+  71 : jump(75)
+  72 : push_value(east(2))
+  73 : store_local(4)
+  74 : jump(75)
+  75 : nop
+  76 : jump(77)
+  77 : nop
+  78 : jump(135)
+  79 : jump(80)
+  80 : load_local(2)
+  81 : load_field(1)
+  82 : push_value(0)
+  83 : int_to_real
+  84 : greater_or_equal_real
+  85 : branch(86, 109)
+  86 : new_object(Vector)
+  87 : push_value(1)
+  88 : int_to_real
+  89 : push_value(1)
+  90 : int_to_real
+  91 : call_ctor(Vector, 1205691996, 23)
+  92 : store_local(3)
+  93 : jump(94)
+  94 : load_local(2)
+  95 : load_local(3)
+  96 : call_function(System.Graphics.Primitive:Dot, 1205691996, 33)
+  97 : push_value(0)
+  98 : int_to_real
+  99 : greater_or_equal_real
+  100 : branch(101, 104)
+  101 : push_value(south(3))
+  102 : store_local(4)
+  103 : jump(107)
+  104 : push_value(west(4))
+  105 : store_local(4)
+  106 : jump(107)
+  107 : nop
+  108 : jump(133)
+  109 : new_object(Vector)
+  110 : push_value(1)
+  111 : unary_minus_int
+  112 : int_to_real
+  113 : push_value(1)
+  114 : int_to_real
+  115 : call_ctor(Vector, 1205691996, 23)
+  116 : store_local(3)
+  117 : jump(118)
+  118 : load_local(2)
+  119 : load_local(3)
+  120 : call_function(System.Graphics.Primitive:Dot, 1205691996, 33)
+  121 : push_value(0)
+  122 : int_to_real
+  123 : greater_or_equal_real
+  124 : branch(125, 128)
+  125 : push_value(west(4))
+  126 : store_local(4)
+  127 : jump(131)
+  128 : push_value(north(1))
+  129 : store_local(4)
+  130 : jump(131)
+  131 : nop
+  132 : jump(133)
+  133 : nop
+  134 : jump(135)
+  135 : nop
+  136 : load_result_var(5)
+
+function 'LineSegment.ToVector'
+definition
+common name 'ToVector'
+parameter 'this' index 0 type 'LineSegment'
+object type 'LineSegment'
+module id 1205691996
+id 42
+frame size: 2
+var
+  local '@result' index 1 type 'Vector'
+code
+  0 : receive(1)
+  1 : new_object(Vector)
+  2 : load_local(0)
+  3 : load_field(1)
+  4 : load_field(0)
+  5 : load_local(0)
+  6 : load_field(0)
+  7 : load_field(0)
+  8 : minus_real
+  9 : load_local(0)
+  10 : load_field(1)
+  11 : load_field(1)
+  12 : load_local(0)
+  13 : load_field(0)
+  14 : load_field(1)
+  15 : minus_real
+  16 : call_ctor(Vector, 1205691996, 23)
+  17 : store_local(1)
+  18 : nop
+  19 : load_result_var(1)
+
+function 'LineSegment.Length'
+definition
+common name 'Length'
+parameter 'this' index 0 type 'LineSegment'
+object type 'LineSegment'
+module id 1205691996
+id 43
+frame size: 2
+var
+  local '@result' index 1 type 'real'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_local(0)
+  4 : load_field(1)
+  5 : call_function(System.Graphics.Primitive:Distance, 1205691996, 28)
+  6 : store_local(1)
+  7 : nop
+  8 : load_result_var(1)
+
+function 'RotateLineSegment'
+definition
+common name 'RotateLineSegment'
+parameter 'line' index 0 type 'LineSegment'
+parameter 'angleDeg' index 1 type 'real'
+module id 1205691996
+id 44
+frame size: 6
+var
+  local 'angleRad' index 2 type 'real'
+  local 'v' index 3 type 'Vector'
+  local 'r' index 4 type 'Vector'
+  local '@result' index 5 type 'LineSegment'
+code
+  0 : receive(2)
+  1 : push_value(3.141593)
+  2 : push_value(180.000000)
+  3 : fractional_divide_real
+  4 : load_local(1)
+  5 : mul_real
+  6 : store_local(2)
+  7 : load_local(0)
+  8 : call_function(System.Graphics.Primitive:LineSegment.ToVector, 1205691996, 42)
+  9 : store_local(3)
+  10 : load_local(3)
+  11 : load_local(2)
+  12 : call_function(System.Graphics.Primitive:Rotate, 1205691996, 37)
+  13 : store_local(4)
+  14 : new_object(LineSegment)
+  15 : load_local(0)
+  16 : load_field(0)
+  17 : load_local(4)
+  18 : call_ctor(LineSegment, 1205691996, 40)
+  19 : store_local(5)
+  20 : nop
+  21 : load_result_var(5)
+
+constructor
+definition
+parameter 'this' index 0 type 'LineSegment'
+object type 'LineSegment'
+module id 1205691996
+id 0
+frame size: 1
+code
+  0 : receive(1)
+
+constructor
+definition
+parameter 'this' index 0 type 'Point'
+object type 'Point'
+module id 1205691996
+id 1
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value(0)
+  2 : int_to_real
+  3 : load_local(0)
+  4 : store_field(0)
+  5 : push_value(0)
+  6 : int_to_real
+  7 : load_local(0)
+  8 : store_field(1)
+  9 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Point'
+parameter 'x' index 1 type 'real'
+parameter 'y' index 2 type 'real'
+object type 'Point'
+module id 1205691996
+id 2
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Size'
+object type 'Size'
+module id 1205691996
+id 5
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value(0)
+  2 : int_to_real
+  3 : load_local(0)
+  4 : store_field(0)
+  5 : push_value(0)
+  6 : int_to_real
+  7 : load_local(0)
+  8 : store_field(1)
+  9 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Size'
+parameter 'w' index 1 type 'real'
+parameter 'h' index 2 type 'real'
+object type 'Size'
+module id 1205691996
+id 6
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Rect'
+object type 'Rect'
+module id 1205691996
+id 8
+frame size: 1
+code
+  0 : receive(1)
+  1 : new_object(Point)
+  2 : call_ctor(Point, 1205691996, 1)
+  3 : load_local(0)
+  4 : store_field(0)
+  5 : new_object(Size)
+  6 : call_ctor(Size, 1205691996, 5)
+  7 : load_local(0)
+  8 : store_field(1)
+  9 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Rect'
+parameter 'location' index 1 type 'Point'
+parameter 'size' index 2 type 'Size'
+object type 'Rect'
+module id 1205691996
+id 9
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Vector'
+object type 'Vector'
+module id 1205691996
+id 22
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value(0)
+  2 : int_to_real
+  3 : load_local(0)
+  4 : store_field(0)
+  5 : push_value(0)
+  6 : int_to_real
+  7 : load_local(0)
+  8 : store_field(1)
+  9 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Vector'
+parameter 'x' index 1 type 'real'
+parameter 'y' index 2 type 'real'
+object type 'Vector'
+module id 1205691996
+id 23
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Vector'
+parameter 'p' index 1 type 'Point'
+object type 'Vector'
+module id 1205691996
+id 24
+frame size: 2
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : load_field(0)
+  3 : load_local(0)
+  4 : store_field(0)
+  5 : load_local(1)
+  6 : load_field(1)
+  7 : load_local(0)
+  8 : store_field(1)
+  9 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'LineSegment'
+parameter 's' index 1 type 'Point'
+parameter 'e' index 2 type 'Point'
+object type 'LineSegment'
+module id 1205691996
+id 39
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'LineSegment'
+parameter 's' index 1 type 'Point'
+parameter 'v' index 2 type 'Vector'
+object type 'LineSegment'
+module id 1205691996
+id 40
+frame size: 4
+var
+  local 'u' index 3 type 'Vector'
+code
+  0 : receive(3)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : new_object(Vector)
+  5 : load_local(1)
+  6 : call_ctor(Vector, 1205691996, 24)
+  7 : load_local(2)
+  8 : call_function(System.Graphics.Primitive:Sum, 1205691996, 30)
+  9 : store_local(3)
+  10 : load_local(3)
+  11 : call_function(System.Graphics.Primitive:Vector.ToPoint, 1205691996, 27)
+  12 : load_local(0)
+  13 : store_field(1)
+  14 : nop
+

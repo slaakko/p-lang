@@ -1,0 +1,11 @@
+project p;
+parser <block.parser>;
+parser <expression.parser>;
+parser <function.parser>;
+parser <main.parser>;
+parser <parameter.parser>;
+parser <procedure.parser>;
+parser <program.parser>;
+parser <statement.parser>;
+parser <type.parser>;
+parser <unit.parser>;

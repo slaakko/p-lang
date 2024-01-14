@@ -1,0 +1,57 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.procedure.parser;
+
+[interface]import p.lexer;
+[interface]import p.parsing_context;
+[interface]import p.ast;
+[interface]import p.subroutine;
+[implementation]import p.token;
+[implementation]import p.block.parser;
+[implementation]import p.parameter.parser;
+[implementation]import p.type.parser;
+[implementation]import p.expression.parser;
+
+parser ProcedureParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using ParameterParser.ParameterList;
+    using BlockParser.SubroutineBlock;
+    using TypeParser.ObjectTypeIdentifier;
+
+    ProcedureDeclaration(ParsingContext* context, var p::Procedure* procedure)
+        ::= ProcedureHeading(context):procedureHeading
+            { 
+                procedure = MakeProcedure(context, procedureHeading, lexer, pos); 
+                procedure->SetLevel(context->GetBlock()->Level() + 1);
+            }
+            SEMICOLON 
+            SubroutineBlock(context, procedure):subroutineBlock
+            SEMICOLON
+            {
+                procedure->ResolveDeclaration(context, lexer, pos); 
+            }
+        ;
+
+    ProcedureHeading(ParsingContext* context, var std::unique_ptr<p::ProcedureHeading> heading) : p::ProcedureHeading*
+        ::= 
+        (
+            PROCEDURE 
+            ProcedureName(context):procedureName{ heading.reset(new p::ProcedureHeading(context, procedureName, lexer, pos)); } 
+            ParameterList(context, heading.get()):parameterList
+        )
+        {
+            return heading.release();
+        }
+        ;
+
+    ProcedureName(ParsingContext* context, var std::unique_ptr<IdentifierNode> objectId) : QualifiedIdNode*
+        ::= ID{  objectId.reset(new IdentifierNode(lexer.GetToken(pos).ToString(), IdentifierKind::procedure, pos)); } 
+            DOT ID{ return new QualifiedIdNode(objectId.release(), new IdentifierNode(lexer.GetToken(pos).ToString(), IdentifierKind::procedure, pos), pos); }
+        |   ID{ return new QualifiedIdNode(nullptr, new IdentifierNode(lexer.GetToken(pos).ToString(), IdentifierKind::procedure, pos), pos); }
+        ;
+}

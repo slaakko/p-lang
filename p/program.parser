@@ -1,0 +1,99 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.program.parser;
+
+[interface]import p.lexer;
+[interface]import p.parsing_context;
+[interface]import p.block;
+[interface]import p.subroutine;
+[implementation]import p.token;
+[implementation]import p.statement.parser;
+[implementation]import p.block.parser;
+[implementation]import p.parameter.parser;
+
+parser ProgramParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using BlockParser.Block;
+    using ParameterParser.IdentifierList;
+
+    Program(ParsingContext* context, var p::Procedure* program)
+        ::= 
+        (
+            ProgramHeading(context):programHeading 
+            SEMICOLON 
+            UsesClause(context):usesClause? 
+            empty
+            { 
+                context->GetModulePart()->LoadModules(context); 
+                p::Block* block = new p::Block(context->GetBlock()); 
+                context->GetModulePart()->SetBlock(block); 
+                context->PushBlock(block);
+                program = MakeProcedure(context, "@program", lexer, pos); 
+                program->SetLevel(0);
+                context->GetModulePart()->AddSubroutine(program);
+            }
+            Block(context, program, true):programBlock 
+            DOT
+            { 
+                GenerateDefaultImplementations(context, lexer, pos);
+                context->PopBlock(); 
+                context->GetModule()->Term(context); 
+            }
+        )
+        ;
+
+    ProgramHeading(ParsingContext* context)
+        ::= 
+        (
+            PROGRAM ProgramId:programId ProgramParameterList:programParameterList?
+        )
+        {
+            context->GetModule()->SetKind(ModuleKind::program);
+            context->GetModule()->SetName(programId);
+            context->GetModule()->SetId();
+            context->GetModule()->SetFilePath();
+            context->GetModule()->SetSourceFilePath(util::GetFullPath(lexer.FileName()));
+            context->GetModule()->Init(context);
+            context->SetModulePart(context->GetModule()->CreateImplementationPart()); 
+        }
+        ;
+
+    ProgramId(var std::string programId) : std::string
+        ::= 
+        (
+            ID{ programId.append(lexer.GetToken(pos).ToString()); } (DOT ID{ programId.append(1, '.').append(lexer.GetToken(pos).ToString());})*
+        )
+        {
+            return programId;
+        }
+        ;
+
+    ProgramParameterList
+        ::= LPAREN IdentifierList:identifierList? RPAREN
+        ;
+
+    UsesClause(ParsingContext* context)
+        ::= USES 
+            UnitName(context):first{ context->GetModulePart()->AddImportedModuleName(first); }
+            (
+                COMMA 
+                UnitName(context):next{ context->GetModulePart()->AddImportedModuleName(next); }
+            )*
+            SEMICOLON
+        ;
+
+    UnitName(ParsingContext* context, var std::string unitName) : std::string
+        ::= 
+        (
+            ID{ unitName.append(lexer.GetToken(pos).ToString()); } (DOT ID{ unitName.append(1, '.').append(lexer.GetToken(pos).ToString());})*
+        )
+        {
+            return unitName;
+        }
+        ;
+}

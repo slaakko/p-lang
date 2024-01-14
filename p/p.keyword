@@ -1,0 +1,17 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+import p.token;
+
+keywords p.keyword
+{ 
+    ("and", AND), ("array", ARRAY), ("base", BASE), ("begin", BEGIN), ("boolean", BOOLEAN), ("case", CASE), ("char", CHAR), ("const", CONST), 
+    ("constructor", CONSTRUCTOR), ("this", THIS), ("new", NEW),
+    ("div", DIV), ("do", DO), ("downto", DOWNTO), ("else", ELSE), ("end", END), ("external", EXTERNAL), ("false", FALSE), ("for", FOR), ("forward", FORWARD), ("function", FUNCTION), 
+    ("if", IF), ("implementation", IMPLEMENTATION), ("integer", INTEGER), ("interface", INTERFACE), ("mod", MOD), ("nil", NIL), ("not", NOT), ("object", OBJECT), 
+    ("of", OF), ("or", OR), ("procedure", PROCEDURE), ("pointer", POINTER),
+    ("program", PROGRAM), ("real", REAL), ("repeat", REPEAT), ("shl", SHL), ("shr", SHR), ("string", STRING), ("then", THEN), ("to", TO), ("true", TRUE), ("type", TYPE),
+    ("until", UNTIL), ("unit", UNIT), ("uses", USES), ("var", VAR), ("while", WHILE), ("xor", XOR), ("virtual", VIRTUAL), ("override", OVERRIDE)
+}

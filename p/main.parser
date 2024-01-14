@@ -1,0 +1,26 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.main_parser;
+
+[interface]import p.lexer;
+[interface]import p.parsing_context;
+[implementation]import p.token;
+[implementation]import p.program.parser;
+[implementation]import p.unit.parser;
+
+parser MainParser
+{
+    lexer p::lexer::PLexer<char>;
+    main;
+
+    using ProgramParser.Program;
+    using UnitParser.Unit;
+
+    Main(ParsingContext* context)
+        ::= Program(context):program
+        |   Unit(context):unit
+        ;
+}

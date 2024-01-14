@@ -1,0 +1,54 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.parameter.parser;
+
+[interface]import p.lexer;
+[interface]import p.parsing_context;
+[interface]import p.type;
+[interface]import p.subroutine;
+[implementation]import p.token;
+[implementation]import p.type.parser;
+
+parser ParameterParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using TypeParser.Type;
+
+    ParameterList(ParsingContext* context, SubroutineHeading* heading)
+        ::= LPAREN (ParameterDeclaration(context, heading):first (SEMICOLON ParameterDeclaration(context, heading):next)*)? RPAREN
+        ;
+
+    ParameterDeclaration(ParsingContext* context, SubroutineHeading* heading)
+        ::= 
+        (
+            ParameterQualifier:parameterQualifier IdentifierList:identifierList COLON ParameterType(context):parameterType
+        )
+        {
+            p::AddParameters(heading, parameterQualifier, identifierList, parameterType.GetType());
+        }
+        ;
+
+    ParameterQualifier : p::ParameterQualifier
+        ::= VAR{ return p::ParameterQualifier::varParam; }
+        |   CONST{ return p::ParameterQualifier::constParam; }
+        |   empty{ return p::ParameterQualifier::valueParam; }
+        ;
+
+    ParameterType(ParsingContext* context) : p::TypePtr
+        ::= Type(context):type{ return type; }
+        ;
+
+    IdentifierList(var std::vector<std::string> identifiers) : std::vector<std::string>
+        ::= 
+        (
+            ID{ identifiers.push_back(lexer.GetToken(pos).ToString()); } (COMMA ID{ identifiers.push_back(lexer.GetToken(pos).ToString()); })*
+        )
+        {
+            return identifiers;
+        }
+        ;
+}

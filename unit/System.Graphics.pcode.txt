@@ -1,0 +1,2744 @@
+module System.Graphics, id=1489900195
+interface
+uses System, System.Graphics.Primitive
+type
+  array type 'PointArray'
+    element type Point
+
+  object type 'Color'
+    fields:
+      'a' index 0 type 'Byte'
+      'b' index 3 type 'Byte'
+      'g' index 2 type 'Byte'
+      'r' index 1 type 'Byte'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Color'
+      parameter 'a' index 1 type 'Byte'
+      parameter 'r' index 2 type 'Byte'
+      parameter 'g' index 3 type 'Byte'
+      parameter 'b' index 4 type 'Byte'
+      object type 'Color'
+      module id 1489900195
+      implementation id 10
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Color'
+      object type 'Color'
+      module id 1489900195
+      implementation id 0
+      frame size: 1
+
+  object type 'Pen'
+    fields:
+      'color' index 0 type 'Color'
+      'width' index 1 type 'real'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Pen'
+      parameter 'color' index 1 type 'Color'
+      object type 'Pen'
+      module id 1489900195
+      implementation id 11
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Pen'
+      parameter 'color' index 1 type 'Color'
+      parameter 'width' index 2 type 'real'
+      object type 'Pen'
+      module id 1489900195
+      implementation id 12
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Pen'
+      object type 'Pen'
+      module id 1489900195
+      implementation id 1
+      frame size: 1
+
+  object type 'Brush'
+    fields:
+      'color' index 0 type 'Color'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Brush'
+      parameter 'color' index 1 type 'Color'
+      object type 'Brush'
+      module id 1489900195
+      implementation id 13
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Brush'
+      object type 'Brush'
+      module id 1489900195
+      implementation id 2
+      frame size: 1
+
+  object type 'Font'
+    fields:
+      'family' index 0 type 'string'
+      'size' index 1 type 'real'
+      'style' index 2 type 'integer'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Font'
+      parameter 'family' index 1 type 'string'
+      parameter 'size' index 2 type 'real'
+      parameter 'style' index 3 type 'integer'
+      object type 'Font'
+      module id 1489900195
+      implementation id 14
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Font'
+      object type 'Font'
+      module id 1489900195
+      implementation id 3
+      frame size: 1
+
+  object type 'Padding'
+    fields:
+      'bottom' index 3 type 'real'
+      'left' index 0 type 'real'
+      'right' index 2 type 'real'
+      'top' index 1 type 'real'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Padding'
+      parameter 'left' index 1 type 'real'
+      parameter 'top' index 2 type 'real'
+      parameter 'right' index 3 type 'real'
+      parameter 'bottom' index 4 type 'real'
+      object type 'Padding'
+      module id 1489900195
+      implementation id 15
+      frame size: 0
+
+      procedure 'Padding.Print'
+      declaration
+      common name 'Print'
+      parameter 'this' index 0 type 'Padding'
+      object type 'Padding'
+      module id 1489900195
+      implementation id 16
+      frame size: 0
+
+      function 'Padding.Horizontal'
+      declaration
+      common name 'Horizontal'
+      parameter 'this' index 0 type 'Padding'
+      object type 'Padding'
+      module id 1489900195
+      implementation id 17
+      frame size: 0
+
+      function 'Padding.Vertical'
+      declaration
+      common name 'Vertical'
+      parameter 'this' index 0 type 'Padding'
+      object type 'Padding'
+      module id 1489900195
+      implementation id 18
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Padding'
+      object type 'Padding'
+      module id 1489900195
+      implementation id 4
+      frame size: 1
+
+  object type 'Graphics'
+    fields:
+      'dpiX' index 1 type 'real'
+      'dpiY' index 2 type 'real'
+      'native' index 0 type 'pointer'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Graphics'
+      object type 'Graphics'
+      module id 1489900195
+      implementation id 19
+      frame size: 0
+
+      procedure 'Graphics.Clear'
+      declaration
+      common name 'Clear'
+      parameter 'this' index 0 type 'Graphics'
+      parameter 'color' index 1 type 'Color'
+      object type 'Graphics'
+      external
+      frame size: 0
+
+      procedure 'Graphics.DrawLine'
+      declaration
+      common name 'DrawLine'
+      parameter 'this' index 0 type 'Graphics'
+      parameter 'pen' index 1 type 'Pen'
+      parameter 's' index 2 type 'Point'
+      parameter 'e' index 3 type 'Point'
+      object type 'Graphics'
+      external
+      frame size: 0
+
+      procedure 'Graphics.DrawRectangle'
+      declaration
+      common name 'DrawRectangle'
+      parameter 'this' index 0 type 'Graphics'
+      parameter 'pen' index 1 type 'Pen'
+      parameter 'rectangle' index 2 type 'Rect'
+      object type 'Graphics'
+      external
+      frame size: 0
+
+      function 'Graphics.MeasureString'
+      declaration
+      common name 'MeasureString'
+      parameter 'this' index 0 type 'Graphics'
+      parameter 'text' index 1 type 'string'
+      parameter 'font' index 2 type 'Font'
+      object type 'Graphics'
+      external
+      frame size: 0
+
+      procedure 'Graphics.DrawString'
+      declaration
+      common name 'DrawString'
+      parameter 'this' index 0 type 'Graphics'
+      parameter 'text' index 1 type 'string'
+      parameter 'font' index 2 type 'Font'
+      parameter 'brush' index 3 type 'Brush'
+      parameter 'location' index 4 type 'Point'
+      object type 'Graphics'
+      external
+      frame size: 0
+
+      procedure 'Graphics.FillPolygon'
+      declaration
+      common name 'FillPolygon'
+      parameter 'this' index 0 type 'Graphics'
+      parameter 'brush' index 1 type 'Brush'
+      parameter 'points' index 2 type 'PointArray'
+      object type 'Graphics'
+      external
+      frame size: 0
+
+      procedure 'Graphics.DrawEllipse'
+      declaration
+      common name 'DrawEllipse'
+      parameter 'this' index 0 type 'Graphics'
+      parameter 'pen' index 1 type 'Pen'
+      parameter 'rect' index 2 type 'Rect'
+      object type 'Graphics'
+      external
+      frame size: 0
+
+      procedure 'Graphics.DrawArc'
+      declaration
+      common name 'DrawArc'
+      parameter 'this' index 0 type 'Graphics'
+      parameter 'pen' index 1 type 'Pen'
+      parameter 'rect' index 2 type 'Rect'
+      parameter 'startAngle' index 3 type 'real'
+      parameter 'sweepAngle' index 4 type 'real'
+      object type 'Graphics'
+      external
+      frame size: 0
+
+  object type 'Bitmap'
+    fields:
+      'native' index 2 type 'pointer'
+      'x' index 0 type 'integer'
+      'y' index 1 type 'integer'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Bitmap'
+      parameter 'x' index 1 type 'integer'
+      parameter 'y' index 2 type 'integer'
+      object type 'Bitmap'
+      module id 1489900195
+      implementation id 28
+      frame size: 0
+
+      function 'Bitmap.GetGraphics'
+      declaration
+      common name 'GetGraphics'
+      parameter 'this' index 0 type 'Bitmap'
+      object type 'Bitmap'
+      external
+      frame size: 0
+
+      procedure 'Bitmap.Save'
+      declaration
+      common name 'Save'
+      parameter 'this' index 0 type 'Bitmap'
+      parameter 'fileName' index 1 type 'string'
+      object type 'Bitmap'
+      external
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Bitmap'
+      object type 'Bitmap'
+      module id 1489900195
+      implementation id 5
+      frame size: 1
+
+  object type 'Shape'
+    virtual
+    fields:
+      '@vmt' index 0 type 'null'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Shape'
+      object type 'Shape'
+      module id 1489900195
+      implementation id 33
+      frame size: 0
+
+      procedure 'Shape.Print'
+      declaration
+      virtual
+      common name 'Print'
+      parameter 'this' index 0 type 'Shape'
+      object type 'Shape'
+      module id 1489900195
+      implementation id 34
+      frame size: 0
+
+      procedure 'Shape.Measure'
+      declaration
+      virtual
+      common name 'Measure'
+      parameter 'this' index 0 type 'Shape'
+      parameter 'graphics' index 1 type 'Graphics'
+      object type 'Shape'
+      module id 1489900195
+      implementation id 35
+      frame size: 0
+
+      procedure 'Shape.Draw'
+      declaration
+      virtual
+      common name 'Draw'
+      parameter 'this' index 0 type 'Shape'
+      parameter 'graphics' index 1 type 'Graphics'
+      object type 'Shape'
+      module id 1489900195
+      implementation id 36
+      frame size: 0
+
+      function 'Shape.Bounds'
+      declaration
+      virtual
+      common name 'Bounds'
+      parameter 'this' index 0 type 'Shape'
+      object type 'Shape'
+      module id 1489900195
+      implementation id 37
+      frame size: 0
+
+  object type 'Line'
+    virtual
+    base type 'Shape'
+    fields:
+      '@vmt' index 0 type 'null'
+      'routingPoints' index 1 type 'PointArray'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Line'
+      parameter 'routingPoints' index 1 type 'PointArray'
+      object type 'Line'
+      module id 1489900195
+      implementation id 38
+      frame size: 0
+
+      procedure 'Line.Print'
+      declaration
+      override
+      common name 'Print'
+      parameter 'this' index 0 type 'Line'
+      object type 'Line'
+      module id 1489900195
+      implementation id 39
+      frame size: 0
+
+      procedure 'Line.Draw'
+      declaration
+      override
+      common name 'Draw'
+      parameter 'this' index 0 type 'Line'
+      parameter 'graphics' index 1 type 'Graphics'
+      object type 'Line'
+      module id 1489900195
+      implementation id 40
+      frame size: 0
+
+      function 'Line.Bounds'
+      declaration
+      override
+      common name 'Bounds'
+      parameter 'this' index 0 type 'Line'
+      object type 'Line'
+      module id 1489900195
+      implementation id 41
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Line'
+      object type 'Line'
+      module id 1489900195
+      implementation id 6
+      frame size: 1
+
+  object type 'Arrow'
+    virtual
+    base type 'Shape'
+    fields:
+      '@vmt' index 0 type 'null'
+      'lineArrowHeight' index 3 type 'real'
+      'lineArrowWidth' index 2 type 'real'
+      'routingPoints' index 1 type 'PointArray'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Arrow'
+      parameter 'routingPoints' index 1 type 'PointArray'
+      object type 'Arrow'
+      module id 1489900195
+      implementation id 42
+      frame size: 0
+
+      procedure 'Arrow.Print'
+      declaration
+      override
+      common name 'Print'
+      parameter 'this' index 0 type 'Arrow'
+      object type 'Arrow'
+      module id 1489900195
+      implementation id 43
+      frame size: 0
+
+      procedure 'Arrow.Draw'
+      declaration
+      override
+      common name 'Draw'
+      parameter 'this' index 0 type 'Arrow'
+      parameter 'graphics' index 1 type 'Graphics'
+      object type 'Arrow'
+      module id 1489900195
+      implementation id 44
+      frame size: 0
+
+      function 'Arrow.Bounds'
+      declaration
+      override
+      common name 'Bounds'
+      parameter 'this' index 0 type 'Arrow'
+      object type 'Arrow'
+      module id 1489900195
+      implementation id 45
+      frame size: 0
+
+      constructor
+      declaration
+      parameter 'this' index 0 type 'Arrow'
+      object type 'Arrow'
+      module id 1489900195
+      implementation id 7
+      frame size: 1
+
+  array type 'ShapeArray'
+    element type Shape
+
+  object type 'CompoundShape'
+    virtual
+    base type 'Shape'
+    fields:
+      '@vmt' index 0 type 'null'
+      'components' index 2 type 'ShapeArray'
+      'count' index 1 type 'integer'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'CompoundShape'
+      object type 'CompoundShape'
+      module id 1489900195
+      implementation id 46
+      frame size: 0
+
+      procedure 'CompoundShape.Print'
+      declaration
+      override
+      common name 'Print'
+      parameter 'this' index 0 type 'CompoundShape'
+      object type 'CompoundShape'
+      module id 1489900195
+      implementation id 47
+      frame size: 0
+
+      procedure 'CompoundShape.Add'
+      declaration
+      common name 'Add'
+      parameter 'this' index 0 type 'CompoundShape'
+      parameter 'shape' index 1 type 'Shape'
+      object type 'CompoundShape'
+      module id 1489900195
+      implementation id 48
+      frame size: 0
+
+      procedure 'CompoundShape.Measure'
+      declaration
+      override
+      common name 'Measure'
+      parameter 'this' index 0 type 'CompoundShape'
+      parameter 'graphics' index 1 type 'Graphics'
+      object type 'CompoundShape'
+      module id 1489900195
+      implementation id 49
+      frame size: 0
+
+      procedure 'CompoundShape.Draw'
+      declaration
+      override
+      common name 'Draw'
+      parameter 'this' index 0 type 'CompoundShape'
+      parameter 'graphics' index 1 type 'Graphics'
+      object type 'CompoundShape'
+      module id 1489900195
+      implementation id 50
+      frame size: 0
+
+      function 'CompoundShape.CombinedBounds'
+      declaration
+      common name 'CombinedBounds'
+      parameter 'this' index 0 type 'CompoundShape'
+      object type 'CompoundShape'
+      module id 1489900195
+      implementation id 51
+      frame size: 0
+
+const
+  constant 'dpiX'
+    type 'real'
+    value '96'
+  constant 'dpiY'
+    type 'real'
+    value '96'
+  constant 'inchMM'
+    type 'real'
+    value '25.400000'
+  constant 'pointMM'
+    type 'real'
+    value '0.351450'
+  constant 'regularFontStyle'
+    type 'integer'
+    value '0'
+  constant 'boldFontStyle'
+    type 'integer'
+    value '1'
+  constant 'italicFontStyle'
+    type 'integer'
+    value '2'
+  constant 'underlineFontStyle'
+    type 'integer'
+    value '4'
+  constant 'strikeOutFontStyle'
+    type 'integer'
+    value '8'
+var
+  global 'black' index 0 type 'Color'
+  global 'white' index 1 type 'Color'
+  global 'blackPen' index 2 type 'Pen'
+  global 'blackBrush' index 3 type 'Brush'
+procedure 'DrawArrowLine'
+declaration
+common name 'DrawArrowLine'
+parameter 'graphics' index 0 type 'Graphics'
+parameter 's' index 1 type 'Point'
+parameter 'e' index 2 type 'Point'
+parameter 'lineArrowWidth' index 3 type 'real'
+parameter 'lineArrowHeight' index 4 type 'real'
+module id 1489900195
+id 2
+implementation id 31
+frame size: 0
+
+procedure 'DrawRoundedRectangle'
+declaration
+common name 'DrawRoundedRectangle'
+parameter 'graphics' index 0 type 'Graphics'
+parameter 'rect' index 1 type 'Rect'
+parameter 'roundingRadius' index 2 type 'real'
+module id 1489900195
+id 3
+implementation id 32
+frame size: 0
+
+function 'MMToPixels'
+declaration
+common name 'MMToPixels'
+parameter 'mm' index 0 type 'real'
+parameter 'dpi' index 1 type 'real'
+module id 1489900195
+id 0
+implementation id 8
+frame size: 0
+
+function 'PixelsToMM'
+declaration
+common name 'PixelsToMM'
+parameter 'pixels' index 0 type 'integer'
+parameter 'dpi' index 1 type 'real'
+module id 1489900195
+id 1
+implementation id 9
+frame size: 0
+
+implementation
+uses System
+procedure 'Padding.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'Padding'
+object type 'Padding'
+module id 1489900195
+id 16
+frame size: 1
+code
+  0 : receive(1)
+  1 : push_value('left: ')
+  2 : load_local(0)
+  3 : load_field(0)
+  4 : push_value(', top: ')
+  5 : load_local(0)
+  6 : load_field(1)
+  7 : push_value(', right: ')
+  8 : load_local(0)
+  9 : load_field(2)
+  10 : push_value(', bottom: ')
+  11 : load_local(0)
+  12 : load_field(3)
+  13 : call_stdproc(Write, 0)
+  14 : call_stdproc(Writeln, 1)
+  15 : nop
+
+procedure 'Graphics.Clear'
+definition
+common name 'Clear'
+parameter 'this' index 0 type 'Graphics'
+parameter 'color' index 1 type 'Color'
+object type 'Graphics'
+external
+module id 1489900195
+id 20
+frame size: 0
+
+procedure 'Graphics.DrawLine'
+definition
+common name 'DrawLine'
+parameter 'this' index 0 type 'Graphics'
+parameter 'pen' index 1 type 'Pen'
+parameter 's' index 2 type 'Point'
+parameter 'e' index 3 type 'Point'
+object type 'Graphics'
+external
+module id 1489900195
+id 21
+frame size: 0
+
+procedure 'Graphics.DrawRectangle'
+definition
+common name 'DrawRectangle'
+parameter 'this' index 0 type 'Graphics'
+parameter 'pen' index 1 type 'Pen'
+parameter 'rectangle' index 2 type 'Rect'
+object type 'Graphics'
+external
+module id 1489900195
+id 22
+frame size: 0
+
+procedure 'Graphics.DrawString'
+definition
+common name 'DrawString'
+parameter 'this' index 0 type 'Graphics'
+parameter 'text' index 1 type 'string'
+parameter 'font' index 2 type 'Font'
+parameter 'brush' index 3 type 'Brush'
+parameter 'location' index 4 type 'Point'
+object type 'Graphics'
+external
+module id 1489900195
+id 24
+frame size: 0
+
+procedure 'Graphics.FillPolygon'
+definition
+common name 'FillPolygon'
+parameter 'this' index 0 type 'Graphics'
+parameter 'brush' index 1 type 'Brush'
+parameter 'points' index 2 type 'PointArray'
+object type 'Graphics'
+external
+module id 1489900195
+id 25
+frame size: 0
+
+procedure 'Graphics.DrawEllipse'
+definition
+common name 'DrawEllipse'
+parameter 'this' index 0 type 'Graphics'
+parameter 'pen' index 1 type 'Pen'
+parameter 'rect' index 2 type 'Rect'
+object type 'Graphics'
+external
+module id 1489900195
+id 26
+frame size: 0
+
+procedure 'Graphics.DrawArc'
+definition
+common name 'DrawArc'
+parameter 'this' index 0 type 'Graphics'
+parameter 'pen' index 1 type 'Pen'
+parameter 'rect' index 2 type 'Rect'
+parameter 'startAngle' index 3 type 'real'
+parameter 'sweepAngle' index 4 type 'real'
+object type 'Graphics'
+external
+module id 1489900195
+id 27
+frame size: 0
+
+procedure 'Bitmap.Save'
+definition
+common name 'Save'
+parameter 'this' index 0 type 'Bitmap'
+parameter 'fileName' index 1 type 'string'
+object type 'Bitmap'
+external
+module id 1489900195
+id 30
+frame size: 0
+
+procedure 'DrawArrowLine'
+definition
+common name 'DrawArrowLine'
+parameter 'graphics' index 0 type 'Graphics'
+parameter 's' index 1 type 'Point'
+parameter 'e' index 2 type 'Point'
+parameter 'lineArrowWidth' index 3 type 'real'
+parameter 'lineArrowHeight' index 4 type 'real'
+module id 1489900195
+id 31
+frame size: 16
+var
+  local 'arrowLine' index 5 type 'LineSegment'
+  local 'arrowStartLine' index 6 type 'LineSegment'
+  local 'arrowEndLine' index 7 type 'LineSegment'
+  local 'leftArrowLine' index 8 type 'LineSegment'
+  local 'rightArrowLine' index 9 type 'LineSegment'
+  local 'av' index 10 type 'Vector'
+  local 'uv' index 11 type 'Vector'
+  local 'la' index 12 type 'Vector'
+  local 'ra' index 13 type 'Vector'
+  local 'a' index 14 type 'real'
+  local 'points' index 15 type 'PointArray'
+code
+  0 : receive(5)
+  1 : new_object(LineSegment)
+  2 : load_local(2)
+  3 : load_local(1)
+  4 : call_ctor(LineSegment, 1205691996, 39)
+  5 : store_local(5)
+  6 : load_local(5)
+  7 : call_function(System.Graphics.Primitive:LineSegment.ToVector, 1205691996, 42)
+  8 : store_local(10)
+  9 : load_local(3)
+  10 : push_value(3)
+  11 : call_stdfn(Sqrt, 10)
+  12 : mul_real
+  13 : push_value(2)
+  14 : int_to_real
+  15 : fractional_divide_real
+  16 : store_local(14)
+  17 : load_local(14)
+  18 : load_local(10)
+  19 : call_function(System.Graphics.Primitive:Unit, 1205691996, 34)
+  20 : call_function(System.Graphics.Primitive:Product, 1205691996, 32)
+  21 : store_local(11)
+  22 : new_object(LineSegment)
+  23 : load_local(2)
+  24 : load_local(11)
+  25 : call_ctor(LineSegment, 1205691996, 40)
+  26 : store_local(6)
+  27 : new_object(LineSegment)
+  28 : load_local(6)
+  29 : load_field(1)
+  30 : load_local(2)
+  31 : call_ctor(LineSegment, 1205691996, 39)
+  32 : store_local(7)
+  33 : load_local(4)
+  34 : push_value(2)
+  35 : int_to_real
+  36 : fractional_divide_real
+  37 : load_local(7)
+  38 : push_value(90.000000)
+  39 : call_function(System.Graphics.Primitive:RotateLineSegment, 1205691996, 44)
+  40 : call_function(System.Graphics.Primitive:LineSegment.ToVector, 1205691996, 42)
+  41 : call_function(System.Graphics.Primitive:Unit, 1205691996, 34)
+  42 : call_function(System.Graphics.Primitive:Product, 1205691996, 32)
+  43 : store_local(12)
+  44 : load_local(4)
+  45 : push_value(2)
+  46 : int_to_real
+  47 : fractional_divide_real
+  48 : load_local(7)
+  49 : push_value(90.000000)
+  50 : unary_minus_real
+  51 : call_function(System.Graphics.Primitive:RotateLineSegment, 1205691996, 44)
+  52 : call_function(System.Graphics.Primitive:LineSegment.ToVector, 1205691996, 42)
+  53 : call_function(System.Graphics.Primitive:Unit, 1205691996, 34)
+  54 : call_function(System.Graphics.Primitive:Product, 1205691996, 32)
+  55 : store_local(13)
+  56 : new_object(LineSegment)
+  57 : load_local(7)
+  58 : load_field(0)
+  59 : load_local(12)
+  60 : call_ctor(LineSegment, 1205691996, 40)
+  61 : store_local(8)
+  62 : new_object(LineSegment)
+  63 : load_local(7)
+  64 : load_field(0)
+  65 : load_local(13)
+  66 : call_ctor(LineSegment, 1205691996, 40)
+  67 : store_local(9)
+  68 : push_value(3)
+  69 : new_array(PointArray)
+  70 : store_local(15)
+  71 : load_local(2)
+  72 : push_value(0)
+  73 : load_local(15)
+  74 : store_element
+  75 : load_local(8)
+  76 : load_field(1)
+  77 : push_value(1)
+  78 : load_local(15)
+  79 : store_element
+  80 : load_local(9)
+  81 : load_field(1)
+  82 : push_value(2)
+  83 : load_local(15)
+  84 : store_element
+  85 : load_local(0)
+  86 : load_global(3)
+  87 : load_local(15)
+  88 : call_external(Graphics.FillPolygon, 6)
+  89 : load_local(0)
+  90 : load_global(2)
+  91 : load_local(7)
+  92 : load_field(0)
+  93 : load_local(5)
+  94 : load_field(1)
+  95 : call_external(Graphics.DrawLine, 2)
+  96 : nop
+
+procedure 'DrawRoundedRectangle'
+definition
+common name 'DrawRoundedRectangle'
+parameter 'graphics' index 0 type 'Graphics'
+parameter 'rect' index 1 type 'Rect'
+parameter 'roundingRadius' index 2 type 'real'
+module id 1489900195
+id 32
+frame size: 16
+var
+  local 'rounding1' index 3 type 'Rect'
+  local 'rounding2' index 4 type 'Rect'
+  local 'rounding3' index 5 type 'Rect'
+  local 'rounding4' index 6 type 'Rect'
+  local 'roundingSize' index 7 type 'Size'
+  local 'topLeft' index 8 type 'Point'
+  local 'topRight' index 9 type 'Point'
+  local 'rightTop' index 10 type 'Point'
+  local 'rightBottom' index 11 type 'Point'
+  local 'bottomLeft' index 12 type 'Point'
+  local 'bottomRight' index 13 type 'Point'
+  local 'leftTop' index 14 type 'Point'
+  local 'leftBottom' index 15 type 'Point'
+code
+  0 : receive(3)
+  1 : new_object(Point)
+  2 : load_local(1)
+  3 : load_field(0)
+  4 : load_field(0)
+  5 : load_local(2)
+  6 : plus_real
+  7 : load_local(1)
+  8 : load_field(0)
+  9 : load_field(1)
+  10 : call_ctor(Point, 1205691996, 2)
+  11 : store_local(8)
+  12 : new_object(Point)
+  13 : load_local(1)
+  14 : load_field(0)
+  15 : load_field(0)
+  16 : load_local(1)
+  17 : load_field(1)
+  18 : load_field(0)
+  19 : plus_real
+  20 : load_local(2)
+  21 : minus_real
+  22 : load_local(1)
+  23 : load_field(0)
+  24 : load_field(1)
+  25 : call_ctor(Point, 1205691996, 2)
+  26 : store_local(9)
+  27 : new_object(Point)
+  28 : load_local(1)
+  29 : load_field(0)
+  30 : load_field(0)
+  31 : load_local(1)
+  32 : load_field(1)
+  33 : load_field(0)
+  34 : plus_real
+  35 : load_local(1)
+  36 : load_field(0)
+  37 : load_field(1)
+  38 : load_local(2)
+  39 : plus_real
+  40 : call_ctor(Point, 1205691996, 2)
+  41 : store_local(10)
+  42 : new_object(Point)
+  43 : load_local(1)
+  44 : load_field(0)
+  45 : load_field(0)
+  46 : load_local(1)
+  47 : load_field(1)
+  48 : load_field(0)
+  49 : plus_real
+  50 : load_local(1)
+  51 : load_field(0)
+  52 : load_field(1)
+  53 : load_local(1)
+  54 : load_field(1)
+  55 : load_field(1)
+  56 : plus_real
+  57 : load_local(2)
+  58 : minus_real
+  59 : call_ctor(Point, 1205691996, 2)
+  60 : store_local(11)
+  61 : new_object(Point)
+  62 : load_local(1)
+  63 : load_field(0)
+  64 : load_field(0)
+  65 : load_local(2)
+  66 : plus_real
+  67 : load_local(1)
+  68 : load_field(0)
+  69 : load_field(1)
+  70 : load_local(1)
+  71 : load_field(1)
+  72 : load_field(1)
+  73 : plus_real
+  74 : call_ctor(Point, 1205691996, 2)
+  75 : store_local(12)
+  76 : new_object(Point)
+  77 : load_local(1)
+  78 : load_field(0)
+  79 : load_field(0)
+  80 : load_local(1)
+  81 : load_field(1)
+  82 : load_field(0)
+  83 : plus_real
+  84 : load_local(2)
+  85 : minus_real
+  86 : load_local(1)
+  87 : load_field(0)
+  88 : load_field(1)
+  89 : load_local(1)
+  90 : load_field(1)
+  91 : load_field(1)
+  92 : plus_real
+  93 : call_ctor(Point, 1205691996, 2)
+  94 : store_local(13)
+  95 : new_object(Point)
+  96 : load_local(1)
+  97 : load_field(0)
+  98 : load_field(0)
+  99 : load_local(1)
+  100 : load_field(0)
+  101 : load_field(1)
+  102 : load_local(2)
+  103 : plus_real
+  104 : call_ctor(Point, 1205691996, 2)
+  105 : store_local(14)
+  106 : new_object(Point)
+  107 : load_local(1)
+  108 : load_field(0)
+  109 : load_field(0)
+  110 : load_local(1)
+  111 : load_field(0)
+  112 : load_field(1)
+  113 : load_local(1)
+  114 : load_field(1)
+  115 : load_field(1)
+  116 : plus_real
+  117 : load_local(2)
+  118 : minus_real
+  119 : call_ctor(Point, 1205691996, 2)
+  120 : store_local(15)
+  121 : new_object(Size)
+  122 : load_local(2)
+  123 : push_value(2)
+  124 : int_to_real
+  125 : mul_real
+  126 : load_local(2)
+  127 : push_value(2)
+  128 : int_to_real
+  129 : mul_real
+  130 : call_ctor(Size, 1205691996, 6)
+  131 : store_local(7)
+  132 : new_object(Rect)
+  133 : load_local(1)
+  134 : load_field(0)
+  135 : load_local(7)
+  136 : call_ctor(Rect, 1205691996, 9)
+  137 : store_local(3)
+  138 : new_object(Rect)
+  139 : new_object(Point)
+  140 : load_local(1)
+  141 : load_field(0)
+  142 : load_field(0)
+  143 : load_local(1)
+  144 : load_field(1)
+  145 : load_field(0)
+  146 : plus_real
+  147 : load_local(2)
+  148 : push_value(2)
+  149 : int_to_real
+  150 : mul_real
+  151 : minus_real
+  152 : load_local(1)
+  153 : load_field(0)
+  154 : load_field(1)
+  155 : call_ctor(Point, 1205691996, 2)
+  156 : load_local(7)
+  157 : call_ctor(Rect, 1205691996, 9)
+  158 : store_local(4)
+  159 : new_object(Rect)
+  160 : new_object(Point)
+  161 : load_local(1)
+  162 : load_field(0)
+  163 : load_field(0)
+  164 : load_local(1)
+  165 : load_field(1)
+  166 : load_field(0)
+  167 : plus_real
+  168 : load_local(2)
+  169 : push_value(2)
+  170 : int_to_real
+  171 : mul_real
+  172 : minus_real
+  173 : load_local(1)
+  174 : load_field(0)
+  175 : load_field(1)
+  176 : load_local(1)
+  177 : load_field(1)
+  178 : load_field(1)
+  179 : plus_real
+  180 : load_local(2)
+  181 : push_value(2)
+  182 : int_to_real
+  183 : mul_real
+  184 : minus_real
+  185 : call_ctor(Point, 1205691996, 2)
+  186 : load_local(7)
+  187 : call_ctor(Rect, 1205691996, 9)
+  188 : store_local(5)
+  189 : new_object(Rect)
+  190 : new_object(Point)
+  191 : load_local(1)
+  192 : load_field(0)
+  193 : load_field(0)
+  194 : load_local(1)
+  195 : load_field(0)
+  196 : load_field(1)
+  197 : load_local(1)
+  198 : load_field(1)
+  199 : load_field(1)
+  200 : plus_real
+  201 : load_local(2)
+  202 : push_value(2)
+  203 : int_to_real
+  204 : mul_real
+  205 : minus_real
+  206 : call_ctor(Point, 1205691996, 2)
+  207 : load_local(7)
+  208 : call_ctor(Rect, 1205691996, 9)
+  209 : store_local(6)
+  210 : load_local(0)
+  211 : load_global(2)
+  212 : load_local(8)
+  213 : load_local(9)
+  214 : call_external(Graphics.DrawLine, 2)
+  215 : load_local(0)
+  216 : load_global(2)
+  217 : load_local(10)
+  218 : load_local(11)
+  219 : call_external(Graphics.DrawLine, 2)
+  220 : load_local(0)
+  221 : load_global(2)
+  222 : load_local(12)
+  223 : load_local(13)
+  224 : call_external(Graphics.DrawLine, 2)
+  225 : load_local(0)
+  226 : load_global(2)
+  227 : load_local(14)
+  228 : load_local(15)
+  229 : call_external(Graphics.DrawLine, 2)
+  230 : load_local(0)
+  231 : load_global(2)
+  232 : load_local(3)
+  233 : push_value(180)
+  234 : int_to_real
+  235 : push_value(90)
+  236 : int_to_real
+  237 : call_external(Graphics.DrawArc, 8)
+  238 : load_local(0)
+  239 : load_global(2)
+  240 : load_local(4)
+  241 : push_value(90)
+  242 : unary_minus_int
+  243 : int_to_real
+  244 : push_value(90)
+  245 : int_to_real
+  246 : call_external(Graphics.DrawArc, 8)
+  247 : load_local(0)
+  248 : load_global(2)
+  249 : load_local(5)
+  250 : push_value(0)
+  251 : int_to_real
+  252 : push_value(90)
+  253 : int_to_real
+  254 : call_external(Graphics.DrawArc, 8)
+  255 : load_local(0)
+  256 : load_global(2)
+  257 : load_local(6)
+  258 : push_value(180)
+  259 : int_to_real
+  260 : push_value(90)
+  261 : unary_minus_int
+  262 : int_to_real
+  263 : call_external(Graphics.DrawArc, 8)
+  264 : nop
+
+procedure 'Shape.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'Shape'
+object type 'Shape'
+module id 1489900195
+id 34
+frame size: 1
+code
+  0 : receive(1)
+  1 : nop
+
+procedure 'Shape.Measure'
+definition
+common name 'Measure'
+parameter 'this' index 0 type 'Shape'
+parameter 'graphics' index 1 type 'Graphics'
+object type 'Shape'
+module id 1489900195
+id 35
+frame size: 2
+code
+  0 : receive(2)
+  1 : nop
+
+procedure 'Shape.Draw'
+definition
+common name 'Draw'
+parameter 'this' index 0 type 'Shape'
+parameter 'graphics' index 1 type 'Graphics'
+object type 'Shape'
+module id 1489900195
+id 36
+frame size: 2
+code
+  0 : receive(2)
+  1 : nop
+
+procedure 'Line.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'Line'
+object type 'Line'
+module id 1489900195
+id 39
+frame size: 6
+var
+  local 'i' index 1 type 'integer'
+  local 'n' index 2 type 'integer'
+  local 'p' index 3 type 'Point'
+  local '@tmp0' index 4 type 'integer'
+  local '@tmp1' index 5 type 'integer'
+code
+  0 : receive(1)
+  1 : push_value('line:')
+  2 : call_stdproc(Writeln, 1)
+  3 : load_local(0)
+  4 : load_field(1)
+  5 : array_length
+  6 : store_local(2)
+  7 : push_value(0)
+  8 : store_local(4)
+  9 : load_local(2)
+  10 : push_value(1)
+  11 : minus_int
+  12 : store_local(5)
+  13 : jump(14)
+  14 : load_local(4)
+  15 : load_local(5)
+  16 : less_or_equal_int
+  17 : branch(18, 55)
+  18 : load_local(4)
+  19 : store_local(1)
+  20 : push_value('  routingPoint ')
+  21 : load_local(1)
+  22 : push_value(': ')
+  23 : call_stdproc(Write, 0)
+  24 : load_local(1)
+  25 : load_local(0)
+  26 : load_field(1)
+  27 : load_element
+  28 : store_local(3)
+  29 : load_local(3)
+  30 : call_procedure(System.Graphics.Primitive:Point.Print, 1205691996, 3)
+  31 : nop
+  32 : jump(33)
+  33 : load_local(1)
+  34 : load_local(5)
+  35 : not_equal_int
+  36 : branch(37, 53)
+  37 : load_local(1)
+  38 : call_stdfn(Succ, 6)
+  39 : store_local(1)
+  40 : push_value('  routingPoint ')
+  41 : load_local(1)
+  42 : push_value(': ')
+  43 : call_stdproc(Write, 0)
+  44 : load_local(1)
+  45 : load_local(0)
+  46 : load_field(1)
+  47 : load_element
+  48 : store_local(3)
+  49 : load_local(3)
+  50 : call_procedure(System.Graphics.Primitive:Point.Print, 1205691996, 3)
+  51 : nop
+  52 : jump(33)
+  53 : nop
+  54 : jump(55)
+  55 : nop
+  56 : nop
+
+procedure 'Line.Draw'
+definition
+common name 'Draw'
+parameter 'this' index 0 type 'Line'
+parameter 'graphics' index 1 type 'Graphics'
+object type 'Line'
+module id 1489900195
+id 40
+frame size: 8
+var
+  local 'i' index 2 type 'integer'
+  local 'n' index 3 type 'integer'
+  local 's' index 4 type 'Point'
+  local 'e' index 5 type 'Point'
+  local '@tmp0' index 6 type 'integer'
+  local '@tmp1' index 7 type 'integer'
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : load_field(1)
+  3 : array_length
+  4 : store_local(3)
+  5 : jump(6)
+  6 : load_local(3)
+  7 : push_value(1)
+  8 : greater_int
+  9 : branch(10, 73)
+  10 : push_value(1)
+  11 : store_local(6)
+  12 : load_local(3)
+  13 : push_value(1)
+  14 : minus_int
+  15 : store_local(7)
+  16 : jump(17)
+  17 : load_local(6)
+  18 : load_local(7)
+  19 : less_or_equal_int
+  20 : branch(21, 70)
+  21 : load_local(6)
+  22 : store_local(2)
+  23 : load_local(2)
+  24 : push_value(1)
+  25 : minus_int
+  26 : load_local(0)
+  27 : load_field(1)
+  28 : load_element
+  29 : store_local(4)
+  30 : load_local(2)
+  31 : load_local(0)
+  32 : load_field(1)
+  33 : load_element
+  34 : store_local(5)
+  35 : load_local(1)
+  36 : load_global(2)
+  37 : load_local(4)
+  38 : load_local(5)
+  39 : call_external(Graphics.DrawLine, 2)
+  40 : nop
+  41 : jump(42)
+  42 : load_local(2)
+  43 : load_local(7)
+  44 : not_equal_int
+  45 : branch(46, 68)
+  46 : load_local(2)
+  47 : call_stdfn(Succ, 6)
+  48 : store_local(2)
+  49 : load_local(2)
+  50 : push_value(1)
+  51 : minus_int
+  52 : load_local(0)
+  53 : load_field(1)
+  54 : load_element
+  55 : store_local(4)
+  56 : load_local(2)
+  57 : load_local(0)
+  58 : load_field(1)
+  59 : load_element
+  60 : store_local(5)
+  61 : load_local(1)
+  62 : load_global(2)
+  63 : load_local(4)
+  64 : load_local(5)
+  65 : call_external(Graphics.DrawLine, 2)
+  66 : nop
+  67 : jump(42)
+  68 : nop
+  69 : jump(70)
+  70 : nop
+  71 : nop
+  72 : jump(73)
+  73 : nop
+
+procedure 'Arrow.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'Arrow'
+object type 'Arrow'
+module id 1489900195
+id 43
+frame size: 6
+var
+  local 'i' index 1 type 'integer'
+  local 'n' index 2 type 'integer'
+  local 'p' index 3 type 'Point'
+  local '@tmp0' index 4 type 'integer'
+  local '@tmp1' index 5 type 'integer'
+code
+  0 : receive(1)
+  1 : push_value('arrow:')
+  2 : call_stdproc(Writeln, 1)
+  3 : load_local(0)
+  4 : load_field(1)
+  5 : array_length
+  6 : store_local(2)
+  7 : push_value(0)
+  8 : store_local(4)
+  9 : load_local(2)
+  10 : push_value(1)
+  11 : minus_int
+  12 : store_local(5)
+  13 : jump(14)
+  14 : load_local(4)
+  15 : load_local(5)
+  16 : less_or_equal_int
+  17 : branch(18, 55)
+  18 : load_local(4)
+  19 : store_local(1)
+  20 : push_value('  routingPoint ')
+  21 : load_local(1)
+  22 : push_value(': ')
+  23 : call_stdproc(Write, 0)
+  24 : load_local(1)
+  25 : load_local(0)
+  26 : load_field(1)
+  27 : load_element
+  28 : store_local(3)
+  29 : load_local(3)
+  30 : call_procedure(System.Graphics.Primitive:Point.Print, 1205691996, 3)
+  31 : nop
+  32 : jump(33)
+  33 : load_local(1)
+  34 : load_local(5)
+  35 : not_equal_int
+  36 : branch(37, 53)
+  37 : load_local(1)
+  38 : call_stdfn(Succ, 6)
+  39 : store_local(1)
+  40 : push_value('  routingPoint ')
+  41 : load_local(1)
+  42 : push_value(': ')
+  43 : call_stdproc(Write, 0)
+  44 : load_local(1)
+  45 : load_local(0)
+  46 : load_field(1)
+  47 : load_element
+  48 : store_local(3)
+  49 : load_local(3)
+  50 : call_procedure(System.Graphics.Primitive:Point.Print, 1205691996, 3)
+  51 : nop
+  52 : jump(33)
+  53 : nop
+  54 : jump(55)
+  55 : nop
+  56 : nop
+
+procedure 'Arrow.Draw'
+definition
+common name 'Draw'
+parameter 'this' index 0 type 'Arrow'
+parameter 'graphics' index 1 type 'Graphics'
+object type 'Arrow'
+module id 1489900195
+id 44
+frame size: 8
+var
+  local 'i' index 2 type 'integer'
+  local 'n' index 3 type 'integer'
+  local 's' index 4 type 'Point'
+  local 'e' index 5 type 'Point'
+  local '@tmp0' index 6 type 'integer'
+  local '@tmp1' index 7 type 'integer'
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : load_field(1)
+  3 : array_length
+  4 : store_local(3)
+  5 : jump(6)
+  6 : load_local(3)
+  7 : push_value(1)
+  8 : greater_int
+  9 : branch(10, 107)
+  10 : push_value(1)
+  11 : store_local(6)
+  12 : load_local(3)
+  13 : push_value(1)
+  14 : minus_int
+  15 : store_local(7)
+  16 : jump(17)
+  17 : load_local(6)
+  18 : load_local(7)
+  19 : less_or_equal_int
+  20 : branch(21, 104)
+  21 : load_local(6)
+  22 : store_local(2)
+  23 : load_local(2)
+  24 : push_value(1)
+  25 : minus_int
+  26 : load_local(0)
+  27 : load_field(1)
+  28 : load_element
+  29 : store_local(4)
+  30 : load_local(2)
+  31 : load_local(0)
+  32 : load_field(1)
+  33 : load_element
+  34 : store_local(5)
+  35 : jump(36)
+  36 : load_local(2)
+  37 : load_local(3)
+  38 : push_value(1)
+  39 : minus_int
+  40 : less_int
+  41 : branch(42, 48)
+  42 : load_local(1)
+  43 : load_global(2)
+  44 : load_local(4)
+  45 : load_local(5)
+  46 : call_external(Graphics.DrawLine, 2)
+  47 : jump(57)
+  48 : load_local(1)
+  49 : load_local(4)
+  50 : load_local(5)
+  51 : load_local(0)
+  52 : load_field(2)
+  53 : load_local(0)
+  54 : load_field(3)
+  55 : call_procedure(System.Graphics:DrawArrowLine, 1489900195, 31)
+  56 : jump(57)
+  57 : nop
+  58 : jump(59)
+  59 : load_local(2)
+  60 : load_local(7)
+  61 : not_equal_int
+  62 : branch(63, 102)
+  63 : load_local(2)
+  64 : call_stdfn(Succ, 6)
+  65 : store_local(2)
+  66 : load_local(2)
+  67 : push_value(1)
+  68 : minus_int
+  69 : load_local(0)
+  70 : load_field(1)
+  71 : load_element
+  72 : store_local(4)
+  73 : load_local(2)
+  74 : load_local(0)
+  75 : load_field(1)
+  76 : load_element
+  77 : store_local(5)
+  78 : jump(79)
+  79 : load_local(2)
+  80 : load_local(3)
+  81 : push_value(1)
+  82 : minus_int
+  83 : less_int
+  84 : branch(85, 91)
+  85 : load_local(1)
+  86 : load_global(2)
+  87 : load_local(4)
+  88 : load_local(5)
+  89 : call_external(Graphics.DrawLine, 2)
+  90 : jump(100)
+  91 : load_local(1)
+  92 : load_local(4)
+  93 : load_local(5)
+  94 : load_local(0)
+  95 : load_field(2)
+  96 : load_local(0)
+  97 : load_field(3)
+  98 : call_procedure(System.Graphics:DrawArrowLine, 1489900195, 31)
+  99 : jump(100)
+  100 : nop
+  101 : jump(59)
+  102 : nop
+  103 : jump(104)
+  104 : nop
+  105 : nop
+  106 : jump(107)
+  107 : nop
+
+procedure 'CompoundShape.Print'
+definition
+common name 'Print'
+parameter 'this' index 0 type 'CompoundShape'
+object type 'CompoundShape'
+module id 1489900195
+id 47
+frame size: 4
+var
+  local 'i' index 1 type 'integer'
+  local '@tmp0' index 2 type 'integer'
+  local '@tmp1' index 3 type 'integer'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : call_procedure(System.Graphics:Shape.Print, 1489900195, 34)
+  3 : push_value(0)
+  4 : store_local(2)
+  5 : load_local(0)
+  6 : load_field(1)
+  7 : push_value(1)
+  8 : minus_int
+  9 : store_local(3)
+  10 : jump(11)
+  11 : load_local(2)
+  12 : load_local(3)
+  13 : less_or_equal_int
+  14 : branch(15, 60)
+  15 : load_local(2)
+  16 : store_local(1)
+  17 : push_value('  component ')
+  18 : load_local(1)
+  19 : push_value(': ')
+  20 : call_stdproc(Writeln, 1)
+  21 : push_value('    ')
+  22 : call_stdproc(Write, 0)
+  23 : load_local(1)
+  24 : load_local(0)
+  25 : load_field(2)
+  26 : load_element
+  27 : load_local(1)
+  28 : load_local(0)
+  29 : load_field(2)
+  30 : load_element
+  31 : call_virtual(Shape.Print, 0)
+  32 : nop
+  33 : jump(34)
+  34 : load_local(1)
+  35 : load_local(3)
+  36 : not_equal_int
+  37 : branch(38, 58)
+  38 : load_local(1)
+  39 : call_stdfn(Succ, 6)
+  40 : store_local(1)
+  41 : push_value('  component ')
+  42 : load_local(1)
+  43 : push_value(': ')
+  44 : call_stdproc(Writeln, 1)
+  45 : push_value('    ')
+  46 : call_stdproc(Write, 0)
+  47 : load_local(1)
+  48 : load_local(0)
+  49 : load_field(2)
+  50 : load_element
+  51 : load_local(1)
+  52 : load_local(0)
+  53 : load_field(2)
+  54 : load_element
+  55 : call_virtual(Shape.Print, 0)
+  56 : nop
+  57 : jump(34)
+  58 : nop
+  59 : jump(60)
+  60 : nop
+  61 : nop
+
+procedure 'CompoundShape.Add'
+definition
+common name 'Add'
+parameter 'this' index 0 type 'CompoundShape'
+parameter 'shape' index 1 type 'Shape'
+object type 'CompoundShape'
+module id 1489900195
+id 48
+frame size: 7
+var
+  local 'newLength' index 2 type 'integer'
+  local 'i' index 3 type 'integer'
+  local 'newComponents' index 4 type 'ShapeArray'
+  local '@tmp0' index 5 type 'integer'
+  local '@tmp1' index 6 type 'integer'
+code
+  0 : receive(2)
+  1 : jump(2)
+  2 : load_local(0)
+  3 : load_field(1)
+  4 : load_local(0)
+  5 : load_field(2)
+  6 : array_length
+  7 : equal_int
+  8 : branch(9, 74)
+  9 : jump(10)
+  10 : load_local(0)
+  11 : load_field(2)
+  12 : array_length
+  13 : push_value(4)
+  14 : less_int
+  15 : branch(16, 19)
+  16 : push_value(4)
+  17 : store_local(2)
+  18 : jump(26)
+  19 : push_value(2)
+  20 : load_local(0)
+  21 : load_field(2)
+  22 : array_length
+  23 : mul_int
+  24 : store_local(2)
+  25 : jump(26)
+  26 : load_local(2)
+  27 : new_array(ShapeArray)
+  28 : store_local(4)
+  29 : push_value(0)
+  30 : store_local(5)
+  31 : load_local(0)
+  32 : load_field(1)
+  33 : push_value(1)
+  34 : minus_int
+  35 : store_local(6)
+  36 : jump(37)
+  37 : load_local(5)
+  38 : load_local(6)
+  39 : less_or_equal_int
+  40 : branch(41, 68)
+  41 : load_local(5)
+  42 : store_local(3)
+  43 : load_local(3)
+  44 : load_local(0)
+  45 : load_field(2)
+  46 : load_element
+  47 : load_local(3)
+  48 : load_local(4)
+  49 : store_element
+  50 : jump(51)
+  51 : load_local(3)
+  52 : load_local(6)
+  53 : not_equal_int
+  54 : branch(55, 66)
+  55 : load_local(3)
+  56 : call_stdfn(Succ, 6)
+  57 : store_local(3)
+  58 : load_local(3)
+  59 : load_local(0)
+  60 : load_field(2)
+  61 : load_element
+  62 : load_local(3)
+  63 : load_local(4)
+  64 : store_element
+  65 : jump(51)
+  66 : nop
+  67 : jump(68)
+  68 : nop
+  69 : load_local(4)
+  70 : load_local(0)
+  71 : store_field(2)
+  72 : nop
+  73 : jump(74)
+  74 : load_local(1)
+  75 : load_local(0)
+  76 : load_field(1)
+  77 : load_local(0)
+  78 : load_field(2)
+  79 : store_element
+  80 : load_local(0)
+  81 : load_field(1)
+  82 : call_stdfn(Succ, 6)
+  83 : load_local(0)
+  84 : store_field(1)
+  85 : nop
+
+procedure 'CompoundShape.Measure'
+definition
+common name 'Measure'
+parameter 'this' index 0 type 'CompoundShape'
+parameter 'graphics' index 1 type 'Graphics'
+object type 'CompoundShape'
+module id 1489900195
+id 49
+frame size: 6
+var
+  local 'i' index 2 type 'integer'
+  local 's' index 3 type 'Shape'
+  local '@tmp0' index 4 type 'integer'
+  local '@tmp1' index 5 type 'integer'
+code
+  0 : receive(2)
+  1 : push_value(0)
+  2 : store_local(4)
+  3 : load_local(0)
+  4 : load_field(1)
+  5 : push_value(1)
+  6 : minus_int
+  7 : store_local(5)
+  8 : jump(9)
+  9 : load_local(4)
+  10 : load_local(5)
+  11 : less_or_equal_int
+  12 : branch(13, 46)
+  13 : load_local(4)
+  14 : store_local(2)
+  15 : load_local(2)
+  16 : load_local(0)
+  17 : load_field(2)
+  18 : load_element
+  19 : store_local(3)
+  20 : load_local(3)
+  21 : load_local(1)
+  22 : load_local(3)
+  23 : call_virtual(Shape.Measure, 1)
+  24 : nop
+  25 : jump(26)
+  26 : load_local(2)
+  27 : load_local(5)
+  28 : not_equal_int
+  29 : branch(30, 44)
+  30 : load_local(2)
+  31 : call_stdfn(Succ, 6)
+  32 : store_local(2)
+  33 : load_local(2)
+  34 : load_local(0)
+  35 : load_field(2)
+  36 : load_element
+  37 : store_local(3)
+  38 : load_local(3)
+  39 : load_local(1)
+  40 : load_local(3)
+  41 : call_virtual(Shape.Measure, 1)
+  42 : nop
+  43 : jump(26)
+  44 : nop
+  45 : jump(46)
+  46 : nop
+  47 : nop
+
+procedure 'CompoundShape.Draw'
+definition
+common name 'Draw'
+parameter 'this' index 0 type 'CompoundShape'
+parameter 'graphics' index 1 type 'Graphics'
+object type 'CompoundShape'
+module id 1489900195
+id 50
+frame size: 6
+var
+  local 'i' index 2 type 'integer'
+  local 's' index 3 type 'Shape'
+  local '@tmp0' index 4 type 'integer'
+  local '@tmp1' index 5 type 'integer'
+code
+  0 : receive(2)
+  1 : push_value(0)
+  2 : store_local(4)
+  3 : load_local(0)
+  4 : load_field(1)
+  5 : push_value(1)
+  6 : minus_int
+  7 : store_local(5)
+  8 : jump(9)
+  9 : load_local(4)
+  10 : load_local(5)
+  11 : less_or_equal_int
+  12 : branch(13, 46)
+  13 : load_local(4)
+  14 : store_local(2)
+  15 : load_local(2)
+  16 : load_local(0)
+  17 : load_field(2)
+  18 : load_element
+  19 : store_local(3)
+  20 : load_local(3)
+  21 : load_local(1)
+  22 : load_local(3)
+  23 : call_virtual(Shape.Draw, 2)
+  24 : nop
+  25 : jump(26)
+  26 : load_local(2)
+  27 : load_local(5)
+  28 : not_equal_int
+  29 : branch(30, 44)
+  30 : load_local(2)
+  31 : call_stdfn(Succ, 6)
+  32 : store_local(2)
+  33 : load_local(2)
+  34 : load_local(0)
+  35 : load_field(2)
+  36 : load_element
+  37 : store_local(3)
+  38 : load_local(3)
+  39 : load_local(1)
+  40 : load_local(3)
+  41 : call_virtual(Shape.Draw, 2)
+  42 : nop
+  43 : jump(26)
+  44 : nop
+  45 : jump(46)
+  46 : nop
+  47 : nop
+
+function 'MMToPixels'
+definition
+common name 'MMToPixels'
+parameter 'mm' index 0 type 'real'
+parameter 'dpi' index 1 type 'real'
+module id 1489900195
+id 8
+frame size: 4
+var
+  local 'pixels' index 2 type 'integer'
+  local '@result' index 3 type 'integer'
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : load_local(1)
+  3 : mul_real
+  4 : push_value(25.400000)
+  5 : fractional_divide_real
+  6 : store_local(2)
+  7 : load_local(2)
+  8 : store_local(3)
+  9 : nop
+  10 : load_result_var(3)
+
+function 'PixelsToMM'
+definition
+common name 'PixelsToMM'
+parameter 'pixels' index 0 type 'integer'
+parameter 'dpi' index 1 type 'real'
+module id 1489900195
+id 9
+frame size: 3
+var
+  local '@result' index 2 type 'real'
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : int_to_real
+  3 : push_value(25.400000)
+  4 : mul_real
+  5 : load_local(1)
+  6 : fractional_divide_real
+  7 : store_local(2)
+  8 : nop
+  9 : load_result_var(2)
+
+function 'Padding.Horizontal'
+definition
+common name 'Horizontal'
+parameter 'this' index 0 type 'Padding'
+object type 'Padding'
+module id 1489900195
+id 17
+frame size: 2
+var
+  local '@result' index 1 type 'real'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(0)
+  3 : load_local(0)
+  4 : load_field(2)
+  5 : plus_real
+  6 : store_local(1)
+  7 : nop
+  8 : load_result_var(1)
+
+function 'Padding.Vertical'
+definition
+common name 'Vertical'
+parameter 'this' index 0 type 'Padding'
+object type 'Padding'
+module id 1489900195
+id 18
+frame size: 2
+var
+  local '@result' index 1 type 'real'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : load_field(1)
+  3 : load_local(0)
+  4 : load_field(3)
+  5 : plus_real
+  6 : store_local(1)
+  7 : nop
+  8 : load_result_var(1)
+
+function 'Graphics.MeasureString'
+definition
+common name 'MeasureString'
+parameter 'this' index 0 type 'Graphics'
+parameter 'text' index 1 type 'string'
+parameter 'font' index 2 type 'Font'
+object type 'Graphics'
+external
+module id 1489900195
+id 23
+frame size: 0
+
+function 'Bitmap.GetGraphics'
+definition
+common name 'GetGraphics'
+parameter 'this' index 0 type 'Bitmap'
+object type 'Bitmap'
+external
+module id 1489900195
+id 29
+frame size: 0
+
+function 'Shape.Bounds'
+definition
+common name 'Bounds'
+parameter 'this' index 0 type 'Shape'
+object type 'Shape'
+module id 1489900195
+id 37
+frame size: 2
+var
+  local '@result' index 1 type 'Rect'
+code
+  0 : receive(1)
+  1 : new_object(Rect)
+  2 : call_ctor(Rect, 1205691996, 8)
+  3 : store_local(1)
+  4 : nop
+  5 : load_result_var(1)
+
+function 'Line.Bounds'
+definition
+common name 'Bounds'
+parameter 'this' index 0 type 'Line'
+object type 'Line'
+module id 1489900195
+id 41
+frame size: 11
+var
+  local 'i' index 1 type 'integer'
+  local 'n' index 2 type 'integer'
+  local 'p' index 3 type 'Point'
+  local 'minX' index 4 type 'real'
+  local 'maxX' index 5 type 'real'
+  local 'minY' index 6 type 'real'
+  local 'maxY' index 7 type 'real'
+  local '@result' index 8 type 'Rect'
+  local '@tmp0' index 9 type 'integer'
+  local '@tmp1' index 10 type 'integer'
+code
+  0 : receive(1)
+  1 : push_value(1410065407)
+  2 : int_to_real
+  3 : store_local(4)
+  4 : push_value(1)
+  5 : unary_minus_int
+  6 : int_to_real
+  7 : store_local(5)
+  8 : push_value(1410065407)
+  9 : int_to_real
+  10 : store_local(6)
+  11 : push_value(1)
+  12 : unary_minus_int
+  13 : int_to_real
+  14 : store_local(7)
+  15 : load_local(0)
+  16 : load_field(1)
+  17 : array_length
+  18 : store_local(2)
+  19 : jump(20)
+  20 : load_local(2)
+  21 : push_value(0)
+  22 : greater_int
+  23 : branch(24, 118)
+  24 : push_value(0)
+  25 : store_local(9)
+  26 : load_local(2)
+  27 : push_value(1)
+  28 : minus_int
+  29 : store_local(10)
+  30 : jump(31)
+  31 : load_local(9)
+  32 : load_local(10)
+  33 : less_or_equal_int
+  34 : branch(35, 100)
+  35 : load_local(9)
+  36 : store_local(1)
+  37 : load_local(1)
+  38 : load_local(0)
+  39 : load_field(1)
+  40 : load_element
+  41 : store_local(3)
+  42 : load_local(3)
+  43 : load_field(0)
+  44 : load_local(4)
+  45 : call_stdfn(Min, 8)
+  46 : store_local(4)
+  47 : load_local(3)
+  48 : load_field(0)
+  49 : load_local(5)
+  50 : call_stdfn(Max, 9)
+  51 : store_local(5)
+  52 : load_local(3)
+  53 : load_field(1)
+  54 : load_local(6)
+  55 : call_stdfn(Min, 8)
+  56 : store_local(6)
+  57 : load_local(3)
+  58 : load_field(1)
+  59 : load_local(7)
+  60 : call_stdfn(Max, 9)
+  61 : store_local(7)
+  62 : nop
+  63 : jump(64)
+  64 : load_local(1)
+  65 : load_local(10)
+  66 : not_equal_int
+  67 : branch(68, 98)
+  68 : load_local(1)
+  69 : call_stdfn(Succ, 6)
+  70 : store_local(1)
+  71 : load_local(1)
+  72 : load_local(0)
+  73 : load_field(1)
+  74 : load_element
+  75 : store_local(3)
+  76 : load_local(3)
+  77 : load_field(0)
+  78 : load_local(4)
+  79 : call_stdfn(Min, 8)
+  80 : store_local(4)
+  81 : load_local(3)
+  82 : load_field(0)
+  83 : load_local(5)
+  84 : call_stdfn(Max, 9)
+  85 : store_local(5)
+  86 : load_local(3)
+  87 : load_field(1)
+  88 : load_local(6)
+  89 : call_stdfn(Min, 8)
+  90 : store_local(6)
+  91 : load_local(3)
+  92 : load_field(1)
+  93 : load_local(7)
+  94 : call_stdfn(Max, 9)
+  95 : store_local(7)
+  96 : nop
+  97 : jump(64)
+  98 : nop
+  99 : jump(100)
+  100 : nop
+  101 : new_object(Rect)
+  102 : new_object(Point)
+  103 : load_local(4)
+  104 : load_local(6)
+  105 : call_ctor(Point, 1205691996, 2)
+  106 : new_object(Size)
+  107 : load_local(5)
+  108 : load_local(4)
+  109 : minus_real
+  110 : load_local(7)
+  111 : load_local(6)
+  112 : minus_real
+  113 : call_ctor(Size, 1205691996, 6)
+  114 : call_ctor(Rect, 1205691996, 9)
+  115 : store_local(8)
+  116 : nop
+  117 : jump(122)
+  118 : new_object(Rect)
+  119 : call_ctor(Rect, 1205691996, 8)
+  120 : store_local(8)
+  121 : jump(122)
+  122 : nop
+  123 : load_result_var(8)
+
+function 'Arrow.Bounds'
+definition
+common name 'Bounds'
+parameter 'this' index 0 type 'Arrow'
+object type 'Arrow'
+module id 1489900195
+id 45
+frame size: 11
+var
+  local 'i' index 1 type 'integer'
+  local 'n' index 2 type 'integer'
+  local 'p' index 3 type 'Point'
+  local 'minX' index 4 type 'real'
+  local 'maxX' index 5 type 'real'
+  local 'minY' index 6 type 'real'
+  local 'maxY' index 7 type 'real'
+  local '@result' index 8 type 'Rect'
+  local '@tmp0' index 9 type 'integer'
+  local '@tmp1' index 10 type 'integer'
+code
+  0 : receive(1)
+  1 : push_value(1410065407)
+  2 : int_to_real
+  3 : store_local(4)
+  4 : push_value(1)
+  5 : unary_minus_int
+  6 : int_to_real
+  7 : store_local(5)
+  8 : push_value(1410065407)
+  9 : int_to_real
+  10 : store_local(6)
+  11 : push_value(1)
+  12 : unary_minus_int
+  13 : int_to_real
+  14 : store_local(7)
+  15 : load_local(0)
+  16 : load_field(1)
+  17 : array_length
+  18 : store_local(2)
+  19 : jump(20)
+  20 : load_local(2)
+  21 : push_value(0)
+  22 : greater_int
+  23 : branch(24, 118)
+  24 : push_value(0)
+  25 : store_local(9)
+  26 : load_local(2)
+  27 : push_value(1)
+  28 : minus_int
+  29 : store_local(10)
+  30 : jump(31)
+  31 : load_local(9)
+  32 : load_local(10)
+  33 : less_or_equal_int
+  34 : branch(35, 100)
+  35 : load_local(9)
+  36 : store_local(1)
+  37 : load_local(1)
+  38 : load_local(0)
+  39 : load_field(1)
+  40 : load_element
+  41 : store_local(3)
+  42 : load_local(3)
+  43 : load_field(0)
+  44 : load_local(4)
+  45 : call_stdfn(Min, 8)
+  46 : store_local(4)
+  47 : load_local(3)
+  48 : load_field(0)
+  49 : load_local(5)
+  50 : call_stdfn(Max, 9)
+  51 : store_local(5)
+  52 : load_local(3)
+  53 : load_field(1)
+  54 : load_local(6)
+  55 : call_stdfn(Min, 8)
+  56 : store_local(6)
+  57 : load_local(3)
+  58 : load_field(1)
+  59 : load_local(7)
+  60 : call_stdfn(Max, 9)
+  61 : store_local(7)
+  62 : nop
+  63 : jump(64)
+  64 : load_local(1)
+  65 : load_local(10)
+  66 : not_equal_int
+  67 : branch(68, 98)
+  68 : load_local(1)
+  69 : call_stdfn(Succ, 6)
+  70 : store_local(1)
+  71 : load_local(1)
+  72 : load_local(0)
+  73 : load_field(1)
+  74 : load_element
+  75 : store_local(3)
+  76 : load_local(3)
+  77 : load_field(0)
+  78 : load_local(4)
+  79 : call_stdfn(Min, 8)
+  80 : store_local(4)
+  81 : load_local(3)
+  82 : load_field(0)
+  83 : load_local(5)
+  84 : call_stdfn(Max, 9)
+  85 : store_local(5)
+  86 : load_local(3)
+  87 : load_field(1)
+  88 : load_local(6)
+  89 : call_stdfn(Min, 8)
+  90 : store_local(6)
+  91 : load_local(3)
+  92 : load_field(1)
+  93 : load_local(7)
+  94 : call_stdfn(Max, 9)
+  95 : store_local(7)
+  96 : nop
+  97 : jump(64)
+  98 : nop
+  99 : jump(100)
+  100 : nop
+  101 : new_object(Rect)
+  102 : new_object(Point)
+  103 : load_local(4)
+  104 : load_local(6)
+  105 : call_ctor(Point, 1205691996, 2)
+  106 : new_object(Size)
+  107 : load_local(5)
+  108 : load_local(4)
+  109 : minus_real
+  110 : load_local(7)
+  111 : load_local(6)
+  112 : minus_real
+  113 : call_ctor(Size, 1205691996, 6)
+  114 : call_ctor(Rect, 1205691996, 9)
+  115 : store_local(8)
+  116 : nop
+  117 : jump(122)
+  118 : new_object(Rect)
+  119 : call_ctor(Rect, 1205691996, 8)
+  120 : store_local(8)
+  121 : jump(122)
+  122 : nop
+  123 : load_result_var(8)
+
+function 'CompoundShape.CombinedBounds'
+definition
+common name 'CombinedBounds'
+parameter 'this' index 0 type 'CompoundShape'
+object type 'CompoundShape'
+module id 1489900195
+id 51
+frame size: 8
+var
+  local 'i' index 1 type 'integer'
+  local 's' index 2 type 'Shape'
+  local 'bounds' index 3 type 'Rect'
+  local 'r' index 4 type 'Rect'
+  local '@result' index 5 type 'Rect'
+  local '@tmp0' index 6 type 'integer'
+  local '@tmp1' index 7 type 'integer'
+code
+  0 : receive(1)
+  1 : new_object(Rect)
+  2 : call_ctor(Rect, 1205691996, 8)
+  3 : store_local(3)
+  4 : push_value(0)
+  5 : store_local(6)
+  6 : load_local(0)
+  7 : load_field(1)
+  8 : push_value(1)
+  9 : minus_int
+  10 : store_local(7)
+  11 : jump(12)
+  12 : load_local(6)
+  13 : load_local(7)
+  14 : less_or_equal_int
+  15 : branch(16, 87)
+  16 : load_local(6)
+  17 : store_local(1)
+  18 : load_local(1)
+  19 : load_local(0)
+  20 : load_field(2)
+  21 : load_element
+  22 : store_local(2)
+  23 : load_local(2)
+  24 : load_local(2)
+  25 : call_virtual(Shape.Bounds, 3)
+  26 : store_local(4)
+  27 : jump(28)
+  28 : load_local(4)
+  29 : call_function(System.Graphics.Primitive:Rect.IsEmpty, 1205691996, 17)
+  30 : not_bool
+  31 : branch(32, 46)
+  32 : jump(33)
+  33 : load_local(3)
+  34 : call_function(System.Graphics.Primitive:Rect.IsEmpty, 1205691996, 17)
+  35 : branch(36, 39)
+  36 : load_local(4)
+  37 : store_local(3)
+  38 : jump(44)
+  39 : load_local(3)
+  40 : load_local(4)
+  41 : call_function(System.Graphics.Primitive:Union, 1205691996, 29)
+  42 : store_local(3)
+  43 : jump(44)
+  44 : nop
+  45 : jump(46)
+  46 : nop
+  47 : jump(48)
+  48 : load_local(1)
+  49 : load_local(7)
+  50 : not_equal_int
+  51 : branch(52, 85)
+  52 : load_local(1)
+  53 : call_stdfn(Succ, 6)
+  54 : store_local(1)
+  55 : load_local(1)
+  56 : load_local(0)
+  57 : load_field(2)
+  58 : load_element
+  59 : store_local(2)
+  60 : load_local(2)
+  61 : load_local(2)
+  62 : call_virtual(Shape.Bounds, 3)
+  63 : store_local(4)
+  64 : jump(65)
+  65 : load_local(4)
+  66 : call_function(System.Graphics.Primitive:Rect.IsEmpty, 1205691996, 17)
+  67 : not_bool
+  68 : branch(69, 83)
+  69 : jump(70)
+  70 : load_local(3)
+  71 : call_function(System.Graphics.Primitive:Rect.IsEmpty, 1205691996, 17)
+  72 : branch(73, 76)
+  73 : load_local(4)
+  74 : store_local(3)
+  75 : jump(81)
+  76 : load_local(3)
+  77 : load_local(4)
+  78 : call_function(System.Graphics.Primitive:Union, 1205691996, 29)
+  79 : store_local(3)
+  80 : jump(81)
+  81 : nop
+  82 : jump(83)
+  83 : nop
+  84 : jump(48)
+  85 : nop
+  86 : jump(87)
+  87 : nop
+  88 : load_local(3)
+  89 : store_local(5)
+  90 : nop
+  91 : load_result_var(5)
+
+constructor
+definition
+parameter 'this' index 0 type 'Color'
+object type 'Color'
+module id 1489900195
+id 0
+frame size: 1
+code
+  0 : receive(1)
+
+constructor
+definition
+parameter 'this' index 0 type 'Pen'
+object type 'Pen'
+module id 1489900195
+id 1
+frame size: 1
+code
+  0 : receive(1)
+
+constructor
+definition
+parameter 'this' index 0 type 'Brush'
+object type 'Brush'
+module id 1489900195
+id 2
+frame size: 1
+code
+  0 : receive(1)
+
+constructor
+definition
+parameter 'this' index 0 type 'Font'
+object type 'Font'
+module id 1489900195
+id 3
+frame size: 1
+code
+  0 : receive(1)
+
+constructor
+definition
+parameter 'this' index 0 type 'Padding'
+object type 'Padding'
+module id 1489900195
+id 4
+frame size: 1
+code
+  0 : receive(1)
+
+constructor
+definition
+parameter 'this' index 0 type 'Bitmap'
+object type 'Bitmap'
+module id 1489900195
+id 5
+frame size: 1
+code
+  0 : receive(1)
+
+constructor
+definition
+parameter 'this' index 0 type 'Line'
+object type 'Line'
+module id 1489900195
+id 6
+frame size: 1
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : call_ctor(Shape, 1489900195, 33)
+
+constructor
+definition
+parameter 'this' index 0 type 'Arrow'
+object type 'Arrow'
+module id 1489900195
+id 7
+frame size: 1
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : call_ctor(Shape, 1489900195, 33)
+
+constructor
+definition
+parameter 'this' index 0 type 'Color'
+parameter 'a' index 1 type 'Byte'
+parameter 'r' index 2 type 'Byte'
+parameter 'g' index 3 type 'Byte'
+parameter 'b' index 4 type 'Byte'
+object type 'Color'
+module id 1489900195
+id 10
+frame size: 5
+code
+  0 : receive(5)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : load_local(3)
+  8 : load_local(0)
+  9 : store_field(2)
+  10 : load_local(4)
+  11 : load_local(0)
+  12 : store_field(3)
+  13 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Pen'
+parameter 'color' index 1 type 'Color'
+object type 'Pen'
+module id 1489900195
+id 11
+frame size: 2
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : push_value(1)
+  5 : push_value(96)
+  6 : call_function(System.Graphics:PixelsToMM, 1489900195, 9)
+  7 : load_local(0)
+  8 : store_field(1)
+  9 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Pen'
+parameter 'color' index 1 type 'Color'
+parameter 'width' index 2 type 'real'
+object type 'Pen'
+module id 1489900195
+id 12
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Brush'
+parameter 'color' index 1 type 'Color'
+object type 'Brush'
+module id 1489900195
+id 13
+frame size: 2
+code
+  0 : receive(2)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Font'
+parameter 'family' index 1 type 'string'
+parameter 'size' index 2 type 'real'
+parameter 'style' index 3 type 'integer'
+object type 'Font'
+module id 1489900195
+id 14
+frame size: 4
+code
+  0 : receive(4)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : load_local(3)
+  8 : load_local(0)
+  9 : store_field(2)
+  10 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Padding'
+parameter 'left' index 1 type 'real'
+parameter 'top' index 2 type 'real'
+parameter 'right' index 3 type 'real'
+parameter 'bottom' index 4 type 'real'
+object type 'Padding'
+module id 1489900195
+id 15
+frame size: 5
+code
+  0 : receive(5)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : load_local(3)
+  8 : load_local(0)
+  9 : store_field(2)
+  10 : load_local(4)
+  11 : load_local(0)
+  12 : store_field(3)
+  13 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Graphics'
+object type 'Graphics'
+module id 1489900195
+id 19
+frame size: 1
+code
+  0 : receive(1)
+  1 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Bitmap'
+parameter 'x' index 1 type 'integer'
+parameter 'y' index 2 type 'integer'
+object type 'Bitmap'
+module id 1489900195
+id 28
+frame size: 3
+code
+  0 : receive(3)
+  1 : load_local(1)
+  2 : load_local(0)
+  3 : store_field(0)
+  4 : load_local(2)
+  5 : load_local(0)
+  6 : store_field(1)
+  7 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Shape'
+object type 'Shape'
+module id 1489900195
+id 33
+frame size: 1
+code
+  0 : receive(1)
+  1 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Line'
+parameter 'routingPoints' index 1 type 'PointArray'
+object type 'Line'
+module id 1489900195
+id 38
+frame size: 2
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : call_ctor(Shape, 1489900195, 33)
+  3 : load_local(1)
+  4 : load_local(0)
+  5 : store_field(1)
+  6 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'Arrow'
+parameter 'routingPoints' index 1 type 'PointArray'
+object type 'Arrow'
+module id 1489900195
+id 42
+frame size: 2
+code
+  0 : receive(2)
+  1 : load_local(0)
+  2 : call_ctor(Shape, 1489900195, 33)
+  3 : load_local(1)
+  4 : load_local(0)
+  5 : store_field(1)
+  6 : push_value(3)
+  7 : int_to_real
+  8 : load_local(0)
+  9 : store_field(2)
+  10 : push_value(2)
+  11 : int_to_real
+  12 : load_local(0)
+  13 : store_field(3)
+  14 : nop
+
+constructor
+definition
+parameter 'this' index 0 type 'CompoundShape'
+object type 'CompoundShape'
+module id 1489900195
+id 46
+frame size: 1
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : call_ctor(Shape, 1489900195, 33)
+  3 : push_value(0)
+  4 : load_local(0)
+  5 : store_field(1)
+  6 : push_value(4)
+  7 : new_array(ShapeArray)
+  8 : load_local(0)
+  9 : store_field(2)
+  10 : nop
+
+procedure 'System.Graphics.@init'
+definition
+module id 1489900195
+id 52
+frame size: 4
+code
+  0 : receive(0)
+  1 : new_object(Color)
+  2 : push_value(255)
+  3 : push_value(0)
+  4 : push_value(0)
+  5 : push_value(0)
+  6 : call_ctor(Color, 1489900195, 10)
+  7 : store_global(0)
+  8 : new_object(Color)
+  9 : push_value(255)
+  10 : push_value(255)
+  11 : push_value(255)
+  12 : push_value(255)
+  13 : call_ctor(Color, 1489900195, 10)
+  14 : store_global(1)
+  15 : new_object(Pen)
+  16 : load_global(0)
+  17 : call_ctor(Pen, 1489900195, 11)
+  18 : store_global(2)
+  19 : new_object(Brush)
+  20 : load_global(0)
+  21 : call_ctor(Brush, 1489900195, 13)
+  22 : store_global(3)
+  23 : nop
+

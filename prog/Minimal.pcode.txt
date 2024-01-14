@@ -1,0 +1,12 @@
+module Minimal, id=1418421296
+implementation
+uses System
+procedure '@program'
+definition
+module id 1418421296
+id 1
+frame size: 0
+code
+  0 : receive(0)
+  1 : nop
+

@@ -1,0 +1,45 @@
+// =================================
+// Copyright (c) 2023 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.lexer;
+
+import p.token;
+import p.keyword;
+import p.expr;
+
+lexer PLexer
+{
+    rules
+    {
+        "{separators}" {}
+        "{id}" { auto& token = lexer.CurrentToken(); int64_t kw = lexer.GetKeywordToken(token.match); if (kw == soul::lexer::INVALID_TOKEN) return ID; else return kw; }
+        "{integer}" { return INTEGER_LITERAL; }
+        "{real}" { return REAL_LITERAL; }
+        "{quoted_string}" { return QUOTED_STRING; }
+        "{control_string}" { return CONTROL_STRING; }
+        "=" { return EQUAL; }
+        "<>" { return NOT_EQUAL; }
+        "<=" { return LESS_EQUAL; }
+        ">=" { return GREATER_EQUAL; }
+        "<" { return LESS; }
+        ">" { return GREATER; }
+        "\+" { return PLUS; }
+        "-" { return MINUS; }
+        "\*" { return STAR; }
+        "/" { return SLASH; }
+        "\.\." { return DOTDOT; }
+        "\." { return DOT; }
+        "\[" { return LBRACKET; }
+        "\]" { return RBRACKET; }
+        "\(" { return LPAREN; }
+        "\)" { return RPAREN; }
+        "\{" { return LBRACE; }
+        "\}" { return RBRACE; }
+        "," { return COMMA; }
+        ":=" { return ASSIGN; }
+        ":" { return COLON; }
+        ";" { return SEMICOLON; }
+    }
+}

@@ -1,0 +1,5 @@
+project p;
+tokens <p.token>;
+keywords <p.keyword>;
+expressions <p.expr>;
+lexer <p.lexer>;

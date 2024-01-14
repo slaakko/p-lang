@@ -1,0 +1,88 @@
+<parserFile>
+ <grammar name="ParameterParser">
+  <rule first="{LPAREN}" name="ParameterList">
+   <sequence first="{LPAREN}">
+    <sequence first="{LPAREN}">
+     <token first="{LPAREN}" name="LPAREN"/>
+     <optional first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SEMICOLON, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}">
+      <group first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SEMICOLON, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}">
+       <sequence first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SEMICOLON, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}">
+        <nonterminal first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}" ruleName="ParameterDeclaration"/>
+        <kleene first="{#, SEMICOLON}">
+         <group first="{SEMICOLON}">
+          <sequence first="{SEMICOLON}">
+           <token first="{SEMICOLON}" name="SEMICOLON"/>
+           <nonterminal first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}" ruleName="ParameterDeclaration"/>
+          </sequence>
+         </group>
+        </kleene>
+       </sequence>
+      </group>
+     </optional>
+    </sequence>
+    <token first="{RPAREN}" name="RPAREN"/>
+   </sequence>
+  </rule>
+  <rule first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}" name="ParameterDeclaration">
+   <action first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}">
+    <group first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}">
+     <sequence first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, COLON, CONST, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, VAR, XOR}">
+      <sequence first="{#, COLON, CONST, ID, VAR}">
+       <sequence first="{#, CONST, ID, VAR}">
+        <nonterminal first="{#, CONST, VAR}" ruleName="ParameterQualifier"/>
+        <nonterminal first="{ID}" ruleName="IdentifierList"/>
+       </sequence>
+       <token first="{COLON}" name="COLON"/>
+      </sequence>
+      <nonterminal first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="ParameterType"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{#, CONST, VAR}" name="ParameterQualifier">
+   <choice first="{#, CONST, VAR}">
+    <switch first="{CONST, VAR}">
+     <case first="{VAR}">
+      <action first="{VAR}">
+       <token first="{VAR}" name="VAR"/>
+      </action>
+     </case>
+     <case first="{CONST}">
+      <action first="{CONST}">
+       <token first="{CONST}" name="CONST"/>
+      </action>
+     </case>
+    </switch>
+    <action first="{#}">
+     <empty first="{#}"/>
+    </action>
+   </choice>
+  </rule>
+  <rule first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" name="ParameterType">
+   <action first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+    <nonterminal first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="Type"/>
+   </action>
+  </rule>
+  <rule first="{ID}" name="IdentifierList">
+   <action first="{ID}">
+    <group first="{ID}">
+     <sequence first="{ID}">
+      <action first="{ID}">
+       <token first="{ID}" name="ID"/>
+      </action>
+      <kleene first="{#, COMMA}">
+       <group first="{COMMA}">
+        <sequence first="{COMMA}">
+         <token first="{COMMA}" name="COMMA"/>
+         <action first="{ID}">
+          <token first="{ID}" name="ID"/>
+         </action>
+        </sequence>
+       </group>
+      </kleene>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+ </grammar>
+</parserFile>

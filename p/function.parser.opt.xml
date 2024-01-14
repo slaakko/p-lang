@@ -1,0 +1,100 @@
+<parserFile>
+ <grammar name="FunctionParser">
+  <rule first="{FUNCTION}" name="FunctionDeclaration">
+   <sequence first="{FUNCTION}">
+    <sequence first="{FUNCTION}">
+     <sequence first="{FUNCTION}">
+      <action first="{FUNCTION}">
+       <nonterminal first="{FUNCTION}" ruleName="FunctionHeading"/>
+      </action>
+      <token first="{SEMICOLON}" name="SEMICOLON"/>
+     </sequence>
+     <nonterminal first="{#, BEGIN, CONST, CONSTRUCTOR, EXTERNAL, FORWARD, FUNCTION, PROCEDURE, TYPE, VAR}" ruleName="SubroutineBlock"/>
+    </sequence>
+    <action first="{SEMICOLON}">
+     <token first="{SEMICOLON}" name="SEMICOLON"/>
+    </action>
+   </sequence>
+  </rule>
+  <rule first="{FUNCTION}" name="FunctionHeading">
+   <action first="{FUNCTION}">
+    <group first="{FUNCTION}">
+     <sequence first="{FUNCTION}">
+      <sequence first="{FUNCTION}">
+       <sequence first="{FUNCTION}">
+        <sequence first="{FUNCTION}">
+         <token first="{FUNCTION}" name="FUNCTION"/>
+         <action first="{ID}">
+          <nonterminal first="{ID}" ruleName="FunctionName"/>
+         </action>
+        </sequence>
+        <nonterminal first="{LPAREN}" ruleName="ParameterList"/>
+       </sequence>
+       <token first="{COLON}" name="COLON"/>
+      </sequence>
+      <action first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}">
+       <nonterminal first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" ruleName="ResultType"/>
+      </action>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{ID}" name="FunctionName">
+   <choice first="{ID}">
+    <sequence first="{ID}">
+     <sequence first="{ID}">
+      <action first="{ID}">
+       <token first="{ID}" name="ID"/>
+      </action>
+      <token first="{DOT}" name="DOT"/>
+     </sequence>
+     <action first="{ID}">
+      <token first="{ID}" name="ID"/>
+     </action>
+    </sequence>
+    <action first="{ID}">
+     <token first="{ID}" name="ID"/>
+    </action>
+   </choice>
+  </rule>
+  <rule first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" name="ResultType">
+   <switch first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}">
+    <case first="{ID}">
+     <action first="{ID}">
+      <nonterminal first="{ID}" ruleName="TypeIdentifier"/>
+     </action>
+    </case>
+    <case first="{INTEGER}">
+     <action first="{INTEGER}">
+      <token first="{INTEGER}" name="INTEGER"/>
+     </action>
+    </case>
+    <case first="{REAL}">
+     <action first="{REAL}">
+      <token first="{REAL}" name="REAL"/>
+     </action>
+    </case>
+    <case first="{CHAR}">
+     <action first="{CHAR}">
+      <token first="{CHAR}" name="CHAR"/>
+     </action>
+    </case>
+    <case first="{BOOLEAN}">
+     <action first="{BOOLEAN}">
+      <token first="{BOOLEAN}" name="BOOLEAN"/>
+     </action>
+    </case>
+    <case first="{STRING}">
+     <action first="{STRING}">
+      <token first="{STRING}" name="STRING"/>
+     </action>
+    </case>
+    <case first="{POINTER}">
+     <action first="{POINTER}">
+      <token first="{POINTER}" name="POINTER"/>
+     </action>
+    </case>
+   </switch>
+  </rule>
+ </grammar>
+</parserFile>

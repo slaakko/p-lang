@@ -1,0 +1,14 @@
+module Hello, id=1925189483
+implementation
+uses System
+procedure '@program'
+definition
+module id 1925189483
+id 1
+frame size: 0
+code
+  0 : receive(0)
+  1 : push_value('Hello, world!')
+  2 : call_stdproc(Writeln, 1)
+  3 : nop
+
