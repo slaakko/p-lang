@@ -552,27 +552,8 @@ void Writeln::Execute(ExecutionContext* context)
     std::cout << "\n";
 }
 
-class StandardFunctionRepository
+StandardFunctionRepository::StandardFunctionRepository() 
 {
-public:
-    StandardFunctionRepository();
-    static StandardFunctionRepository& Instance();
-    void AddStandardFunction(StandardFunction* standardFunction);
-    StandardFunction* GetStandardFunction(int32_t id) const;
-    StandardFunction* GetStandardFunction(const std::string& fullName) const;
-private:
-    std::vector<std::unique_ptr<StandardFunction>> standardFunctions;
-    std::map<std::string, StandardFunction*> standardFunctionMap;
-};
-
-StandardFunctionRepository::StandardFunctionRepository()
-{
-}
-
-StandardFunctionRepository& StandardFunctionRepository::Instance()
-{
-    static StandardFunctionRepository instance;
-    return instance;
 }
 
 void StandardFunctionRepository::AddStandardFunction(StandardFunction* standardFunction)
@@ -609,38 +590,41 @@ StandardFunction* StandardFunctionRepository::GetStandardFunction(const std::str
 
 void AddStandardFunctions(Block* block)
 {
+    if (block->StandardFunctionsAdded()) return;
+    block->SetStandardFunctionsAdded();
+    StandardFunctionRepository* standardFunctionRepository = block->GetStandardFunctionRepository();
     Ord* ord = new Ord();
-    StandardFunctionRepository::Instance().AddStandardFunction(ord);
+    standardFunctionRepository->AddStandardFunction(ord);
     block->AddFunction(ord);
     Chr* chr = new Chr();
-    StandardFunctionRepository::Instance().AddStandardFunction(chr);
+    standardFunctionRepository->AddStandardFunction(chr);
     block->AddFunction(chr);
     Sin* sin = new Sin();
-    StandardFunctionRepository::Instance().AddStandardFunction(sin);
+    standardFunctionRepository->AddStandardFunction(sin);
     block->AddFunction(sin);
     Cos* cos = new Cos();
-    StandardFunctionRepository::Instance().AddStandardFunction(cos);
+    standardFunctionRepository->AddStandardFunction(cos);
     block->AddFunction(cos);
     ArcTan* arcTan = new ArcTan();
-    StandardFunctionRepository::Instance().AddStandardFunction(arcTan);
+    standardFunctionRepository->AddStandardFunction(arcTan);
     block->AddFunction(arcTan);
     Abs* abs = new Abs();
-    StandardFunctionRepository::Instance().AddStandardFunction(abs);
+    standardFunctionRepository->AddStandardFunction(abs);
     block->AddFunction(abs);
     Succ* succ = new Succ();
-    StandardFunctionRepository::Instance().AddStandardFunction(succ);
+    standardFunctionRepository->AddStandardFunction(succ);
     block->AddFunction(succ);
     Pred* pred= new Pred();
-    StandardFunctionRepository::Instance().AddStandardFunction(pred);
+    standardFunctionRepository->AddStandardFunction(pred);
     block->AddFunction(pred);
     Min* min = new Min();
-    StandardFunctionRepository::Instance().AddStandardFunction(min);
+    standardFunctionRepository->AddStandardFunction(min);
     block->AddFunction(min);
     Max* max = new Max();
-    StandardFunctionRepository::Instance().AddStandardFunction(max);
+    standardFunctionRepository->AddStandardFunction(max);
     block->AddFunction(max);
     Sqrt* sqrt = new Sqrt();
-    StandardFunctionRepository::Instance().AddStandardFunction(sqrt);
+    standardFunctionRepository->AddStandardFunction(sqrt);
     block->AddFunction(sqrt);
 }
 
@@ -648,44 +632,23 @@ void SetStandardFunctionReturnTypes(Block* block)
 {
     if (block->ReturnTypesSet()) return;
     block->SetReturnTypesSet();
-    Function* ord = StandardFunctionRepository::Instance().GetStandardFunction("Ord");
+    StandardFunctionRepository* standardFunctionRepository = block->GetStandardFunctionRepository();
+    Function* ord = standardFunctionRepository->GetStandardFunction("Ord");
     ord->GetFunctionHeading()->SetResultType(block->GetFundamentalType(TypeKind::integerType));
-    Function* chr = StandardFunctionRepository::Instance().GetStandardFunction("Chr");
+    Function* chr = standardFunctionRepository->GetStandardFunction("Chr");
     chr->GetFunctionHeading()->SetResultType(block->GetFundamentalType(TypeKind::charType));
-    Function* sin = StandardFunctionRepository::Instance().GetStandardFunction("Sin");
+    Function* sin = standardFunctionRepository->GetStandardFunction("Sin");
     sin->GetFunctionHeading()->SetResultType(block->GetFundamentalType(TypeKind::realType));
-    Function* cos = StandardFunctionRepository::Instance().GetStandardFunction("Cos");
+    Function* cos = standardFunctionRepository->GetStandardFunction("Cos");
     cos->GetFunctionHeading()->SetResultType(block->GetFundamentalType(TypeKind::realType));
-    Function* arcTan = StandardFunctionRepository::Instance().GetStandardFunction("ArcTan");
+    Function* arcTan = standardFunctionRepository->GetStandardFunction("ArcTan");
     arcTan->GetFunctionHeading()->SetResultType(block->GetFundamentalType(TypeKind::realType));
-    Function* sqrt = StandardFunctionRepository::Instance().GetStandardFunction("Sqrt");
+    Function* sqrt = standardFunctionRepository->GetStandardFunction("Sqrt");
     sqrt->GetFunctionHeading()->SetResultType(block->GetFundamentalType(TypeKind::realType));
 }
 
-StandardFunction* GetStandardFunction(int32_t standardFunctionId)
+StandardProcedureRepository::StandardProcedureRepository() 
 {
-    return StandardFunctionRepository::Instance().GetStandardFunction(standardFunctionId);
-}
-
-class StandardProcedureRepository
-{
-public:
-    StandardProcedureRepository();
-    static StandardProcedureRepository& Instance();
-    void AddStandardProcedure(StandardProcedure* standardProcedure);
-    StandardProcedure* GetStandardProcedure(int32_t id) const;
-private:
-    std::vector<std::unique_ptr<StandardProcedure>> standardProcedures;
-};
-
-StandardProcedureRepository::StandardProcedureRepository()
-{
-}
-
-StandardProcedureRepository& StandardProcedureRepository::Instance()
-{
-    static StandardProcedureRepository instance;
-    return instance;
 }
 
 void StandardProcedureRepository::AddStandardProcedure(StandardProcedure* standardProcedure)
@@ -706,20 +669,17 @@ StandardProcedure* StandardProcedureRepository::GetStandardProcedure(int32_t id)
     }
 }
 
-
 void AddStandardProcedures(Block* block)
 {
+    if (block->StandardProceduresAdded()) return;
+    block->SetStandardProceduresAdded();
+    StandardProcedureRepository* standardProcedureRepository = block->GetStandardProcedureRepository();
     Write* write = new Write();
-    StandardProcedureRepository::Instance().AddStandardProcedure(write);
+    standardProcedureRepository->AddStandardProcedure(write);
     block->AddProcedure(write);
     Writeln* writeln = new Writeln();
-    StandardProcedureRepository::Instance().AddStandardProcedure(writeln);
+    standardProcedureRepository->AddStandardProcedure(writeln);
     block->AddProcedure(writeln);
-}
-
-StandardProcedure* GetStandardProcedure(int32_t standardProcedureId)
-{
-    return StandardProcedureRepository::Instance().GetStandardProcedure(standardProcedureId);
 }
 
 } // namespace p

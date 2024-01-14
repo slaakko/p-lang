@@ -1088,13 +1088,23 @@ void CallStdProcInstruction::Read(Reader& reader)
 
 std::string CallStdProcInstruction::ToString(ExecutionContext* context) const
 {
-    Procedure* stdProcedure = GetStandardProcedure(stdprocId);
+    StandardProcedureRepository* standardProcedureRepository = context->GetBlock()->GetStandardProcedureRepository();
+    if (!standardProcedureRepository)
+    {
+        throw std::runtime_error("call_stdproc: standard procedure repository not set");
+    }
+    Procedure* stdProcedure = standardProcedureRepository->GetStandardProcedure(stdprocId);
     return Instruction::ToString(context) + "(" + stdProcedure->InfoName() + ", " + std::to_string(stdprocId) + ")";
 }
 
 Instruction* CallStdProcInstruction::Execute(ExecutionContext* context)
 {
-    Procedure* stdProcedure = GetStandardProcedure(stdprocId);
+    StandardProcedureRepository* standardProcedureRepository = context->GetBlock()->GetStandardProcedureRepository();
+    if (!standardProcedureRepository)
+    {
+        throw std::runtime_error("call_stdproc: standard procedure repository not set");
+    }
+    Procedure* stdProcedure = standardProcedureRepository->GetStandardProcedure(stdprocId);
     context->PushArgumentCount(argumentCount);
     stdProcedure->Execute(context);
     context->PopArgumentCount();
@@ -1192,13 +1202,23 @@ void CallStdFnInstruction::Read(Reader& reader)
 
 std::string CallStdFnInstruction::ToString(ExecutionContext* context) const
 {
-    Function* stdFunction = GetStandardFunction(stdfnId);
+    StandardFunctionRepository* standardFunctionRepository = context->GetBlock()->GetStandardFunctionRepository();
+    if (!standardFunctionRepository)
+    {
+        throw std::runtime_error("call_stdfn: standard function repository not set");
+    }
+    Function* stdFunction = standardFunctionRepository->GetStandardFunction(stdfnId);
     return Instruction::ToString(context) + "(" + stdFunction->InfoName() + ", " + std::to_string(stdfnId) + ")";
 }
 
 Instruction* CallStdFnInstruction::Execute(ExecutionContext* context)
 {
-    Function* stdFunction = GetStandardFunction(stdfnId);
+    StandardFunctionRepository* standardFunctionRepository = context->GetBlock()->GetStandardFunctionRepository();
+    if (!standardFunctionRepository)
+    {
+        throw std::runtime_error("call_stdfn: standard function repository not set");
+    }
+    Function* stdFunction = standardFunctionRepository->GetStandardFunction(stdfnId);
     context->PushArgumentCount(argumentCount);
     stdFunction->Execute(context);
     context->PopArgumentCount();

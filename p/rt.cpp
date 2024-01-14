@@ -84,6 +84,146 @@ ExternalSubroutine::ExternalSubroutine(const std::string& name_) : Subroutine(Su
 {
 }
 
+class IntToStringFunction : public ExternalSubroutine
+{
+public:
+    IntToStringFunction();
+    void Execute(ExecutionContext* context) override;
+};
+
+IntToStringFunction::IntToStringFunction() : ExternalSubroutine("IntToString")
+{
+}
+
+void IntToStringFunction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    Heap* heap = context->GetHeap();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsValueObject())
+    {
+        Value* value = static_cast<Value*>(obj);
+        if (value->IsIntegerValue())
+        {
+            int32_t intValue = value->ToInteger();
+            std::string s = std::to_string(intValue);
+            StringObject* stringObject = heap->AllocateString(s, context);
+            stack->Push(new StringObjectPtr(stringObject));
+        }
+        else
+        {
+            throw std::runtime_error("IntToString: integer value expected");
+        }
+    }
+    else
+    {
+        throw std::runtime_error("IntToString: value object expected");
+    }
+}
+
+class RealToStringFunction : public ExternalSubroutine
+{
+public:
+    RealToStringFunction();
+    void Execute(ExecutionContext* context) override;
+};
+
+RealToStringFunction::RealToStringFunction() : ExternalSubroutine("RealToString")
+{
+}
+
+void RealToStringFunction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    Heap* heap = context->GetHeap();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsValueObject())
+    {
+        Value* value = static_cast<Value*>(obj);
+        if (value->IsIntegerValue() || value->IsRealValue())
+        {
+            float realValue = value->ToReal();
+            std::string s;
+            if (realValue == static_cast<int32_t>(realValue))
+            {
+                s = std::to_string(static_cast<int32_t>(realValue));
+            }
+            else
+            {
+                s = std::to_string(realValue);
+            }
+            StringObject* stringObject = heap->AllocateString(s, context);
+            stack->Push(new StringObjectPtr(stringObject));
+        }
+        else
+        {
+            throw std::runtime_error("RealToString: real or integer value expected");
+        }
+    }
+    else
+    {
+        throw std::runtime_error("RealToString: value object expected");
+    }
+}
+
+class ParseIntFunction : public ExternalSubroutine
+{
+public:
+    ParseIntFunction();
+    void Execute(ExecutionContext* context) override;
+};
+
+ParseIntFunction::ParseIntFunction() : ExternalSubroutine("ParseInt")
+{
+}
+
+void ParseIntFunction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsStringObject() || obj->IsValueObject() && static_cast<Value*>(obj)->IsStringValue())
+    {
+        std::string s = obj->ToString();
+        int32_t x = std::stoi(s);
+        stack->Push(new IntegerValue(x));
+    }
+    else
+    {
+        throw std::runtime_error("ParseInt: string object expected");
+    }
+}
+
+class ParseRealFunction : public ExternalSubroutine
+{
+public:
+    ParseRealFunction();
+    void Execute(ExecutionContext* context) override;
+};
+
+ParseRealFunction::ParseRealFunction() : ExternalSubroutine("ParseReal")
+{
+}
+
+void ParseRealFunction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsStringObject() || obj->IsValueObject() && static_cast<Value*>(obj)->IsStringValue())
+    {
+        std::string s = obj->ToString();
+        float x = std::stof(s);
+        stack->Push(new RealValue(x));
+    }
+    else
+    {
+        throw std::runtime_error("ParseInt: string object expected");
+    }
+}
+
 class BitmapGetGraphicsMethod : public ExternalSubroutine
 {
 public:
@@ -369,6 +509,10 @@ Rt::Rt()
     {
         throw std::runtime_error("GDI+ initialization failed");
     }
+    AddExternalSubroutine(new IntToStringFunction());
+    AddExternalSubroutine(new RealToStringFunction());
+    AddExternalSubroutine(new ParseIntFunction());
+    AddExternalSubroutine(new ParseRealFunction());
     AddExternalSubroutine(new BitmapGetGraphicsMethod());
     AddExternalSubroutine(new GraphicsClearMethod());
     AddExternalSubroutine(new GraphicsDrawLineMethod());

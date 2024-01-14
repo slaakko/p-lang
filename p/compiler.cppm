@@ -12,7 +12,7 @@ export namespace p {
 
 enum class CompileFlags
 {
-    none = 0, update = 1 << 0
+    none = 0, update = 1 << 0, rebuild = 1 << 1
 };
 
 constexpr CompileFlags operator|(CompileFlags left, CompileFlags right)

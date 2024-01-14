@@ -579,9 +579,9 @@ Module* ModuleMap::GetModule(const std::string& moduleName, Context* context)
             mod->SetFilePath();
             moduleMap[moduleName] = mod.get();
             mod->LoadHeader(mod->FilePath(), context);
-            if (GetCompileFlag(CompileFlags::update))
+            if (GetCompileFlag(CompileFlags::update | CompileFlags::rebuild))
             {
-                if ((context->UpdateUnits() || !mod->IsUpToDate(context)) && !context->UnitUpdated(mod->Name()))
+                if ((GetCompileFlag(CompileFlags::rebuild) || context->UpdateUnits() || !mod->IsUpToDate(context)) && !context->UnitUpdated(mod->Name()))
                 {
                     Compile(mod->SourceFilePath(), context);
                     context->AddUpdatedUnit(moduleName);

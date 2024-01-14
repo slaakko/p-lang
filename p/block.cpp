@@ -19,16 +19,20 @@ import p.execute;
 
 namespace p {
 
-Block::Block() : parent(nullptr), subroutine(nullptr), operatorFunctionsAdded(false), returnTypesSet(false), level(0)
+Block::Block() : 
+    parent(nullptr), subroutine(nullptr), operatorFunctionsAdded(false), returnTypesSet(false), standardFunctionsAdded(false), standardProceduresAdded(false), level(0)
 {
     globalTypeMap.reset(new GlobalTypeMap());
     globalConstantMap.reset(new GlobalConstantMap());
     globalVariableMap.reset(new GlobalVariableMap());
+    standardProcedureRepository.reset(new StandardProcedureRepository());
+    standardFunctionRepository.reset(new StandardFunctionRepository());
     p::AddStandardFunctions(this);
     p::AddStandardProcedures(this);
 }
 
-Block::Block(Block* parent_) : parent(parent_), subroutine(nullptr), operatorFunctionsAdded(false), returnTypesSet(false), level(0)
+Block::Block(Block* parent_) : 
+    parent(parent_), subroutine(nullptr), operatorFunctionsAdded(false), returnTypesSet(false), standardFunctionsAdded(false), standardProceduresAdded(false), level(0)
 {
 }
 
@@ -717,6 +721,38 @@ GlobalVariableMap* Block::GetGlobalVariableMap() const
     else if (parent)
     {
         return parent->GetGlobalVariableMap();
+    }
+    else
+    {
+        return nullptr;
+    }
+}
+
+StandardProcedureRepository* Block::GetStandardProcedureRepository() const
+{
+    if (standardProcedureRepository)
+    {
+        return standardProcedureRepository.get();
+    }
+    else if (parent)
+    {
+        return parent->GetStandardProcedureRepository();
+    }
+    else
+    {
+        return nullptr;
+    }
+}
+
+StandardFunctionRepository* Block::GetStandardFunctionRepository() const
+{
+    if (standardFunctionRepository)
+    {
+        return standardFunctionRepository.get();
+    }
+    else if (parent)
+    {
+        return parent->GetStandardFunctionRepository();
     }
     else
     {

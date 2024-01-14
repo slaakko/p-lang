@@ -128,7 +128,7 @@ int main(int argc, const char** argv)
                 std::string options(arg.substr(1));
                 if (options.find('=') != std::string::npos)
                 {
-                    std::vector<std::string> components = util::Split(arg, '=');
+                    std::vector<std::string> components = util::Split(options, '=');
                     if (components.size() == 2)
                     {
                         if (components[0] == "s")

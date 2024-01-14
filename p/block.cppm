@@ -9,6 +9,7 @@ import p.type;
 import p.constant;
 import p.variable;
 import p.subroutine;
+import p.stdfn;
 import soul.lexer;
 import util;
 import std.core;
@@ -65,6 +66,8 @@ public:
     GlobalTypeMap* GetGlobalTypeMap() const;
     GlobalConstantMap* GetGlobalConstantMap() const;
     GlobalVariableMap* GetGlobalVariableMap() const;
+    StandardProcedureRepository* GetStandardProcedureRepository() const;
+    StandardFunctionRepository* GetStandardFunctionRepository() const;
     void ImportModules(ParsingContext* context);
     void Import(Module* mod);
     void Import(Block* blk, Module* mod);
@@ -75,6 +78,10 @@ public:
     void SetLevel(int32_t level_) { level = level_; }
     bool ReturnTypesSet() const { return returnTypesSet; }
     void SetReturnTypesSet() { returnTypesSet = true; }
+    bool StandardFunctionsAdded() const { return standardFunctionsAdded; }
+    void SetStandardFunctionsAdded() { standardFunctionsAdded = true; }
+    bool StandardProceduresAdded() const { return standardProceduresAdded; }
+    void SetStandardProceduresAdded() { standardProceduresAdded = true; }
 private:
     Block* parent;
     Subroutine* subroutine;
@@ -95,8 +102,12 @@ private:
     std::unique_ptr<GlobalTypeMap> globalTypeMap;
     std::unique_ptr<GlobalConstantMap> globalConstantMap;
     std::unique_ptr<GlobalVariableMap> globalVariableMap;
+    std::unique_ptr<StandardProcedureRepository> standardProcedureRepository;
+    std::unique_ptr<StandardFunctionRepository> standardFunctionRepository;
     bool operatorFunctionsAdded;
     bool returnTypesSet;
+    bool standardFunctionsAdded;
+    bool standardProceduresAdded;
 };
 
 void MakeVariables(ParsingContext* context, const std::vector<std::string>& variableNames, Type* type, soul::lexer::LexerBase<char>& lexer, int64_t pos);

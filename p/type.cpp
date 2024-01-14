@@ -902,7 +902,7 @@ Type* GlobalTypeMap::GetType(const util::uuid& id) const
     }
     else
     {
-        throw std::runtime_error("type not found from global type map");
+        throw std::runtime_error("error: type not found from global type map, try recompiling everything");
     }
 }
 
@@ -915,7 +915,7 @@ Type* GlobalTypeMap::GetType(const std::string& typeName) const
     }
     else
     {
-        throw std::runtime_error("type '" + typeName + "' not found from global type map");
+        throw std::runtime_error("error: type '" + typeName + "' not found from global type map, try recompiling everything");
     }
 }
 

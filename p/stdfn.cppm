@@ -162,11 +162,31 @@ public:
     void Execute(ExecutionContext* context) override;
 };
 
+class StandardProcedureRepository
+{
+public:
+    StandardProcedureRepository();
+    void AddStandardProcedure(StandardProcedure* standardProcedure);
+    StandardProcedure* GetStandardProcedure(int32_t id) const;
+private:
+    std::vector<std::unique_ptr<StandardProcedure>> standardProcedures;
+};
+
+class StandardFunctionRepository
+{
+public:
+    StandardFunctionRepository();
+    void AddStandardFunction(StandardFunction* standardFunction);
+    StandardFunction* GetStandardFunction(int32_t id) const;
+    StandardFunction* GetStandardFunction(const std::string& fullName) const;
+private:
+    std::vector<std::unique_ptr<StandardFunction>> standardFunctions;
+    std::map<std::string, StandardFunction*> standardFunctionMap;
+};
+
 void AddStandardFunctions(Block* block);
-StandardFunction* GetStandardFunction(int32_t standardFunctionId);
 
 void AddStandardProcedures(Block* block);
-StandardProcedure* GetStandardProcedure(int32_t standardProcedureId);
 
 void SetStandardFunctionReturnTypes(Block* block);
 

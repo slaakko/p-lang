@@ -16,6 +16,8 @@ void PrintHelp()
     std::cout << "  Print help and exit." << "\n";
     std::cout << "--verbose | -v" << "\n";
     std::cout << "  Be verbose." << "\n";
+    std::cout << "--rebuild | -r" << "\n";
+    std::cout << "  Rebuild units." << "\n";
     std::cout << "--update | -u" << "\n";
     std::cout << "  Update changed units." << "\n";
     std::cout << "\n";
@@ -40,6 +42,10 @@ int main(int argc, const char** argv)
                 if (arg == "--update")
                 {
                     compileFlags = compileFlags | p::CompileFlags::update;
+                }
+                else if (arg == "--rebuild")
+                {
+                    compileFlags = compileFlags | p::CompileFlags::rebuild;
                 }
                 else if (arg == "--help")
                 {
@@ -71,6 +77,11 @@ int main(int argc, const char** argv)
                         case 'u':
                         {
                             compileFlags = compileFlags | p::CompileFlags::update;
+                            break;
+                        }
+                        case 'r':
+                        {
+                            compileFlags = compileFlags | p::CompileFlags::rebuild;
                             break;
                         }
                         default:
