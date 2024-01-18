@@ -3,8 +3,190 @@ interface
 type
   subrange type 'Byte'
   0..255
+  object type 'StringBuilder'
+    fields:
+      'native' index 0 type 'pointer'
+    methods:
+      constructor
+      declaration
+      parameter 'this' index 0 type 'StringBuilder'
+      object type 'StringBuilder'
+      module id 1989286620
+      implementation id 5
+      frame size: 0
+
+      procedure 'StringBuilder.Clear'
+      declaration
+      common name 'Clear'
+      parameter 'this' index 0 type 'StringBuilder'
+      object type 'StringBuilder'
+      external
+      frame size: 0
+
+      procedure 'StringBuilder.AppendStr'
+      declaration
+      common name 'AppendStr'
+      parameter 'this' index 0 type 'StringBuilder'
+      parameter 's' index 1 type 'string'
+      object type 'StringBuilder'
+      external
+      frame size: 0
+
+      procedure 'StringBuilder.AppendChar'
+      declaration
+      common name 'AppendChar'
+      parameter 'this' index 0 type 'StringBuilder'
+      parameter 'c' index 1 type 'char'
+      object type 'StringBuilder'
+      external
+      frame size: 0
+
+      function 'StringBuilder.GetString'
+      declaration
+      common name 'GetString'
+      parameter 'this' index 0 type 'StringBuilder'
+      object type 'StringBuilder'
+      external
+      frame size: 0
+
 const
   constant 'pi'
     type 'real'
     value '3.141593'
+function 'IntToString'
+declaration
+common name 'IntToString'
+parameter 'x' index 0 type 'integer'
+module id 1989286620
+id 0
+implementation id 0
+frame size: 0
+
+function 'RealToString'
+declaration
+common name 'RealToString'
+parameter 'x' index 0 type 'real'
+module id 1989286620
+id 1
+implementation id 1
+frame size: 0
+
+function 'ParseInt'
+declaration
+common name 'ParseInt'
+parameter 'x' index 0 type 'string'
+module id 1989286620
+id 2
+implementation id 2
+frame size: 0
+
+function 'ParseReal'
+declaration
+common name 'ParseReal'
+parameter 'x' index 0 type 'string'
+module id 1989286620
+id 3
+implementation id 3
+frame size: 0
+
 implementation
+procedure 'InitStringBuilder'
+definition
+common name 'InitStringBuilder'
+parameter 's' index 0 type 'StringBuilder'
+external
+module id 1989286620
+id 4
+frame size: 0
+
+procedure 'StringBuilder.Clear'
+definition
+common name 'Clear'
+parameter 'this' index 0 type 'StringBuilder'
+object type 'StringBuilder'
+external
+module id 1989286620
+id 6
+frame size: 0
+
+procedure 'StringBuilder.AppendStr'
+definition
+common name 'AppendStr'
+parameter 'this' index 0 type 'StringBuilder'
+parameter 's' index 1 type 'string'
+object type 'StringBuilder'
+external
+module id 1989286620
+id 7
+frame size: 0
+
+procedure 'StringBuilder.AppendChar'
+definition
+common name 'AppendChar'
+parameter 'this' index 0 type 'StringBuilder'
+parameter 'c' index 1 type 'char'
+object type 'StringBuilder'
+external
+module id 1989286620
+id 8
+frame size: 0
+
+function 'IntToString'
+definition
+common name 'IntToString'
+parameter 'x' index 0 type 'integer'
+external
+module id 1989286620
+id 0
+frame size: 0
+
+function 'RealToString'
+definition
+common name 'RealToString'
+parameter 'x' index 0 type 'real'
+external
+module id 1989286620
+id 1
+frame size: 0
+
+function 'ParseInt'
+definition
+common name 'ParseInt'
+parameter 'x' index 0 type 'string'
+external
+module id 1989286620
+id 2
+frame size: 0
+
+function 'ParseReal'
+definition
+common name 'ParseReal'
+parameter 'x' index 0 type 'string'
+external
+module id 1989286620
+id 3
+frame size: 0
+
+function 'StringBuilder.GetString'
+definition
+common name 'GetString'
+parameter 'this' index 0 type 'StringBuilder'
+object type 'StringBuilder'
+external
+module id 1989286620
+id 9
+frame size: 0
+
+constructor
+definition
+parameter 'this' index 0 type 'StringBuilder'
+object type 'StringBuilder'
+module id 1989286620
+id 5
+frame size: 1
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : call_external(InitStringBuilder, 4)
+  3 : nop
+

@@ -856,14 +856,14 @@ code
   85 : load_local(0)
   86 : load_global(3)
   87 : load_local(15)
-  88 : call_external(Graphics.FillPolygon, 6)
+  88 : call_external(Graphics.FillPolygon, 16)
   89 : load_local(0)
   90 : load_global(2)
   91 : load_local(7)
   92 : load_field(0)
   93 : load_local(5)
   94 : load_field(1)
-  95 : call_external(Graphics.DrawLine, 2)
+  95 : call_external(Graphics.DrawLine, 12)
   96 : nop
 
 procedure 'DrawRoundedRectangle'
@@ -1104,22 +1104,22 @@ code
   211 : load_global(2)
   212 : load_local(8)
   213 : load_local(9)
-  214 : call_external(Graphics.DrawLine, 2)
+  214 : call_external(Graphics.DrawLine, 12)
   215 : load_local(0)
   216 : load_global(2)
   217 : load_local(10)
   218 : load_local(11)
-  219 : call_external(Graphics.DrawLine, 2)
+  219 : call_external(Graphics.DrawLine, 12)
   220 : load_local(0)
   221 : load_global(2)
   222 : load_local(12)
   223 : load_local(13)
-  224 : call_external(Graphics.DrawLine, 2)
+  224 : call_external(Graphics.DrawLine, 12)
   225 : load_local(0)
   226 : load_global(2)
   227 : load_local(14)
   228 : load_local(15)
-  229 : call_external(Graphics.DrawLine, 2)
+  229 : call_external(Graphics.DrawLine, 12)
   230 : load_local(0)
   231 : load_global(2)
   232 : load_local(3)
@@ -1127,7 +1127,7 @@ code
   234 : int_to_real
   235 : push_value(90)
   236 : int_to_real
-  237 : call_external(Graphics.DrawArc, 8)
+  237 : call_external(Graphics.DrawArc, 18)
   238 : load_local(0)
   239 : load_global(2)
   240 : load_local(4)
@@ -1136,7 +1136,7 @@ code
   243 : int_to_real
   244 : push_value(90)
   245 : int_to_real
-  246 : call_external(Graphics.DrawArc, 8)
+  246 : call_external(Graphics.DrawArc, 18)
   247 : load_local(0)
   248 : load_global(2)
   249 : load_local(5)
@@ -1144,7 +1144,7 @@ code
   251 : int_to_real
   252 : push_value(90)
   253 : int_to_real
-  254 : call_external(Graphics.DrawArc, 8)
+  254 : call_external(Graphics.DrawArc, 18)
   255 : load_local(0)
   256 : load_global(2)
   257 : load_local(6)
@@ -1153,7 +1153,7 @@ code
   260 : push_value(90)
   261 : unary_minus_int
   262 : int_to_real
-  263 : call_external(Graphics.DrawArc, 8)
+  263 : call_external(Graphics.DrawArc, 18)
   264 : nop
 
 procedure 'Shape.Print'
@@ -1323,7 +1323,7 @@ code
   36 : load_global(2)
   37 : load_local(4)
   38 : load_local(5)
-  39 : call_external(Graphics.DrawLine, 2)
+  39 : call_external(Graphics.DrawLine, 12)
   40 : nop
   41 : jump(42)
   42 : load_local(2)
@@ -1349,7 +1349,7 @@ code
   62 : load_global(2)
   63 : load_local(4)
   64 : load_local(5)
-  65 : call_external(Graphics.DrawLine, 2)
+  65 : call_external(Graphics.DrawLine, 12)
   66 : nop
   67 : jump(42)
   68 : nop
@@ -1495,7 +1495,7 @@ code
   43 : load_global(2)
   44 : load_local(4)
   45 : load_local(5)
-  46 : call_external(Graphics.DrawLine, 2)
+  46 : call_external(Graphics.DrawLine, 12)
   47 : jump(57)
   48 : load_local(1)
   49 : load_local(4)
@@ -1538,7 +1538,7 @@ code
   86 : load_global(2)
   87 : load_local(4)
   88 : load_local(5)
-  89 : call_external(Graphics.DrawLine, 2)
+  89 : call_external(Graphics.DrawLine, 12)
   90 : jump(100)
   91 : load_local(1)
   92 : load_local(4)

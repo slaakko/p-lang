@@ -1,0 +1,261 @@
+module Matrix, id=736502412
+implementation
+uses System
+procedure '@program'
+definition
+module id 736502412
+id 1
+frame size: 1
+type
+  array type 'Vector'
+    element type real
+
+  array type 'Matrix'
+    element type Vector
+
+var
+  local 'identityMatrix' index 0 type 'Matrix'
+procedure 'Print'
+definition
+common name 'Print'
+parameter 'matrix' index 0 type 'Matrix'
+module id 736502412
+id 2
+frame size: 13
+var
+  local 'n' index 1 type 'integer'
+  local 'm' index 2 type 'integer'
+  local 'i' index 3 type 'integer'
+  local 'j' index 4 type 'integer'
+  local 'v' index 5 type 'Vector'
+  local 'r' index 6 type 'real'
+  local '@tmp0' index 7 type 'integer'
+  local '@tmp1' index 8 type 'integer'
+  local '@tmp2' index 9 type 'integer'
+  local '@tmp3' index 10 type 'integer'
+  local '@tmp4' index 11 type 'integer'
+  local '@tmp5' index 12 type 'integer'
+code
+  0 : receive(1)
+  1 : load_local(0)
+  2 : array_length
+  3 : store_local(1)
+  4 : push_value(0)
+  5 : store_local(7)
+  6 : load_local(1)
+  7 : push_value(1)
+  8 : minus_int
+  9 : store_local(8)
+  10 : jump(11)
+  11 : load_local(7)
+  12 : load_local(8)
+  13 : less_or_equal_int
+  14 : branch(15, 142)
+  15 : load_local(7)
+  16 : store_local(3)
+  17 : load_local(3)
+  18 : load_local(0)
+  19 : load_element
+  20 : store_local(5)
+  21 : load_local(5)
+  22 : array_length
+  23 : store_local(2)
+  24 : push_value(0)
+  25 : store_local(9)
+  26 : load_local(2)
+  27 : push_value(1)
+  28 : minus_int
+  29 : store_local(10)
+  30 : jump(31)
+  31 : load_local(9)
+  32 : load_local(10)
+  33 : less_or_equal_int
+  34 : branch(35, 72)
+  35 : load_local(9)
+  36 : store_local(4)
+  37 : load_local(4)
+  38 : load_local(5)
+  39 : load_element
+  40 : store_local(6)
+  41 : push_value('(')
+  42 : load_local(3)
+  43 : push_value(', ')
+  44 : load_local(4)
+  45 : push_value(') = ')
+  46 : load_local(6)
+  47 : call_stdproc(Writeln, 1)
+  48 : nop
+  49 : jump(50)
+  50 : load_local(4)
+  51 : load_local(10)
+  52 : not_equal_int
+  53 : branch(54, 70)
+  54 : load_local(4)
+  55 : call_stdfn(Succ, 6)
+  56 : store_local(4)
+  57 : load_local(4)
+  58 : load_local(5)
+  59 : load_element
+  60 : store_local(6)
+  61 : push_value('(')
+  62 : load_local(3)
+  63 : push_value(', ')
+  64 : load_local(4)
+  65 : push_value(') = ')
+  66 : load_local(6)
+  67 : call_stdproc(Writeln, 1)
+  68 : nop
+  69 : jump(50)
+  70 : nop
+  71 : jump(72)
+  72 : nop
+  73 : nop
+  74 : jump(75)
+  75 : load_local(3)
+  76 : load_local(8)
+  77 : not_equal_int
+  78 : branch(79, 140)
+  79 : load_local(3)
+  80 : call_stdfn(Succ, 6)
+  81 : store_local(3)
+  82 : load_local(3)
+  83 : load_local(0)
+  84 : load_element
+  85 : store_local(5)
+  86 : load_local(5)
+  87 : array_length
+  88 : store_local(2)
+  89 : push_value(0)
+  90 : store_local(11)
+  91 : load_local(2)
+  92 : push_value(1)
+  93 : minus_int
+  94 : store_local(12)
+  95 : jump(96)
+  96 : load_local(11)
+  97 : load_local(12)
+  98 : less_or_equal_int
+  99 : branch(100, 137)
+  100 : load_local(11)
+  101 : store_local(4)
+  102 : load_local(4)
+  103 : load_local(5)
+  104 : load_element
+  105 : store_local(6)
+  106 : push_value('(')
+  107 : load_local(3)
+  108 : push_value(', ')
+  109 : load_local(4)
+  110 : push_value(') = ')
+  111 : load_local(6)
+  112 : call_stdproc(Writeln, 1)
+  113 : nop
+  114 : jump(115)
+  115 : load_local(4)
+  116 : load_local(12)
+  117 : not_equal_int
+  118 : branch(119, 135)
+  119 : load_local(4)
+  120 : call_stdfn(Succ, 6)
+  121 : store_local(4)
+  122 : load_local(4)
+  123 : load_local(5)
+  124 : load_element
+  125 : store_local(6)
+  126 : push_value('(')
+  127 : load_local(3)
+  128 : push_value(', ')
+  129 : load_local(4)
+  130 : push_value(') = ')
+  131 : load_local(6)
+  132 : call_stdproc(Writeln, 1)
+  133 : nop
+  134 : jump(115)
+  135 : nop
+  136 : jump(137)
+  137 : nop
+  138 : nop
+  139 : jump(75)
+  140 : nop
+  141 : jump(142)
+  142 : nop
+  143 : nop
+
+code
+  0 : receive(0)
+  1 : push_value(3)
+  2 : new_array(Matrix)
+  3 : store_local(0)
+  4 : push_value(3)
+  5 : new_array(Vector)
+  6 : push_value(0)
+  7 : load_local(0)
+  8 : store_element
+  9 : push_value(3)
+  10 : new_array(Vector)
+  11 : push_value(1)
+  12 : load_local(0)
+  13 : store_element
+  14 : push_value(3)
+  15 : new_array(Vector)
+  16 : push_value(2)
+  17 : load_local(0)
+  18 : store_element
+  19 : push_value(1.000000)
+  20 : push_value(0)
+  21 : push_value(0)
+  22 : load_local(0)
+  23 : load_element
+  24 : store_element
+  25 : push_value(0.000000)
+  26 : push_value(1)
+  27 : push_value(0)
+  28 : load_local(0)
+  29 : load_element
+  30 : store_element
+  31 : push_value(0.000000)
+  32 : push_value(2)
+  33 : push_value(0)
+  34 : load_local(0)
+  35 : load_element
+  36 : store_element
+  37 : push_value(0.000000)
+  38 : push_value(0)
+  39 : push_value(1)
+  40 : load_local(0)
+  41 : load_element
+  42 : store_element
+  43 : push_value(1.000000)
+  44 : push_value(1)
+  45 : push_value(1)
+  46 : load_local(0)
+  47 : load_element
+  48 : store_element
+  49 : push_value(0.000000)
+  50 : push_value(2)
+  51 : push_value(1)
+  52 : load_local(0)
+  53 : load_element
+  54 : store_element
+  55 : push_value(0.000000)
+  56 : push_value(0)
+  57 : push_value(2)
+  58 : load_local(0)
+  59 : load_element
+  60 : store_element
+  61 : push_value(0.000000)
+  62 : push_value(1)
+  63 : push_value(2)
+  64 : load_local(0)
+  65 : load_element
+  66 : store_element
+  67 : push_value(1.000000)
+  68 : push_value(2)
+  69 : push_value(2)
+  70 : load_local(0)
+  71 : load_element
+  72 : store_element
+  73 : load_local(0)
+  74 : call_procedure(Matrix:Print, 736502412, 2)
+  75 : nop
+

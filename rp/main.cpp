@@ -7,6 +7,7 @@
 
 import p;
 import std.core;
+import std.filesystem;
 import util;
 
 void InitApplication()
@@ -21,6 +22,10 @@ void TerminateApplication()
 
 void Run(const std::string& filePath, int32_t heapSize, bool verbose)
 {
+    if (verbose)
+    {
+        std::cout << "Running " << filePath << "...\n";
+    }
     p::Init();
     p::Heap heap(heapSize);
     p::ModuleMap moduleMap;
@@ -176,7 +181,15 @@ int main(int argc, const char** argv)
         }
         if (!filePath.empty())
         {
-            Run(filePath, heapSize, verbose);
+            if (!std::filesystem::path(filePath).has_extension())
+            {
+                filePath.append(".pcode");
+            }
+            if (!std::filesystem::exists(filePath) && !std::filesystem::path(filePath).has_parent_path())
+            {
+                filePath = util::Path::Combine(util::Path::Combine(util::PLangRoot(), "prog"), filePath);
+            }
+            Run(util::GetFullPath(filePath), heapSize, verbose);
         }
         else
         {

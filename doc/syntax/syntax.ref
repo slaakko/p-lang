@@ -130,6 +130,10 @@
 
     <ref file="code/object-types.p.div"/>
 
+    The following example shows declaring virtual and overridden methods:
+
+    <ref file="code/virtual_shape.p.div"/>
+
     <h3>
         Array types
     </h3>
@@ -394,6 +398,13 @@
 
     <img src="../image/result-type.png"/><br/>
 
+    <p>
+        A function should contain at least one assignment statement that assigns a value 
+        to the function result variable that has the same name as the function.
+        There might be more than one executed function result assignment in which case the 
+        last such assignment stays valid.
+    </p>
+
     <ref file="code/func.p.div"/>
     
     <h4>
@@ -426,7 +437,8 @@
     <img src="../image/program-id.png"/><br/>
 
     <p>
-        The <em>program-id</em> specifies the file name of the generated .pcode file.
+        The <em>program-id</em> specifies the name of the program and 
+        sets the file name of the generated .pcode file.
     </p>
 
     <img src="../image/program-parameter-list.png"/><br/>
@@ -454,7 +466,8 @@
     <img src="../image/unit-heading.png"/><br/>
 
     <p>
-        The <em>unit-name</em> in the unit heading specifies the file name of the generated .pcode file.
+        The <em>unit-name</em> in the unit heading specifies the name of the unit and sets
+        the file name of the generated .pcode file.
     </p>
 
     <h4>
