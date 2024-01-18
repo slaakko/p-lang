@@ -1,0 +1,30 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">If</span><span class="comment"> </span><span class="comment">statements</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">if</span>&nbsp;<span class="id">n</span>&nbsp;<span class="other">></span>&nbsp;<span class="number">1</span>&nbsp;<span class="kw">then</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">..</span><span class="comment">.</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">if</span>&nbsp;<span class="id">i</span>&nbsp;<span class="other">&lt;</span>&nbsp;<span class="id">n</span>&nbsp;<span class="other">-</span>&nbsp;<span class="number">1</span>&nbsp;<span class="kw">then</span>&nbsp;<span class="id">graphics</span><span class="other">.</span><span class="id">DrawLine</span><span class="other">(</span><span class="id">blackPen</span><span class="other">,</span>&nbsp;<span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">)</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">else</span>&nbsp;<span class="id">DrawArrowLine</span><span class="other">(</span><span class="id">graphics</span><span class="other">,</span>&nbsp;<span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">,</span>&nbsp;<span class="id">lineArrowWidth</span><span class="other">,</span>&nbsp;<span class="id">lineArrowHeight</span><span class="other">)</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">if</span>&nbsp;<span class="kw">not</span>&nbsp;<span class="id">r</span><span class="other">.</span><span class="id">IsEmpty</span><span class="other">(</span><span class="other">)</span>&nbsp;<span class="kw">then</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">bounds</span><span class="other">.</span><span class="id">IsEmpty</span><span class="other">(</span><span class="other">)</span>&nbsp;<span class="kw">then</span>&nbsp;<span class="id">bounds</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">r</span>&nbsp;<span class="kw">else</span>&nbsp;<span class="id">bounds</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Union</span><span class="other">(</span><span class="id">bounds</span><span class="other">,</span>&nbsp;<span class="id">r</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span></span>
+  <br/>
+</div>

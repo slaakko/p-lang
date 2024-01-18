@@ -1,0 +1,122 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Object</span><span class="comment"> </span><span class="comment">type</span><span class="comment"> </span><span class="comment">declarations</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Empty</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Point</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Offset</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Size</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">w</span><span class="other">,</span>&nbsp;<span class="id">h</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">w</span><span class="other">,</span>&nbsp;<span class="id">h</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Rect</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">location</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">size</span><span class="other">:</span>&nbsp;<span class="id">Size</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">location</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span>&nbsp;<span class="id">size</span><span class="other">:</span>&nbsp;<span class="id">Size</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">SetLocation</span><span class="other">(</span><span class="id">location</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">SetSize</span><span class="other">(</span><span class="id">size</span><span class="other">:</span>&nbsp;<span class="id">Size</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Bottom</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">IsEmpty</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Contains</span><span class="other">(</span><span class="id">p</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">IntersectsWith</span><span class="other">(</span><span class="id">r</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Offset</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Inflate</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Shape</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="kw">virtual</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Measure</span><span class="other">(</span><span class="id">graphics</span><span class="other">:</span>&nbsp;<span class="id">Graphics</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="kw">virtual</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Draw</span><span class="other">(</span><span class="id">graphics</span><span class="other">:</span>&nbsp;<span class="id">Graphics</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="kw">virtual</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Bounds</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">;</span>&nbsp;<span class="kw">virtual</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ShapeArray</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Shape</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">CompoundShape</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span><span class="other">(</span><span class="id">Shape</span><span class="other">)</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">count</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">components</span><span class="other">:</span>&nbsp;<span class="id">ShapeArray</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="kw">override</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Add</span><span class="other">(</span><span class="id">shape</span><span class="other">:</span>&nbsp;<span class="id">Shape</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Measure</span><span class="other">(</span><span class="id">graphics</span><span class="other">:</span>&nbsp;<span class="id">Graphics</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="kw">override</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Draw</span><span class="other">(</span><span class="id">graphics</span><span class="other">:</span>&nbsp;<span class="id">Graphics</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="kw">override</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">CombinedBounds</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+</div>

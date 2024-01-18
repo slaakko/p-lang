@@ -1,0 +1,22 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Array</span><span class="comment"> </span><span class="comment">type</span><span class="comment"> </span><span class="comment">declarations</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">IntArray</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">PointArray</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Point</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Vector</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Matrix</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+</div>

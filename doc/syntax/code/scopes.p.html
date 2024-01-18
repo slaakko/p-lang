@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8"/>
+    <title>C:/work/p-lang/doc/syntax/code/scopes.p</title>
+    <style>
+      div.plang
+{
+ background-color: #e6f7ff;
+ margin: 20px;
+ padding: 20px;
+ font-family: monospace;
+}
+
+.plang .kw
+{
+ color: #000000;
+ font-weight: bold;
+}
+
+.plang .id
+{
+ color: #000000;
+}
+
+.plang .number
+{
+ color: #000000;
+}
+
+.plang .string
+{
+ color: #a31515;
+}
+
+.plang .other
+{
+ color: #000000;
+}
+
+.plang .comment
+{
+ color: #57a64a;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="plang">
+      <span xml:space="preserve"><span class="kw">program</span>&nbsp;<span class="id">Scopes</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">var</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Outer</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">var</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">outerVar</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Inner</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">var</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">innerVar</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'outer var: '</span><span class="other">,</span>&nbsp;<span class="id">outerVar</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">innerVar</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">10</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">outerVar</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">2</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">outerVar</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">1</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">Inner</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'outer var is now: '</span><span class="other">,</span>&nbsp;<span class="id">outerVar</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">v</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">3</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Outer</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'v is now: '</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">end</span><span class="other">.</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">output</span><span class="comment"> </span><span class="comment">of</span><span class="comment"> </span><span class="comment">the</span><span class="comment"> </span><span class="comment">program</span><span class="comment"> </span><span class="comment">is</span><span class="comment">:</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">outer</span><span class="comment"> </span><span class="comment">var</span><span class="comment">:</span><span class="comment"> </span><span class="comment">1</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">outer</span><span class="comment"> </span><span class="comment">var</span><span class="comment"> </span><span class="comment">is</span><span class="comment"> </span><span class="comment">now</span><span class="comment">:</span><span class="comment"> </span><span class="comment">2</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">v</span><span class="comment"> </span><span class="comment">is</span><span class="comment"> </span><span class="comment">now</span><span class="comment">:</span><span class="comment"> </span><span class="comment">3</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment">}</span></span>
+      <br/>
+    </div>
+  </body>
+</html>

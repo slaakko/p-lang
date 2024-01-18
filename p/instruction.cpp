@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -30,6 +30,7 @@ std::string InstructionKindStr(InstructionKind instructionKind)
         case InstructionKind::store_parent: return "store_parent";
         case InstructionKind::load_global: return "load_global";
         case InstructionKind::store_global: return "store_global";
+        case InstructionKind::load_constant: return "load_constant";
         case InstructionKind::load_result_var: return "load_result_var";
         case InstructionKind::push_value: return "push_value";
         case InstructionKind::pop_value: return "pop_value";
@@ -94,6 +95,10 @@ std::string InstructionKindStr(InstructionKind instructionKind)
         case InstructionKind::not_equal_char: return "not_equal_char";
         case InstructionKind::equal_string: return "equal_string";
         case InstructionKind::not_equal_string: return "not_equal_string";
+        case InstructionKind::less_string: return "less_string";
+        case InstructionKind::greater_string: return "greater_string";
+        case InstructionKind::less_or_equal_string: return "less_or_equal_string";
+        case InstructionKind::greater_or_equal_string: return "greater_or_equal_string";
         case InstructionKind::plus_string: return "plus_string";
         case InstructionKind::int_to_real: return "int_to_real";
         case InstructionKind::char_to_string: return "char_to_string";
@@ -369,6 +374,39 @@ Instruction* StoreGlobalInstruction::Execute(ExecutionContext* context)
     return Next();
 }
 
+LoadConstantInstruction::LoadConstantInstruction() : Instruction(InstructionKind::load_constant)
+{
+}
+
+void LoadConstantInstruction::SetConstantId(const util::uuid& constantId_)
+{
+    constantId = constantId_;
+}
+
+void LoadConstantInstruction::Write(Writer& writer)
+{
+    Instruction::Write(writer);
+    writer.GetBinaryWriter().Write(constantId);
+}
+
+void LoadConstantInstruction::Read(Reader& reader)
+{
+    Instruction::Read(reader);
+    reader.GetBinaryReader().ReadUuid(constantId);
+}
+
+std::string LoadConstantInstruction::ToString(ExecutionContext* context) const
+{
+    return Instruction::ToString(context) + "(" + util::ToString(constantId) + ")";
+}
+
+Instruction* LoadConstantInstruction::Execute(ExecutionContext* context)
+{
+    Constant* constant = context->GetBlock()->GetConstant(constantId);
+    context->GetStack()->Push(new PtrObject(constant->GetValue()));
+    return Next();
+}
+
 LoadResultVarInstruction::LoadResultVarInstruction() : Instruction(InstructionKind::load_result_var), resultVarIndex(-1)
 {
 }
@@ -489,6 +527,22 @@ Instruction* LoadFieldInstruction::Execute(ExecutionContext* context)
         Object* fieldValue = heapObject->GetField(fieldIndex);
         context->GetStack()->Push(new PtrObject(fieldValue->GetObject()));
     }
+    else if (obj->IsValueObject())
+    {
+        Value* value = static_cast<Value*>(obj);
+        if (value->IsObjectValue())
+        {
+            ObjectValue* objectValue = static_cast<ObjectValue*>(value);
+            const Field& field = objectValue->GetField(fieldIndex);
+            Value* fieldValue = field.GetValue();
+            context->GetStack()->Push(new PtrObject(fieldValue));
+        }
+        else
+        {
+            throw std::runtime_error("error: object value expected in function '" + context->CurrentSubroutine()->InfoName() + "' load_field instruction " +
+                std::to_string(InstIndex()));
+        }
+    }
     else if (obj->IsNilObject())
     {
         throw std::runtime_error("error: nil reference in function '" + context->CurrentSubroutine()->InfoName() + "' load_field instruction " +
@@ -496,7 +550,7 @@ Instruction* LoadFieldInstruction::Execute(ExecutionContext* context)
     }
     else
     {
-        throw std::runtime_error("error: heap object expected in function '" + context->CurrentSubroutine()->InfoName() + "' load_field instruction " +
+        throw std::runtime_error("error: heap object or object value expected in function '" + context->CurrentSubroutine()->InfoName() + "' load_field instruction " +
             std::to_string(InstIndex()));
     }
     return Next();
@@ -537,6 +591,15 @@ Instruction* StoreFieldInstruction::Execute(ExecutionContext* context)
         HeapObject* heapObject = static_cast<HeapObject*>(obj);
         std::unique_ptr<Object> value = context->GetStack()->Pop();
         heapObject->SetField(fieldIndex, value->GetObject(), context);
+    }
+    else if (obj->IsValueObject())
+    {
+        Value* value = static_cast<Value*>(obj);
+        if (value->IsObjectValue())
+        {
+            throw std::runtime_error("error: cannot store to constant object in function '" + context->CurrentSubroutine()->InfoName() + "' store_field instruction " +
+                std::to_string(InstIndex()));
+        }
     }
     else if (obj->IsNilObject())
     {
@@ -585,6 +648,41 @@ Instruction* LoadElementInstruction::Execute(ExecutionContext* context)
                 std::to_string(InstIndex()));
         }
     }
+    else if (obj->IsValueObject())
+    {
+        Value* value = static_cast<Value*>(obj);
+        if (value->IsArrayValue())
+        {
+            ArrayValue* arrayValue = static_cast<ArrayValue*>(value);
+            std::unique_ptr<Object> index = context->GetStack()->Pop();
+            Object* indexObj = index->GetObject();
+            if (indexObj->IsValueObject())
+            {
+                Value* indexValue = static_cast<Value*>(indexObj);
+                if (indexValue->IsIntegerValue())
+                {
+                    int32_t elementIndex = indexValue->ToInteger();
+                    Value* elementValue = arrayValue->GetElement(elementIndex);
+                    context->GetStack()->Push(new PtrObject(elementValue));
+                }
+                else
+                {
+                    throw std::runtime_error("error: integer index object expected in function '" + context->CurrentSubroutine()->InfoName() + "' load_element instruction " +
+                        std::to_string(InstIndex()));
+                }
+            }
+            else
+            {
+                throw std::runtime_error("error: value index object expected in function '" + context->CurrentSubroutine()->InfoName() + "' load_element instruction " +
+                    std::to_string(InstIndex()));
+            }
+        }
+        else
+        {
+            throw std::runtime_error("error: array value expected in function '" + context->CurrentSubroutine()->InfoName() + "' load_element instruction " +
+                std::to_string(InstIndex()));
+        }
+    }
     else
     {
         throw std::runtime_error("error: array object expected in function '" + context->CurrentSubroutine()->InfoName() + "' load_element instruction " +
@@ -627,6 +725,21 @@ Instruction* StoreElementInstruction::Execute(ExecutionContext* context)
                 std::to_string(InstIndex()));
         }
     }
+    else if (obj->IsValueObject())
+    {
+        Value* value = static_cast<Value*>(obj);
+        if (value->IsArrayValue())
+        {
+            ArrayValue* arrayValue = static_cast<ArrayValue*>(value);
+            throw std::runtime_error("error: cannot store to constant array in function '" + context->CurrentSubroutine()->InfoName() + "' store_element instruction " +
+                std::to_string(InstIndex()));
+        }
+        else
+        {
+            throw std::runtime_error("error: array value expected in function '" + context->CurrentSubroutine()->InfoName() + "' store_element instruction " +
+                std::to_string(InstIndex()));
+        }
+    }
     else
     {
         throw std::runtime_error("error: array object expected in function '" + context->CurrentSubroutine()->InfoName() + "' store_element instruction " +
@@ -648,6 +761,21 @@ Instruction* ArrayLengthInstruction::Execute(ExecutionContext* context)
         ArrayObject* arrayObject = static_cast<ArrayObject*>(obj);
         int32_t length = arrayObject->Length();
         context->GetStack()->Push(new IntegerValue(length));
+    }
+    else if (obj->IsValueObject())
+    {
+        Value* value = static_cast<Value*>(obj);
+        if (value->IsArrayValue())
+        {
+            ArrayValue* arrayValue = static_cast<ArrayValue*>(value);
+            int32_t length = arrayValue->Length();
+            context->GetStack()->Push(new IntegerValue(length));
+        }
+        else
+        {
+            throw std::runtime_error("error: array value expected in function '" + context->CurrentSubroutine()->InfoName() + "' array_length instruction " +
+                std::to_string(InstIndex()));
+        }
     }
     else
     {
@@ -2156,10 +2284,12 @@ Instruction* EqualStringInstruction::Execute(ExecutionContext* context)
 {
     Stack* stack = context->GetStack();
     std::unique_ptr<Object> right = stack->Pop();
+    Object* rightObj = right->GetObject();
     std::unique_ptr<Object> left = stack->Pop();
-    StringObject* leftObject = left->ToStringObject(context);
+    Object* leftObj = left->GetObject();
+    StringObject* leftObject = leftObj->ToStringObject(context);
     std::string leftValue = leftObject->Value();
-    StringObject* rightObject = right->ToStringObject(context);
+    StringObject* rightObject = rightObj->ToStringObject(context);
     std::string rightValue = rightObject->Value();
     stack->Push(new BooleanValue(leftValue == rightValue));
     return Next();
@@ -2174,11 +2304,89 @@ Instruction* NotEqualStringInstruction::Execute(ExecutionContext* context)
     Stack* stack = context->GetStack();
     std::unique_ptr<Object> right = stack->Pop();
     std::unique_ptr<Object> left = stack->Pop();
-    StringObject* leftObject = left->ToStringObject(context);
+    Object* rightObj = right->GetObject();
+    Object* leftObj = left->GetObject();
+    StringObject* leftObject = leftObj->ToStringObject(context);
     std::string leftValue = leftObject->Value();
-    StringObject* rightObject = right->ToStringObject(context);
+    StringObject* rightObject = rightObj->ToStringObject(context);
     std::string rightValue = rightObject->Value();
     stack->Push(new BooleanValue(leftValue != rightValue));
+    return Next();
+}
+
+LessStringInstruction::LessStringInstruction() : Instruction(InstructionKind::less_string)
+{
+}
+
+Instruction* LessStringInstruction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> right = stack->Pop();
+    std::unique_ptr<Object> left = stack->Pop();
+    Object* rightObj = right->GetObject();
+    Object* leftObj = left->GetObject();
+    StringObject* leftObject = leftObj->ToStringObject(context);
+    std::string leftValue = leftObject->Value();
+    StringObject* rightObject = rightObj->ToStringObject(context);
+    std::string rightValue = rightObject->Value();
+    stack->Push(new BooleanValue(leftValue < rightValue));
+    return Next();
+}
+
+GreaterStringInstruction::GreaterStringInstruction() : Instruction(InstructionKind::greater_string)
+{
+}
+
+Instruction* GreaterStringInstruction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> right = stack->Pop();
+    std::unique_ptr<Object> left = stack->Pop();
+    Object* rightObj = right->GetObject();
+    Object* leftObj = left->GetObject();
+    StringObject* leftObject = leftObj->ToStringObject(context);
+    std::string leftValue = leftObject->Value();
+    StringObject* rightObject = rightObj->ToStringObject(context);
+    std::string rightValue = rightObject->Value();
+    stack->Push(new BooleanValue(leftValue > rightValue));
+    return Next();
+}
+
+LessOrEqualStringInstruction::LessOrEqualStringInstruction() : Instruction(InstructionKind::less_or_equal_string)
+{
+}
+
+Instruction* LessOrEqualStringInstruction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> right = stack->Pop();
+    std::unique_ptr<Object> left = stack->Pop();
+    Object* rightObj = right->GetObject();
+    Object* leftObj = left->GetObject();
+    StringObject* leftObject = leftObj->ToStringObject(context);
+    std::string leftValue = leftObject->Value();
+    StringObject* rightObject = rightObj->ToStringObject(context);
+    std::string rightValue = rightObject->Value();
+    stack->Push(new BooleanValue(leftValue <= rightValue));
+    return Next();
+}
+
+GreaterOrEqualStringInstruction::GreaterOrEqualStringInstruction() : Instruction(InstructionKind::greater_or_equal_string)
+{
+}
+
+Instruction* GreaterOrEqualStringInstruction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> right = stack->Pop();
+    std::unique_ptr<Object> left = stack->Pop();
+    Object* rightObj = right->GetObject();
+    Object* leftObj = left->GetObject();
+    StringObject* leftObject = leftObj->ToStringObject(context);
+    std::string leftValue = leftObject->Value();
+    StringObject* rightObject = rightObj->ToStringObject(context);
+    std::string rightValue = rightObject->Value();
+    stack->Push(new BooleanValue(leftValue >= rightValue));
     return Next();
 }
 
@@ -2262,6 +2470,7 @@ Instruction* MakeInstruction(InstructionKind kind)
         case InstructionKind::store_parent: return new StoreParentInstruction();
         case InstructionKind::load_global: return new LoadGlobalInstruction();
         case InstructionKind::store_global: return new StoreGlobalInstruction();
+        case InstructionKind::load_constant: return new LoadConstantInstruction();
         case InstructionKind::load_result_var: return new LoadResultVarInstruction();
         case InstructionKind::push_value: return new PushValueInstruction();
         case InstructionKind::pop_value: return new PopValueInstruction();
@@ -2326,6 +2535,10 @@ Instruction* MakeInstruction(InstructionKind kind)
         case InstructionKind::not_equal_char: return new NotEqualCharInstruction();
         case InstructionKind::equal_string: return new EqualStringInstruction();
         case InstructionKind::not_equal_string: return new NotEqualStringInstruction();
+        case InstructionKind::less_string: return new LessStringInstruction();
+        case InstructionKind::greater_string: return new GreaterStringInstruction();
+        case InstructionKind::less_or_equal_string: return new LessOrEqualStringInstruction();
+        case InstructionKind::greater_or_equal_string: return new GreaterOrEqualStringInstruction();
         case InstructionKind::plus_string: return new PlusStringInstruction();
         case InstructionKind::int_to_real: return new IntToRealInstruction();
         case InstructionKind::char_to_string: return new CharToStringInstruction();

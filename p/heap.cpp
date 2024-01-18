@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -8,6 +8,7 @@ module p.heap;
 import p.type;
 import p.execute;
 import p.value;
+import p.rt;
 
 namespace p {
 
@@ -87,6 +88,7 @@ void CollectArrayElementObject(HeapObject* object, ArrayObject* parent, int32_t 
     }
     else
     {
+        context->GetHeap()->RemoveDisposeObject(object);
         HeapObject* newObject = CopyObject(object, mem, current, size);
         objectMap[object] = newObject;
         parent->SetElement(index, newObject, context);
@@ -284,6 +286,7 @@ void CollectObject(HeapObject* object, HeapObject* parent, int32_t index,
     }
     else
     {
+        context->GetHeap()->RemoveDisposeObject(object);
         HeapObject* newObject = CopyObject(object, mem, current, size);
         objectMap[object] = newObject;
         parent->SetField(index, newObject, context);
@@ -355,6 +358,7 @@ void CollectFrameObject(HeapObject* object, Frame* frame, int32_t index,
     }
     else
     {
+        context->GetHeap()->RemoveDisposeObject(object);
         HeapObject* newObject = CopyObject(object, mem, current, size);
         objectMap[object] = newObject;
         frame->SetRawObject(index, newObject);
@@ -646,6 +650,7 @@ void CollectStackObject(HeapObject* object, Stack* stack, int32_t stackIndex,
     }
     else
     {
+        context->GetHeap()->RemoveDisposeObject(object);
         HeapObject* newObject = CopyObject(object, mem, current, size);
         objectMap[object] = newObject;
         if (ptr)
@@ -944,9 +949,31 @@ void Heap::Collect(ExecutionContext* context)
     {
         CollectFrame(frame.get(), objectMap, newMem, newCurrent, size, context);
     }
+    DisposeObjects(context);
     std::swap(mem, newMem);
     std::swap(current, newCurrent);
     free(newMem);
+}
+
+void Heap::RemoveDisposeObject(HeapObject* heapObject)
+{
+    objectsToDispose.erase(heapObject);
+}
+
+void Heap::DisposeObjects(ExecutionContext* context)
+{
+    for (auto disposeObject : objectsToDispose)
+    {
+        ObjectType* objectType = disposeObject->GetType();
+        std::string disposeMethodName = objectType->Name() + ".Dispose";
+        ExternalSubroutine* disposeMethod = GetExternalSubroutineNoThrow(disposeMethodName);
+        if (disposeMethod)
+        {
+            context->GetStack()->Push(new HeapObjectPtr(disposeObject));
+            disposeMethod->Execute(context);
+        }
+    }
+    objectsToDispose.clear();
 }
 
 HeapObject* Heap::Allocate(ObjectType* objectType, ExecutionContext* context)
@@ -966,6 +993,12 @@ HeapObject* Heap::Allocate(ObjectType* objectType, ExecutionContext* context)
     HeapObject* heapObject = new (static_cast<void*>(current))HeapObject(objectType, fieldCount, allocationSize);
     heapObject->Init(context);
     current += allocationSize;
+    std::string disposeMethodName = objectType->Name() + ".Dispose";
+    ExternalSubroutine* disposeMethod = GetExternalSubroutineNoThrow(disposeMethodName);
+    if (disposeMethod)
+    {
+        objectsToDispose.insert(heapObject);
+    }
     return heapObject;
 }
 

@@ -1,0 +1,34 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Constant</span><span class="comment"> </span><span class="comment">expressions</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">const</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="other">-</span><span class="number">3</span>&nbsp;<span class="other">-</span>&nbsp;<span class="number">1</span><span class="other">;</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">-</span><span class="comment">4</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Succ</span><span class="other">(</span><span class="id">x</span><span class="other">)</span><span class="other">;</span>&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">-</span><span class="comment">3</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">z</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Pred</span><span class="other">(</span><span class="id">x</span><span class="other">)</span><span class="other">;</span>&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">-</span><span class="comment">5</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">a</span><span class="other">:</span>&nbsp;<span class="kw">char</span>&nbsp;<span class="other">=</span>&nbsp;<span class="string">'a'</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ordA</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Ord</span><span class="other">(</span><span class="id">a</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">97</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">chrA</span><span class="other">:</span>&nbsp;<span class="kw">char</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Chr</span><span class="other">(</span><span class="id">ordA</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">'a'</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">b</span><span class="other">:</span>&nbsp;<span class="kw">char</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Succ</span><span class="other">(</span><span class="id">a</span><span class="other">)</span><span class="other">;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">'b'</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">predB</span><span class="other">:</span>&nbsp;<span class="kw">char</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Pred</span><span class="other">(</span><span class="id">b</span><span class="other">)</span><span class="other">;</span>&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">'a'</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">absX</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Abs</span><span class="other">(</span><span class="id">x</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">4</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">t</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">true</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ordT</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Ord</span><span class="other">(</span><span class="id">t</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">1</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">c</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Pred</span><span class="other">(</span><span class="id">t</span><span class="other">)</span><span class="other">;</span>&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">false</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ordC</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">Ord</span><span class="other">(</span><span class="id">c</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">0</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+</div>

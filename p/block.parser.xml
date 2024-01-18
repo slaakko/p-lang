@@ -153,25 +153,34 @@
     </action>
    </sequence>
   </rule>
+  <rule first="{ID}" name="FieldConstant">
+   <sequence first="{ID}">
+    <sequence first="{ID}">
+     <action first="{ID}">
+      <nonterminal first="{ID}" ruleName="FieldName"/>
+     </action>
+     <token first="{COLON}" name="COLON"/>
+    </sequence>
+    <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="Constant"/>
+   </sequence>
+  </rule>
   <rule first="{LPAREN}" name="ObjectConstant">
    <sequence first="{LPAREN}">
     <sequence first="{LPAREN}">
-     <action first="{LPAREN}">
-      <token first="{LPAREN}" name="LPAREN"/>
-     </action>
-     <positive first="{ID}">
-      <group first="{ID}">
-       <sequence first="{ID}">
-        <sequence first="{ID}">
-         <action first="{ID}">
-          <nonterminal first="{ID}" ruleName="FieldName"/>
-         </action>
-         <token first="{COLON}" name="COLON"/>
-        </sequence>
-        <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="Constant"/>
+     <sequence first="{LPAREN}">
+      <action first="{LPAREN}">
+       <token first="{LPAREN}" name="LPAREN"/>
+      </action>
+      <nonterminal first="{ID}" ruleName="FieldConstant"/>
+     </sequence>
+     <kleene first="{#, SEMICOLON}">
+      <group first="{SEMICOLON}">
+       <sequence first="{SEMICOLON}">
+        <token first="{SEMICOLON}" name="SEMICOLON"/>
+        <nonterminal first="{ID}" ruleName="FieldConstant"/>
        </sequence>
       </group>
-     </positive>
+     </kleene>
     </sequence>
     <action first="{RPAREN}">
      <token first="{RPAREN}" name="RPAREN"/>

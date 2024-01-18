@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -97,6 +97,7 @@ public:
     void Load(Emitter* emitter) override;
     void Accept(BoundNodeVisitor& visitor) override;
     BoundExpressionNode* Clone() const override;
+    bool IsConst() const override;
 private:
     Function* operatorFunction;
     std::unique_ptr<BoundExpressionNode> left;
@@ -110,6 +111,7 @@ public:
     void Load(Emitter* emitter) override;
     void Accept(BoundNodeVisitor& visitor) override;
     BoundExpressionNode* Clone() const override;
+    bool IsConst() const override;
 private:
     Function* operatorFunction;
     std::unique_ptr<BoundExpressionNode> operand;
@@ -123,6 +125,7 @@ public:
     void Load(Emitter* emitter) override;
     void Accept(BoundNodeVisitor& visitor) override;
     BoundExpressionNode* Clone() const override;
+    bool IsConst() const override { return true; }
 private:
     std::unique_ptr<Value> value;
 };
@@ -175,6 +178,7 @@ public:
     void Load(Emitter* emitter) override;
     void Accept(BoundNodeVisitor& visitor) override;
     BoundExpressionNode* Clone() const override;
+    bool IsConst() const override { return true; }
 private:
     Constant* constant;
 };

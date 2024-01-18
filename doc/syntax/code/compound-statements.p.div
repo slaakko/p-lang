@@ -1,0 +1,34 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Compound</span><span class="comment"> </span><span class="comment">statements</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">angleRad</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">pi</span>&nbsp;<span class="other">/</span>&nbsp;<span class="number">180.0</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">angleDeg</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">line</span><span class="other">.</span><span class="id">ToVector</span><span class="other">(</span><span class="other">)</span><span class="other">;</span>&nbsp;&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">r</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Rotate</span><span class="other">(</span><span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">angleRad</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">RotateLineSegment</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">LineSegment</span><span class="other">(</span><span class="id">line</span><span class="other">.</span><span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">r</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">count</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">components</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Shape</span><span class="other">[</span><span class="number">4</span><span class="other">]</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span></span>
+  <br/>
+</div>

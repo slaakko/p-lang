@@ -1,0 +1,22 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Repeat</span><span class="comment"> </span><span class="comment">statements</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">repeat</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="id">count</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">count</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Pred</span><span class="other">(</span><span class="id">count</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">until</span>&nbsp;<span class="id">count</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">0</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">repeat</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">done</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">DoWork</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">until</span>&nbsp;<span class="id">done</span></span>
+  <br/>
+</div>

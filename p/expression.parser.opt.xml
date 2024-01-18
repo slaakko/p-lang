@@ -504,7 +504,7 @@
     </case>
     <case first="{DOT}">
      <action first="{DOT}">
-      <nonterminal first="{DOT}" ruleName="FieldDesignator"/>
+      <nonterminal first="{DOT}" ruleName="MemberSelection"/>
      </action>
     </case>
    </switch>
@@ -526,7 +526,7 @@
     </group>
    </action>
   </rule>
-  <rule first="{DOT}" name="FieldDesignator">
+  <rule first="{DOT}" name="MemberSelection">
    <action first="{DOT}">
     <group first="{DOT}">
      <sequence first="{DOT}">

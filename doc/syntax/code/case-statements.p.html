@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8"/>
+    <title>C:/work/p-lang/doc/syntax/code/case-statements.p</title>
+    <style>
+      div.plang
+{
+ background-color: #e6f7ff;
+ margin: 20px;
+ padding: 20px;
+ font-family: monospace;
+}
+
+.plang .kw
+{
+ color: #000000;
+ font-weight: bold;
+}
+
+.plang .id
+{
+ color: #000000;
+}
+
+.plang .number
+{
+ color: #000000;
+}
+
+.plang .string
+{
+ color: #a31515;
+}
+
+.plang .other
+{
+ color: #000000;
+}
+
+.plang .comment
+{
+ color: #57a64a;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="plang">
+      <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Case</span><span class="comment"> </span><span class="comment">statements</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">case</span>&nbsp;<span class="id">direction1</span>&nbsp;<span class="kw">of</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">east</span><span class="other">:</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">points</span><span class="other">[</span><span class="number">0</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">source</span><span class="other">.</span><span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">points</span><span class="other">[</span><span class="number">1</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">target</span><span class="other">.</span><span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">west</span><span class="other">:</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">points</span><span class="other">[</span><span class="number">0</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">source</span><span class="other">.</span><span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">points</span><span class="other">[</span><span class="number">1</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">target</span><span class="other">.</span><span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">north</span><span class="other">:</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">points</span><span class="other">[</span><span class="number">0</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">source</span><span class="other">.</span><span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">points</span><span class="other">[</span><span class="number">1</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">source</span><span class="other">.</span><span class="id">Bottom</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">south</span><span class="other">:</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">points</span><span class="other">[</span><span class="number">0</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">source</span><span class="other">.</span><span class="id">Bottom</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">points</span><span class="other">[</span><span class="number">1</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">source</span><span class="other">.</span><span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">end</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">case</span>&nbsp;<span class="id">x</span>&nbsp;<span class="kw">of</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="number">0</span><span class="other">..</span><span class="number">3</span><span class="other">:</span>&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'small'</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="number">4</span><span class="other">:</span>&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'four'</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">else</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'large'</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">end</span></span>
+      <br/>
+    </div>
+  </body>
+</html>

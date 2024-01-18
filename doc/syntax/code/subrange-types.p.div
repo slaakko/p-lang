@@ -1,0 +1,12 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Subrange</span><span class="comment"> </span><span class="comment">type</span><span class="comment"> </span><span class="comment">declarations</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Byte</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">0</span><span class="other">..</span><span class="number">255</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Citrus</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">orange</span><span class="other">..</span><span class="id">lemon</span><span class="other">;</span></span>
+  <br/>
+</div>

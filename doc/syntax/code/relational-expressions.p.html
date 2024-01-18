@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8"/>
+    <title>C:/work/p-lang/doc/syntax/code/relational-expressions.p</title>
+    <style>
+      div.plang
+{
+ background-color: #e6f7ff;
+ margin: 20px;
+ padding: 20px;
+ font-family: monospace;
+}
+
+.plang .kw
+{
+ color: #000000;
+ font-weight: bold;
+}
+
+.plang .id
+{
+ color: #000000;
+}
+
+.plang .number
+{
+ color: #000000;
+}
+
+.plang .string
+{
+ color: #a31515;
+}
+
+.plang .other
+{
+ color: #000000;
+}
+
+.plang .comment
+{
+ color: #57a64a;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="plang">
+      <span xml:space="preserve"><span class="kw">const</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">n</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">4</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">m</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">5</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">r</span><span class="other">:</span>&nbsp;<span class="kw">real</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">1.5</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">q</span><span class="other">:</span>&nbsp;<span class="kw">real</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">2.5</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">b</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">true</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">d</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">false</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">c</span><span class="other">:</span>&nbsp;<span class="kw">char</span>&nbsp;<span class="other">=</span>&nbsp;<span class="string">'a'</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">char</span>&nbsp;<span class="other">=</span>&nbsp;<span class="string">'b'</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">s</span><span class="other">:</span>&nbsp;<span class="kw">string</span>&nbsp;<span class="other">=</span>&nbsp;<span class="string">'abc'</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">t</span><span class="other">:</span>&nbsp;<span class="kw">string</span>&nbsp;<span class="other">=</span>&nbsp;<span class="string">'abd'</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Relational</span><span class="comment"> </span><span class="comment">expressions</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="id">n</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">m</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">false</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">r</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">q</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">false</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">b</span>&nbsp;<span class="other">&lt;></span>&nbsp;<span class="id">d</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">true</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">c</span>&nbsp;<span class="other">&lt;></span>&nbsp;<span class="id">x</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">true</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">s</span>&nbsp;<span class="other">&lt;></span>&nbsp;<span class="id">t</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">true</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">n</span>&nbsp;<span class="other">></span>&nbsp;<span class="id">m</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">false</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">s</span>&nbsp;<span class="other">&lt;</span>&nbsp;<span class="id">t</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">true</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">r</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="id">q</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">false</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">n</span>&nbsp;<span class="other">&lt;=</span>&nbsp;<span class="id">m</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">true</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">t</span>&nbsp;<span class="other">&lt;=</span>&nbsp;<span class="id">s</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">false</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+    </div>
+  </body>
+</html>

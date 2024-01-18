@@ -1,0 +1,32 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="kw">const</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">n</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">4</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">b</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">false</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">s</span><span class="other">:</span>&nbsp;<span class="kw">string</span>&nbsp;<span class="other">=</span>&nbsp;<span class="string">'abc'</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Simple</span><span class="comment"> </span><span class="comment">expressions</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="id">n</span>&nbsp;<span class="other">+</span>&nbsp;<span class="number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">integer</span><span class="comment"> </span><span class="comment">addition</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">(</span><span class="comment">5</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">s</span>&nbsp;<span class="other">+</span>&nbsp;<span class="string">'def'</span>&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">string</span><span class="comment"> </span><span class="comment">concatenation</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">(</span><span class="comment">'abcdef'</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve"><span class="id">n</span>&nbsp;<span class="other">-</span>&nbsp;<span class="number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">integer</span><span class="comment"> </span><span class="comment">subtraction</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">(</span><span class="comment">3</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">n</span>&nbsp;<span class="kw">or</span>&nbsp;<span class="number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">integer</span><span class="comment"> </span><span class="comment">bitwise</span><span class="comment"> </span><span class="comment">OR</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">(</span><span class="comment">5</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">n</span>&nbsp;<span class="kw">xor</span>&nbsp;<span class="number">6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">integer</span><span class="comment"> </span><span class="comment">bitwise</span><span class="comment"> </span><span class="comment">XOR</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">(</span><span class="comment">2</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">b</span>&nbsp;<span class="kw">or</span>&nbsp;<span class="kw">true</span>&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">Boolean</span><span class="comment"> </span><span class="comment">logical</span><span class="comment"> </span><span class="comment">OR</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">(</span><span class="comment">true</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">b</span>&nbsp;<span class="kw">xor</span>&nbsp;<span class="kw">true</span>&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">Boolean</span><span class="comment"> </span><span class="comment">logical</span><span class="comment"> </span><span class="comment">XOR</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">(</span><span class="comment">true</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+</div>

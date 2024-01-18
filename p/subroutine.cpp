@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -579,59 +579,68 @@ void Procedure::Read(Reader& reader)
 void Procedure::ResolveDeclaration(ParsingContext* context, soul::lexer::LexerBase<char>& lexer, int64_t pos)
 {
     if (IsDeclaration()) return;
-    ObjectType* objectType = Heading()->GetObjectType();
-    if (objectType)
+    Subroutine* declaration = GetDeclaration();
+    if (declaration)
     {
-        Subroutine* subroutineDeclaration = objectType->GetMethod(CommonName());
-        if (subroutineDeclaration)
+        declaration->SetModuleId(ModuleId());
+        declaration->SetImplementationId(Id());
+    }
+    else
+    {
+        ObjectType* objectType = Heading()->GetObjectType();
+        if (objectType)
         {
-            SetDeclaration(subroutineDeclaration);
-            if (IsExternal())
+            Subroutine* subroutineDeclaration = objectType->GetMethod(CommonName());
+            if (subroutineDeclaration)
             {
-                subroutineDeclaration->SetExternal();
+                SetDeclaration(subroutineDeclaration);
+                if (IsExternal())
+                {
+                    subroutineDeclaration->SetExternal();
+                }
+                else
+                {
+                    subroutineDeclaration->SetModuleId(ModuleId());
+                    subroutineDeclaration->SetImplementationId(Id());
+                }
             }
             else
             {
-                subroutineDeclaration->SetModuleId(ModuleId());
-                subroutineDeclaration->SetImplementationId(Id());
+                ThrowError("error: matching procedure not found", lexer, pos);
             }
         }
         else
         {
-            ThrowError("error: matching procedure not found", lexer, pos);
-        }
-    }
-    else
-    {
-        Module* mod = context->GetModule();
-        ModulePart* interfacePart = mod->GetInterfacePart();
-        Block* block = nullptr;
-        if (interfacePart)
-        {
-            block = interfacePart->GetBlock();
-        }
-        if (!block)
-        {
-            ModulePart* implementationPart = mod->GetImplementationPart();
-            if (implementationPart)
+            Module* mod = context->GetModule();
+            ModulePart* interfacePart = mod->GetInterfacePart();
+            Block* block = nullptr;
+            if (interfacePart)
             {
-                block = implementationPart->GetBlock();
+                block = interfacePart->GetBlock();
             }
-        }
-        if (block)
-        {
-            Procedure* declaration = block->GetProcedure(CommonName());
-            if (declaration)
+            if (!block)
             {
-                SetDeclaration(declaration);
-                if (IsExternal())
+                ModulePart* implementationPart = mod->GetImplementationPart();
+                if (implementationPart)
                 {
-                    declaration->SetExternal();
+                    block = implementationPart->GetBlock();
                 }
-                else
+            }
+            if (block)
+            {
+                Procedure* declaration = block->GetProcedure(CommonName());
+                if (declaration)
                 {
-                    declaration->SetModuleId(ModuleId());
-                    declaration->SetImplementationId(Id());
+                    SetDeclaration(declaration);
+                    if (IsExternal())
+                    {
+                        declaration->SetExternal();
+                    }
+                    else
+                    {
+                        declaration->SetModuleId(ModuleId());
+                        declaration->SetImplementationId(Id());
+                    }
                 }
             }
         }
@@ -755,59 +764,68 @@ void Function::Read(Reader& reader)
 void Function::ResolveDeclaration(ParsingContext* context, soul::lexer::LexerBase<char>& lexer, int64_t pos)
 {
     if (IsDeclaration()) return;
-    ObjectType* objectType = Heading()->GetObjectType();
-    if (objectType)
+    Subroutine* declaration = GetDeclaration();
+    if (declaration)
     {
-        Subroutine* subroutineDeclaration = objectType->GetMethod(CommonName());
-        if (subroutineDeclaration)
+        declaration->SetModuleId(ModuleId());
+        declaration->SetImplementationId(Id());
+    }
+    else
+    {
+        ObjectType* objectType = Heading()->GetObjectType();
+        if (objectType)
         {
-            SetDeclaration(subroutineDeclaration);
-            if (IsExternal())
+            Subroutine* subroutineDeclaration = objectType->GetMethod(CommonName());
+            if (subroutineDeclaration)
             {
-                subroutineDeclaration->SetExternal();
+                SetDeclaration(subroutineDeclaration);
+                if (IsExternal())
+                {
+                    subroutineDeclaration->SetExternal();
+                }
+                else
+                {
+                    subroutineDeclaration->SetModuleId(ModuleId());
+                    subroutineDeclaration->SetImplementationId(Id());
+                }
             }
             else
             {
-                subroutineDeclaration->SetModuleId(ModuleId());
-                subroutineDeclaration->SetImplementationId(Id());
+                ThrowError("error: matching function not found", lexer, pos);
             }
         }
         else
         {
-            ThrowError("error: matching function not found", lexer, pos);
-        }
-    }
-    else
-    {
-        Module* mod = context->GetModule();
-        Block* block = nullptr;
-        ModulePart* interfacePart = mod->GetInterfacePart();
-        if (interfacePart)
-        {
-            block = interfacePart->GetBlock();
-        }
-        if (!block)
-        {
-            ModulePart* implementationPart = mod->GetImplementationPart();
-            if (implementationPart)
+            Module* mod = context->GetModule();
+            Block* block = nullptr;
+            ModulePart* interfacePart = mod->GetInterfacePart();
+            if (interfacePart)
             {
-                block = implementationPart->GetBlock();
+                block = interfacePart->GetBlock();
             }
-        }
-        if (block)
-        {
-            Function* declaration = block->GetFunction(CommonName());
-            if (declaration)
+            if (!block)
             {
-                SetDeclaration(declaration);
-                if (IsExternal())
+                ModulePart* implementationPart = mod->GetImplementationPart();
+                if (implementationPart)
                 {
-                    declaration->SetExternal();
+                    block = implementationPart->GetBlock();
                 }
-                else
+            }
+            if (block)
+            {
+                Function* declaration = block->GetFunction(CommonName());
+                if (declaration)
                 {
-                    declaration->SetModuleId(ModuleId());
-                    declaration->SetImplementationId(Id());
+                    SetDeclaration(declaration);
+                    if (IsExternal())
+                    {
+                        declaration->SetExternal();
+                    }
+                    else
+                    {
+                        declaration->SetModuleId(ModuleId());
+                        declaration->SetImplementationId(Id());
+                    }
                 }
             }
         }

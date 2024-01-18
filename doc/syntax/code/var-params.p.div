@@ -1,0 +1,52 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="kw">program</span>&nbsp;<span class="id">VarParam</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">P</span><span class="other">(</span><span class="kw">var</span>&nbsp;<span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'value of x is '</span><span class="other">,</span>&nbsp;<span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">100</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">1</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">P</span><span class="other">(</span><span class="id">v</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'value of v is '</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">.</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">output</span><span class="comment"> </span><span class="comment">of</span><span class="comment"> </span><span class="comment">the</span><span class="comment"> </span><span class="comment">program</span><span class="comment"> </span><span class="comment">is</span><span class="comment">:</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">value</span><span class="comment"> </span><span class="comment">of</span><span class="comment"> </span><span class="comment">x</span><span class="comment"> </span><span class="comment">is</span><span class="comment"> </span><span class="comment">1</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment"> </span><span class="comment">value</span><span class="comment"> </span><span class="comment">of</span><span class="comment"> </span><span class="comment">v</span><span class="comment"> </span><span class="comment">is</span><span class="comment"> </span><span class="comment">100</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment">}</span></span>
+  <br/>
+</div>

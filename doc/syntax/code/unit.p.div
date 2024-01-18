@@ -1,0 +1,830 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Unit</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">unit</span>&nbsp;<span class="id">System</span><span class="other">.</span><span class="id">Graphics</span><span class="other">.</span><span class="id">Primitive</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">interface</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Point</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Offset</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Size</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">w</span><span class="other">,</span>&nbsp;<span class="id">h</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">w</span><span class="other">,</span>&nbsp;<span class="id">h</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Rect</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">location</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">size</span><span class="other">:</span>&nbsp;<span class="id">Size</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">location</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span>&nbsp;<span class="id">size</span><span class="other">:</span>&nbsp;<span class="id">Size</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">SetLocation</span><span class="other">(</span><span class="id">location</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">SetSize</span><span class="other">(</span><span class="id">size</span><span class="other">:</span>&nbsp;<span class="id">Size</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Bottom</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">IsEmpty</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Contains</span><span class="other">(</span><span class="id">p</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">IntersectsWith</span><span class="other">(</span><span class="id">r</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Offset</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Inflate</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Vector</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">p</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Length</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">ToPoint</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Direction</span>&nbsp;<span class="other">=</span>&nbsp;<span class="other">(</span><span class="id">noDir</span><span class="other">,</span>&nbsp;<span class="id">north</span><span class="other">,</span>&nbsp;<span class="id">east</span><span class="other">,</span>&nbsp;<span class="id">south</span><span class="other">,</span>&nbsp;<span class="id">west</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Distance</span><span class="other">(</span><span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Union</span><span class="other">(</span><span class="id">a</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Sum</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Difference</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Product</span><span class="other">(</span><span class="id">a</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Dot</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Unit</span><span class="other">(</span><span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">ProjectionFactor</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Proj</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rotate</span><span class="other">(</span><span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span>&nbsp;<span class="id">angleRad</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">GetDirection</span><span class="other">(</span><span class="id">source</span><span class="other">,</span>&nbsp;<span class="id">target</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Direction</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">LineSegment</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">s</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">ToVector</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Length</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">RotateLineSegment</span><span class="other">(</span><span class="id">line</span><span class="other">:</span>&nbsp;<span class="id">LineSegment</span><span class="other">;</span>&nbsp;<span class="id">angleDeg</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">LineSegment</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">implementation</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Point</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">y</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Point</span><span class="other">(</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">x</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">y</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Point</span><span class="other">.</span><span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">'('</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">', '</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">')'</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Point</span><span class="other">.</span><span class="id">Offset</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">x</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">dx</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">y</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">y</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">dy</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Size</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">w</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">h</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Size</span><span class="other">(</span><span class="id">w</span><span class="other">,</span>&nbsp;<span class="id">h</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">w</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">w</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">h</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">h</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Size</span><span class="other">.</span><span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">'('</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">w</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">', '</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">h</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">')'</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Rect</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">location</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Point</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">size</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Size</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Rect</span><span class="other">(</span><span class="id">location</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span>&nbsp;<span class="id">size</span><span class="other">:</span>&nbsp;<span class="id">Size</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">location</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">location</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">size</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">size</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">'['</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">location</span><span class="other">.</span><span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">', '</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">location</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">', '</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">size</span><span class="other">.</span><span class="id">w</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">', '</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">size</span><span class="other">.</span><span class="id">h</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">']'</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">SetLocation</span><span class="other">(</span><span class="id">location</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">location</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">location</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">SetSize</span><span class="other">(</span><span class="id">size</span><span class="other">:</span>&nbsp;<span class="id">Size</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">size</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">size</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Left</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">location</span><span class="other">.</span><span class="id">x</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Top</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">location</span><span class="other">.</span><span class="id">y</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Right</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">location</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">size</span><span class="other">.</span><span class="id">w</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">Bottom</span><span class="other">(</span><span class="other">)</span>&nbsp;<span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Bottom</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">location</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">size</span><span class="other">.</span><span class="id">h</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">IsEmpty</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">IsEmpty</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="other">(</span><span class="id">size</span><span class="other">.</span><span class="id">w</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">0</span><span class="other">)</span>&nbsp;<span class="kw">and</span>&nbsp;<span class="other">(</span><span class="id">size</span><span class="other">.</span><span class="id">h</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">0</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">Contains</span><span class="other">(</span><span class="id">p</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Contains</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="other">(</span><span class="id">p</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">)</span>&nbsp;<span class="kw">and</span>&nbsp;<span class="other">(</span><span class="id">p</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">&lt;</span>&nbsp;<span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">)</span>&nbsp;<span class="kw">and</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="other">(</span><span class="id">p</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">)</span>&nbsp;<span class="kw">and</span>&nbsp;<span class="other">(</span><span class="id">p</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">&lt;</span>&nbsp;<span class="id">Bottom</span><span class="other">(</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">IntersectsWith</span><span class="other">(</span><span class="id">r</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;<span class="id">IntersectsWith</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="other">(</span><span class="id">Left</span><span class="other">(</span><span class="other">)</span>&nbsp;<span class="other">&lt;</span>&nbsp;<span class="id">r</span><span class="other">.</span><span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">)</span>&nbsp;<span class="kw">and</span>&nbsp;<span class="other">(</span><span class="id">Top</span><span class="other">(</span><span class="other">)</span>&nbsp;<span class="other">&lt;</span>&nbsp;<span class="id">r</span><span class="other">.</span><span class="id">Bottom</span><span class="other">(</span><span class="other">)</span><span class="other">)</span>&nbsp;<span class="kw">and</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="other">(</span><span class="id">Right</span><span class="other">(</span><span class="other">)</span>&nbsp;<span class="other">></span>&nbsp;<span class="id">r</span><span class="other">.</span><span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">)</span>&nbsp;<span class="kw">and</span>&nbsp;<span class="other">(</span><span class="id">Bottom</span><span class="other">(</span><span class="other">)</span>&nbsp;<span class="other">></span>&nbsp;<span class="id">r</span><span class="other">.</span><span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">Offset</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">location</span><span class="other">.</span><span class="id">Offset</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Rect</span><span class="other">.</span><span class="id">Inflate</span><span class="other">(</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">location</span><span class="other">.</span><span class="id">Offset</span><span class="other">(</span><span class="other">-</span><span class="id">dx</span><span class="other">,</span>&nbsp;<span class="other">-</span><span class="id">dy</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">size</span><span class="other">.</span><span class="id">w</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">size</span><span class="other">.</span><span class="id">w</span>&nbsp;<span class="other">+</span>&nbsp;<span class="number">2</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">dx</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">size</span><span class="other">.</span><span class="id">h</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">size</span><span class="other">.</span><span class="id">h</span>&nbsp;<span class="other">+</span>&nbsp;<span class="number">2</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">dy</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">y</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;</span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">x</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">y</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">p</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">p</span><span class="other">.</span><span class="id">x</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">y</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">p</span><span class="other">.</span><span class="id">y</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Vector</span><span class="other">.</span><span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">'('</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">', '</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">')'</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Vector</span><span class="other">.</span><span class="id">Length</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Length</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Sqrt</span><span class="other">(</span><span class="id">x</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">x</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">y</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Vector</span><span class="other">.</span><span class="id">ToPoint</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ToPoint</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Point</span><span class="other">(</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Distance</span><span class="other">(</span><span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">dx</span><span class="other">,</span>&nbsp;<span class="id">dy</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">dx</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Abs</span><span class="other">(</span><span class="id">s</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">e</span><span class="other">.</span><span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">dy</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Abs</span><span class="other">(</span><span class="id">s</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">e</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Distance</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Sqrt</span><span class="other">(</span><span class="id">dx</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">dx</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">dy</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">dy</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Union</span><span class="other">(</span><span class="id">a</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Rect</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">right</span><span class="other">,</span>&nbsp;<span class="id">bottom</span><span class="other">,</span>&nbsp;<span class="id">left</span><span class="other">,</span>&nbsp;<span class="id">top</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">right</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Max</span><span class="other">(</span><span class="id">a</span><span class="other">.</span><span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">.</span><span class="id">Right</span><span class="other">(</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">bottom</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Max</span><span class="other">(</span><span class="id">a</span><span class="other">.</span><span class="id">Bottom</span><span class="other">(</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">.</span><span class="id">Bottom</span><span class="other">(</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">left</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Min</span><span class="other">(</span><span class="id">a</span><span class="other">.</span><span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">.</span><span class="id">Left</span><span class="other">(</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">top</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Min</span><span class="other">(</span><span class="id">a</span><span class="other">.</span><span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">.</span><span class="id">Top</span><span class="other">(</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Union</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Rect</span><span class="other">(</span><span class="kw">new</span>&nbsp;<span class="id">Point</span><span class="other">(</span><span class="id">left</span><span class="other">,</span>&nbsp;<span class="id">top</span><span class="other">)</span><span class="other">,</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Size</span><span class="other">(</span><span class="id">right</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">left</span><span class="other">,</span>&nbsp;<span class="id">bottom</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">top</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Sum</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Sum</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">u</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Difference</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Difference</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">u</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Product</span><span class="other">(</span><span class="id">a</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Product</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">a</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">a</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Dot</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Dot</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">u</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">u</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">y</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Unit</span><span class="other">(</span><span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">length</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">length</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">Length</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Unit</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Product</span><span class="other">(</span><span class="number">1</span>&nbsp;<span class="other">/</span>&nbsp;<span class="id">length</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">ProjectionFactor</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;<span class="id">ProjectionFactor</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Dot</span><span class="other">(</span><span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">Product</span><span class="other">(</span><span class="number">1</span>&nbsp;<span class="other">/</span>&nbsp;<span class="id">u</span><span class="other">.</span><span class="id">Length</span><span class="other">(</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Proj</span><span class="other">(</span><span class="id">u</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Proj</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Product</span><span class="other">(</span><span class="id">ProjectionFactor</span><span class="other">(</span><span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Unit</span><span class="other">(</span><span class="id">u</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">Rotate</span><span class="other">(</span><span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span>&nbsp;<span class="id">angleRad</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">cosTheta</span><span class="other">,</span>&nbsp;<span class="id">sinTheta</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">cosTheta</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Cos</span><span class="other">(</span><span class="id">angleRad</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">sinTheta</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Sin</span><span class="other">(</span><span class="id">angleRad</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Rotate</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">v</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">cosTheta</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">sinTheta</span><span class="other">,</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">sinTheta</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">cosTheta</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">GetDirection</span><span class="other">(</span><span class="id">source</span><span class="other">,</span>&nbsp;<span class="id">target</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Direction</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">direction</span><span class="other">:</span>&nbsp;<span class="id">Direction</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">target</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">source</span><span class="other">.</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">target</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">source</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">then</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">then</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">begin</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">u</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="number">1</span><span class="other">,</span>&nbsp;<span class="other">-</span><span class="number">1</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">Dot</span><span class="other">(</span><span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">)</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">then</span>&nbsp;<span class="id">direction</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">east</span>&nbsp;<span class="kw">else</span>&nbsp;<span class="id">direction</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">south</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">end</span>&nbsp;<span class="kw">else</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">u</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="other">-</span><span class="number">1</span><span class="other">,</span>&nbsp;<span class="other">-</span><span class="number">1</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">Dot</span><span class="other">(</span><span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">)</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">then</span>&nbsp;<span class="id">direction</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">north</span>&nbsp;<span class="kw">else</span>&nbsp;<span class="id">direction</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">east</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">end</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span>&nbsp;<span class="kw">else</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">v</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">then</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">u</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="number">1</span><span class="other">,</span>&nbsp;<span class="number">1</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">Dot</span><span class="other">(</span><span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">)</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">then</span>&nbsp;<span class="id">direction</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">south</span>&nbsp;<span class="kw">else</span>&nbsp;<span class="id">direction</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">west</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">end</span>&nbsp;<span class="kw">else</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">u</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="other">-</span><span class="number">1</span><span class="other">,</span>&nbsp;<span class="number">1</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">Dot</span><span class="other">(</span><span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">u</span><span class="other">)</span>&nbsp;<span class="other">>=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">then</span>&nbsp;<span class="id">direction</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">west</span>&nbsp;<span class="kw">else</span>&nbsp;<span class="id">direction</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">north</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">end</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">LineSegment</span><span class="other">(</span><span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">s</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">s</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">e</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">e</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">LineSegment</span><span class="other">(</span><span class="id">s</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span>&nbsp;<span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">u</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">s</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">s</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">u</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Sum</span><span class="other">(</span><span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">s</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">v</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">e</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">u</span><span class="other">.</span><span class="id">ToPoint</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">LineSegment</span><span class="other">.</span><span class="id">Print</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">'{('</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">s</span><span class="other">.</span><span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">', '</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">s</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">'); ('</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">e</span><span class="other">.</span><span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">', '</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="id">e</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Write</span><span class="other">(</span><span class="string">')}'</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">LineSegment</span><span class="other">.</span><span class="id">ToVector</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ToVector</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Vector</span><span class="other">(</span><span class="id">e</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">s</span><span class="other">.</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">-</span>&nbsp;<span class="id">s</span><span class="other">.</span><span class="id">y</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">LineSegment</span><span class="other">.</span><span class="id">Length</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Length</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Distance</span><span class="other">(</span><span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">e</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">RotateLineSegment</span><span class="other">(</span><span class="id">line</span><span class="other">:</span>&nbsp;<span class="id">LineSegment</span><span class="other">;</span>&nbsp;<span class="id">angleDeg</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">LineSegment</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">angleRad</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">r</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">angleRad</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">pi</span>&nbsp;<span class="other">/</span>&nbsp;<span class="number">180.0</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">angleDeg</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">v</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">line</span><span class="other">.</span><span class="id">ToVector</span><span class="other">(</span><span class="other">)</span><span class="other">;</span>&nbsp;&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">r</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Rotate</span><span class="other">(</span><span class="id">v</span><span class="other">,</span>&nbsp;<span class="id">angleRad</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">RotateLineSegment</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">LineSegment</span><span class="other">(</span><span class="id">line</span><span class="other">.</span><span class="id">s</span><span class="other">,</span>&nbsp;<span class="id">r</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">.</span></span>
+  <br/>
+</div>

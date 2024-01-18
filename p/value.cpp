@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -338,6 +338,18 @@ void ArrayValue::AddElement(Value* element)
     elements.push_back(std::unique_ptr<Value>(element));
 }
 
+Value* ArrayValue::GetElement(int32_t elementIndex) const
+{
+    if (elementIndex >= 0 && elementIndex < elements.size())
+    {
+        return elements[elementIndex].get();
+    }
+    else
+    {
+        throw std::runtime_error("invalid array index");
+    }
+}
+
 void ArrayValue::Write(Writer& writer)
 {
     writer.GetBinaryWriter().Write(static_cast<int32_t>(elements.size()));
@@ -356,6 +368,7 @@ void ArrayValue::Read(Reader& reader)
         ValueKind elementKind = static_cast<ValueKind>(reader.GetBinaryReader().ReadByte());
         Value* value = MakeValue(elementKind);
         value->Read(reader);
+        AddElement(value);
     }
 }
 
@@ -413,6 +426,19 @@ const Field& ObjectValue::GetField(int32_t index) const
     {
         throw std::runtime_error("invalid field index");
     }
+}
+
+const Field& ObjectValue::GetField(const std::string& fieldName) const
+{
+    for (int32_t index = 0; index < fields.size(); ++index)
+    {
+        const Field& field = fields[index];
+        if (field.Name() == fieldName)
+        {
+            return field;
+        }
+    }
+    throw std::runtime_error("invalid field name");
 }
 
 void ObjectValue::Write(Writer& writer)

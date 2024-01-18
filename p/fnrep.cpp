@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -219,6 +219,16 @@ void BinaryOperatorFunction::GenerateCode(Emitter* emitter, int64_t pos)
                     emitter->Emit(new ShrIntInstruction());
                     break;
                 }
+                case Operator::or_:
+                {
+                    emitter->Emit(new OrIntInstruction());
+                    break;
+                }
+                case Operator::xor_:
+                {
+                    emitter->Emit(new XorIntInstruction());
+                    break;
+                }
                 default:
                 {
                     ThrowError("error: invalid integer binary operation", emitter->Lexer(), pos);
@@ -323,6 +333,26 @@ void BinaryOperatorFunction::GenerateCode(Emitter* emitter, int64_t pos)
                 case Operator::notEqual:
                 {
                     emitter->Emit(new NotEqualStringInstruction());
+                    break;
+                }
+                case Operator::less:
+                {
+                    emitter->Emit(new LessStringInstruction());
+                    break;
+                }
+                case Operator::greater:
+                {
+                    emitter->Emit(new GreaterStringInstruction());
+                    break;
+                }
+                case Operator::lessOrEqual:
+                {
+                    emitter->Emit(new LessOrEqualStringInstruction());
+                    break;
+                }
+                case Operator::greaterOrEqual:
+                {
+                    emitter->Emit(new GreaterOrEqualStringInstruction());
                     break;
                 }
                 case Operator::plus:
@@ -514,7 +544,7 @@ Function* FunctionRepository::GetBinaryOperatorFunction(Operator op, Type* type,
     }
     else
     {
-        ThrowError("error: binary operator '" + MakeOpName(op)  + "' for type '" + type->Name() + " not found", lexer, pos);
+        ThrowError("error: binary operator '" + MakeOpName(op)  + "' for type '" + type->Name() + "' not found", lexer, pos);
     }
     return nullptr;
 }
@@ -534,7 +564,7 @@ Function* FunctionRepository::GetUnaryOperatorFunction(Operator op, Type* type, 
     }
     else
     {
-        ThrowError("error: unary operator '" + MakeOpName(op) + "' for type '" + type->Name() + " not found", lexer, pos);
+        ThrowError("error: unary operator '" + MakeOpName(op) + "' for type '" + type->Name() + "' not found", lexer, pos);
     }
     return nullptr;
 }
@@ -613,6 +643,10 @@ void MakeOperatorFunctions(Block* block)
     FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::notEqual, charType, booleanType));
     FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::equal, stringType, booleanType));
     FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::notEqual, stringType, booleanType));
+    FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::less, stringType, booleanType));
+    FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::greater, stringType, booleanType));
+    FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::lessOrEqual, stringType, booleanType));
+    FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::greaterOrEqual, stringType, booleanType));
     FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::plus, stringType, stringType));
     FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunction(Operator::equal, nilType, booleanType));
     FunctionRepository::Instance().AddUnaryOperatorFunction(new UnaryOperatorFunction(Operator::not_, booleanType, booleanType));

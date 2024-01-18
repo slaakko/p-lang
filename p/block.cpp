@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -544,6 +544,10 @@ void Block::AddProcedure(Procedure* procedure, soul::lexer::LexerBase<char>& lex
         {
             ThrowError("error: procedure '" + procedure->InfoName() + "' not unique", lexer, pos);
         }
+        else
+        {
+            procedure->SetDeclaration(prev);
+        }
     }
     procedureMap[procedure->FullName()] = procedure;
     procedureMap[procedure->CommonName()] = procedure;
@@ -581,6 +585,10 @@ void Block::AddFunction(Function* function, soul::lexer::LexerBase<char>& lexer,
         if (!prev->IsForward() && !prev->IsDeclaration())
         {
             ThrowError("error: function '" + function->InfoName() + "' not unique", lexer, pos);
+        }
+        else
+        {
+            function->SetDeclaration(prev);
         }
     }
     functionMap[function->FullName()] = function;

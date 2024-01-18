@@ -1,5 +1,5 @@
 
-// this file has been automatically generated from 'C:/work/springpp/p/block.parser' using soul parser generator spg version 5.0.0
+// this file has been automatically generated from 'C:/work/p-lang/p/block.parser' using soul parser generator spg version 5.0.0
 
 module p.block.parser;
 
@@ -161,6 +161,7 @@ soul::parser::Match BlockParser<LexerT>::SubroutineBlock(LexerT& lexer, ParsingC
                         if (match.hit)
                         {
                             subroutine->SetForward();
+                            subroutine->SetAsDeclaration();
                         }
                         *parentMatch3 = match;
                     }
@@ -1124,7 +1125,7 @@ soul::parser::Match BlockParser<LexerT>::ArrayConstant(LexerT& lexer, ParsingCon
 }
 
 template<typename LexerT>
-soul::parser::Match BlockParser<LexerT>::ObjectConstant(LexerT& lexer, ParsingContext* context, p::Type* type)
+soul::parser::Match BlockParser<LexerT>::FieldConstant(LexerT& lexer, ParsingContext* context, p::Type* type)
 {
     #ifdef SOUL_PARSER_DEBUG_SUPPORT
     int64_t parser_debug_match_pos = 0;
@@ -1132,7 +1133,7 @@ soul::parser::Match BlockParser<LexerT>::ObjectConstant(LexerT& lexer, ParsingCo
     if (parser_debug_write_to_log)
     {
         parser_debug_match_pos = lexer.GetPos();
-        soul::lexer::WriteBeginRuleToLog(lexer, "ObjectConstant");
+        soul::lexer::WriteBeginRuleToLog(lexer, "FieldConstant");
     }
     #endif
     soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 7470045152585711628);
@@ -1148,15 +1149,12 @@ soul::parser::Match BlockParser<LexerT>::ObjectConstant(LexerT& lexer, ParsingCo
             soul::parser::Match* parentMatch2 = &match;
             {
                 int64_t pos = lexer.GetPos();
-                soul::parser::Match match(false);
-                if (*lexer == LPAREN)
-                {
-                    ++lexer;
-                    match.hit = true;
-                }
+                soul::parser::Match match = BlockParser<LexerT>::FieldName(lexer);
+                fieldName.reset(static_cast<soul::parser::Value<std::string>*>(match.value));
                 if (match.hit)
                 {
-                    MakeObjectConstant(context, type, lexer, pos);
+                    context->SetFieldName(fieldName->value);
+                    fieldType = GetFieldType(type, context->FieldName(), lexer, pos);
                 }
                 *parentMatch2 = match;
             }
@@ -1168,135 +1166,10 @@ soul::parser::Match BlockParser<LexerT>::ObjectConstant(LexerT& lexer, ParsingCo
             soul::parser::Match* parentMatch3 = &match;
             {
                 soul::parser::Match match(false);
-                soul::parser::Match* parentMatch4 = &match;
+                if (*lexer == COLON)
                 {
-                    soul::parser::Match match(false);
-                    soul::parser::Match* parentMatch5 = &match;
-                    {
-                        soul::parser::Match match(false);
-                        soul::parser::Match* parentMatch6 = &match;
-                        {
-                            soul::parser::Match match(false);
-                            soul::parser::Match* parentMatch7 = &match;
-                            {
-                                soul::parser::Match match(false);
-                                soul::parser::Match* parentMatch8 = &match;
-                                {
-                                    int64_t pos = lexer.GetPos();
-                                    soul::parser::Match match = BlockParser<LexerT>::FieldName(lexer);
-                                    fieldName.reset(static_cast<soul::parser::Value<std::string>*>(match.value));
-                                    if (match.hit)
-                                    {
-                                        context->SetFieldName(fieldName->value);
-                                        fieldType = GetFieldType(type, context->FieldName(), lexer, pos);
-                                    }
-                                    *parentMatch8 = match;
-                                }
-                                *parentMatch7 = match;
-                            }
-                            if (match.hit)
-                            {
-                                soul::parser::Match match(false);
-                                soul::parser::Match* parentMatch9 = &match;
-                                {
-                                    soul::parser::Match match(false);
-                                    if (*lexer == COLON)
-                                    {
-                                        ++lexer;
-                                        match.hit = true;
-                                    }
-                                    *parentMatch9 = match;
-                                }
-                                *parentMatch7 = match;
-                            }
-                            *parentMatch6 = match;
-                        }
-                        if (match.hit)
-                        {
-                            soul::parser::Match match(false);
-                            soul::parser::Match* parentMatch10 = &match;
-                            {
-                                soul::parser::Match match = BlockParser<LexerT>::Constant(lexer, context, fieldType);
-                                *parentMatch10 = match;
-                            }
-                            *parentMatch6 = match;
-                        }
-                        *parentMatch5 = match;
-                    }
-                    *parentMatch4 = match;
-                }
-                if (match.hit)
-                {
-                    soul::parser::Match match(true);
-                    soul::parser::Match* parentMatch11 = &match;
-                    while (true)
-                    {
-                        int64_t save = lexer.GetPos();
-                        {
-                            soul::parser::Match match(false);
-                            soul::parser::Match* parentMatch12 = &match;
-                            {
-                                soul::parser::Match match(false);
-                                soul::parser::Match* parentMatch13 = &match;
-                                {
-                                    soul::parser::Match match(false);
-                                    soul::parser::Match* parentMatch14 = &match;
-                                    {
-                                        soul::parser::Match match(false);
-                                        soul::parser::Match* parentMatch15 = &match;
-                                        {
-                                            int64_t pos = lexer.GetPos();
-                                            soul::parser::Match match = BlockParser<LexerT>::FieldName(lexer);
-                                            fieldName.reset(static_cast<soul::parser::Value<std::string>*>(match.value));
-                                            if (match.hit)
-                                            {
-                                                context->SetFieldName(fieldName->value);
-                                                fieldType = GetFieldType(type, context->FieldName(), lexer, pos);
-                                            }
-                                            *parentMatch15 = match;
-                                        }
-                                        *parentMatch14 = match;
-                                    }
-                                    if (match.hit)
-                                    {
-                                        soul::parser::Match match(false);
-                                        soul::parser::Match* parentMatch16 = &match;
-                                        {
-                                            soul::parser::Match match(false);
-                                            if (*lexer == COLON)
-                                            {
-                                                ++lexer;
-                                                match.hit = true;
-                                            }
-                                            *parentMatch16 = match;
-                                        }
-                                        *parentMatch14 = match;
-                                    }
-                                    *parentMatch13 = match;
-                                }
-                                if (match.hit)
-                                {
-                                    soul::parser::Match match(false);
-                                    soul::parser::Match* parentMatch17 = &match;
-                                    {
-                                        soul::parser::Match match = BlockParser<LexerT>::Constant(lexer, context, fieldType);
-                                        *parentMatch17 = match;
-                                    }
-                                    *parentMatch13 = match;
-                                }
-                                *parentMatch12 = match;
-                            }
-                            if (match.hit)
-                            {
-                                *parentMatch11 = match;
-                            }
-                            else
-                            {
-                                lexer.SetPos(save);
-                                break;
-                            }
-                        }
-                    }
+                    ++lexer;
+                    match.hit = true;
                 }
                 *parentMatch3 = match;
             }
@@ -1307,10 +1180,143 @@ soul::parser::Match BlockParser<LexerT>::ObjectConstant(LexerT& lexer, ParsingCo
     if (match.hit)
     {
         soul::parser::Match match(false);
-        soul::parser::Match* parentMatch18 = &match;
+        soul::parser::Match* parentMatch4 = &match;
+        {
+            soul::parser::Match match = BlockParser<LexerT>::Constant(lexer, context, fieldType);
+            *parentMatch4 = match;
+        }
+        *parentMatch0 = match;
+    }
+    #ifdef SOUL_PARSER_DEBUG_SUPPORT
+    if (parser_debug_write_to_log)
+    {
+        if (match.hit) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "FieldConstant");
+        else soul::lexer::WriteFailureToLog(lexer, "FieldConstant");
+    }
+    #endif
+    if (!match.hit)
+    {
+        match.value = nullptr;
+    }
+    return match;
+}
+
+template<typename LexerT>
+soul::parser::Match BlockParser<LexerT>::ObjectConstant(LexerT& lexer, ParsingContext* context, p::Type* type)
+{
+    #ifdef SOUL_PARSER_DEBUG_SUPPORT
+    int64_t parser_debug_match_pos = 0;
+    bool parser_debug_write_to_log = lexer.Log() != nullptr;
+    if (parser_debug_write_to_log)
+    {
+        parser_debug_match_pos = lexer.GetPos();
+        soul::lexer::WriteBeginRuleToLog(lexer, "ObjectConstant");
+    }
+    #endif
+    soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 7470045152585711629);
+    p::Type* fieldType = nullptr;
+    soul::parser::Match match(false);
+    soul::parser::Match* parentMatch0 = &match;
+    {
+        soul::parser::Match match(false);
+        soul::parser::Match* parentMatch1 = &match;
         {
             soul::parser::Match match(false);
-            soul::parser::Match* parentMatch19 = &match;
+            soul::parser::Match* parentMatch2 = &match;
+            {
+                soul::parser::Match match(false);
+                soul::parser::Match* parentMatch3 = &match;
+                {
+                    int64_t pos = lexer.GetPos();
+                    soul::parser::Match match(false);
+                    if (*lexer == LPAREN)
+                    {
+                        ++lexer;
+                        match.hit = true;
+                    }
+                    if (match.hit)
+                    {
+                        MakeObjectConstant(context, type, lexer, pos);
+                    }
+                    *parentMatch3 = match;
+                }
+                *parentMatch2 = match;
+            }
+            if (match.hit)
+            {
+                soul::parser::Match match(false);
+                soul::parser::Match* parentMatch4 = &match;
+                {
+                    soul::parser::Match match = BlockParser<LexerT>::FieldConstant(lexer, context, type);
+                    *parentMatch4 = match;
+                }
+                *parentMatch2 = match;
+            }
+            *parentMatch1 = match;
+        }
+        if (match.hit)
+        {
+            soul::parser::Match match(false);
+            soul::parser::Match* parentMatch5 = &match;
+            {
+                soul::parser::Match match(true);
+                soul::parser::Match* parentMatch6 = &match;
+                {
+                    while (true)
+                    {
+                        int64_t save = lexer.GetPos();
+                        {
+                            soul::parser::Match match(false);
+                            soul::parser::Match* parentMatch7 = &match;
+                            {
+                                soul::parser::Match match(false);
+                                soul::parser::Match* parentMatch8 = &match;
+                                {
+                                    soul::parser::Match match(false);
+                                    if (*lexer == SEMICOLON)
+                                    {
+                                        ++lexer;
+                                        match.hit = true;
+                                    }
+                                    *parentMatch8 = match;
+                                }
+                                if (match.hit)
+                                {
+                                    soul::parser::Match match(false);
+                                    soul::parser::Match* parentMatch9 = &match;
+                                    {
+                                        soul::parser::Match match = BlockParser<LexerT>::FieldConstant(lexer, context, type);
+                                        *parentMatch9 = match;
+                                    }
+                                    *parentMatch8 = match;
+                                }
+                                *parentMatch7 = match;
+                            }
+                            if (match.hit)
+                            {
+                                *parentMatch6 = match;
+                            }
+                            else
+                            {
+                                lexer.SetPos(save);
+                                break;
+                            }
+                        }
+                    }
+                }
+                *parentMatch5 = match;
+            }
+            *parentMatch1 = match;
+        }
+        *parentMatch0 = match;
+    }
+    if (match.hit)
+    {
+        soul::parser::Match match(false);
+        soul::parser::Match* parentMatch10 = &match;
+        {
+            soul::parser::Match match(false);
+            soul::parser::Match* parentMatch11 = &match;
             {
                 int64_t pos = lexer.GetPos();
                 soul::parser::Match match(false);
@@ -1324,9 +1330,9 @@ soul::parser::Match BlockParser<LexerT>::ObjectConstant(LexerT& lexer, ParsingCo
                     context->PopCurrentValue();
                     context->PopFlags();
                 }
-                *parentMatch19 = match;
+                *parentMatch11 = match;
             }
-            *parentMatch18 = match;
+            *parentMatch10 = match;
         }
         *parentMatch0 = match;
     }
@@ -1356,7 +1362,7 @@ soul::parser::Match BlockParser<LexerT>::FieldName(LexerT& lexer)
         soul::lexer::WriteBeginRuleToLog(lexer, "FieldName");
     }
     #endif
-    soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 7470045152585711629);
+    soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 7470045152585711630);
     soul::parser::Match match(false);
     soul::parser::Match* parentMatch0 = &match;
     {
@@ -1404,7 +1410,7 @@ soul::parser::Match BlockParser<LexerT>::VariableDeclaration(LexerT& lexer, Pars
         soul::lexer::WriteBeginRuleToLog(lexer, "VariableDeclaration");
     }
     #endif
-    soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 7470045152585711630);
+    soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 7470045152585711631);
     std::unique_ptr<soul::parser::Value<std::vector<std::string>>> identifierList;
     std::unique_ptr<soul::parser::Value<p::TypePtr>> typePtr;
     soul::parser::Match match(false);

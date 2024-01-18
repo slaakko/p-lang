@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -535,7 +535,12 @@ ConstantRangeNode::ConstantRangeNode(Node* start_, Node* end_, int64_t pos_) : N
 
 Node* ConstantRangeNode::Clone() const
 {
-    return new ConstantRangeNode(rangeStart->Clone(), rangeEnd->Clone(), Pos());
+    Node* clonedEnd = nullptr;
+    if (rangeEnd)
+    {
+        clonedEnd = rangeEnd->Clone();
+    }
+    return new ConstantRangeNode(rangeStart->Clone(), clonedEnd, Pos());
 }
 
 void ConstantRangeNode::Accept(Visitor& visitor)

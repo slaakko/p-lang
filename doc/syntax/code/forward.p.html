@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8"/>
+    <title>C:/work/p-lang/doc/syntax/code/forward.p</title>
+    <style>
+      div.plang
+{
+ background-color: #e6f7ff;
+ margin: 20px;
+ padding: 20px;
+ font-family: monospace;
+}
+
+.plang .kw
+{
+ color: #000000;
+ font-weight: bold;
+}
+
+.plang .id
+{
+ color: #000000;
+}
+
+.plang .number
+{
+ color: #000000;
+}
+
+.plang .string
+{
+ color: #a31515;
+}
+
+.plang .other
+{
+ color: #000000;
+}
+
+.plang .comment
+{
+ color: #57a64a;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="plang">
+      <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Forward</span><span class="comment"> </span><span class="comment">declaration</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">program</span>&nbsp;<span class="id">Forward</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Second</span><span class="other">(</span><span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span>&nbsp;<span class="kw">forward</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">First</span><span class="other">(</span><span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">var</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">i</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">i</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">x</span>&nbsp;<span class="other">-</span>&nbsp;<span class="number">1</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'first: '</span><span class="other">,</span>&nbsp;<span class="id">i</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">i</span>&nbsp;<span class="other">></span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">then</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">Second</span><span class="other">(</span><span class="id">i</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">Second</span><span class="other">(</span><span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'second: '</span><span class="other">,</span>&nbsp;<span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">First</span><span class="other">(</span><span class="id">x</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">First</span><span class="other">(</span><span class="number">3</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">end</span><span class="other">.</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment">output</span><span class="comment"> </span><span class="comment">of</span><span class="comment"> </span><span class="comment">the</span><span class="comment"> </span><span class="comment">program</span><span class="comment">:</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment">first</span><span class="comment">:</span><span class="comment"> </span><span class="comment">2</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment">second</span><span class="comment">:</span><span class="comment"> </span><span class="comment">2</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment">first</span><span class="comment">:</span><span class="comment"> </span><span class="comment">1</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment">second</span><span class="comment">:</span><span class="comment"> </span><span class="comment">1</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment">first</span><span class="comment">:</span><span class="comment"> </span><span class="comment">0</span><span class="comment">
+</span><span class="comment">
+</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="comment">}</span></span>
+      <br/>
+    </div>
+  </body>
+</html>

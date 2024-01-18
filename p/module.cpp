@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -267,16 +267,16 @@ void Module::SetFilePath()
     std::string plangPRoot = util::GetFullPath(util::PLangRoot());
     switch (kind)
     {
-    case ModuleKind::unit:
-    {
-        filePath = util::Path::Combine(util::Path::Combine(plangPRoot, "unit"), name + ".pcode");
-        break;
-    }
-    case ModuleKind::program:
-    {
-        filePath = util::Path::Combine(util::Path::Combine(plangPRoot, "prog"), name + ".pcode");
-        break;
-    }
+        case ModuleKind::unit:
+        {
+            filePath = util::Path::Combine(util::Path::Combine(plangPRoot, "unit"), name + ".pcode");
+            break;
+        }
+        case ModuleKind::program:
+        {
+            filePath = util::Path::Combine(util::Path::Combine(plangPRoot, "prog"), name + ".pcode");
+            break;
+        }
     }
 }
 

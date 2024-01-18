@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -177,6 +177,11 @@ BoundBinaryExpressionNode::BoundBinaryExpressionNode(Function* operatorFunction_
 {
 }
 
+bool BoundBinaryExpressionNode::IsConst() const
+{
+    return left->IsConst() && right->IsConst();
+}
+
 void BoundBinaryExpressionNode::Load(Emitter* emitter) 
 {
     left->Load(emitter);
@@ -204,6 +209,11 @@ Type* UnaryExprFunctionResultType(Function* operatorFunction, BoundExpressionNod
 BoundUnaryExpressionNode::BoundUnaryExpressionNode(Function* operatorFunction_, BoundExpressionNode* operand_, int64_t pos_) :
     BoundExpressionNode(BoundNodeKind::boundUnaryExprNode, pos_, UnaryExprFunctionResultType(operatorFunction_, operand_)), operatorFunction(operatorFunction_), operand(operand_)
 {
+}
+
+bool BoundUnaryExpressionNode::IsConst() const
+{
+    return operand->IsConst();
 }
 
 void BoundUnaryExpressionNode::Load(Emitter* emitter)
@@ -392,10 +402,19 @@ BoundConstantNode::BoundConstantNode(int64_t pos_, Type* type_, Constant* consta
 }
 
 void BoundConstantNode::Load(Emitter* emitter)
-{
-    PushValueInstruction* pushValueInstruction = new PushValueInstruction();
-    pushValueInstruction->SetValue(new PtrValue(constant->GetValue()));
-    emitter->Emit(pushValueInstruction);
+{   
+    if (constant->GetValue()->IsObjectValue() || constant->GetValue()->IsArrayValue())
+    {
+        LoadConstantInstruction* loadConstantInstruction = new LoadConstantInstruction();
+        loadConstantInstruction->SetConstantId(constant->Id());
+        emitter->Emit(loadConstantInstruction);
+    }
+    else
+    {
+        PushValueInstruction* pushValueInstruction = new PushValueInstruction();
+        pushValueInstruction->SetValue(new PtrValue(constant->GetValue()));
+        emitter->Emit(pushValueInstruction);
+    }
 }
 
 void BoundConstantNode::Accept(BoundNodeVisitor& visitor)
@@ -1605,7 +1624,7 @@ void StatementBinder::Visit(AssignmentStatementNode& node)
     std::unique_ptr<BoundExpressionNode> target = BindExpression(context, subroutine, lexer, node.Target());
     if (target->IsConst())
     {
-        ThrowError("error: cannot assign to constant parameter", lexer, node.Pos());
+        ThrowError("error: cannot assign to constant", lexer, node.Pos());
     }
     if (target->IsBoundFunctionNode())
     {

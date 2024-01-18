@@ -184,11 +184,16 @@
           </group>
          </kleene>
         </sequence>
-        <optional first="{#, ELSE}">
-         <group first="{ELSE}">
-          <action first="{ELSE}">
-           <nonterminal first="{ELSE}" ruleName="ElsePart"/>
-          </action>
+        <optional first="{#, ELSE, SEMICOLON}">
+         <group first="{#, ELSE, SEMICOLON}">
+          <sequence first="{#, ELSE, SEMICOLON}">
+           <optional first="{#, SEMICOLON}">
+            <token first="{SEMICOLON}" name="SEMICOLON"/>
+           </optional>
+           <action first="{ELSE}">
+            <nonterminal first="{ELSE}" ruleName="ElsePart"/>
+           </action>
+          </sequence>
          </group>
         </optional>
        </sequence>

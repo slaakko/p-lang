@@ -1,0 +1,20 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Function</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">MMToPixels</span><span class="other">(</span><span class="id">mm</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span>&nbsp;<span class="id">dpi</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">pixels</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">pixels</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">integer</span><span class="other">(</span><span class="id">mm</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">dpi</span>&nbsp;<span class="other">/</span>&nbsp;<span class="id">inchMM</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">MMToPixels</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">pixels</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+</div>

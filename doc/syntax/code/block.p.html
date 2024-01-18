@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8"/>
+    <title>C:/work/p-lang/doc/syntax/code/block.p</title>
+    <style>
+      div.plang
+{
+ background-color: #e6f7ff;
+ margin: 20px;
+ padding: 20px;
+ font-family: monospace;
+}
+
+.plang .kw
+{
+ color: #000000;
+ font-weight: bold;
+}
+
+.plang .id
+{
+ color: #000000;
+}
+
+.plang .number
+{
+ color: #000000;
+}
+
+.plang .string
+{
+ color: #a31515;
+}
+
+.plang .other
+{
+ color: #000000;
+}
+
+.plang .comment
+{
+ color: #57a64a;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="plang">
+      <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Block</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">const</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">N</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">10</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">type</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Vector</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Point</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">var</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">vec</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">point</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">r</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">constructor</span>&nbsp;<span class="id">Point</span><span class="other">(</span><span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">x</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">y</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">y</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Proc</span><span class="other">(</span><span class="id">v</span><span class="other">:</span>&nbsp;<span class="id">Vector</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">const</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">M</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">20</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">type</span>&nbsp;&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">Object</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">i</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">var</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">z</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">..</span><span class="comment">.</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Func</span><span class="other">(</span><span class="id">p</span><span class="other">:</span>&nbsp;<span class="id">Point</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">const</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">F</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">30</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">type</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">T</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">..</span><span class="comment">.</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">var</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">u</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">..</span><span class="comment">.</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">Func</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">1</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">vec</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="kw">real</span><span class="other">[</span><span class="number">2</span><span class="other">]</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">vec</span><span class="other">[</span><span class="number">0</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">1.5</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">vec</span><span class="other">[</span><span class="number">1</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">2</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Proc</span><span class="other">(</span><span class="id">vec</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">point</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Point</span><span class="other">(</span><span class="number">5</span><span class="other">,</span>&nbsp;<span class="number">6</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">r</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Func</span><span class="other">(</span><span class="id">point</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+    </div>
+  </body>
+</html>

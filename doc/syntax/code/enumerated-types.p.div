@@ -1,0 +1,12 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Enumerated</span><span class="comment"> </span><span class="comment">type</span><span class="comment"> </span><span class="comment">declarations</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">TrafficLight</span>&nbsp;<span class="other">=</span>&nbsp;<span class="other">(</span><span class="id">red</span><span class="other">,</span>&nbsp;<span class="id">yellow</span><span class="other">,</span>&nbsp;<span class="id">green</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Fruit</span>&nbsp;<span class="other">=</span>&nbsp;<span class="other">(</span><span class="id">apple</span><span class="other">,</span>&nbsp;<span class="id">banana</span><span class="other">,</span>&nbsp;<span class="id">orange</span><span class="other">,</span>&nbsp;<span class="id">grapefruit</span><span class="other">,</span>&nbsp;<span class="id">lemon</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+</div>

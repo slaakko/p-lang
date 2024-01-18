@@ -1,0 +1,20 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Strings</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="string">''</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="string">'abc'</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="string">''''</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="string">'control-line'</span><span class="string">#13</span><span class="string">#10</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="string">'345'</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="string">'joe.coder@foo.bar'</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="string">'''quoted string'''</span></span>
+  <br/>
+</div>

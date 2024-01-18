@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -63,7 +63,7 @@ parser BlockParser
         ;
 
     SubroutineBlock(ParsingContext* context, Subroutine* subroutine)
-        ::= FORWARD{ subroutine->SetForward(); }
+        ::= FORWARD{ subroutine->SetForward(); subroutine->SetAsDeclaration(); }
         |   EXTERNAL{ subroutine->SetExternal(); }
         |   Block(context, subroutine, false):block
         |   empty{ NoSubroutineBlock(lexer, pos); }
@@ -128,17 +128,24 @@ parser BlockParser
             RBRACKET{ context->PopCurrentValue(); context->PopFlags(); }
         ;
 
+    FieldConstant(ParsingContext* context, p::Type* type, var p::Type* fieldType)
+        ::= FieldName:fieldName
+            { 
+                context->SetFieldName(fieldName); 
+                fieldType = GetFieldType(type, context->FieldName(), lexer, pos); 
+            } 
+            COLON 
+            Constant(context, fieldType):constant
+        ;
+
+
     ObjectConstant(ParsingContext* context, p::Type* type, var p::Type* fieldType)
         ::= LPAREN{ MakeObjectConstant(context, type, lexer, pos); } 
+            FieldConstant(context, type):first
             (
-                FieldName:fieldName
-                { 
-                    context->SetFieldName(fieldName); 
-                    fieldType = GetFieldType(type, context->FieldName(), lexer, pos); 
-                } 
-                COLON 
-                Constant(context, fieldType):constant
-            )+ 
+                SEMICOLON
+                FieldConstant(context, type):next
+            )*
             RPAREN{ context->PopCurrentValue(); context->PopFlags(); }
         ;
 

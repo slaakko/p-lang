@@ -1,0 +1,40 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">p</span><span class="other">:</span>&nbsp;<span class="kw">real</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">func</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">proc</span><span class="other">(</span><span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Simple</span><span class="comment"> </span><span class="comment">statements</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="id">x</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">1</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">p</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">pi</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">this</span><span class="other">.</span><span class="id">w</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">w</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">angleRad</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">pi</span>&nbsp;<span class="other">/</span>&nbsp;<span class="number">180.0</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">angleDeg</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">black</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Color</span><span class="other">(</span><span class="id">Byte</span><span class="other">(</span><span class="number">255</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">0</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">0</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">0</span><span class="other">)</span><span class="other">)</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">func</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">10</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">as</span><span class="comment"> </span><span class="comment">last</span><span class="comment"> </span><span class="comment">statement</span><span class="comment"> </span><span class="comment">of</span><span class="comment"> </span><span class="comment">func</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">proc</span><span class="other">(</span><span class="number">2</span><span class="other">)</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">Write</span><span class="other">(</span><span class="id">x</span><span class="other">)</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">graphics</span><span class="other">.</span><span class="id">FillPolygon</span><span class="other">(</span><span class="id">blackBrush</span><span class="other">,</span>&nbsp;<span class="id">points</span><span class="other">)</span></span>
+  <br/>
+</div>

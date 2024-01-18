@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8"/>
+    <title>C:/work/p-lang/doc/syntax/code/factors.p</title>
+    <style>
+      div.plang
+{
+ background-color: #e6f7ff;
+ margin: 20px;
+ padding: 20px;
+ font-family: monospace;
+}
+
+.plang .kw
+{
+ color: #000000;
+ font-weight: bold;
+}
+
+.plang .id
+{
+ color: #000000;
+}
+
+.plang .number
+{
+ color: #000000;
+}
+
+.plang .string
+{
+ color: #a31515;
+}
+
+.plang .other
+{
+ color: #000000;
+}
+
+.plang .comment
+{
+ color: #57a64a;
+}
+
+</style>
+  </head>
+  <body>
+    <div class="plang">
+      <span xml:space="preserve"><span class="kw">type</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">A</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Foo</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span>&nbsp;</span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">f</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">f</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">m</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">var</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">a</span><span class="other">:</span>&nbsp;<span class="id">A</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span><span class="other">:</span>&nbsp;<span class="id">Foo</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">func</span><span class="other">(</span><span class="id">x</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span>&nbsp;<span class="id">foo</span><span class="other">:</span>&nbsp;<span class="id">Foo</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">begin</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">..</span><span class="comment">.</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;<span class="id">func</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">x</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Factors</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"/>
+      <br/>
+      <span xml:space="preserve"><span class="number">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">primary</span><span class="comment"> </span><span class="comment">expression</span><span class="comment"> </span><span class="comment">is</span><span class="comment"> </span><span class="comment">a</span><span class="comment"> </span><span class="comment">factor</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">a</span><span class="other">[</span><span class="number">4</span><span class="other">]</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">array</span><span class="comment"> </span><span class="comment">index</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">x</span><span class="other">.</span><span class="id">f</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">member</span><span class="comment"> </span><span class="comment">selection</span><span class="comment"> </span><span class="comment">operation</span><span class="comment"> </span><span class="comment">}</span>&nbsp;&nbsp;</span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">this</span><span class="other">.</span><span class="id">f</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">this</span><span class="comment">-</span><span class="comment">field</span><span class="comment"> </span><span class="comment">access</span><span class="comment"> </span><span class="comment">(</span><span class="comment">inside</span><span class="comment"> </span><span class="comment">Foo</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="kw">this</span><span class="other">.</span><span class="id">m</span><span class="other">(</span><span class="other">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">this</span><span class="comment">-</span><span class="comment">method</span><span class="comment"> </span><span class="comment">call</span><span class="comment"> </span><span class="comment">(</span><span class="comment">inside</span><span class="comment"> </span><span class="comment">Foo</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve"><span class="id">func</span><span class="other">(</span><span class="number">1</span><span class="other">,</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Foo</span><span class="other">(</span><span class="number">1</span><span class="other">)</span><span class="other">)</span>&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">function</span><span class="comment"> </span><span class="comment">call</span><span class="comment"> </span><span class="comment">with</span><span class="comment"> </span><span class="comment">unsigned</span><span class="comment"> </span><span class="comment">constant</span><span class="comment"> </span><span class="comment">and</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+      <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">new</span><span class="comment">-</span><span class="comment">expression</span><span class="comment"> </span><span class="comment">arguments</span><span class="comment"> </span><span class="comment">}</span></span>
+      <br/>
+    </div>
+  </body>
+</html>

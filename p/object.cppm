@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -149,6 +149,7 @@ public:
     void SetValue(const char* value_) { value = value_; }
     std::string KindStr() const override { return "string_object"; }
     StringObject* ToStringObject(ExecutionContext* context) override;
+    std::string ToString() const override { return value; }
     int32_t Size() const { return size; }
     void SetSize(int32_t size_) { size = size_; }
 private:

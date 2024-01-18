@@ -1,0 +1,22 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">For</span><span class="comment"> </span><span class="comment">statements</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">for</span>&nbsp;<span class="id">i</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">to</span>&nbsp;<span class="number">10</span>&nbsp;<span class="kw">do</span>&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="id">i</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">for</span>&nbsp;<span class="id">i</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">to</span>&nbsp;<span class="id">count</span>&nbsp;<span class="other">-</span>&nbsp;<span class="number">1</span>&nbsp;<span class="kw">do</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">s</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">SyntaxShape</span><span class="other">(</span><span class="id">components</span><span class="other">[</span><span class="id">i</span><span class="other">]</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">w</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">w</span>&nbsp;<span class="other">+</span>&nbsp;<span class="id">s</span><span class="other">.</span><span class="id">bounds</span><span class="other">.</span><span class="id">size</span><span class="other">.</span><span class="id">w</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">h</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Max</span><span class="other">(</span><span class="id">h</span><span class="other">,</span>&nbsp;<span class="id">s</span><span class="other">.</span><span class="id">bounds</span><span class="other">.</span><span class="id">size</span><span class="other">.</span><span class="id">h</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+</div>

@@ -1,5 +1,5 @@
 
-// this file has been automatically generated from 'C:/work/springpp/p/statement.parser' using soul parser generator spg version 5.0.0
+// this file has been automatically generated from 'C:/work/p-lang/p/statement.parser' using soul parser generator spg version 5.0.0
 
 module p.statement.parser;
 
@@ -1214,12 +1214,45 @@ soul::parser::Match StatementParser<LexerT>::CaseStatement(LexerT& lexer, Parsin
                                     soul::parser::Match match(false);
                                     soul::parser::Match* parentMatch23 = &match;
                                     {
-                                        int64_t pos = lexer.GetPos();
-                                        soul::parser::Match match = StatementParser<LexerT>::ElsePart(lexer, context);
-                                        elsePart.reset(static_cast<p::StatementNode*>(match.value));
-                                        if (match.hit)
+                                        soul::parser::Match match(true);
+                                        int64_t save = lexer.GetPos();
+                                        soul::parser::Match* parentMatch24 = &match;
                                         {
-                                            node->SetElsePart(elsePart.release());
+                                            soul::parser::Match match(false);
+                                            if (*lexer == SEMICOLON)
+                                            {
+                                                ++lexer;
+                                                match.hit = true;
+                                            }
+                                            if (match.hit)
+                                            {
+                                                *parentMatch24 = match;
+                                            }
+                                            else
+                                            {
+                                                lexer.SetPos(save);
+                                            }
+                                        }
+                                        *parentMatch23 = match;
+                                    }
+                                    if (match.hit)
+                                    {
+                                        soul::parser::Match match(false);
+                                        soul::parser::Match* parentMatch25 = &match;
+                                        {
+                                            soul::parser::Match match(false);
+                                            soul::parser::Match* parentMatch26 = &match;
+                                            {
+                                                int64_t pos = lexer.GetPos();
+                                                soul::parser::Match match = StatementParser<LexerT>::ElsePart(lexer, context);
+                                                elsePart.reset(static_cast<p::StatementNode*>(match.value));
+                                                if (match.hit)
+                                                {
+                                                    node->SetElsePart(elsePart.release());
+                                                }
+                                                *parentMatch26 = match;
+                                            }
+                                            *parentMatch25 = match;
                                         }
                                         *parentMatch23 = match;
                                     }
@@ -1243,11 +1276,11 @@ soul::parser::Match StatementParser<LexerT>::CaseStatement(LexerT& lexer, Parsin
                 if (match.hit)
                 {
                     soul::parser::Match match(false);
-                    soul::parser::Match* parentMatch24 = &match;
+                    soul::parser::Match* parentMatch27 = &match;
                     {
                         soul::parser::Match match(true);
                         int64_t save = lexer.GetPos();
-                        soul::parser::Match* parentMatch25 = &match;
+                        soul::parser::Match* parentMatch28 = &match;
                         {
                             soul::parser::Match match(false);
                             if (*lexer == SEMICOLON)
@@ -1257,14 +1290,14 @@ soul::parser::Match StatementParser<LexerT>::CaseStatement(LexerT& lexer, Parsin
                             }
                             if (match.hit)
                             {
-                                *parentMatch25 = match;
+                                *parentMatch28 = match;
                             }
                             else
                             {
                                 lexer.SetPos(save);
                             }
                         }
-                        *parentMatch24 = match;
+                        *parentMatch27 = match;
                     }
                     *parentMatch3 = match;
                 }
@@ -1273,7 +1306,7 @@ soul::parser::Match StatementParser<LexerT>::CaseStatement(LexerT& lexer, Parsin
             if (match.hit)
             {
                 soul::parser::Match match(false);
-                soul::parser::Match* parentMatch26 = &match;
+                soul::parser::Match* parentMatch29 = &match;
                 {
                     soul::parser::Match match(false);
                     if (*lexer == END)
@@ -1281,7 +1314,7 @@ soul::parser::Match StatementParser<LexerT>::CaseStatement(LexerT& lexer, Parsin
                         ++lexer;
                         match.hit = true;
                     }
-                    *parentMatch26 = match;
+                    *parentMatch29 = match;
                 }
                 *parentMatch2 = match;
             }

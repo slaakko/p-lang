@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -24,6 +24,7 @@ private:
 
 ExternalSubroutine* GetExternalSubroutine(const std::string& externalSubroutineName);
 ExternalSubroutine* GetExternalSubroutine(int32_t id);
+ExternalSubroutine* GetExternalSubroutineNoThrow(const std::string& externalSubroutineName);
 
 void Init();
 void Done();

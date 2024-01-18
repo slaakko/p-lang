@@ -1,5 +1,5 @@
 
-// this file has been automatically generated from 'C:/work/springpp/p/expression.parser' using soul parser generator spg version 5.0.0
+// this file has been automatically generated from 'C:/work/p-lang/p/expression.parser' using soul parser generator spg version 5.0.0
 
 export module p.expression.parser;
 
@@ -45,7 +45,7 @@ struct ExpressionParser
     static soul::parser::Match Method(LexerT& lexer, ParsingContext* context);
     static soul::parser::Match Qualifier(LexerT& lexer, ParsingContext* context, Node* primary);
     static soul::parser::Match Index(LexerT& lexer, ParsingContext* context, Node* primary);
-    static soul::parser::Match FieldDesignator(LexerT& lexer, ParsingContext* context, Node* primary);
+    static soul::parser::Match MemberSelection(LexerT& lexer, ParsingContext* context, Node* primary);
     static soul::parser::Match Identifier(LexerT& lexer, ParsingContext* context);
     static soul::parser::Match VariableTypecast(LexerT& lexer, ParsingContext* context);
     static soul::parser::Match NewExpression(LexerT& lexer, ParsingContext* context);

@@ -1,0 +1,20 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Identifiers</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="id">x</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">foo</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">Writeln</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">pi</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">Qwerty123</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">string_literal</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="id">_abc</span></span>
+  <br/>
+</div>

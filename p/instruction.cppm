@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -21,7 +21,7 @@ class Constructor;
 
 enum class InstructionKind
 {
-    nop, load_local, store_local, load_parent, store_parent, load_global, store_global,
+    nop, load_local, store_local, load_parent, store_parent, load_global, store_global, load_constant,
     load_result_var, push_value, pop_value, load_field, store_field, load_element, store_element, array_length, string_length, receive, jump, branch, case_inst,
     call_procedure, call_function, call_stdfn, call_stdproc, call_virtual, call_external, call_ctor, new_object, new_array,
     equal_bool, not_equal_bool, and_bool, or_bool, xor_bool, not_bool,
@@ -29,7 +29,7 @@ enum class InstructionKind
     plus_int, minus_int, mul_int, fractional_divide_int, div_int, mod_int, and_int, or_int, xor_int, shl_int, shr_int, not_int, unary_plus_int, unary_minus_int,
     equal_real, not_equal_real, less_real, greater_real, less_or_equal_real, greater_or_equal_real,
     plus_real, minus_real, mul_real, fractional_divide_real, unary_plus_real, unary_minus_real,
-    equal_char, not_equal_char, equal_string, not_equal_string, plus_string,
+    equal_char, not_equal_char, equal_string, not_equal_string, less_string, greater_string, less_or_equal_string, greater_or_equal_string, plus_string,
     int_to_real, char_to_string,
     equal_nil
 };
@@ -142,6 +142,19 @@ public:
     Instruction* Execute(ExecutionContext* context) override;
 private:
     int32_t globalIndex;
+};
+
+class LoadConstantInstruction : public Instruction
+{
+public:
+    LoadConstantInstruction();
+    void SetConstantId(const util::uuid& constantId_);
+    void Write(Writer& writer) override;
+    void Read(Reader& reader) override;
+    std::string ToString(ExecutionContext* context) const override;
+    Instruction* Execute(ExecutionContext* context) override;
+private:
+    util::uuid constantId;
 };
 
 class LoadResultVarInstruction : public Instruction
@@ -754,6 +767,34 @@ class NotEqualStringInstruction : public Instruction
 {
 public:
     NotEqualStringInstruction();
+    Instruction* Execute(ExecutionContext* context) override;
+};
+
+class LessStringInstruction : public Instruction
+{
+public:
+    LessStringInstruction();
+    Instruction* Execute(ExecutionContext* context) override;
+};
+
+class GreaterStringInstruction : public Instruction
+{
+public:
+    GreaterStringInstruction();
+    Instruction* Execute(ExecutionContext* context) override;
+};
+
+class LessOrEqualStringInstruction : public Instruction
+{
+public:
+    LessOrEqualStringInstruction();
+    Instruction* Execute(ExecutionContext* context) override;
+};
+
+class GreaterOrEqualStringInstruction : public Instruction
+{
+public:
+    GreaterOrEqualStringInstruction();
     Instruction* Execute(ExecutionContext* context) override;
 };
 

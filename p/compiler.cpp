@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -55,7 +55,7 @@ void Compile(const std::string& filePath, Context* context)
     context->AddUpdatedUnits(parsingContext.UpdatedUnits());
     if (context->Verbose())
     {
-        std::cout << "==> " << util::Path::ChangeExtension(filePath, ".pcode") << "\n";
+        std::cout << "==> " << mod->FilePath() << "\n";
     }
 }
 

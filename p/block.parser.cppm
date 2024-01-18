@@ -1,5 +1,5 @@
 
-// this file has been automatically generated from 'C:/work/springpp/p/block.parser' using soul parser generator spg version 5.0.0
+// this file has been automatically generated from 'C:/work/p-lang/p/block.parser' using soul parser generator spg version 5.0.0
 
 export module p.block.parser;
 
@@ -38,6 +38,7 @@ struct BlockParser
     static soul::parser::Match ConstantDeclaration(LexerT& lexer, ParsingContext* context);
     static soul::parser::Match Constant(LexerT& lexer, ParsingContext* context, p::Type* type);
     static soul::parser::Match ArrayConstant(LexerT& lexer, ParsingContext* context, p::Type* type);
+    static soul::parser::Match FieldConstant(LexerT& lexer, ParsingContext* context, p::Type* type);
     static soul::parser::Match ObjectConstant(LexerT& lexer, ParsingContext* context, p::Type* type);
     static soul::parser::Match FieldName(LexerT& lexer);
     static soul::parser::Match VariableDeclaration(LexerT& lexer, ParsingContext* context);

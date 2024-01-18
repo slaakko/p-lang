@@ -1,0 +1,49 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.line.lexer;
+
+import p.line.token;
+import p.line.keyword;
+import p.line.expr;
+
+lexer PLineLexer
+{
+    rules
+    {
+        "{id}" { auto& token = lexer.CurrentToken(); int64_t kw = lexer.GetKeywordToken(token.match); if (kw == soul::lexer::INVALID_TOKEN) return IDENTIFIER_TOKEN; else return KEYWORD_TOKEN; }
+        "{integer}" { return NUMBER_TOKEN; }
+        "{start_brace_comment}" { return START_BRACE_COMMENT_TOKEN; }
+        "{end_brace_comment}" { return END_BRACE_COMMENT_TOKEN; }
+        "{start_block_comment}" { return START_BLOCK_COMMENT_TOKEN; }
+        "{end_block_comment}" { return END_BLOCK_COMMENT_TOKEN; }
+        "{real}" { return NUMBER_TOKEN; }
+        "{quoted_string}" { return STRING_TOKEN; }
+        "{control_string}" { return STRING_TOKEN; }
+        "{ws}" { return WS_TOKEN; }
+        "=" { return OTHER_TOKEN; }
+        "<>" { return OTHER_TOKEN; }
+        "<=" { return OTHER_TOKEN; }
+        ">=" { return OTHER_TOKEN; }
+        "<" { return OTHER_TOKEN; }
+        ">" { return OTHER_TOKEN; }
+        "\+" { return OTHER_TOKEN; }
+        "-" { return OTHER_TOKEN; }
+        "\*" { return OTHER_TOKEN; }
+        "/" { return OTHER_TOKEN; }
+        "\.\." { return OTHER_TOKEN; }
+        "\." { return OTHER_TOKEN; }
+        "\[" { return OTHER_TOKEN; }
+        "\]" { return OTHER_TOKEN; }
+        "\(" { return OTHER_TOKEN; }
+        "\)" { return OTHER_TOKEN; }
+        "\{" { return OTHER_TOKEN; }
+        "\}" { return OTHER_TOKEN; }
+        "," { return OTHER_TOKEN; }
+        ":=" { return OTHER_TOKEN; }
+        ":" { return OTHER_TOKEN; }
+        ";" { return OTHER_TOKEN; }
+    }
+}

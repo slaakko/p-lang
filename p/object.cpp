@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -223,6 +223,18 @@ void HeapObject::SetField(int32_t fieldIndex, Object* object, ExecutionContext* 
                 {
                     GenericPointerValue* pointerValue = static_cast<GenericPointerValue*>(value);
                     new (static_cast<void*>(Ptr() + offset))GenericPointerValue(*pointerValue);
+                    break;
+                }
+                case ValueKind::objectValue:
+                {
+                    PtrObject objectPtr(value);
+                    new (static_cast<void*>(Ptr() + offset))PtrObject(objectPtr);
+                    break;
+                }
+                case ValueKind::arrayValue:
+                {
+                    PtrObject objectPtr(value);
+                    new (static_cast<void*>(Ptr() + offset))PtrObject(objectPtr);
                     break;
                 }
             }

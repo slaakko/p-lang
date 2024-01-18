@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -530,12 +530,40 @@ void EvaluatorVisitor::Visit(InvokeExprNode& node)
 
 void EvaluatorVisitor::Visit(IndexExprNode& node) 
 {
-    ThrowError("error: variable cast cannot be evaluated statically", lexer, node.Pos());
+    node.Subject()->Accept(*this);
+    std::unique_ptr<Value> subject(value.release());
+    if (subject && subject->GetValue()->IsArrayValue())
+    {
+        ArrayValue* arrayValue = static_cast<ArrayValue*>(subject->GetValue());
+        node.Index()->Accept(*this);
+        std::unique_ptr<Value> indexValue(value.release());
+        if (indexValue && indexValue->IsIntegerValue())
+        {
+            int32_t index = indexValue->ToInteger();
+            value.reset(new ConstantValue(arrayValue->GetElement(index)));
+        }
+        else
+        {
+            ThrowError("error: cannot evaluate statically", lexer, node.Pos());
+        }
+    }
+    else
+    {
+        ThrowError("error: cannot evaluate statically", lexer, node.Pos());
+    }
 }
 
 void EvaluatorVisitor::Visit(DotNode& node)
 {
-    ThrowError("error: variable cast cannot be evaluated statically", lexer, node.Pos());
+    node.Subject()->Accept(*this);
+    std::unique_ptr<Value> subject(value.release());
+    if (subject && subject->GetValue()->IsObjectValue())
+    {
+        ObjectValue* objectValue = static_cast<ObjectValue*>(subject->GetValue());
+        const Field& field = objectValue->GetField(node.Id()->Str());
+        value.reset(new ConstantValue(field.GetValue()));
+    }
+    ThrowError("error: cannot evaluate statically", lexer, node.Pos());
 }
 
 Value* Evaluate(Node* node, soul::lexer::LexerBase<char>& lexer, Block* block)

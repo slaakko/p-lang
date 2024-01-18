@@ -1,0 +1,5 @@
+project p.line;
+tokens <p.line.token>;
+keywords <p.line.keyword>;
+expressions <p.line.expr>;
+lexer <p.line.lexer>;

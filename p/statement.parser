@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -113,6 +113,7 @@ parser StatementParser
                 Case(context):next{ node->AddCase(next); } 
             )* 
             (
+                SEMICOLON? 
                 ElsePart(context):elsePart{ node->SetElsePart(elsePart); }
             )? 
             SEMICOLON? 

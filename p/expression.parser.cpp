@@ -1,5 +1,5 @@
 
-// this file has been automatically generated from 'C:/work/springpp/p/expression.parser' using soul parser generator spg version 5.0.0
+// this file has been automatically generated from 'C:/work/p-lang/p/expression.parser' using soul parser generator spg version 5.0.0
 
 module p.expression.parser;
 
@@ -3389,7 +3389,7 @@ soul::parser::Match ExpressionParser<LexerT>::Qualifier(LexerT& lexer, ParsingCo
     #endif
     soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 2310102263856627737);
     std::unique_ptr<Node> index;
-    std::unique_ptr<Node> fieldDesignator;
+    std::unique_ptr<Node> memberSelection;
     soul::parser::Match match(false);
     soul::parser::Match* parentMatch0 = &match;
     switch (*lexer)
@@ -3425,15 +3425,15 @@ soul::parser::Match ExpressionParser<LexerT>::Qualifier(LexerT& lexer, ParsingCo
             soul::parser::Match* parentMatch2 = &match;
             {
                 int64_t pos = lexer.GetPos();
-                soul::parser::Match match = ExpressionParser<LexerT>::FieldDesignator(lexer, context, primary);
-                fieldDesignator.reset(static_cast<Node*>(match.value));
+                soul::parser::Match match = ExpressionParser<LexerT>::MemberSelection(lexer, context, primary);
+                memberSelection.reset(static_cast<Node*>(match.value));
                 if (match.hit)
                 {
                     {
                         #ifdef SOUL_PARSER_DEBUG_SUPPORT
                         if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Qualifier");
                         #endif
-                        return soul::parser::Match(true, fieldDesignator.release());
+                        return soul::parser::Match(true, memberSelection.release());
                     }
                 }
                 *parentMatch2 = match;
@@ -3571,7 +3571,7 @@ soul::parser::Match ExpressionParser<LexerT>::Index(LexerT& lexer, ParsingContex
 }
 
 template<typename LexerT>
-soul::parser::Match ExpressionParser<LexerT>::FieldDesignator(LexerT& lexer, ParsingContext* context, Node* primary)
+soul::parser::Match ExpressionParser<LexerT>::MemberSelection(LexerT& lexer, ParsingContext* context, Node* primary)
 {
     #ifdef SOUL_PARSER_DEBUG_SUPPORT
     int64_t parser_debug_match_pos = 0;
@@ -3579,7 +3579,7 @@ soul::parser::Match ExpressionParser<LexerT>::FieldDesignator(LexerT& lexer, Par
     if (parser_debug_write_to_log)
     {
         parser_debug_match_pos = lexer.GetPos();
-        soul::lexer::WriteBeginRuleToLog(lexer, "FieldDesignator");
+        soul::lexer::WriteBeginRuleToLog(lexer, "MemberSelection");
     }
     #endif
     soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 2310102263856627739);
@@ -3640,7 +3640,7 @@ soul::parser::Match ExpressionParser<LexerT>::FieldDesignator(LexerT& lexer, Par
         {
             {
                 #ifdef SOUL_PARSER_DEBUG_SUPPORT
-                if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "FieldDesignator");
+                if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "MemberSelection");
                 #endif
                 return soul::parser::Match(true, expr.release());
             }
@@ -3650,8 +3650,8 @@ soul::parser::Match ExpressionParser<LexerT>::FieldDesignator(LexerT& lexer, Par
     #ifdef SOUL_PARSER_DEBUG_SUPPORT
     if (parser_debug_write_to_log)
     {
-        if (match.hit) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "FieldDesignator");
-        else soul::lexer::WriteFailureToLog(lexer, "FieldDesignator");
+        if (match.hit) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "MemberSelection");
+        else soul::lexer::WriteFailureToLog(lexer, "MemberSelection");
     }
     #endif
     if (!match.hit)

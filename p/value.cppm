@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -185,7 +185,9 @@ class ArrayValue : public Value
 public:
     ArrayValue();
     const std::vector<std::unique_ptr<Value>>& Elements() const { return elements; }
+    int32_t Length() const { return elements.size(); }
     void AddElement(Value* element);
+    Value* GetElement(int32_t elementIndex) const;
     void Write(Writer& writer) override;
     void Read(Reader& reader) override;
     Object* Clone() const override;
@@ -217,6 +219,7 @@ public:
     void AddField(Field&& field);
     const std::vector<Field>& Fields() const { return fields; }
     const Field& GetField(int32_t index) const;
+    const Field& GetField(const std::string& fieldName) const;
     void Write(Writer& writer) override;
     void Read(Reader& reader) override;
     Object* Clone() const override;

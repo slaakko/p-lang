@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -214,7 +214,7 @@ parser ExpressionParser
 
     Qualifier(ParsingContext* context, Node* primary) : Node*
         ::= Index(context, primary):index{ return index; }
-        |   FieldDesignator(context, primary):fieldDesignator{ return fieldDesignator; }
+        |   MemberSelection(context, primary):memberSelection{ return memberSelection; }
         ;
 
     Index(ParsingContext* context, Node* primary, var std::unique_ptr<IndexExprNode> expr) : Node*
@@ -229,7 +229,7 @@ parser ExpressionParser
         }
         ;
 
-    FieldDesignator(ParsingContext* context, Node* primary, var std::unique_ptr<DotNode> expr) : Node*
+    MemberSelection(ParsingContext* context, Node* primary, var std::unique_ptr<DotNode> expr) : Node*
         ::= 
         (
             DOT{ expr.reset(new DotNode(primary, pos)); } 

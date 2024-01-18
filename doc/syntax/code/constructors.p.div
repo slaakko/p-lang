@@ -1,0 +1,90 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="kw">program</span>&nbsp;<span class="id">Constructors</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Color</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">a</span><span class="other">,</span>&nbsp;<span class="id">r</span><span class="other">,</span>&nbsp;<span class="id">g</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">:</span>&nbsp;<span class="id">Byte</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">a</span><span class="other">,</span>&nbsp;<span class="id">r</span><span class="other">,</span>&nbsp;<span class="id">g</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">:</span>&nbsp;<span class="id">Byte</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Shape</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">color</span><span class="other">:</span>&nbsp;<span class="id">Color</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">color</span><span class="other">:</span>&nbsp;<span class="id">Color</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Circle</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span><span class="other">(</span><span class="id">Shape</span><span class="other">)</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="id">color</span><span class="other">:</span>&nbsp;<span class="id">Color</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">var</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">red</span><span class="other">:</span>&nbsp;<span class="id">Color</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">circle</span><span class="other">:</span>&nbsp;<span class="id">Circle</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment"> </span><span class="comment">Constructors</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Color</span><span class="other">(</span><span class="id">a</span><span class="other">,</span>&nbsp;<span class="id">r</span><span class="other">,</span>&nbsp;<span class="id">g</span><span class="other">,</span>&nbsp;<span class="id">b</span><span class="other">:</span>&nbsp;<span class="id">Byte</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">a</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">a</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">r</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">r</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">g</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">g</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">b</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">b</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Shape</span><span class="other">(</span><span class="id">color</span><span class="other">:</span>&nbsp;<span class="id">Color</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">this</span><span class="other">.</span><span class="id">color</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">color</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">constructor</span>&nbsp;<span class="id">Circle</span><span class="other">(</span><span class="id">color</span><span class="other">:</span>&nbsp;<span class="id">Color</span><span class="other">)</span>&nbsp;<span class="other">:</span>&nbsp;<span class="kw">base</span><span class="other">(</span><span class="id">color</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">red</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Color</span><span class="other">(</span><span class="id">Byte</span><span class="other">(</span><span class="number">255</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">255</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">0</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">0</span><span class="other">)</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">circle</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Circle</span><span class="other">(</span><span class="id">red</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">.</span></span>
+  <br/>
+</div>

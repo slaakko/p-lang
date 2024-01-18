@@ -1,0 +1,34 @@
+@echo off
+p2html -v id.p
+p2html -v numbers.p
+p2html -v strings.p
+p2html -v comments.p
+p2html -v subrange-types.p
+p2html -v enumerated-types.p
+p2html -v object-types.p
+p2html -v array-types.p
+p2html -v variables.p
+p2html -v constants.p
+p2html -v primary-expr.p
+p2html -v factors.p
+p2html -v terms.p
+p2html -v simple-expressions.p
+p2html -v relational-expressions.p
+p2html -v expressions.p
+p2html -v constant-expressions.p
+p2html -v simple-statements.p
+p2html -v compound-statements.p
+p2html -v if-statements.p
+p2html -v case-statements.p
+p2html -v repeat-statements.p
+p2html -v while-statements.p
+p2html -v for-statements.p
+p2html -v block.p
+p2html -v scopes.p
+p2html -v var-params.p
+p2html -v func.p
+p2html -v constructors.p
+p2html -v program.p
+p2html -v unit.p
+p2html -v forward.p
+

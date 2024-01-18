@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -221,6 +221,354 @@ void ParseRealFunction::Execute(ExecutionContext* context)
     else
     {
         throw std::runtime_error("ParseInt: string object expected");
+    }
+}
+
+class InitStringBuilderProcedure : public ExternalSubroutine
+{
+public:
+    InitStringBuilderProcedure();
+    void Execute(ExecutionContext* context) override;
+};
+
+InitStringBuilderProcedure::InitStringBuilderProcedure() : ExternalSubroutine("InitStringBuilder")
+{
+}
+
+void InitStringBuilderProcedure::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsHeapObject())
+    {
+        HeapObject* stringBuilderObject = static_cast<HeapObject*>(obj);
+        ObjectType* objectType = stringBuilderObject->GetType();
+        int32_t nativeIndex = objectType->GetFieldIndex("native");
+        if (nativeIndex != -1)
+        {
+            std::string* string = new std::string();
+            GenericPointerValue pointerValue(string);
+            stringBuilderObject->SetField(nativeIndex, &pointerValue, context);
+        }
+        else
+        {
+            throw std::runtime_error("init_string_builder: 'native' field not found");
+        }
+    }
+    else
+    {
+        throw std::runtime_error("init_string_builder: heap object expected");
+    }
+}
+
+class StringBuilderClearMethod : public ExternalSubroutine
+{
+public:
+    StringBuilderClearMethod();
+    void Execute(ExecutionContext* context) override;
+};
+
+StringBuilderClearMethod::StringBuilderClearMethod() : ExternalSubroutine("StringBuilder.Clear")
+{
+}
+
+void StringBuilderClearMethod::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsHeapObject())
+    {
+        HeapObject* stringBuilderObject = static_cast<HeapObject*>(obj);
+        ObjectType* objectType = stringBuilderObject->GetType();
+        int32_t nativeIndex = objectType->GetFieldIndex("native");
+        if (nativeIndex != -1)
+        {
+            Object* nativeObject = stringBuilderObject->GetField(nativeIndex);
+            Object* native = nativeObject->GetObject();
+            if (native->IsValueObject())
+            {
+                Value* nativeValue = static_cast<Value*>(native);
+                if (nativeValue->IsGenericPointerValue())
+                {
+                    GenericPointerValue* nativePtr = static_cast<GenericPointerValue*>(nativeValue);
+                    void* np = nativePtr->Pointer();
+                    if (np)
+                    {
+                        std::string* string = static_cast<std::string*>(np);
+                        string->clear();
+                    }
+                }
+                else
+                {
+                    throw std::runtime_error("StringBuilder.Clear: pointer value expected");
+                }
+            }
+            else
+            {
+                throw std::runtime_error("StringBuilder.Clear: value object expected");
+            }
+        }
+        else
+        {
+            throw std::runtime_error("StringBuilder.Clear: 'native' field not found");
+        }
+    }
+    else
+    {
+        throw std::runtime_error("StringBuilder.Clear: heap object expected");
+    }
+}
+
+class StringBuilderAppendStrMethod : public ExternalSubroutine
+{
+public:
+    StringBuilderAppendStrMethod();
+    void Execute(ExecutionContext* context) override;
+};
+
+StringBuilderAppendStrMethod::StringBuilderAppendStrMethod() : ExternalSubroutine("StringBuilder.AppendStr")
+{
+}
+
+void StringBuilderAppendStrMethod::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsStringObject() || obj->IsValueObject() && static_cast<Value*>(obj)->IsStringValue())
+    {
+        std::string s = obj->ToString();
+        std::unique_ptr<Object> object = stack->Pop();
+        Object* obj = object->GetObject();
+        if (obj->IsHeapObject())
+        {
+            HeapObject* stringBuilderObject = static_cast<HeapObject*>(obj);
+            ObjectType* objectType = stringBuilderObject->GetType();
+            int32_t nativeIndex = objectType->GetFieldIndex("native");
+            if (nativeIndex != -1)
+            {
+                Object* nativeObject = stringBuilderObject->GetField(nativeIndex);
+                Object* native = nativeObject->GetObject();
+                if (native->IsValueObject())
+                {
+                    Value* nativeValue = static_cast<Value*>(native);
+                    if (nativeValue->IsGenericPointerValue())
+                    {
+                        GenericPointerValue* nativePtr = static_cast<GenericPointerValue*>(nativeValue);
+                        void* np = nativePtr->Pointer();
+                        std::string* string = static_cast<std::string*>(np);
+                        string->append(s);
+                    }
+                    else
+                    {
+                        throw std::runtime_error("StringBuilder.AppendStr: pointer value expected");
+                    }
+                }
+                else
+                {
+                    throw std::runtime_error("StringBuilder.AppendStr: value object expected");
+                }
+            }
+            else
+            {
+                throw std::runtime_error("StringBuilder.AppendStr: 'native' field not found");
+            }
+        }
+        else
+        {
+            throw std::runtime_error("StringBuilder.AppendStr: heap object expected");
+        }
+    }
+    else
+    {
+        throw std::runtime_error("StringBuilder.AppendStr: string object expected");
+    }
+}
+
+class StringBuilderAppendCharMethod : public ExternalSubroutine
+{
+public:
+    StringBuilderAppendCharMethod();
+    void Execute(ExecutionContext* context) override;
+};
+
+StringBuilderAppendCharMethod::StringBuilderAppendCharMethod() : ExternalSubroutine("StringBuilder.AppendChar")
+{
+}
+
+void StringBuilderAppendCharMethod::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsValueObject())
+    {
+        char chr = obj->ToChar();
+        std::unique_ptr<Object> object = stack->Pop();
+        Object* obj = object->GetObject();
+        if (obj->IsHeapObject())
+        {
+            HeapObject* stringBuilderObject = static_cast<HeapObject*>(obj);
+            ObjectType* objectType = stringBuilderObject->GetType();
+            int32_t nativeIndex = objectType->GetFieldIndex("native");
+            if (nativeIndex != -1)
+            {
+                Object* nativeObject = stringBuilderObject->GetField(nativeIndex);
+                Object* native = nativeObject->GetObject();
+                if (native->IsValueObject())
+                {
+                    Value* nativeValue = static_cast<Value*>(native);
+                    if (nativeValue->IsGenericPointerValue())
+                    {
+                        GenericPointerValue* nativePtr = static_cast<GenericPointerValue*>(nativeValue);
+                        void* np = nativePtr->Pointer();
+                        std::string* string = static_cast<std::string*>(np);
+                        string->append(1, chr);
+                    }
+                    else
+                    {
+                        throw std::runtime_error("StringBuilder.AppendChar: pointer value expected");
+                    }
+                }
+                else
+                {
+                    throw std::runtime_error("StringBuilder.AppendChar: value object expected");
+                }
+            }
+            else
+            {
+                throw std::runtime_error("StringBuilder.AppendChar: 'native' field not found");
+            }
+        }
+        else
+        {
+            throw std::runtime_error("StringBuilder.AppendChar: heap object expected");
+        }
+    }
+    else
+    {
+        throw std::runtime_error("StringBuilder.AppendChar: value object expected");
+    }
+}
+
+class StringBuilderGetStringMethod : public ExternalSubroutine
+{
+public:
+    StringBuilderGetStringMethod();
+    void Execute(ExecutionContext* context) override;
+};
+
+StringBuilderGetStringMethod::StringBuilderGetStringMethod() : ExternalSubroutine("StringBuilder.GetString")
+{
+}
+
+void StringBuilderGetStringMethod::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    Heap* heap = context->GetHeap();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsHeapObject())
+    {
+        HeapObject* stringBuilderObject = static_cast<HeapObject*>(obj);
+        ObjectType* objectType = stringBuilderObject->GetType();
+        int32_t nativeIndex = objectType->GetFieldIndex("native");
+        if (nativeIndex != -1)
+        {
+            Object* nativeObject = stringBuilderObject->GetField(nativeIndex);
+            Object* native = nativeObject->GetObject();
+            if (native->IsValueObject())
+            {
+                Value* nativeValue = static_cast<Value*>(native);
+                if (nativeValue->IsGenericPointerValue())
+                {
+                    GenericPointerValue* nativePtr = static_cast<GenericPointerValue*>(nativeValue);
+                    void* np = nativePtr->Pointer();
+                    std::string* string = static_cast<std::string*>(np);
+                    StringObject* stringObject = heap->AllocateString(*string, context);
+                    stack->Push(new StringObjectPtr(stringObject));
+                }
+                else
+                {
+                    throw std::runtime_error("StringBuilder.AppendChar: pointer value expected");
+                }
+            }
+            else
+            {
+                throw std::runtime_error("StringBuilder.AppendChar: value object expected");
+            }
+        }
+        else
+        {
+            throw std::runtime_error("StringBuilder.AppendChar: 'native' field not found");
+        }
+    }
+    else
+    {
+        throw std::runtime_error("StringBuilder.AppendChar: heap object expected");
+    }
+}
+
+class StringBuilderDisposeMethod : public ExternalSubroutine
+{
+public:
+    StringBuilderDisposeMethod();
+    void Execute(ExecutionContext* context) override;
+};
+
+StringBuilderDisposeMethod::StringBuilderDisposeMethod() : ExternalSubroutine("StringBuilder.Dispose")
+{
+}
+
+void StringBuilderDisposeMethod::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    if (obj->IsHeapObject())
+    {
+        HeapObject* stringBuilderObject = static_cast<HeapObject*>(obj);
+        ObjectType* objectType = stringBuilderObject->GetType();
+        int32_t nativeIndex = objectType->GetFieldIndex("native");
+        if (nativeIndex != -1)
+        {
+            Object* nativeObject = stringBuilderObject->GetField(nativeIndex);
+            Object* native = nativeObject->GetObject();
+            if (native->IsValueObject())
+            {
+                Value* nativeValue = static_cast<Value*>(native);
+                if (nativeValue->IsGenericPointerValue())
+                {
+                    GenericPointerValue* nativePtr = static_cast<GenericPointerValue*>(nativeValue);
+                    void* np = nativePtr->Pointer();
+                    std::string* string = static_cast<std::string*>(np);
+                    if (string)
+                    {
+                        delete string;
+                        GenericPointerValue nullPtr(nullptr);
+                        stringBuilderObject->SetField(nativeIndex, &nullPtr, context);
+                    }
+                }
+                else
+                {
+                    throw std::runtime_error("StringBuilder.Dispose: pointer value expected");
+                }
+            }
+            else
+            {
+                throw std::runtime_error("StringBuilder.Dispose: value object expected");
+            }
+        }
+        else
+        {
+            throw std::runtime_error("StringBuilder.Dispose: 'native' field not found");
+        }
+    }
+    else
+    {
+        throw std::runtime_error("StringBuilder.Dispose: heap object expected");
     }
 }
 
@@ -485,6 +833,7 @@ public:
     void AddExternalSubroutine(ExternalSubroutine* externalSubroutine);
     ExternalSubroutine* GetExternalSubroutine(const std::string& externalSubroutineName) const;
     ExternalSubroutine* GetExternalSubroutine(int32_t id) const;
+    ExternalSubroutine* GetExternalSubroutineNoThrow(const std::string& externalSubroutineName) const;
     Gdiplus::Pen* GetPen(const PenKey& penKey);
     Gdiplus::Font* GetFont(const FontKey& fontKey);
     Gdiplus::Brush* GetBrush(const Gdiplus::Color color);
@@ -513,6 +862,12 @@ Rt::Rt()
     AddExternalSubroutine(new RealToStringFunction());
     AddExternalSubroutine(new ParseIntFunction());
     AddExternalSubroutine(new ParseRealFunction());
+    AddExternalSubroutine(new InitStringBuilderProcedure());
+    AddExternalSubroutine(new StringBuilderClearMethod());
+    AddExternalSubroutine(new StringBuilderAppendStrMethod());
+    AddExternalSubroutine(new StringBuilderAppendCharMethod());
+    AddExternalSubroutine(new StringBuilderGetStringMethod());
+    AddExternalSubroutine(new StringBuilderDisposeMethod());
     AddExternalSubroutine(new BitmapGetGraphicsMethod());
     AddExternalSubroutine(new GraphicsClearMethod());
     AddExternalSubroutine(new GraphicsDrawLineMethod());
@@ -627,6 +982,19 @@ ExternalSubroutine* Rt::GetExternalSubroutine(int32_t id) const
     }
 }
 
+ExternalSubroutine* Rt::GetExternalSubroutineNoThrow(const std::string& externalSubroutineName) const
+{
+    auto it = externalSubroutineMap.find(externalSubroutineName);
+    if (it != externalSubroutineMap.end())
+    {
+        return it->second;
+    }
+    else
+    {
+        return nullptr;
+    }
+}
+
 ExternalSubroutine* GetExternalSubroutine(const std::string& externalSubroutineName)
 {
     return Rt::Instance().GetExternalSubroutine(externalSubroutineName);
@@ -635,6 +1003,11 @@ ExternalSubroutine* GetExternalSubroutine(const std::string& externalSubroutineN
 ExternalSubroutine* GetExternalSubroutine(int32_t id)
 {
     return Rt::Instance().GetExternalSubroutine(id);
+}
+
+ExternalSubroutine* GetExternalSubroutineNoThrow(const std::string& externalSubroutineName)
+{
+    return Rt::Instance().GetExternalSubroutineNoThrow(externalSubroutineName);
 }
 
 GraphicsClearMethod::GraphicsClearMethod() : ExternalSubroutine("Graphics.Clear")

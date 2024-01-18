@@ -1,5 +1,5 @@
 // =================================
-// Copyright (c) 2023 Seppo Laakko
+// Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
 
@@ -223,6 +223,18 @@ void Frame::SetObject(int32_t index, Object* object, ExecutionContext* context)
                     {
                         GenericPointerValue* pointerValue = static_cast<GenericPointerValue*>(value);
                         new (ptr)GenericPointerValue(*pointerValue);
+                        break;
+                    }
+                    case ValueKind::objectValue:
+                    {
+                        PtrObject objectPtr(value);
+                        new (ptr)PtrObject(objectPtr);
+                        break;
+                    }
+                    case ValueKind::arrayValue:
+                    {
+                        PtrObject objectPtr(value);
+                        new (ptr)PtrObject(objectPtr);
                         break;
                     }
                 }

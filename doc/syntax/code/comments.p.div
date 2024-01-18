@@ -1,0 +1,38 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Comments</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">brace</span><span class="comment"> </span><span class="comment">comment</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment">(*</span><span class="comment"> </span><span class="comment">paren</span><span class="comment"> </span><span class="comment">comment</span><span class="comment"> </span><span class="comment">*)</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment">multiline</span><span class="comment"> </span><span class="comment">comment</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment">(*</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment">another</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment">multiline</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment"> </span><span class="comment"> </span><span class="comment">comment</span><span class="comment">
+</span><span class="comment">
+</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="comment">*)</span></span>
+  <br/>
+</div>

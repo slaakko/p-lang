@@ -1,5 +1,5 @@
 
-// this file has been automatically generated from 'C:/work/springpp/p/program.parser' using soul parser generator spg version 5.0.0
+// this file has been automatically generated from 'C:/work/p-lang/p/program.parser' using soul parser generator spg version 5.0.0
 
 export module p.program.parser;
 

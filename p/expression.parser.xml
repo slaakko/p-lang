@@ -465,7 +465,7 @@
      <nonterminal first="{LBRACKET}" ruleName="Index"/>
     </action>
     <action first="{DOT}">
-     <nonterminal first="{DOT}" ruleName="FieldDesignator"/>
+     <nonterminal first="{DOT}" ruleName="MemberSelection"/>
     </action>
    </choice>
   </rule>
@@ -486,7 +486,7 @@
     </group>
    </action>
   </rule>
-  <rule first="{DOT}" name="FieldDesignator">
+  <rule first="{DOT}" name="MemberSelection">
    <action first="{DOT}">
     <group first="{DOT}">
      <sequence first="{DOT}">
