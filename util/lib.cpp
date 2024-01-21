@@ -23,7 +23,7 @@ std::string PLangRoot()
     }
     if (plangRoot.empty())
     {
-        throw std::runtime_error("please set 'PLANG_ROOT' environment variable to contain /path/to/plang directory.");
+        throw std::runtime_error("please set 'PLANG_ROOT' environment variable to contain /path/to/p-lang directory.");
     }
     return plangRoot;
 }

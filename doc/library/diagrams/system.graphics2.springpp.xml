@@ -1,0 +1,169 @@
+<diagram>
+ <classElement abstract="false" keyword="" name="Shape">
+  <bounds height="32.663670" width="72.392120" x="86.000000" y="7.471972"/>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="87.500000" y="18.915916"/>
+  </operation>
+  <operation abstract="false" name="procedure Print(); virtual">
+   <bounds height="3.943945" width="36.130600" x="87.500000" y="22.859861"/>
+  </operation>
+  <operation abstract="false" name="procedure Measure(graphics: Graphics); virtual">
+   <bounds height="3.943945" width="69.392120" x="87.500000" y="26.803806"/>
+  </operation>
+  <operation abstract="false" name="procedure Draw(graphics: Graphics); virtual">
+   <bounds height="3.943945" width="64.299416" x="87.500000" y="30.747751"/>
+  </operation>
+  <operation abstract="false" name="function Bounds(): Rect; virtual">
+   <bounds height="3.943945" width="45.768768" x="87.500000" y="34.691696"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Line">
+  <bounds height="32.663670" width="70.389145" x="8.000000" y="54.000000"/>
+  <attribute name="routingPoints: PointArray">
+   <bounds height="3.943945" width="37.228207" x="9.500000" y="62.443947"/>
+  </attribute>
+  <operation abstract="false" name="constructor(routingPoints: PointArray);">
+   <bounds height="3.943945" width="56.487495" x="9.500000" y="69.387894"/>
+  </operation>
+  <operation abstract="false" name="procedure Print(); override">
+   <bounds height="3.943945" width="39.220333" x="9.500000" y="73.331841"/>
+  </operation>
+  <operation abstract="false" name="procedure Draw(graphics: Graphics); override">
+   <bounds height="3.943945" width="67.389145" x="9.500000" y="77.275787"/>
+  </operation>
+  <operation abstract="false" name="function Bounds(): Rect; override">
+   <bounds height="3.943945" width="48.858505" x="9.500000" y="81.219734"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Arrow">
+  <bounds height="40.551559" width="70.389145" x="87.001480" y="54.000000"/>
+  <attribute name="routingPoints: PointArray">
+   <bounds height="3.943945" width="37.228207" x="88.501480" y="62.443947"/>
+  </attribute>
+  <attribute name="lineArrowWidth: real">
+   <bounds height="3.943945" width="30.315456" x="88.501480" y="66.387894"/>
+  </attribute>
+  <attribute name="lineArrowHeight: real">
+   <bounds height="3.943945" width="31.408413" x="88.501480" y="70.331841"/>
+  </attribute>
+  <operation abstract="false" name="constructor(routingPoints: PointArray)">
+   <bounds height="3.943945" width="55.579021" x="88.501480" y="77.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure Print(); override">
+   <bounds height="3.943945" width="39.220333" x="88.501480" y="81.219727"/>
+  </operation>
+  <operation abstract="false" name="procedure Draw(graphics: Graphics); override">
+   <bounds height="3.943945" width="67.389145" x="88.501480" y="85.163673"/>
+  </operation>
+  <operation abstract="false" name="function Bounds(): Rect; override">
+   <bounds height="3.943945" width="48.858505" x="88.501480" y="89.107620"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="ShapeArray">
+  <bounds height="6.943945" width="22.416897" x="183.000000" y="19.859861"/>
+ </classElement>
+ <classElement abstract="false" keyword="" name="CompoundShape">
+  <bounds height="44.495506" width="75.481857" x="166.000000" y="54.000000"/>
+  <attribute name="count: integer">
+   <bounds height="3.943945" width="20.872622" x="167.500000" y="62.443947"/>
+  </attribute>
+  <attribute name="components: ShapeArray">
+   <bounds height="3.943945" width="37.956844" x="167.500000" y="66.387894"/>
+  </attribute>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="167.500000" y="73.331833"/>
+  </operation>
+  <operation abstract="false" name="procedure Print(); override">
+   <bounds height="3.943945" width="39.220333" x="167.500000" y="77.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure Add(shape: Shape)">
+   <bounds height="3.943945" width="44.866501" x="167.500000" y="81.219727"/>
+  </operation>
+  <operation abstract="false" name="procedure Measure(graphics: Graphics); override">
+   <bounds height="3.943945" width="72.481857" x="167.500000" y="85.163673"/>
+  </operation>
+  <operation abstract="false" name="procedure Draw(graphics: Graphics); override">
+   <bounds height="3.943945" width="67.389145" x="167.500000" y="89.107620"/>
+  </operation>
+  <operation abstract="false" name="function CombinedBouinds(): Rect">
+   <bounds height="3.943945" width="50.859932" x="167.500000" y="93.051567"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="subroutines" name="">
+  <bounds height="28.719725" width="143.809464" x="8.000000" y="106.000000"/>
+  <operation abstract="false" name="function MMToPixels(mm: real; dpi: real): integer">
+   <bounds height="3.943945" width="71.568733" x="9.500000" y="117.443947"/>
+  </operation>
+  <operation abstract="false" name="function PixelsToMM(pixels: integer; dpi: real): real">
+   <bounds height="3.943945" width="74.483284" x="9.500000" y="121.387894"/>
+  </operation>
+  <operation abstract="false" name="procedure DrawArrowLine(graphics: Graphics; s, e: Point; lineArrowWidth, lineArrowHeight: real)">
+   <bounds height="3.943945" width="140.809464" x="9.500000" y="125.331841"/>
+  </operation>
+  <operation abstract="false" name="procedure DrawRoundedRectangle(graphics: Graphics; rect: Rect; rounginRadius: real)">
+   <bounds height="3.943945" width="127.737396" x="9.500000" y="129.275787"/>
+  </operation>
+ </classElement>
+ <relationshipElement cardinality="one" rkind="combinedInheritance">
+  <bounds height="16.864357" width="160.546356" x="93.194572" y="40.135643"/>
+  <source connector="none.none" x="0.000000" y="0.000000">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </source>
+  <sourceEndPoint connector="top.center" index="1" x="93.194572" y="57.000000">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </sourceEndPoint>
+  <sourceEndPoint connector="top.center" index="2" x="172.194580" y="57.000000">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </sourceEndPoint>
+  <sourceEndPoint connector="top.center" index="4" x="253.740936" y="57.000000">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </sourceEndPoint>
+  <target connector="bottom.center" index="0" x="122.196060" y="40.135643">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </target>
+ </relationshipElement>
+ <relationshipElement cardinality="many" rkind="composition">
+  <bounds height="0.000000" width="24.607880" x="158.392120" y="23.803806"/>
+  <source connector="left.bottom" index="3" x="183.000000" y="23.803806">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </source>
+  <target connector="right.center" index="0" x="158.392120" y="23.803806">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </target>
+ </relationshipElement>
+</diagram>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Introduction</title>
+    <link rel="stylesheet" type="text/css" href="../style/style.css" />
+</head>
+
+<body>
+  <h1>Introduction</h1>
+
+  <p>
+    P is a small garbage collected programming language whose programs run in a virtual machine.
+    I have been inspired by Borland Pascal with Objects version 7.0 manual from 1992 that 
+    I have in my bookshelf. When comparing P to the Borland Pascal with Objects, this 0.1.0 version
+    of P lacks a proper standard library. On the other hand I have added simple copying garbage 
+    collector and overloaded constructors that the Borland Pascal does not have.
+     Otherwise P is pretty close to the original Borland Pascal with Objects.
+  </p>
+
+  <h2>Hello World</h2>
+
+  <p>
+    Here's a Hello World program written in P:
+  </p>
+
+  <ref file="code/Hello.p.div"/>
+
+  <p>
+    For compiling and running programs we have two commands: compiler <span class="kw">pc</span> 
+    and executor <span class="kw">rp</span>. 
+    To compile and run the Hello World, execute the following commands in Windows command prompt:
+   </p>
+
+  <div class="plang">
+    C:\>cd p-lang\prog<br/>
+    <br/>
+    C:\p-lang\prog>pc -v Hello.p<br/>
+    > C:/p-lang/prog/Hello.p<br/>
+    ==> C:/p-lang/prog/Hello.pcode<br/>
+    <br/>
+    C:\p-lang\prog>rp -v Hello<br/>
+    Running C:/p-lang/prog/Hello.pcode...<br/>
+    Hello, world!<br/>
+    Heap size was 16 MB.<br/>
+    Collected 0 times.<br/>
+  </div>
+
+  <p>
+    The compiler translated the source code text <span class="bold">Hello.p</span> to 
+    a <span class="bold">Hello.pcode</span> binary file.
+    The .pcode file contains both metadata and virtual machine instructions.
+  </p>
+
+<h2>PCode</h2>
+
+  <p>
+    For inspecting the contents of a .pcode file, P has a third program: 
+    <span class="kw">pd</span>:
+
+    <div class="plang">
+      C:\p-lang\prog>pd -v Hello.pcode<br/>
+      > Hello.pcode<br/>
+      ==> Hello.pcode.txt<br/>
+    </div>
+  </p>
+
+  <p>
+    The <span class="kw">pd</span> program dumps the contents of the 
+    <span class="bold">Hello.pcode</span> 
+    file to a text file <span class="bold">Hello.pcode.txt</span>. 
+    The dump contains virtual machine instructions in the code section:
+  </p>
+
+  <div class="plang">
+    module Hello, id=1925189483<br/>
+    implementation<br/>
+    uses System<br/>
+    procedure '@program'<br/>
+    definition<br/>
+    module id 1925189483<br/>
+    id 1<br/>
+    frame size: 0<br/>
+    code<br/>
+      0 : receive(0)<br/>
+      1 : push_value('Hello, world!')<br/>
+      2 : call_stdproc(Writeln, 1)<br/>
+      3 : nop<br/>
+  </div>
+
+  <h2>
+    Implementation
+  </h2>
+
+  <p>
+    P has been implemented in C++ using Microsoft Visual Studio 2022.
+  </p>
+
+  <p>
+    The syntax diagrams in this documentation have been generated using a P program 
+    SyntaxDiagrams.p included in the project. This program and the system library units acted 
+    also as tests for the P compiler.
+  </p>
+
+</body>
+</html>

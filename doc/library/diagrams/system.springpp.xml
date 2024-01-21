@@ -1,0 +1,38 @@
+<diagram>
+ <classElement abstract="false" keyword="subroutines" name="">
+  <bounds height="28.719725" width="57.855038" x="8.000000" y="7.000000"/>
+  <operation abstract="false" name="function IntToString(x: integer): string">
+   <bounds height="3.943945" width="54.855038" x="9.500000" y="18.443945"/>
+  </operation>
+  <operation abstract="false" name="function RealToString(x: real):string">
+   <bounds height="3.943945" width="52.490841" x="9.500000" y="22.387890"/>
+  </operation>
+  <operation abstract="false" name="function ParseInt(x: string): integer">
+   <bounds height="3.943945" width="51.038216" x="9.500000" y="26.331835"/>
+  </operation>
+  <operation abstract="false" name="function ParseReal(x: string): real">
+   <bounds height="3.943945" width="49.582489" x="9.500000" y="30.275780"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="StringBuilder">
+  <bounds height="36.607613" width="50.040009" x="78.000000" y="7.000000"/>
+  <attribute name="native: pointer">
+   <bounds height="3.943945" width="21.599710" x="79.500000" y="15.443945"/>
+  </attribute>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="79.500000" y="22.387890"/>
+  </operation>
+  <operation abstract="false" name="procedure Clear()">
+   <bounds height="3.943945" width="26.680019" x="79.500000" y="26.331835"/>
+  </operation>
+  <operation abstract="false" name="procedure AppendStr(x: string)">
+   <bounds height="3.943945" width="45.767220" x="79.500000" y="30.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure AppendChar(c: char)">
+   <bounds height="3.943945" width="47.040009" x="79.500000" y="34.219723"/>
+  </operation>
+  <operation abstract="false" name="function GetString(): string">
+   <bounds height="3.943945" width="39.223434" x="79.500000" y="38.163666"/>
+  </operation>
+ </classElement>
+</diagram>

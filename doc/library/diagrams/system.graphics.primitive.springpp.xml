@@ -1,0 +1,194 @@
+<diagram>
+ <classElement abstract="false" keyword="subroutines" name="">
+  <bounds height="60.271278" width="117.121170" x="8.926682" y="89.000000"/>
+  <operation abstract="false" name="function Distance(s, e: Point): real">
+   <bounds height="3.943945" width="50.131294" x="10.426682" y="100.443947"/>
+  </operation>
+  <operation abstract="false" name="function Union(a, b: Rect): Rect">
+   <bounds height="3.943945" width="46.675690" x="10.426682" y="104.387894"/>
+  </operation>
+  <operation abstract="false" name="function Sum(u, v: Vector): Vector">
+   <bounds height="3.943945" width="50.126644" x="10.426682" y="108.331841"/>
+  </operation>
+  <operation abstract="false" name="function Difference(u, v: Vector): Vector">
+   <bounds height="3.943945" width="58.305988" x="10.426682" y="112.275787"/>
+  </operation>
+  <operation abstract="false" name="function Product(a: real; v: Vector): Vector">
+   <bounds height="3.943945" width="61.941425" x="10.426682" y="116.219734"/>
+  </operation>
+  <operation abstract="false" name="function Dot(u, v: Vector): real">
+   <bounds height="3.943945" width="44.492878" x="10.426682" y="120.163681"/>
+  </operation>
+  <operation abstract="false" name="function Unit(v: Vector): Vector">
+   <bounds height="3.943945" width="45.582733" x="10.426682" y="124.107628"/>
+  </operation>
+  <operation abstract="false" name="function ProjectionFactor(u, v: Vector): real">
+   <bounds height="3.943945" width="63.214214" x="10.426682" y="128.051575"/>
+  </operation>
+  <operation abstract="false" name="function Proj(u, v: Vector): Vector">
+   <bounds height="3.943945" width="49.218170" x="10.426682" y="131.995514"/>
+  </operation>
+  <operation abstract="false" name="function Rotate(v: Vector; angleRad: real): Vector">
+   <bounds height="3.943945" width="72.486504" x="10.426682" y="135.939453"/>
+  </operation>
+  <operation abstract="false" name="function GetDirection(source, target: Point): Direction">
+   <bounds height="3.943945" width="77.754402" x="10.426682" y="139.883392"/>
+  </operation>
+  <operation abstract="false" name="function RotateLineSegment(line: LineSegment; argleDeg: real): LineSegment">
+   <bounds height="3.943945" width="114.121170" x="10.426682" y="143.827332"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Point">
+  <bounds height="36.607613" width="46.584408" x="8.926682" y="8.000000"/>
+  <attribute name="x: real">
+   <bounds height="3.943945" width="9.963214" x="10.426682" y="16.443945"/>
+  </attribute>
+  <attribute name="y: real">
+   <bounds height="3.943945" width="9.963214" x="10.426682" y="20.387890"/>
+  </attribute>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="10.426682" y="27.331835"/>
+  </operation>
+  <operation abstract="false" name="constructor(x, y: real)">
+   <bounds height="3.943945" width="31.766529" x="10.426682" y="31.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure Print()">
+   <bounds height="3.943945" width="25.590164" x="10.426682" y="35.219723"/>
+  </operation>
+  <operation abstract="false" name="procedure Offset(dx, dy: real)">
+   <bounds height="3.943945" width="43.584408" x="10.426682" y="39.163666"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Size">
+  <bounds height="32.663670" width="35.674999" x="64.830627" y="8.000000"/>
+  <attribute name="w: real">
+   <bounds height="3.943945" width="10.688751" x="66.330627" y="16.443945"/>
+  </attribute>
+  <attribute name="h: real">
+   <bounds height="3.943945" width="10.146149" x="66.330627" y="20.387890"/>
+  </attribute>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="66.330627" y="27.331835"/>
+  </operation>
+  <operation abstract="false" name="constructor(w, h: real)">
+   <bounds height="3.943945" width="32.674999" x="66.330627" y="31.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure Print()">
+   <bounds height="3.943945" width="25.590164" x="66.330627" y="35.219723"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Rect">
+  <bounds height="72.103111" width="62.397396" x="109.825165" y="8.000000"/>
+  <attribute name="location: Point">
+   <bounds height="3.943945" width="21.601259" x="111.325165" y="16.443945"/>
+  </attribute>
+  <attribute name="size: Size">
+   <bounds height="3.943945" width="15.054376" x="111.325165" y="20.387890"/>
+  </attribute>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="111.325165" y="27.331835"/>
+  </operation>
+  <operation abstract="false" name="constructor(location: Point; size: Size)">
+   <bounds height="3.943945" width="55.765057" x="111.325165" y="31.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure Print()">
+   <bounds height="3.943945" width="25.590164" x="111.325165" y="35.219723"/>
+  </operation>
+  <operation abstract="false" name="procedure SetLocation(location: Point)">
+   <bounds height="3.943945" width="56.681282" x="111.325165" y="39.163666"/>
+  </operation>
+  <operation abstract="false" name="procedure SetSize(size: Size)">
+   <bounds height="3.943945" width="44.133209" x="111.325165" y="43.107609"/>
+  </operation>
+  <operation abstract="false" name="function Left(): real">
+   <bounds height="3.943945" width="28.320229" x="111.325165" y="47.051552"/>
+  </operation>
+  <operation abstract="false" name="function Top(): real">
+   <bounds height="3.943945" width="28.501614" x="111.325165" y="50.995495"/>
+  </operation>
+  <operation abstract="false" name="function Bottom(): real">
+   <bounds height="3.943945" width="33.225349" x="111.325165" y="54.939438"/>
+  </operation>
+  <operation abstract="false" name="function IsEmpty(): boolean">
+   <bounds height="3.943945" width="40.863644" x="111.325165" y="58.883381"/>
+  </operation>
+  <operation abstract="false" name="function Contains(p: Point): boolean">
+   <bounds height="3.943945" width="53.047394" x="111.325165" y="62.827324"/>
+  </operation>
+  <operation abstract="false" name="function IntersectsWith(r: Rect): boolean">
+   <bounds height="3.943945" width="59.397396" x="111.325165" y="66.771271"/>
+  </operation>
+  <operation abstract="false" name="procedure Offset(dx, dy: real)">
+   <bounds height="3.943945" width="43.584408" x="111.325165" y="70.715218"/>
+  </operation>
+  <operation abstract="false" name="procedure Inflate(dx, dy: real)">
+   <bounds height="3.943945" width="43.768890" x="111.325165" y="74.659164"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Vector">
+  <bounds height="40.551559" width="39.138351" x="181.542099" y="8.000000"/>
+  <attribute name="x: real">
+   <bounds height="3.943945" width="9.963214" x="183.042099" y="16.443945"/>
+  </attribute>
+  <attribute name="y: real">
+   <bounds height="3.943945" width="9.963214" x="183.042099" y="20.387890"/>
+  </attribute>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="183.042099" y="27.331835"/>
+  </operation>
+  <operation abstract="false" name="constructor(p: Point)">
+   <bounds height="3.943945" width="30.498390" x="183.042099" y="31.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure Print()">
+   <bounds height="3.943945" width="25.590164" x="183.042099" y="35.219723"/>
+  </operation>
+  <operation abstract="false" name="function Length(): real">
+   <bounds height="3.943945" width="32.867233" x="183.042099" y="39.163666"/>
+  </operation>
+  <operation abstract="false" name="function ToPoint(): Point">
+   <bounds height="3.943945" width="36.138351" x="183.042099" y="43.107609"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="enum" name="Direction">
+  <bounds height="33.607613" width="18.231110" x="8.926682" y="50.000000"/>
+  <attribute name="noDir">
+   <bounds height="3.943945" width="8.871808" x="10.426682" y="62.387890"/>
+  </attribute>
+  <attribute name="north">
+   <bounds height="3.943945" width="8.510590" x="10.426682" y="66.331833"/>
+  </attribute>
+  <attribute name="east">
+   <bounds height="3.943945" width="7.239350" x="10.426682" y="70.275780"/>
+  </attribute>
+  <attribute name="south">
+   <bounds height="3.943945" width="9.057843" x="10.426682" y="74.219727"/>
+  </attribute>
+  <attribute name="west">
+   <bounds height="3.943945" width="7.781952" x="10.426682" y="78.163673"/>
+  </attribute>
+ </classElement>
+ <classElement abstract="false" keyword="" name="LineSegment">
+  <bounds height="40.551559" width="48.035480" x="230.000000" y="8.000000"/>
+  <attribute name="s: Point">
+   <bounds height="3.943945" width="11.964642" x="231.500000" y="16.443945"/>
+  </attribute>
+  <attribute name="e: Point">
+   <bounds height="3.943945" width="12.147576" x="231.500000" y="20.387890"/>
+  </attribute>
+  <operation abstract="false" name="constructor(s, e: Point)">
+   <bounds height="3.943945" width="33.950890" x="231.500000" y="27.331835"/>
+  </operation>
+  <operation abstract="false" name="constructor(s: Point; v: Vector)">
+   <bounds height="3.943945" width="45.035480" x="231.500000" y="31.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure Print()">
+   <bounds height="3.943945" width="25.590164" x="231.500000" y="35.219723"/>
+  </operation>
+  <operation abstract="false" name="function ToVector(): Vector">
+   <bounds height="3.943945" width="40.131905" x="231.500000" y="39.163666"/>
+  </operation>
+  <operation abstract="false" name="function Length(): real">
+   <bounds height="3.943945" width="32.867233" x="231.500000" y="43.107609"/>
+  </operation>
+ </classElement>
+</diagram>

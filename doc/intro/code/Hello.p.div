@@ -1,0 +1,10 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="kw">program</span>&nbsp;<span class="id">Hello</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">begin</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Writeln</span><span class="other">(</span><span class="string">'Hello, world!'</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"><span class="kw">end</span><span class="other">.</span></span>
+  <br/>
+</div>

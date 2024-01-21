@@ -1,0 +1,171 @@
+<diagram>
+ <classElement abstract="false" keyword="" name="PointArray">
+  <bounds height="6.943945" width="20.776688" x="193.000000" y="100.000000"/>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Color">
+  <bounds height="32.663670" width="42.764484" x="8.000000" y="8.000000"/>
+  <attribute name="a: Byte">
+   <bounds height="3.943945" width="11.237555" x="9.500000" y="16.443945"/>
+  </attribute>
+  <attribute name="r: Byte">
+   <bounds height="3.943945" width="10.507367" x="9.500000" y="20.387890"/>
+  </attribute>
+  <attribute name="g: Byte">
+   <bounds height="3.943945" width="11.237555" x="9.500000" y="24.331835"/>
+  </attribute>
+  <attribute name="b: Byte">
+   <bounds height="3.943945" width="11.237555" x="9.500000" y="28.275780"/>
+  </attribute>
+  <operation abstract="false" name="constructor(a, r, g, b: Byte)">
+   <bounds height="3.943945" width="39.764484" x="9.500000" y="35.219727"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Pen">
+  <bounds height="28.719725" width="55.847408" x="58.184685" y="8.000000"/>
+  <attribute name="color: Color">
+   <bounds height="3.943945" width="17.776688" x="59.684685" y="16.443945"/>
+  </attribute>
+  <attribute name="width: real">
+   <bounds height="3.943945" width="15.961297" x="59.684685" y="20.387890"/>
+  </attribute>
+  <operation abstract="false" name="constructor(color: Color)">
+   <bounds height="3.943945" width="36.127499" x="59.684685" y="27.331835"/>
+  </operation>
+  <operation abstract="false" name="constructor(color: Color; width: real)">
+   <bounds height="3.943945" width="52.847408" x="59.684685" y="31.275780"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Brush">
+  <bounds height="20.831835" width="39.127499" x="121.452301" y="8.000000"/>
+  <attribute name="color: Color">
+   <bounds height="3.943945" width="17.776688" x="122.952301" y="16.443945"/>
+  </attribute>
+  <operation abstract="false" name="constructor(color: Color)">
+   <bounds height="3.943945" width="36.127499" x="122.952301" y="23.387890"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Font">
+  <bounds height="28.719725" width="76.022911" x="168.000000" y="8.000000"/>
+  <attribute name="family: string">
+   <bounds height="3.943945" width="19.412247" x="169.500000" y="16.443945"/>
+  </attribute>
+  <attribute name="size: real">
+   <bounds height="3.943945" width="14.144354" x="169.500000" y="20.387890"/>
+  </attribute>
+  <attribute name="style: integer">
+   <bounds height="3.943945" width="19.598282" x="169.500000" y="24.331835"/>
+  </attribute>
+  <operation abstract="false" name="constructor(family: string; size: real; style: integer)">
+   <bounds height="3.943945" width="73.022911" x="169.500000" y="31.275780"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Padding">
+  <bounds height="44.495506" width="60.394417" x="8.000000" y="47.000000"/>
+  <attribute name="left: real">
+   <bounds height="3.943945" width="12.690179" x="9.500000" y="55.443947"/>
+  </attribute>
+  <attribute name="top:real">
+   <bounds height="3.943945" width="11.964642" x="9.500000" y="59.387890"/>
+  </attribute>
+  <attribute name="right: real">
+   <bounds height="3.943945" width="14.688506" x="9.500000" y="63.331833"/>
+  </attribute>
+  <attribute name="bottom: real">
+   <bounds height="3.943945" width="18.323940" x="9.500000" y="67.275780"/>
+  </attribute>
+  <operation abstract="false" name="constructor(left, top, right, bottom: real)">
+   <bounds height="3.943945" width="57.394417" x="9.500000" y="74.219727"/>
+  </operation>
+  <operation abstract="false" name="procedure Print()">
+   <bounds height="3.943945" width="25.590164" x="9.500000" y="78.163673"/>
+  </operation>
+  <operation abstract="false" name="function Horizontal(): real">
+   <bounds height="3.943945" width="37.587875" x="9.500000" y="82.107620"/>
+  </operation>
+  <operation abstract="false" name="function Vectical(): real">
+   <bounds height="3.943945" width="34.318306" x="9.500000" y="86.051567"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Graphics">
+  <bounds height="60.271282" width="111.468803" x="74.462807" y="47.000000"/>
+  <attribute name="native: pointer">
+   <bounds height="3.943945" width="21.599710" x="75.962807" y="55.443947"/>
+  </attribute>
+  <attribute name="dipX: real">
+   <bounds height="3.943945" width="14.872992" x="75.962807" y="59.387890"/>
+  </attribute>
+  <attribute name="dpiY: real">
+   <bounds height="3.943945" width="14.872992" x="75.962807" y="63.331833"/>
+  </attribute>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="75.962807" y="70.275780"/>
+  </operation>
+  <operation abstract="false" name="proedure Clear(color: Color)">
+   <bounds height="3.943945" width="41.762814" x="75.962807" y="74.219727"/>
+  </operation>
+  <operation abstract="false" name="procedure DrawLine(pen: Pen; s, e: Point)">
+   <bounds height="3.943945" width="62.127460" x="75.962807" y="78.163673"/>
+  </operation>
+  <operation abstract="false" name="procedure DrawRectangle(pen: Pen; rectangle: Rect)">
+   <bounds height="3.943945" width="78.120270" x="75.962807" y="82.107620"/>
+  </operation>
+  <operation abstract="false" name="function MeasureString(text: string; font: Font): Size">
+   <bounds height="3.943945" width="75.756073" x="75.962807" y="86.051567"/>
+  </operation>
+  <operation abstract="false" name="procedure DrawString(text: string; font: Font; brush: Brush; location: Point)">
+   <bounds height="3.943945" width="108.468803" x="75.962807" y="89.995514"/>
+  </operation>
+  <operation abstract="false" name="procedure FillPolygon(brush: Brush; points: PointArray)">
+   <bounds height="3.943945" width="81.028618" x="75.962807" y="93.939461"/>
+  </operation>
+  <operation abstract="false" name="procedure DrawEllipse(pen: Pen; rect: Rect)">
+   <bounds height="3.943945" width="65.029602" x="75.962807" y="97.883408"/>
+  </operation>
+  <operation abstract="false" name="proceduire DrawArc(pen: Pen; rect: Rect; startAngle, sweepAngle: real)">
+   <bounds height="3.943945" width="104.469048" x="75.962807" y="101.827354"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Bitmap">
+  <bounds height="36.607613" width="52.036789" x="192.000000" y="47.000000"/>
+  <attribute name="x: integer">
+   <bounds height="3.943945" width="14.508673" x="193.500000" y="55.443947"/>
+  </attribute>
+  <attribute name="y: integer">
+   <bounds height="3.943945" width="14.508673" x="193.500000" y="59.387890"/>
+  </attribute>
+  <attribute name="native: pointer">
+   <bounds height="3.943945" width="21.599710" x="193.500000" y="63.331833"/>
+  </attribute>
+  <operation abstract="false" name="constructor(x, y: integer)">
+   <bounds height="3.943945" width="36.311985" x="193.500000" y="70.275780"/>
+  </operation>
+  <operation abstract="false" name="function GetGraphics(): Graphics">
+   <bounds height="3.943945" width="48.856953" x="193.500000" y="74.219727"/>
+  </operation>
+  <operation abstract="false" name="procedure Save(fileName: string)">
+   <bounds height="3.943945" width="49.036789" x="193.500000" y="78.163673"/>
+  </operation>
+ </classElement>
+ <classElement abstract="false" keyword="" name="Point">
+  <bounds height="6.943945" width="12.233027" x="232.000000" y="99.056053"/>
+ </classElement>
+ <relationshipElement cardinality="many" rkind="composition">
+  <bounds height="0.000000" width="18.223312" x="213.776688" y="103.000000"/>
+  <source connector="right.top" index="0" x="213.776688" y="103.000000">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </source>
+  <target connector="left.bottom" index="8" x="232.000000" y="103.000000">
+   <primaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </primaryText>
+   <secondaryText keyword="">
+    <bounds height="0.000000" width="0.000000" x="0.000000" y="0.000000"/>
+   </secondaryText>
+  </target>
+ </relationshipElement>
+</diagram>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Standard subroutines</title>
+    <link rel="stylesheet" type="text/css" href="../style/style.css" />
+</head>
+
+<body>
+
+<h1>
+  Standard subroutines
+</h1>
+
+<h2>Ord function</h2>
+
+<p>
+  Returns the ordinal value of an argument that must be of an <a href="../Syntax/syntax.html#simple-types">ordinal type</a>.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Ord(arg: &lt;ordinal-type&gt;): integer</div>
+
+<p>
+  Ordinal value of 
+  <ul>
+      <li>an integer value is the value itself,</li> 
+      <li>a char value is the ASCII code of the character,</li>
+      <li>Boolean value is 0 for <span class="kw">false</span> and 1 for <span class="kw">true</span>,</li>
+      <li>subrange value is the value itself,</li>
+      <li>enumeration constant value is the position of the constant in the enumerated type list starting from zero.</li>
+  </ul>
+</p>
+
+<h2>Chr function</h2>
+
+<p>
+  Returns the character value of an integer ASCII code 0..255.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Chr(arg: integer): char</div>
+
+<h2>Sin function</h2>
+
+<p>
+  Returns the sine of a real argument in radians.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Sin(arg: real): real</div>
+
+<h2>Cos function</h2>
+
+<p>
+  Returns the cosine of a real argument in radians.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Cos(arg: real): real</div>
+
+<h2>ArcTan function</h2>
+
+<p>
+  Returns the arcus tangent of a real argument.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">ArcTan(arg: real): real</div>
+
+<h2>Abs function</h2>
+
+<p>
+  Returns the absolute value of an integer or a real argument.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Abs(arg: integer): integer</div>
+<div class="plang">Abs(arg: real): real</div>
+
+<h2>Succ function</h2>
+
+<p>
+  Returns the successor of an <a href="../Syntax/syntax.html#simple-types">ordinal type</a> argument.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Succ(arg: &lt;ordinal-type&gt;): &lt;ordinal-type&gt;</div>
+
+<h2>Pred function</h2>
+
+<p>
+  Returns the predecessor of an <a href="../Syntax/syntax.html#simple-types">ordinal type</a> argument.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Pred(arg: &lt;ordinal-type&gt;): &lt;ordinal-type&gt;</div>
+
+<h2>Min function</h2>
+
+<p>
+  Returns the minimum of two values of an integer or a real type.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Min(left, right: integer): integer</div>
+<div class="plang">Min(left, right: real): real</div>
+
+<h2>Max function</h2>
+
+<p>
+  Returns the maximum of two values of an integer or a real type.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Max(left, right: integer): integer</div>
+<div class="plang">Max(left, right: real): real</div>
+
+<h2>Sqrt function</h2>
+
+<p>
+  Returns the square root of an integer a real type argument as real.
+</p>
+
+<h3>Syntax</h3>
+
+<div class="plang">Sqrt(arg: integer): real</div>
+<div class="plang">Sqrt(arg: real): real</div>
+
+<h2>Write procedure</h2>
+
+Writes arguments to standard output stream.
+
+<h3>Syntax</h3>
+
+<div class="plang">Write(arg1, ..., argN)</div>
+
+<h2>Writeln procedure</h2>
+
+Writes arguments followed by a newline to standard output stream.
+
+<h3>Syntax</h3>
+
+<div class="plang">Writeln(arg1, ..., argN)</div>
+
+</body>
+
+</html>

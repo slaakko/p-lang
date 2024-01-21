@@ -8,7 +8,93 @@
   </head>
   <body>
     <h1>P Language Syntax</h1>
-    <h2>Identifiers</h2>
+    <h2>Table of contents</h2>
+    <div class="toc">
+      1 <a href="#lexical-structure">Lexical structure</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;1.1 <a href="#identifiers">Identifiers</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;1.2 <a href="#keywords">Keywords</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;1.3 <a href="#numbers">Numbers</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;1.4 <a href="#strings">Strings</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;1.5 <a href="#comments">Comments</a>
+      <br/>
+      2 <a href="#types">Types</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;2.1 <a href="#simple-types">Simple types</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;2.2 <a href="#string-type">String type</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;2.3 <a href="#pointer-type">Pointer type</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;2.4 <a href="#object-types">Object types</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;2.5 <a href="#array-types">Array types</a>
+      <br/>
+      3 <a href="#variables-and-constants">Variables and constants</a>
+      <br/>
+      4 <a href="#expressions">Expression</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;4.1 <a href="#primary-expressions">Primary expressions</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;4.2 <a href="#factors">Factors</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;4.3 <a href="#terms">Terms</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;4.4 <a href="#simple-expressions">Simple expressions</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;4.5 <a href="#relational-expressions">Relational expressions</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;4.6 <a href="#constant-expressions">Constant expressions</a>
+      <br/>
+      5 <a href="#statements">Statements</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;5.1 <a href="#simple-statements">Simple statements</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;5.2 <a href="#structured-statements">Structured statements</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.1 <a href="#compound-statement">Compound statement</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.2 <a href="#conditional-statements">Conditional statements</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.2.1 <a href="#if-statement">If statement</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.2.2 <a href="#case-statement">Case statement</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.3 <a href="#repetitive-statements">Repetitive statements</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.3.1 <a href="#repeat-statement">Repeat statement</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.3.2 <a href="#while-statement">While statement</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.3.3 <a href="#for-statement">For statement</a>
+      <br/>
+      6 <a href="#blocks">Blocks</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;6.1 <a href="#procedure-declarations">Procedure declarations</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;6.2 <a href="#function-declarations">Function declarations</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;6.3 <a href="#constructor-declarations">Constructor declarations</a>
+      <br/>
+      7 <a href="#programs-and-units">Programs and units</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;7.1 <a href="#programs">Programs</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;7.2 <a href="#units">Units</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.1 <a href="#interface-part">Interface part</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.2 <a href="#implementation-part">Implementation part</a>
+      <br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.2.3 <a href="#initialization-part">Initialization part</a>
+      <br/>
+    </div>
+    <h2 id="lexical-structure">1 Lexical structure</h2>
+    <h3 id="identifiers">1.1 Identifiers</h3>
     <p>Identifiers denote variables, parameters, constants, types, functions and procedures.</p>
     <img src="../image/identifier.png"/>
     <br/>
@@ -38,7 +124,62 @@
       <span xml:space="preserve"><span class="id">_abc</span></span>
       <br/>
     </div>
-    <h2>Numbers</h2>
+    <h3 id="keywords">1.2 Keywords</h3>
+    <p>Keyword have context dependent meaning in programs. Keywords may not be used as identifiers. The P language has following keywords:</p>
+    <div class="plang">
+      <span class="kw">and</span>
+      <span class="kw">array</span>
+      <span class="kw">base</span>
+      <span class="kw">begin</span>
+      <span class="kw">boolean</span>
+      <span class="kw">case</span>
+      <span class="kw">char</span>
+      <span class="kw">const</span>
+      <span class="kw">constructor</span>
+      <span class="kw">div</span>
+      <span class="kw">do</span>
+      <span class="kw">downto</span>
+      <span class="kw">else</span>
+      <span class="kw">end</span>
+      <span class="kw">external</span>
+      <span class="kw">false</span>
+      <span class="kw">for</span>
+      <span class="kw">forward</span>
+      <span class="kw">function</span>
+      <span class="kw">if</span>
+      <span class="kw">implementation</span>
+      <span class="kw">integer</span>
+      <span class="kw">interface</span>
+      <span class="kw">mod</span>
+      <span class="kw">new</span>
+      <span class="kw">nil</span>
+      <span class="kw">not</span>
+      <span class="kw">object</span>
+      <span class="kw">of</span>
+      <span class="kw">or</span>
+      <span class="kw">override</span>
+      <span class="kw">procedure</span>
+      <span class="kw">pointer</span>
+      <span class="kw">program</span>
+      <span class="kw">real</span>
+      <span class="kw">repeat</span>
+      <span class="kw">shl</span>
+      <span class="kw">shr</span>
+      <span class="kw">string</span>
+      <span class="kw">then</span>
+      <span class="kw">this</span>
+      <span class="kw">to</span>
+      <span class="kw">true</span>
+      <span class="kw">type</span>
+      <span class="kw">until</span>
+      <span class="kw">unit</span>
+      <span class="kw">uses</span>
+      <span class="kw">var</span>
+      <span class="kw">while</span>
+      <span class="kw">xor</span>
+      <span class="kw">virtual</span>
+    </div>
+    <h3 id="numbers">1.3 Numbers</h3>
     <img src="../image/hex-digit.png"/>
     <br/>
     <img src="../image/hex-digit-sequence.png"/>
@@ -75,7 +216,7 @@
       <span xml:space="preserve"><span class="number">12E-4</span></span>
       <br/>
     </div>
-    <h2>Strings</h2>
+    <h3 id="strings">1.4 Strings</h3>
     <img src="../image/character-string.png"/>
     <br/>
     <img src="../image/quoted-string.png"/>
@@ -106,7 +247,7 @@
       <span xml:space="preserve"><span class="string">'''quoted string'''</span></span>
       <br/>
     </div>
-    <h2>Comments</h2>
+    <h3 id="comments">1.5 Comments</h3>
     <img src="../image/brace-comment.png"/>
     <br/>
     <img src="../image/paren-comment.png"/>
@@ -168,7 +309,7 @@
       <span xml:space="preserve"><span class="comment">*)</span></span>
       <br/>
     </div>
-    <h2>Types</h2>
+    <h2 id="types">2 Types</h2>
     <img src="../image/type-declaration.png"/>
     <br/>
     <img src="../image/type.png"/>
@@ -177,7 +318,7 @@
     <br/>
     <img src="../image/type-identifier.png"/>
     <br/>
-    <h3>Simple types</h3>
+    <h3 id="simple-types">2.1 Simple types</h3>
     <img src="../image/simple-type.png"/>
     <br/>
     <img src="../image/ordinal-type.png"/>
@@ -231,13 +372,22 @@
     <img src="../image/real-type.png"/>
     <br/>
     <p>Size of real type object is 4 bytes. Range of real type value is from 1.175494351E-38 to 3.402823466E+38.</p>
-    <h3>String type</h3>
+    <h3 id="string-type">2.2 String type</h3>
+    <p>
+      String literals and variables have type <span class="kw">string</span>
+      . Strings are immutable. To construct a string piecewise you may use the <em>StringBuilder</em>
+      object type of the <em>System</em>
+      library.</p>
     <img src="../image/string-type.png"/>
     <br/>
-    <h3>Pointer type</h3>
+    <h3 id="pointer-type">2.3 Pointer type</h3>
+    <p>
+      A variable of type <span class="kw">pointer</span>
+      enable <a href="#external-subroutine">external</a>
+      subroutines to store a C++ pointer to a P object and retrieve it later.</p>
     <img src="../image/pointer-type.png"/>
     <br/>
-    <h3>Object types</h3>
+    <h3 id="object-types">2.4 Object types</h3>
     <img src="../image/object-type.png"/>
     <br/>
     <img src="../image/heritage.png"/>
@@ -467,7 +617,7 @@
       <span xml:space="preserve"><span class="comment">}</span></span>
       <br/>
     </div>
-    <h3>Array types</h3>
+    <h3 id="array-types">2.5 Array types</h3>
     <img src="../image/array-type.png"/>
     <br/>
     <div class="plang">
@@ -496,7 +646,7 @@
       <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Matrix</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Vector</span><span class="other">;</span></span>
       <br/>
     </div>
-    <h2>Variables and constants</h2>
+    <h2 id="variables-and-constants">3 Variables and constants</h2>
     <img src="../image/variable-declaration.png"/>
     <br/>
     <div class="plang">
@@ -573,8 +723,8 @@
       <span class="comment">}</span></span>
       <br/>
     </div>
-    <h2>Expressions</h2>
-    <h3>Primary expressions</h3>
+    <h2 id="expressions">4 Expressions</h2>
+    <h3 id="primary-expressions">4.1 Primary expressions</h3>
     <img src="../image/primary.png"/>
     <br/>
     <img src="../image/variable-reference.png"/>
@@ -749,7 +899,7 @@
       <span class="comment">}</span></span>
       <br/>
     </div>
-    <h3>Factors</h3>
+    <h3 id="factors">4.2 Factors</h3>
     <img src="../image/factor.png"/>
     <br/>
     <img src="../image/qualifier.png"/>
@@ -860,7 +1010,7 @@
       <span class="comment">}</span></span>
       <br/>
     </div>
-    <h3>Terms</h3>
+    <h3 id="terms">4.3 Terms</h3>
     <img src="../image/term.png"/>
     <br/>
     <img src="../image/strong-operator.png"/>
@@ -976,7 +1126,7 @@
       <span class="comment">}</span></span>
       <br/>
     </div>
-    <h3>Simple expressions</h3>
+    <h3 id="simple-expressions">4.4 Simple expressions</h3>
     <img src="../image/simple-expression.png"/>
     <br/>
     <img src="../image/weak-operator.png"/>
@@ -1055,7 +1205,7 @@
       <span xml:space="preserve"/>
       <br/>
     </div>
-    <h3>Relational expressions</h3>
+    <h3 id="relational-expressions">4.5 Relational expressions</h3>
     <img src="../image/expression.png"/>
     <br/>
     <img src="../image/relational-operator.png"/>
@@ -1248,7 +1398,7 @@
       <span xml:space="preserve"><span class="kw">new</span>&nbsp;<span class="id">Color</span><span class="other">(</span><span class="id">Byte</span><span class="other">(</span><span class="number">255</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">0</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">0</span><span class="other">)</span><span class="other">,</span>&nbsp;<span class="id">Byte</span><span class="other">(</span><span class="number">0</span><span class="other">)</span><span class="other">)</span></span>
       <br/>
     </div>
-    <h3>Constant expressions</h3>
+    <h3 id="constant-expressions">4.6 Constant expressions</h3>
     <img src="../image/constant-expression.png"/>
     <br/>
     <p>Constant expression is syntactically an expression. Besides arithmetic operators, the following standard functions can be used in constant expressions: Abs, Chr, Ord, Pred and Succ.</p>
@@ -1311,10 +1461,10 @@
       <span class="comment">}</span></span>
       <br/>
     </div>
-    <h2>Statements</h2>
+    <h2 id="statements">5 Statements</h2>
     <img src="../image/statement.png"/>
     <br/>
-    <h3>Simple statements</h3>
+    <h3 id="simple-statements">5.1 Simple statements</h3>
     <img src="../image/simple-statement.png"/>
     <br/>
     <img src="../image/assignment-statement.png"/>
@@ -1372,10 +1522,10 @@
       <span xml:space="preserve"><span class="id">graphics</span><span class="other">.</span><span class="id">FillPolygon</span><span class="other">(</span><span class="id">blackBrush</span><span class="other">,</span>&nbsp;<span class="id">points</span><span class="other">)</span></span>
       <br/>
     </div>
-    <h3>Structured statements</h3>
+    <h3 id="structured-statements">5.2 Structured statements</h3>
     <img src="../image/structured-statement.png"/>
     <br/>
-    <h4>Compound statement</h4>
+    <h4 id="compound-statement">5.2.1 Compound statement</h4>
     <img src="../image/compound-statement.png"/>
     <br/>
     <div class="plang">
@@ -1415,10 +1565,10 @@
       <span xml:space="preserve"><span class="kw">end</span></span>
       <br/>
     </div>
-    <h4>Conditional statements</h4>
+    <h4 id="conditional-statements">5.2.2 Conditional statements</h4>
     <img src="../image/conditional-statement.png"/>
     <br/>
-    <h5>If statement</h5>
+    <h5 id="if-statement">5.2.2.1 If statement</h5>
     <img src="../image/if-statement.png"/>
     <br/>
     <div class="plang">
@@ -1456,7 +1606,7 @@
       <span xml:space="preserve"><span class="kw">end</span></span>
       <br/>
     </div>
-    <h5>Case statement</h5>
+    <h5 id="case-statement">5.2.2.2 Case statement</h5>
     <img src="../image/case-statement.png"/>
     <br/>
     <img src="../image/case.png"/>
@@ -1532,10 +1682,10 @@
       <span xml:space="preserve"><span class="kw">end</span></span>
       <br/>
     </div>
-    <h4>Repetitive statements</h4>
+    <h4 id="repetitive-statements">5.2.3 Repetitive statements</h4>
     <img src="../image/repetitive-statement.png"/>
     <br/>
-    <h5>Repeat statement</h5>
+    <h5 id="repeat-statement">5.2.3.1 Repeat statement</h5>
     <img src="../image/repeat-statement.png"/>
     <br/>
     <div class="plang">
@@ -1563,7 +1713,7 @@
       <span xml:space="preserve"><span class="kw">until</span>&nbsp;<span class="id">done</span></span>
       <br/>
     </div>
-    <h5>While statement</h5>
+    <h5 id="while-statement">5.2.3.2 While statement</h5>
     <img src="../image/while-statement.png"/>
     <br/>
     <div class="plang">
@@ -1593,7 +1743,7 @@
       <span xml:space="preserve"><span class="kw">end</span></span>
       <br/>
     </div>
-    <h5>For statement</h5>
+    <h5 id="for-statement">5.2.3.3 For statement</h5>
     <img src="../image/for-statement.png"/>
     <br/>
     <img src="../image/control-variable.png"/>
@@ -1630,7 +1780,8 @@
       <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
       <br/>
     </div>
-    <h2>Blocks</h2>
+    <h2 id="blocks">6 Blocks</h2>
+    <p>Programs and subroutines have blocks. Blocks may be nested. An inner block may reference variables, constants and types of outer blocks.</p>
     <img src="../image/block.png"/>
     <br/>
     <img src="../image/declaration-part.png"/>
@@ -1773,6 +1924,15 @@
       <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
       <br/>
     </div>
+    <p>
+      Subroutines contain <em>subroutine blocks</em>
+      that are either external or forward declarations, or blocks.</p>
+    <p>With forward declarations mutually dependent subroutines may call each other.</p>
+    <p id="external-subroutine">
+      External subroutines enable P programs to call C++ code. External subroutines should be implemented in the <span class="bold">rt</span>
+      C++ module of the C++ project <span class="bold">p.vcxroj</span>
+      of the solution <span class="bold">plang.sln</span>
+      .</p>
     <img src="../image/subroutine-block.png"/>
     <br/>
     <div class="plang">
@@ -1992,14 +2152,14 @@
       <span xml:space="preserve"><span class="comment">}</span></span>
       <br/>
     </div>
-    <h4>Procedure declarations</h4>
+    <h3 id="procedure-declarations">6.1 Procedure declarations</h3>
     <img src="../image/procedure-declaration.png"/>
     <br/>
     <img src="../image/procedure-heading.png"/>
     <br/>
     <img src="../image/procedure-name.png"/>
     <br/>
-    <p>Procedures cannot be overloaded so the name of a procedure in a procedure definition must be unique within a program.</p>
+    <p>Procedures may not be overloaded so the name of a procedure in a procedure declaration must be unique within a program.</p>
     <img src="../image/parameter-list.png"/>
     <br/>
     <img src="../image/parameter-declaration.png"/>
@@ -2089,14 +2249,14 @@
       <span xml:space="preserve"><span class="comment">}</span></span>
       <br/>
     </div>
-    <h4>Function declarations</h4>
+    <h3 id="function-declarations">6.2 Function declarations</h3>
     <img src="../image/function-declaration.png"/>
     <br/>
     <img src="../image/function-heading.png"/>
     <br/>
     <img src="../image/function-name.png"/>
     <br/>
-    <p>Functions cannot be overloaded so the name of a function in a function definition must be unique within a program.</p>
+    <p>Functions may not be overloaded so the name of a function in a function declaration must be unique within a program.</p>
     <img src="../image/result-type.png"/>
     <br/>
     <p>A function should contain at least one assignment statement that assigns a value to the function result variable that has the same name as the function. There might be more than one executed function result assignment in which case the last such assignment stays valid.</p>
@@ -2122,14 +2282,19 @@
       <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
       <br/>
     </div>
-    <h4>Constructor declarations</h4>
+    <h3 id="constructor-declarations">6.3 Constructor declarations</h3>
+    <p>
+      Constructors are used to initialize an object type object. The compiler automatically implements a <em>default constructor</em>
+      , a constructor that take no parameters, for each object type if it is not implemented by user. The generated default constructor initializes each field of an object to a default value: <span class="kw">nil</span>
+      for object type, 0 for integer type, 0.0 for real type and <span class="kw">false</span>
+      for Boolean type object.</p>
     <img src="../image/constructor-declaration.png"/>
     <br/>
     <img src="../image/constructor-heading.png"/>
     <br/>
     <img src="../image/object-name.png"/>
     <br/>
-    <p>Constructors can be overloaded, so there may be multiple constructors with different parameter types in the same object type.</p>
+    <p>Constructors may be overloaded, so there may be multiple constructors with different parameter types in the same object type.</p>
     <img src="../image/constructor-call.png"/>
     <br/>
     <p>
@@ -2229,7 +2394,8 @@
       <span xml:space="preserve"><span class="kw">end</span><span class="other">.</span></span>
       <br/>
     </div>
-    <h2>Programs and units</h2>
+    <h2 id="programs-and-units">7 Programs and units</h2>
+    <h3 id="programs">7.1 Programs</h3>
     <img src="../image/program.png"/>
     <br/>
     <img src="../image/program-heading.png"/>
@@ -2238,7 +2404,11 @@
     <br/>
     <p>
       The <em>program-id</em>
-      specifies the name of the program and sets the file name of the generated .pcode file.</p>
+      specifies the name of the program and sets the file name of the generated <span class="bold">.pcode</span>
+      file. The generated <span class="bold">.pcode</span>
+      file is saved to the <span class="bold">prog</span>
+      subdirectory of the <span class="bold">plang</span>
+      root directory.</p>
     <img src="../image/program-parameter-list.png"/>
     <br/>
     <p>
@@ -2250,7 +2420,10 @@
     <br/>
     <p>
       The uses clause specifies units used by a program or interface or implementation part of a unit. The <em>System</em>
-      unit is automatically used by all programs and units.</p>
+      unit is automatically used by all programs and units. The <span class="bold">.pcode</span>
+      file of a unit is searched in the <span class="bold">unit</span>
+      subdirectory of the <span class="bold">plang</span>
+      root directory by the name of the unit.</p>
     <div class="plang">
       <span xml:space="preserve"><span class="comment">{</span><span class="comment"/>
       <span class="comment">Program</span><span class="comment">:</span><span class="comment"/>
@@ -2393,23 +2566,29 @@
       <span xml:space="preserve"><span class="kw">end</span><span class="other">.</span>&nbsp;&nbsp;</span>
       <br/>
     </div>
-    <h3>Units</h3>
+    <h3 id="units">7.2 Units</h3>
     <img src="../image/unit.png"/>
     <br/>
     <img src="../image/unit-heading.png"/>
     <br/>
     <p>
       The <em>unit-name</em>
-      in the unit heading specifies the name of the unit and sets the file name of the generated .pcode file.</p>
-    <h4>Interface part</h4>
+      in the unit heading specifies the name of the unit and sets the file name of the generated <span class="bold">.pcode</span>
+      file. The generated <span class="bold">.pcode</span>
+      file is saved to the <span class="bold">unit</span>
+      subdirectory of the <span class="bold">plang</span>
+      root directory.</p>
+    <h4 id="interface-part">7.2.1 Interface part</h4>
+    <p>To enable a program or another unit to use a declaration of a unit, the declaration must be placed to the interface part of a unit.</p>
     <img src="../image/interface-part.png"/>
     <br/>
     <img src="../image/procedure-and-function-heading-part.png"/>
     <br/>
-    <h4>Implementation part</h4>
+    <h4 id="implementation-part">7.2.2 Implementation part</h4>
+    <p>The implementation part contains definitions of the procedures, functions and methods declared in the interface part of a unit.</p>
     <img src="../image/implementation-part.png"/>
     <br/>
-    <h4>Initialization part</h4>
+    <h4 id="initialization-part">7.2.3 Initialization part</h4>
     <img src="../image/initialization-part.png"/>
     <br/>
     <p>The initialization parts of the units a program uses are run before the statement part of the program starts executing.</p>
