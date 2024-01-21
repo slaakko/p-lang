@@ -273,7 +273,7 @@
     <ResourceCompile Include="p.lexer.classmap.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\springpp\ext\zlib-1.2.11\contrib\vstudio\vc14\zlibstat.vcxproj">
+    <ProjectReference Include="..\ext\zlib-1.2.11\contrib\vstudio\vc14\zlibstat.vcxproj">
       <Project>{745dec58-ebb3-47a9-a9b8-4c6627c01bf8}</Project>
     </ProjectReference>
     <ProjectReference Include="..\soul\ast\ast.vcxproj">
