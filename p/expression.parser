@@ -15,8 +15,6 @@ parser ExpressionParser
 {
     lexer p::lexer::PLexer<char>;
 
-    using TypeParser.ObjectTypeIdentifier;
-
     Expression(ParsingContext* context, var std::unique_ptr<Node> node) : Node*
         ::= 
         (

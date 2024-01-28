@@ -19,26 +19,31 @@
   <rule first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" name="Type">
    <choice first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
     <choice first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
-     <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
-      <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+     <choice first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+      <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
        <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
-        <action first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
-         <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="SimpleType"/>
-        </action>
-        <action first="{STRING}">
-         <nonterminal first="{STRING}" ruleName="StringType"/>
+        <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+         <action first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+          <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="SimpleType"/>
+         </action>
+         <action first="{STRING}">
+          <nonterminal first="{STRING}" ruleName="StringType"/>
+         </action>
+        </choice>
+        <action first="{POINTER}">
+         <nonterminal first="{POINTER}" ruleName="PointerType"/>
         </action>
        </choice>
-       <action first="{POINTER}">
-        <nonterminal first="{POINTER}" ruleName="PointerType"/>
+       <action first="{OBJECT}">
+        <nonterminal first="{OBJECT}" ruleName="ObjectType"/>
        </action>
       </choice>
-      <action first="{OBJECT}">
-       <nonterminal first="{OBJECT}" ruleName="ObjectType"/>
+      <action first="{ARRAY}">
+       <nonterminal first="{ARRAY}" ruleName="ArrayType"/>
       </action>
      </choice>
-     <action first="{ARRAY}">
-      <nonterminal first="{ARRAY}" ruleName="ArrayType"/>
+     <action first="{ID}">
+      <nonterminal first="{ID}" ruleName="Specialization"/>
      </action>
     </choice>
     <action first="{ID}">
@@ -137,13 +142,22 @@
      <sequence first="{OBJECT}">
       <sequence first="{OBJECT}">
        <sequence first="{OBJECT}">
-        <action first="{OBJECT}">
-         <token first="{OBJECT}" name="OBJECT"/>
-        </action>
-        <optional first="{#, LPAREN}">
-         <group first="{LPAREN}">
-          <action first="{LPAREN}">
-           <nonterminal first="{LPAREN}" ruleName="Heritage"/>
+        <sequence first="{OBJECT}">
+         <action first="{OBJECT}">
+          <token first="{OBJECT}" name="OBJECT"/>
+         </action>
+         <optional first="{#, LPAREN}">
+          <group first="{LPAREN}">
+           <action first="{LPAREN}">
+            <nonterminal first="{LPAREN}" ruleName="Heritage"/>
+           </action>
+          </group>
+         </optional>
+        </sequence>
+        <optional first="{#, OF}">
+         <group first="{OF}">
+          <action first="{OF}">
+           <nonterminal first="{OF}" ruleName="GenericPart"/>
           </action>
          </group>
         </optional>
@@ -168,10 +182,13 @@
     </group>
    </action>
   </rule>
-  <rule first="{ID}" name="ObjectTypeIdentifier">
-   <action first="{ID}">
-    <token first="{ID}" name="ID"/>
-   </action>
+  <rule first="{OF}" name="GenericPart">
+   <sequence first="{OF}">
+    <token first="{OF}" name="OF"/>
+    <action first="{ID}">
+     <token first="{ID}" name="ID"/>
+    </action>
+   </sequence>
   </rule>
   <rule first="{#, CONSTRUCTOR, FUNCTION, ID, PROCEDURE}" name="ComponentList">
    <sequence first="{#, CONSTRUCTOR, FUNCTION, ID, PROCEDURE}">
@@ -395,6 +412,24 @@
       <nonterminal first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="Type"/>
      </sequence>
     </group>
+   </action>
+  </rule>
+  <rule first="{ID}" name="Specialization">
+   <action first="{ID}">
+    <group first="{ID}">
+     <sequence first="{ID}">
+      <sequence first="{ID}">
+       <nonterminal first="{ID}" ruleName="Generic"/>
+       <token first="{OF}" name="OF"/>
+      </sequence>
+      <nonterminal first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" ruleName="TypeName"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{ID}" name="Generic">
+   <action first="{ID}">
+    <token first="{ID}" name="ID"/>
    </action>
   </rule>
  </grammar>

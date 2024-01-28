@@ -84,6 +84,26 @@ ExternalSubroutine::ExternalSubroutine(const std::string& name_) : Subroutine(Su
 {
 }
 
+class PanicProcedure : public ExternalSubroutine
+{
+public:
+    PanicProcedure();
+    void Execute(ExecutionContext* context) override;
+};
+
+PanicProcedure::PanicProcedure() : ExternalSubroutine("Panic")
+{
+}
+
+void PanicProcedure::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> object = stack->Pop();
+    Object* obj = object->GetObject();
+    std::string message = obj->ToString();
+    throw std::runtime_error("panic: " + message);
+}
+
 class IntToStringFunction : public ExternalSubroutine
 {
 public:
@@ -858,6 +878,7 @@ Rt::Rt()
     {
         throw std::runtime_error("GDI+ initialization failed");
     }
+    AddExternalSubroutine(new PanicProcedure());
     AddExternalSubroutine(new IntToStringFunction());
     AddExternalSubroutine(new RealToStringFunction());
     AddExternalSubroutine(new ParseIntFunction());

@@ -21,7 +21,6 @@ parser ProcedureParser
 
     using ParameterParser.ParameterList;
     using BlockParser.SubroutineBlock;
-    using TypeParser.ObjectTypeIdentifier;
 
     ProcedureDeclaration(ParsingContext* context, var p::Procedure* procedure)
         ::= ProcedureHeading(context):procedureHeading

@@ -150,6 +150,7 @@ soul::parser::Match TypeParser<LexerT>::Type(LexerT& lexer, ParsingContext* cont
     std::unique_ptr<soul::parser::Value<p::TypePtr>> pointerType;
     std::unique_ptr<soul::parser::Value<p::TypePtr>> objectType;
     std::unique_ptr<soul::parser::Value<p::TypePtr>> arrayType;
+    std::unique_ptr<soul::parser::Value<p::TypePtr>> specialization;
     std::unique_ptr<IdentifierNode> typeIdentifier;
     soul::parser::Match match(false);
     soul::parser::Match* parentMatch0 = &match;
@@ -174,45 +175,78 @@ soul::parser::Match TypeParser<LexerT>::Type(LexerT& lexer, ParsingContext* cont
                         soul::parser::Match match(false);
                         soul::parser::Match* parentMatch5 = &match;
                         {
-                            int64_t pos = lexer.GetPos();
-                            soul::parser::Match match = TypeParser<LexerT>::SimpleType(lexer, context);
-                            simpleType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
-                            if (match.hit)
+                            int64_t save = lexer.GetPos();
+                            soul::parser::Match match(false);
+                            soul::parser::Match* parentMatch6 = &match;
                             {
+                                int64_t pos = lexer.GetPos();
+                                soul::parser::Match match = TypeParser<LexerT>::SimpleType(lexer, context);
+                                simpleType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
+                                if (match.hit)
                                 {
-                                    #ifdef SOUL_PARSER_DEBUG_SUPPORT
-                                    if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Type");
-                                    #endif
-                                    return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(simpleType->value));
+                                    {
+                                        #ifdef SOUL_PARSER_DEBUG_SUPPORT
+                                        if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Type");
+                                        #endif
+                                        return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(simpleType->value));
+                                    }
                                 }
+                                *parentMatch6 = match;
                             }
                             *parentMatch5 = match;
+                            if (!match.hit)
+                            {
+                                soul::parser::Match match(false);
+                                soul::parser::Match* parentMatch7 = &match;
+                                lexer.SetPos(save);
+                                {
+                                    soul::parser::Match match(false);
+                                    soul::parser::Match* parentMatch8 = &match;
+                                    {
+                                        int64_t pos = lexer.GetPos();
+                                        soul::parser::Match match = TypeParser<LexerT>::StringType(lexer, context);
+                                        stringType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
+                                        if (match.hit)
+                                        {
+                                            {
+                                                #ifdef SOUL_PARSER_DEBUG_SUPPORT
+                                                if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Type");
+                                                #endif
+                                                return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(stringType->value));
+                                            }
+                                        }
+                                        *parentMatch8 = match;
+                                    }
+                                    *parentMatch7 = match;
+                                }
+                                *parentMatch5 = match;
+                            }
                         }
                         *parentMatch4 = match;
                         if (!match.hit)
                         {
                             soul::parser::Match match(false);
-                            soul::parser::Match* parentMatch6 = &match;
+                            soul::parser::Match* parentMatch9 = &match;
                             lexer.SetPos(save);
                             {
                                 soul::parser::Match match(false);
-                                soul::parser::Match* parentMatch7 = &match;
+                                soul::parser::Match* parentMatch10 = &match;
                                 {
                                     int64_t pos = lexer.GetPos();
-                                    soul::parser::Match match = TypeParser<LexerT>::StringType(lexer, context);
-                                    stringType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
+                                    soul::parser::Match match = TypeParser<LexerT>::PointerType(lexer, context);
+                                    pointerType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
                                     if (match.hit)
                                     {
                                         {
                                             #ifdef SOUL_PARSER_DEBUG_SUPPORT
                                             if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Type");
                                             #endif
-                                            return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(stringType->value));
+                                            return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(pointerType->value));
                                         }
                                     }
-                                    *parentMatch7 = match;
+                                    *parentMatch10 = match;
                                 }
-                                *parentMatch6 = match;
+                                *parentMatch9 = match;
                             }
                             *parentMatch4 = match;
                         }
@@ -221,27 +255,27 @@ soul::parser::Match TypeParser<LexerT>::Type(LexerT& lexer, ParsingContext* cont
                     if (!match.hit)
                     {
                         soul::parser::Match match(false);
-                        soul::parser::Match* parentMatch8 = &match;
+                        soul::parser::Match* parentMatch11 = &match;
                         lexer.SetPos(save);
                         {
                             soul::parser::Match match(false);
-                            soul::parser::Match* parentMatch9 = &match;
+                            soul::parser::Match* parentMatch12 = &match;
                             {
                                 int64_t pos = lexer.GetPos();
-                                soul::parser::Match match = TypeParser<LexerT>::PointerType(lexer, context);
-                                pointerType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
+                                soul::parser::Match match = TypeParser<LexerT>::ObjectType(lexer, context);
+                                objectType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
                                 if (match.hit)
                                 {
                                     {
                                         #ifdef SOUL_PARSER_DEBUG_SUPPORT
                                         if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Type");
                                         #endif
-                                        return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(pointerType->value));
+                                        return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(objectType->value));
                                     }
                                 }
-                                *parentMatch9 = match;
+                                *parentMatch12 = match;
                             }
-                            *parentMatch8 = match;
+                            *parentMatch11 = match;
                         }
                         *parentMatch3 = match;
                     }
@@ -250,27 +284,27 @@ soul::parser::Match TypeParser<LexerT>::Type(LexerT& lexer, ParsingContext* cont
                 if (!match.hit)
                 {
                     soul::parser::Match match(false);
-                    soul::parser::Match* parentMatch10 = &match;
+                    soul::parser::Match* parentMatch13 = &match;
                     lexer.SetPos(save);
                     {
                         soul::parser::Match match(false);
-                        soul::parser::Match* parentMatch11 = &match;
+                        soul::parser::Match* parentMatch14 = &match;
                         {
                             int64_t pos = lexer.GetPos();
-                            soul::parser::Match match = TypeParser<LexerT>::ObjectType(lexer, context);
-                            objectType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
+                            soul::parser::Match match = TypeParser<LexerT>::ArrayType(lexer, context);
+                            arrayType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
                             if (match.hit)
                             {
                                 {
                                     #ifdef SOUL_PARSER_DEBUG_SUPPORT
                                     if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Type");
                                     #endif
-                                    return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(objectType->value));
+                                    return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(arrayType->value));
                                 }
                             }
-                            *parentMatch11 = match;
+                            *parentMatch14 = match;
                         }
-                        *parentMatch10 = match;
+                        *parentMatch13 = match;
                     }
                     *parentMatch2 = match;
                 }
@@ -279,27 +313,27 @@ soul::parser::Match TypeParser<LexerT>::Type(LexerT& lexer, ParsingContext* cont
             if (!match.hit)
             {
                 soul::parser::Match match(false);
-                soul::parser::Match* parentMatch12 = &match;
+                soul::parser::Match* parentMatch15 = &match;
                 lexer.SetPos(save);
                 {
                     soul::parser::Match match(false);
-                    soul::parser::Match* parentMatch13 = &match;
+                    soul::parser::Match* parentMatch16 = &match;
                     {
                         int64_t pos = lexer.GetPos();
-                        soul::parser::Match match = TypeParser<LexerT>::ArrayType(lexer, context);
-                        arrayType.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
+                        soul::parser::Match match = TypeParser<LexerT>::Specialization(lexer, context);
+                        specialization.reset(static_cast<soul::parser::Value<p::TypePtr>*>(match.value));
                         if (match.hit)
                         {
                             {
                                 #ifdef SOUL_PARSER_DEBUG_SUPPORT
                                 if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Type");
                                 #endif
-                                return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(arrayType->value));
+                                return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(specialization->value));
                             }
                         }
-                        *parentMatch13 = match;
+                        *parentMatch16 = match;
                     }
-                    *parentMatch12 = match;
+                    *parentMatch15 = match;
                 }
                 *parentMatch1 = match;
             }
@@ -308,11 +342,11 @@ soul::parser::Match TypeParser<LexerT>::Type(LexerT& lexer, ParsingContext* cont
         if (!match.hit)
         {
             soul::parser::Match match(false);
-            soul::parser::Match* parentMatch14 = &match;
+            soul::parser::Match* parentMatch17 = &match;
             lexer.SetPos(save);
             {
                 soul::parser::Match match(false);
-                soul::parser::Match* parentMatch15 = &match;
+                soul::parser::Match* parentMatch18 = &match;
                 {
                     int64_t pos = lexer.GetPos();
                     soul::parser::Match match = ExpressionParser<LexerT>::TypeIdentifier(lexer, context);
@@ -326,9 +360,9 @@ soul::parser::Match TypeParser<LexerT>::Type(LexerT& lexer, ParsingContext* cont
                             return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(p::TypePtr(typeIdentifier.release()->GetType())));
                         }
                     }
-                    *parentMatch15 = match;
+                    *parentMatch18 = match;
                 }
-                *parentMatch14 = match;
+                *parentMatch17 = match;
             }
             *parentMatch0 = match;
         }
@@ -994,6 +1028,7 @@ soul::parser::Match TypeParser<LexerT>::ObjectType(LexerT& lexer, ParsingContext
     soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 1060958820211097611);
     p::ObjectType* objectType = nullptr;
     std::unique_ptr<IdentifierNode> heritage;
+    std::unique_ptr<p::TypeParameter> typeParam;
     soul::parser::Match match(false);
     soul::parser::Match* parentMatch0 = &match;
     {
@@ -1013,16 +1048,60 @@ soul::parser::Match TypeParser<LexerT>::ObjectType(LexerT& lexer, ParsingContext
                         soul::parser::Match match(false);
                         soul::parser::Match* parentMatch5 = &match;
                         {
-                            int64_t pos = lexer.GetPos();
                             soul::parser::Match match(false);
-                            if (*lexer == OBJECT)
+                            soul::parser::Match* parentMatch6 = &match;
                             {
-                                ++lexer;
-                                match.hit = true;
+                                int64_t pos = lexer.GetPos();
+                                soul::parser::Match match(false);
+                                if (*lexer == OBJECT)
+                                {
+                                    ++lexer;
+                                    match.hit = true;
+                                }
+                                if (match.hit)
+                                {
+                                    objectType = MakeObjectType(context, lexer, pos);
+                                }
+                                *parentMatch6 = match;
                             }
-                            if (match.hit)
+                            *parentMatch5 = match;
+                        }
+                        if (match.hit)
+                        {
+                            soul::parser::Match match(false);
+                            soul::parser::Match* parentMatch7 = &match;
                             {
-                                objectType = MakeObjectType(context, lexer, pos);
+                                soul::parser::Match match(true);
+                                int64_t save = lexer.GetPos();
+                                soul::parser::Match* parentMatch8 = &match;
+                                {
+                                    soul::parser::Match match(false);
+                                    soul::parser::Match* parentMatch9 = &match;
+                                    {
+                                        soul::parser::Match match(false);
+                                        soul::parser::Match* parentMatch10 = &match;
+                                        {
+                                            int64_t pos = lexer.GetPos();
+                                            soul::parser::Match match = TypeParser<LexerT>::Heritage(lexer, context);
+                                            heritage.reset(static_cast<IdentifierNode*>(match.value));
+                                            if (match.hit)
+                                            {
+                                                SetHeritage(context, objectType, heritage.release(), lexer, pos);
+                                            }
+                                            *parentMatch10 = match;
+                                        }
+                                        *parentMatch9 = match;
+                                    }
+                                    if (match.hit)
+                                    {
+                                        *parentMatch8 = match;
+                                    }
+                                    else
+                                    {
+                                        lexer.SetPos(save);
+                                    }
+                                }
+                                *parentMatch7 = match;
                             }
                             *parentMatch5 = match;
                         }
@@ -1031,39 +1110,39 @@ soul::parser::Match TypeParser<LexerT>::ObjectType(LexerT& lexer, ParsingContext
                     if (match.hit)
                     {
                         soul::parser::Match match(false);
-                        soul::parser::Match* parentMatch6 = &match;
+                        soul::parser::Match* parentMatch11 = &match;
                         {
                             soul::parser::Match match(true);
                             int64_t save = lexer.GetPos();
-                            soul::parser::Match* parentMatch7 = &match;
+                            soul::parser::Match* parentMatch12 = &match;
                             {
                                 soul::parser::Match match(false);
-                                soul::parser::Match* parentMatch8 = &match;
+                                soul::parser::Match* parentMatch13 = &match;
                                 {
                                     soul::parser::Match match(false);
-                                    soul::parser::Match* parentMatch9 = &match;
+                                    soul::parser::Match* parentMatch14 = &match;
                                     {
                                         int64_t pos = lexer.GetPos();
-                                        soul::parser::Match match = TypeParser<LexerT>::Heritage(lexer, context);
-                                        heritage.reset(static_cast<IdentifierNode*>(match.value));
+                                        soul::parser::Match match = TypeParser<LexerT>::GenericPart(lexer);
+                                        typeParam.reset(static_cast<p::TypeParameter*>(match.value));
                                         if (match.hit)
                                         {
-                                            SetHeritage(context, objectType, heritage.release(), lexer, pos);
+                                            objectType->SetTypeParameter(typeParam.release());
                                         }
-                                        *parentMatch9 = match;
+                                        *parentMatch14 = match;
                                     }
-                                    *parentMatch8 = match;
+                                    *parentMatch13 = match;
                                 }
                                 if (match.hit)
                                 {
-                                    *parentMatch7 = match;
+                                    *parentMatch12 = match;
                                 }
                                 else
                                 {
                                     lexer.SetPos(save);
                                 }
                             }
-                            *parentMatch6 = match;
+                            *parentMatch11 = match;
                         }
                         *parentMatch4 = match;
                     }
@@ -1072,10 +1151,10 @@ soul::parser::Match TypeParser<LexerT>::ObjectType(LexerT& lexer, ParsingContext
                 if (match.hit)
                 {
                     soul::parser::Match match(false);
-                    soul::parser::Match* parentMatch10 = &match;
+                    soul::parser::Match* parentMatch15 = &match;
                     {
                         soul::parser::Match match = TypeParser<LexerT>::ComponentList(lexer, context, objectType);
-                        *parentMatch10 = match;
+                        *parentMatch15 = match;
                     }
                     *parentMatch3 = match;
                 }
@@ -1084,7 +1163,7 @@ soul::parser::Match TypeParser<LexerT>::ObjectType(LexerT& lexer, ParsingContext
             if (match.hit)
             {
                 soul::parser::Match match(false);
-                soul::parser::Match* parentMatch11 = &match;
+                soul::parser::Match* parentMatch16 = &match;
                 {
                     soul::parser::Match match(false);
                     if (*lexer == END)
@@ -1092,7 +1171,7 @@ soul::parser::Match TypeParser<LexerT>::ObjectType(LexerT& lexer, ParsingContext
                         ++lexer;
                         match.hit = true;
                     }
-                    *parentMatch11 = match;
+                    *parentMatch16 = match;
                 }
                 *parentMatch2 = match;
             }
@@ -1217,7 +1296,7 @@ soul::parser::Match TypeParser<LexerT>::Heritage(LexerT& lexer, ParsingContext* 
 }
 
 template<typename LexerT>
-soul::parser::Match TypeParser<LexerT>::ObjectTypeIdentifier(LexerT& lexer, ParsingContext* context)
+soul::parser::Match TypeParser<LexerT>::GenericPart(LexerT& lexer)
 {
     #ifdef SOUL_PARSER_DEBUG_SUPPORT
     int64_t parser_debug_match_pos = 0;
@@ -1225,36 +1304,56 @@ soul::parser::Match TypeParser<LexerT>::ObjectTypeIdentifier(LexerT& lexer, Pars
     if (parser_debug_write_to_log)
     {
         parser_debug_match_pos = lexer.GetPos();
-        soul::lexer::WriteBeginRuleToLog(lexer, "ObjectTypeIdentifier");
+        soul::lexer::WriteBeginRuleToLog(lexer, "GenericPart");
     }
     #endif
     soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 1060958820211097613);
     soul::parser::Match match(false);
     soul::parser::Match* parentMatch0 = &match;
     {
-        int64_t pos = lexer.GetPos();
         soul::parser::Match match(false);
-        if (*lexer == ID)
+        if (*lexer == OF)
         {
             ++lexer;
             match.hit = true;
         }
-        if (match.hit)
+        *parentMatch0 = match;
+    }
+    if (match.hit)
+    {
+        soul::parser::Match match(false);
+        soul::parser::Match* parentMatch1 = &match;
         {
+            soul::parser::Match match(false);
+            soul::parser::Match* parentMatch2 = &match;
             {
-                #ifdef SOUL_PARSER_DEBUG_SUPPORT
-                if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "ObjectTypeIdentifier");
-                #endif
-                return soul::parser::Match(true, new IdentifierNode(lexer.GetToken(pos).ToString(), IdentifierKind::object, pos));
+                int64_t pos = lexer.GetPos();
+                soul::parser::Match match(false);
+                if (*lexer == ID)
+                {
+                    ++lexer;
+                    match.hit = true;
+                }
+                if (match.hit)
+                {
+                    {
+                        #ifdef SOUL_PARSER_DEBUG_SUPPORT
+                        if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "GenericPart");
+                        #endif
+                        return soul::parser::Match(true, new p::TypeParameter(lexer.GetToken(pos).ToString()));
+                    }
+                }
+                *parentMatch2 = match;
             }
+            *parentMatch1 = match;
         }
         *parentMatch0 = match;
     }
     #ifdef SOUL_PARSER_DEBUG_SUPPORT
     if (parser_debug_write_to_log)
     {
-        if (match.hit) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "ObjectTypeIdentifier");
-        else soul::lexer::WriteFailureToLog(lexer, "ObjectTypeIdentifier");
+        if (match.hit) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "GenericPart");
+        else soul::lexer::WriteFailureToLog(lexer, "GenericPart");
     }
     #endif
     if (!match.hit)
@@ -2737,6 +2836,141 @@ soul::parser::Match TypeParser<LexerT>::ArrayType(LexerT& lexer, ParsingContext*
     {
         if (match.hit) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "ArrayType");
         else soul::lexer::WriteFailureToLog(lexer, "ArrayType");
+    }
+    #endif
+    if (!match.hit)
+    {
+        match.value = nullptr;
+    }
+    return match;
+}
+
+template<typename LexerT>
+soul::parser::Match TypeParser<LexerT>::Specialization(LexerT& lexer, ParsingContext* context)
+{
+    #ifdef SOUL_PARSER_DEBUG_SUPPORT
+    int64_t parser_debug_match_pos = 0;
+    bool parser_debug_write_to_log = lexer.Log() != nullptr;
+    if (parser_debug_write_to_log)
+    {
+        parser_debug_match_pos = lexer.GetPos();
+        soul::lexer::WriteBeginRuleToLog(lexer, "Specialization");
+    }
+    #endif
+    soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 1060958820211097624);
+    std::unique_ptr<p::ObjectType> generic;
+    std::unique_ptr<soul::parser::Value<std::string>> typeName;
+    soul::parser::Match match(false);
+    soul::parser::Match* parentMatch0 = &match;
+    {
+        int64_t pos = lexer.GetPos();
+        soul::parser::Match match(false);
+        soul::parser::Match* parentMatch1 = &match;
+        {
+            soul::parser::Match match(false);
+            soul::parser::Match* parentMatch2 = &match;
+            {
+                soul::parser::Match match(false);
+                soul::parser::Match* parentMatch3 = &match;
+                {
+                    soul::parser::Match match = TypeParser<LexerT>::Generic(lexer, context);
+                    generic.reset(static_cast<p::ObjectType*>(match.value));
+                    *parentMatch3 = match;
+                }
+                if (match.hit)
+                {
+                    soul::parser::Match match(false);
+                    soul::parser::Match* parentMatch4 = &match;
+                    {
+                        soul::parser::Match match(false);
+                        if (*lexer == OF)
+                        {
+                            ++lexer;
+                            match.hit = true;
+                        }
+                        *parentMatch4 = match;
+                    }
+                    *parentMatch3 = match;
+                }
+                *parentMatch2 = match;
+            }
+            if (match.hit)
+            {
+                soul::parser::Match match(false);
+                soul::parser::Match* parentMatch5 = &match;
+                {
+                    soul::parser::Match match = ExpressionParser<LexerT>::TypeName(lexer, context);
+                    typeName.reset(static_cast<soul::parser::Value<std::string>*>(match.value));
+                    *parentMatch5 = match;
+                }
+                *parentMatch2 = match;
+            }
+            *parentMatch1 = match;
+        }
+        if (match.hit)
+        {
+            {
+                #ifdef SOUL_PARSER_DEBUG_SUPPORT
+                if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Specialization");
+                #endif
+                return soul::parser::Match(true, new soul::parser::Value<p::TypePtr>(p::TypePtr(MakeSpecialization(context, generic.release(), typeName->value, lexer, pos))));
+            }
+        }
+        *parentMatch0 = match;
+    }
+    #ifdef SOUL_PARSER_DEBUG_SUPPORT
+    if (parser_debug_write_to_log)
+    {
+        if (match.hit) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Specialization");
+        else soul::lexer::WriteFailureToLog(lexer, "Specialization");
+    }
+    #endif
+    if (!match.hit)
+    {
+        match.value = nullptr;
+    }
+    return match;
+}
+
+template<typename LexerT>
+soul::parser::Match TypeParser<LexerT>::Generic(LexerT& lexer, ParsingContext* context)
+{
+    #ifdef SOUL_PARSER_DEBUG_SUPPORT
+    int64_t parser_debug_match_pos = 0;
+    bool parser_debug_write_to_log = lexer.Log() != nullptr;
+    if (parser_debug_write_to_log)
+    {
+        parser_debug_match_pos = lexer.GetPos();
+        soul::lexer::WriteBeginRuleToLog(lexer, "Generic");
+    }
+    #endif
+    soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 1060958820211097625);
+    soul::parser::Match match(false);
+    soul::parser::Match* parentMatch0 = &match;
+    {
+        int64_t pos = lexer.GetPos();
+        soul::parser::Match match(false);
+        if (*lexer == ID)
+        {
+            ++lexer;
+            match.hit = true;
+        }
+        if (match.hit)
+        {
+            {
+                #ifdef SOUL_PARSER_DEBUG_SUPPORT
+                if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Generic");
+                #endif
+                return soul::parser::Match(true, GetGeneric(context, lexer.GetToken(pos).ToString(), lexer, pos));
+            }
+        }
+        *parentMatch0 = match;
+    }
+    #ifdef SOUL_PARSER_DEBUG_SUPPORT
+    if (parser_debug_write_to_log)
+    {
+        if (match.hit) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "Generic");
+        else soul::lexer::WriteFailureToLog(lexer, "Generic");
     }
     #endif
     if (!match.hit)

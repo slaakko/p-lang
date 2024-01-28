@@ -23,6 +23,8 @@ type
     function GetString(): string;
   end;
 
+procedure Panic(message: string);
+
 implementation
 
 function IntToString(x: integer): string; external;
@@ -41,5 +43,7 @@ procedure StringBuilder.Clear(); external;
 procedure StringBuilder.AppendStr(s: string); external;
 procedure StringBuilder.AppendChar(c: char); external;
 function StringBuilder.GetString(): string; external;
+
+procedure Panic(message: string); external;
 
 end.

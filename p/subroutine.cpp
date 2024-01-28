@@ -584,6 +584,10 @@ void Procedure::ResolveDeclaration(ParsingContext* context, soul::lexer::LexerBa
     {
         declaration->SetModuleId(ModuleId());
         declaration->SetImplementationId(Id());
+        if (IsExternal())
+        {
+            declaration->SetExternal();
+        }
     }
     else
     {
@@ -769,6 +773,10 @@ void Function::ResolveDeclaration(ParsingContext* context, soul::lexer::LexerBas
     {
         declaration->SetModuleId(ModuleId());
         declaration->SetImplementationId(Id());
+        if (IsExternal())
+        {
+            declaration->SetExternal();
+        }
     }
     else
     {

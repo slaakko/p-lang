@@ -35,7 +35,7 @@ struct TypeParser
     static soul::parser::Match PointerType(LexerT& lexer, ParsingContext* context);
     static soul::parser::Match ObjectType(LexerT& lexer, ParsingContext* context);
     static soul::parser::Match Heritage(LexerT& lexer, ParsingContext* context);
-    static soul::parser::Match ObjectTypeIdentifier(LexerT& lexer, ParsingContext* context);
+    static soul::parser::Match GenericPart(LexerT& lexer);
     static soul::parser::Match ComponentList(LexerT& lexer, ParsingContext* context, p::ObjectType* objectType);
     static soul::parser::Match ObjectFieldList(LexerT& lexer, ParsingContext* context, p::ObjectType* objectType);
     static soul::parser::Match MethodList(LexerT& lexer, ParsingContext* context, p::ObjectType* objectType);
@@ -46,6 +46,8 @@ struct TypeParser
     static soul::parser::Match ObjectName(LexerT& lexer);
     static soul::parser::Match ConstructorCall(LexerT& lexer, ParsingContext* context);
     static soul::parser::Match ArrayType(LexerT& lexer, ParsingContext* context);
+    static soul::parser::Match Specialization(LexerT& lexer, ParsingContext* context);
+    static soul::parser::Match Generic(LexerT& lexer, ParsingContext* context);
 };
 
 } // namespace p::type::parser

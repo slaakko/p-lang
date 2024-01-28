@@ -27,6 +27,7 @@ parser TypeParser
     using ExpressionParser.TypeIdentifier;
     using ExpressionParser.Identifier;
     using ExpressionParser.VariableReference;
+    using ExpressionParser.TypeName;
     using ParameterParser.IdentifierList;
     using ParameterParser.ParameterList;
     using BlockParser.SubroutineBlock;
@@ -44,6 +45,7 @@ parser TypeParser
         |   PointerType(context):pointerType{ return pointerType; }
         |   ObjectType(context):objectType{ return objectType; }
         |   ArrayType(context):arrayType{ return arrayType; }
+        |   Specialization(context):specialization{ return specialization; }
         |   TypeIdentifier(context):typeIdentifier{ return p::TypePtr(typeIdentifier->GetType()); }
         ;
 
@@ -101,6 +103,7 @@ parser TypeParser
         (
             OBJECT{ objectType = MakeObjectType(context, lexer, pos); }
             (Heritage(context):heritage{ SetHeritage(context, objectType, heritage, lexer, pos); })? 
+            (GenericPart:typeParam{ objectType->SetTypeParameter(typeParam); })?
             ComponentList(context, objectType):componentList 
             END
         )
@@ -122,8 +125,8 @@ parser TypeParser
         }
         ;
 
-    ObjectTypeIdentifier(ParsingContext* context) : IdentifierNode*
-        ::= ID{ return new IdentifierNode(lexer.GetToken(pos).ToString(), IdentifierKind::object, pos); }
+    GenericPart : p::TypeParameter*
+        ::= OF ID{ return new p::TypeParameter(lexer.GetToken(pos).ToString()); }
         ;
 
     ComponentList(ParsingContext* context, p::ObjectType* objectType)
@@ -243,5 +246,19 @@ parser TypeParser
         {
             return p::TypePtr(MakeArrayType(context, elementTypePtr.GetType(), lexer, pos));
         }
+        ;
+
+    Specialization(ParsingContext* context) : p::TypePtr
+        ::= 
+        (
+            Generic(context):generic OF TypeName(context):typeName
+        )
+        {
+            return p::TypePtr(MakeSpecialization(context, generic, typeName, lexer, pos));
+        }
+        ;
+
+    Generic(ParsingContext* context) : p::ObjectType*
+        ::= ID{ return GetGeneric(context, lexer.GetToken(pos).ToString(), lexer, pos); }
         ;
 }

@@ -159,6 +159,10 @@ NilType::NilType() : Type(TypeKind::nilType, "nil_type")
     SetId(NilTypeId());
 }
 
+TypeParameter::TypeParameter(const std::string& name_) : Type(TypeKind::typeParameter, name_)
+{
+}
+
 EnumeratedType::EnumeratedType() : OrdinalType(TypeKind::enumeratedType)
 {
 }
@@ -744,6 +748,11 @@ bool ObjectType::IsSameOrHasBaseType(ObjectType* objectType) const
     }
 }
 
+void ObjectType::SetTypeParameter(TypeParameter* typeParameter_)
+{
+    typeParameter.reset(typeParameter_);
+}
+
 Type* MakeSubrangeType(ParsingContext* context, Node* rangeStart, Node* rangeEnd, soul::lexer::LexerBase<char>& lexer, int64_t pos)
 {
     if (context->MakeType())
@@ -855,6 +864,16 @@ void ArrayType::Print(util::CodeFormatter& formatter, ExecutionContext* context)
     formatter.WriteLine();
 }
 
+std::string MakeSpecializationName(ObjectType* generic, Type* typeArgument)
+{
+    return generic->Name() + " of " + typeArgument->Name();
+}
+
+Specialization::Specialization(ObjectType* generic_, Type* typeArgument_, const std::string& name_) :
+    Type(TypeKind::specialization, name_), generic(generic_), typeArgument(typeArgument_)
+{
+}
+
 ArrayType* MakeArrayType(ParsingContext* context, Type* elementType, soul::lexer::LexerBase<char>& lexer, int64_t pos)
 {
     Block* block = context->GetBlock();
@@ -869,6 +888,52 @@ ArrayType* MakeArrayType(ParsingContext* context, Type* elementType, soul::lexer
     }
     block->AddType(arrayType, lexer, pos);
     return arrayType;
+}
+
+Specialization* MakeSpecialization(ParsingContext* context, ObjectType* generic, const std::string& typeArgumentName, soul::lexer::LexerBase<char>& lexer, int64_t pos)
+{
+    if (!generic)
+    {
+        ThrowError("generic object type expected", lexer, pos);
+    }
+    Block* block = context->GetBlock();
+    Type* typeArgument = block->GetType(typeArgumentName, lexer, pos);
+    std::string specializationName = MakeSpecializationName(generic, typeArgument);
+    Type* prev = block->GetType(specializationName);
+    if (prev)
+    {
+        if (prev->IsSpecialization())
+        {
+            Specialization* specialization = static_cast<Specialization*>(prev);
+            return specialization;
+        }
+        else
+        {
+            ThrowError("'" + specializationName + "' does not denote a specialization", lexer, pos);
+        }
+    }
+    else
+    {
+        Specialization* specialization = new Specialization(generic, typeArgument, specializationName);
+        block->AddType(specialization, lexer, pos);
+        return specialization;
+    }
+    return nullptr;
+}
+
+ObjectType* GetGeneric(ParsingContext* context, const std::string& name, soul::lexer::LexerBase<char>& lexer, int64_t pos)
+{
+    Block* block = context->GetBlock();
+    Type* type = block->GetType(name, lexer, pos);
+    if (type->IsObjectType())
+    {
+        ObjectType* objectType = static_cast<ObjectType*>(type);
+        if (objectType->IsGeneric())
+        {
+            return objectType;
+        }
+    }
+    return nullptr;
 }
 
 int32_t FieldCount(ObjectType* objectType)

@@ -25,7 +25,7 @@ class Reader;
 
 enum class TypeKind
 {
-    none, booleanType, integerType, charType, enumeratedType, subrangeType, realType, stringType, objectType, arrayType, pointerType, nilType
+    none, booleanType, integerType, charType, enumeratedType, subrangeType, realType, stringType, objectType, arrayType, pointerType, nilType, typeParameter, specialization
 };
 
 util::uuid BooleanTypeId();
@@ -56,6 +56,7 @@ public:
     bool IsRealType() const { return kind == TypeKind::realType; }
     bool IsStringType() const { return kind == TypeKind::stringType; }
     bool IsObjectType() const { return kind == TypeKind::objectType; }
+    bool IsSpecialization() const { return kind == TypeKind::specialization; }
     bool IsArrayType() const { return kind == TypeKind::arrayType; }
     bool IsPointerType() const { return kind == TypeKind::pointerType; }
     bool IsNilType() const { return kind == TypeKind::nilType; }
@@ -209,6 +210,12 @@ public:
     NilType();
 };
 
+class TypeParameter : public Type
+{
+public:
+    TypeParameter(const std::string& name_);
+};
+
 enum class ObjectTypeFlags
 {
     none = 0, isVirtual = 1 << 0, vmtComputed = 1 << 1, resolved = 1 << 2
@@ -264,6 +271,8 @@ public:
     bool IsResolved() const { return (flags & ObjectTypeFlags::resolved) != ObjectTypeFlags::none; }
     void SetResolved() { flags = flags | ObjectTypeFlags::resolved; }
     bool IsSameOrHasBaseType(ObjectType* objectType) const;
+    void SetTypeParameter(TypeParameter* typeParameter_);
+    bool IsGeneric() const { return typeParameter != nullptr; }
 private:
     ObjectTypeFlags flags;
     ObjectType* baseType;
@@ -274,6 +283,7 @@ private:
     std::vector<std::unique_ptr<Subroutine>> methods;
     int32_t vmtPtrFieldIndex;
     Vmt vmt;
+    std::unique_ptr<TypeParameter> typeParameter;
 };
 
 class ArrayType : public Type
@@ -291,6 +301,16 @@ private:
     util::uuid elementTypeId;
 };
 
+class Specialization : public Type
+{
+public:
+    Specialization(ObjectType* generic_, Type* typeArgument_, const std::string& name_);
+    ObjectType* Generic() const { return generic; }
+private:
+    ObjectType* generic;
+    Type* typeArgument;
+};
+
 Type* MakeSubrangeType(ParsingContext* context, Node* rangeStart, Node* rangeEnd, soul::lexer::LexerBase<char>& lexer, int64_t pos);
 
 Type* MakeEnumeratedType(ParsingContext* context, const std::vector<std::string>& enumConstantIds, soul::lexer::LexerBase<char>& lexer, int64_t pos);
@@ -300,6 +320,10 @@ ObjectType* MakeObjectType(ParsingContext* context, soul::lexer::LexerBase<char>
 void SetHeritage(ParsingContext* context, ObjectType* objectType, IdentifierNode* baseTypeId, soul::lexer::LexerBase<char>& lexer, int64_t pos);
 
 ArrayType* MakeArrayType(ParsingContext* context, Type* elementType, soul::lexer::LexerBase<char>& lexer, int64_t pos);
+
+Specialization* MakeSpecialization(ParsingContext* context, ObjectType* generic, const std::string& typeArgumentName, soul::lexer::LexerBase<char>& lexer, int64_t pos);
+
+ObjectType* GetGeneric(ParsingContext* context, const std::string& name, soul::lexer::LexerBase<char>& lexer, int64_t pos);
 
 class GlobalTypeMap
 {
