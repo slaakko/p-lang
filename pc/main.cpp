@@ -3,14 +3,29 @@
 // Distributed under the MIT license
 // =================================
 
-import p;
+import p.lexer;
+import p.parser;
+import p.core;
+import p.binder;
+import p.ast;
 import util;
 import std.core;
+
+void InitApplication()
+{
+    util::Init();
+}
+
+void TerminateApplication()
+{
+    util::Done();
+}
 
 void PrintHelp()
 {
     std::cout << "Usage: pc [options] { FILE.p }" << "\n";
     std::cout << "Compile p-language file FILE.p to binary file FILE.pcode" << "\n";
+    std::cout << "\n";
     std::cout << "Options:" << "\n";
     std::cout << "--help | -h" << "\n";
     std::cout << "  Print help and exit." << "\n";
@@ -23,34 +38,62 @@ void PrintHelp()
     std::cout << "\n";
 }
 
+void Compile(const std::string& file, bool verbose)
+{
+    std::unique_ptr<p::Node> node = p::ParsePLangSourceFile(file);
+    p::Init(file, node->Span());
+    p::UnitLoader loader;
+    p::Context context;
+    if (verbose)
+    {
+        context.SetVerbose();
+    }
+    context.SetUnitLoader(&loader);
+    p::TypeBinder typeBinder(&context);
+    node->Accept(typeBinder);
+    p::SymbolTable* symbolTable = typeBinder.GetSymbolTable();
+    symbolTable->MakeVmts();
+    symbolTable->CheckDefined();
+    p::SymbolWriter writer(symbolTable->Root()->PCodeFilePath());
+    writer.WriteHeader();
+    symbolTable->Write(writer);
+    p::Done();
+    if (verbose)
+    {
+        std::cout << "==> " << symbolTable->Root()->SourceFilePath() << "\n";
+    }
+}
+
 int main(int argc, const char** argv)
 {
     try
     {
+        InitApplication();
+        p::ParserLibInit();
+        p::CompileFlags flags = p::CompileFlags::none;
         bool verbose = false;
         std::vector<std::string> files;
-        p::CompileFlags compileFlags = p::CompileFlags::none;
         for (int i = 1; i < argc; ++i)
         {
             std::string arg = argv[i];
             if (arg.starts_with("--"))
             {
-                if (arg == "--verbose")
-                {
-                    verbose = true;
-                }
-                if (arg == "--update")
-                {
-                    compileFlags = compileFlags | p::CompileFlags::update;
-                }
-                else if (arg == "--rebuild")
-                {
-                    compileFlags = compileFlags | p::CompileFlags::rebuild;
-                }
-                else if (arg == "--help")
+                if (arg == "--help")
                 {
                     PrintHelp();
                     return 0;
+                }
+                else if (arg == "--verbose")
+                {
+                    verbose = true;
+                }
+                else if (arg == "--rebuild")
+                {
+                    flags = flags | p::CompileFlags::rebuild;
+                }
+                else if (arg == "--update")
+                {
+                    flags = flags | p::CompileFlags::update;
                 }
                 else
                 {
@@ -64,24 +107,24 @@ int main(int argc, const char** argv)
                 {
                     switch (o)
                     {
-                        case 'v':
-                        {
-                            verbose = true;
-                            break;
-                        }
                         case 'h':
                         {
                             PrintHelp();
                             return 0;
                         }
-                        case 'u':
+                        case 'v':
                         {
-                            compileFlags = compileFlags | p::CompileFlags::update;
+                            verbose = true;
                             break;
                         }
                         case 'r':
                         {
-                            compileFlags = compileFlags | p::CompileFlags::rebuild;
+                            flags = flags | p::CompileFlags::rebuild;
+                            break;
+                        }
+                        case 'u':
+                        {
+                            flags = flags | p::CompileFlags::update;
                             break;
                         }
                         default:
@@ -96,20 +139,21 @@ int main(int argc, const char** argv)
                 files.push_back(util::GetFullPath(arg));
             }
         }
+        p::SetCompileFlags(flags);
         for (const auto& file : files)
         {
             if (verbose)
             {
                 std::cout << "> " << file << "\n";
             }
-            p::SetCompileFlags(compileFlags);
-            p::Compile(file, verbose);
+            Compile(file, verbose);
         }
     }
     catch (const std::exception& ex)
     {
-        std::cerr << ex.what() << std::endl;
+        std::cerr << ex.what() << "\n";
         return 1;
     }
+    TerminateApplication();
     return 0;
 }

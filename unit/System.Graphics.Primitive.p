@@ -215,8 +215,8 @@ end;
 procedure Rect.Inflate(dx, dy: real);
 begin
   location.Offset(-dx, -dy);
-  size.w = size.w + 2 * dx;
-  size.h = size.h + 2 * dy;
+  size.w := size.w + 2 * dx;
+  size.h := size.h + 2 * dy;
 end;
 
 constructor Vector();

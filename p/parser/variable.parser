@@ -1,0 +1,35 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.variable.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[interface]import p.common.parser;
+[interface]import p.type.parser;
+[implementation]import p.token;
+
+parser VariableParser 
+{
+    lexer p::lexer::PLexer<char>;
+
+    using CommonParser.IdentifierList;
+    using TypeParser.TypeName;
+
+    VariableDeclaration(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            IdentifierList:identifierList{ span = lexer.GetSpan(pos); } 
+            COLON 
+            TypeName(context):typeName
+            SEMICOLON{ span.Union(lexer.GetSpan(pos)); }
+        )
+        {
+            return new VariableDeclarationNode(span, identifierList, typeName);
+        }
+        ;
+}

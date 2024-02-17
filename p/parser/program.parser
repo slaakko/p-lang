@@ -1,0 +1,50 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.program.parser;
+
+[interface]import p.ast;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import soul.ast.span;
+[implementation]import p.token;
+[implementation]import p.common.parser;
+[implementation]import p.block.parser;
+
+parser ProgramParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using CommonParser.UnitName;
+    using CommonParser.UsesClause;
+    using CommonParser.IdentifierList;
+    using BlockParser.Block;
+
+    Program(ParsingContext* context, var soul::ast::Span span, var std::unique_ptr<p::ProgramNode> programNode) : p::ProgramNode*
+        ::= 
+        (
+            PROGRAM{ span = lexer.GetSpan(pos); }
+            UnitName:unitName{ span.Union(lexer.GetSpan(pos)); programNode.reset(new p::ProgramNode(span, lexer.FileName(), unitName)); }
+            (ProgramParameterList:programParameters{ programNode->SetProgramParameters(programParameters); })?
+            SEMICOLON 
+            (UsesClause:usesList{ programNode->SetUsesList(usesList); })? 
+            Block(context):programBlock{ programNode->SetBlock(programBlock); }
+            DOT
+        )
+        {
+            return programNode.release();
+        }
+        ;
+
+    ProgramParameterList : p::IdentifierListNode*
+        ::= 
+        (
+            LPAREN IdentifierList:identifierList? RPAREN
+        )
+        {
+            return identifierList;
+        }
+        ;
+}

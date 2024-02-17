@@ -1,0 +1,54 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.parameter.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.type.parser;
+[implementation]import p.common.parser;
+
+parser ParameterParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using TypeParser.Type;
+    using CommonParser.IdentifierList;
+
+    ParameterList(ParsingContext* context, p::SubroutineHeadingNode* heading)
+        ::= 
+        (
+            LPAREN 
+            (
+                ParameterDeclaration(context, heading):first
+                (
+                    SEMICOLON 
+                    ParameterDeclaration(context, heading):next
+                )*
+            )?
+            RPAREN
+        )
+        ;
+
+    ParameterDeclaration(ParsingContext* context, p::SubroutineHeadingNode* heading, var soul::ast::Span span)
+        ::= 
+        (
+            ParameterQualifier:parameterQualifier{ span = lexer.GetSpan(pos); } IdentifierList:identifierList COLON Type(context):type
+            {
+                span.Union(lexer.GetSpan(pos));
+                heading->AddParameters(span, parameterQualifier, identifierList, type);
+            }
+        )
+        ;
+
+    ParameterQualifier : p::ParameterQualifier
+        ::= VAR{ return p::ParameterQualifier::varParam; }
+        |   CONST{ return p::ParameterQualifier::constParam; }
+        |   empty{ return p::ParameterQualifier::valueParam; }
+        ;
+}

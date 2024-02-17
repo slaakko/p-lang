@@ -1,0 +1,80 @@
+<parserFile>
+ <grammar name="CommonParser">
+  <rule first="{ID}" name="UnitName">
+   <action first="{ID}">
+    <group first="{ID}">
+     <sequence first="{ID}">
+      <action first="{ID}">
+       <token first="{ID}" name="ID"/>
+      </action>
+      <kleene first="{#, DOT}">
+       <group first="{DOT}">
+        <sequence first="{DOT}">
+         <token first="{DOT}" name="DOT"/>
+         <action first="{ID}">
+          <token first="{ID}" name="ID"/>
+         </action>
+        </sequence>
+       </group>
+      </kleene>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{USES}" name="UsesClause">
+   <action first="{USES}">
+    <group first="{USES}">
+     <sequence first="{USES}">
+      <sequence first="{USES}">
+       <sequence first="{USES}">
+        <action first="{USES}">
+         <token first="{USES}" name="USES"/>
+        </action>
+        <action first="{ID}">
+         <nonterminal first="{ID}" ruleName="UnitName"/>
+        </action>
+       </sequence>
+       <kleene first="{#, COMMA}">
+        <group first="{COMMA}">
+         <sequence first="{COMMA}">
+          <token first="{COMMA}" name="COMMA"/>
+          <action first="{ID}">
+           <nonterminal first="{ID}" ruleName="UnitName"/>
+          </action>
+         </sequence>
+        </group>
+       </kleene>
+      </sequence>
+      <token first="{SEMICOLON}" name="SEMICOLON"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{ID}" name="Identifier">
+   <action first="{ID}">
+    <token first="{ID}" name="ID"/>
+   </action>
+  </rule>
+  <rule first="{ID}" name="IdentifierList">
+   <action first="{ID}">
+    <group first="{ID}">
+     <sequence first="{ID}">
+      <action first="{ID}">
+       <nonterminal first="{ID}" ruleName="Identifier"/>
+      </action>
+      <kleene first="{#, COMMA}">
+       <group first="{COMMA}">
+        <sequence first="{COMMA}">
+         <token first="{COMMA}" name="COMMA"/>
+         <action first="{ID}">
+          <nonterminal first="{ID}" ruleName="Identifier"/>
+         </action>
+        </sequence>
+       </group>
+      </kleene>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+ </grammar>
+</parserFile>

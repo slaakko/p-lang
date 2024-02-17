@@ -1,0 +1,189 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.type.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.common.parser;
+[implementation]import p.expression.parser;
+[implementation]import p.subroutine.parser;
+
+parser TypeParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using CommonParser.Identifier;
+    using CommonParser.IdentifierList;
+    using ExpressionParser.ConstantExpression;
+    using SubroutineParser.MethodHeading;
+
+    TypeName(ParsingContext* context) : p::Node*
+        ::= INTEGER{ return new p::IntegerNode(lexer.GetSpan(pos)); }
+        |   REAL{ return new p::RealNode(lexer.GetSpan(pos)); }
+        |   CHAR{ return new p::CharNode(lexer.GetSpan(pos)); }
+        |   BOOLEAN{ return new p::BooleanNode(lexer.GetSpan(pos)); }
+        |   STRING{ return new p::StringNode(lexer.GetSpan(pos)); }
+        |   POINTER{ return new p::PointerNode(lexer.GetSpan(pos)); }
+        |   Identifier:identifier{ return identifier; }
+        ;
+
+    TypeDeclaration(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            Identifier:typeId{ span = lexer.GetSpan(pos); }
+            EQUAL
+            Type(context):type
+            SEMICOLON
+        )
+        {
+            return new p::TypeDeclarationNode(span, typeId, type);
+        }
+        ;
+
+    Type(ParsingContext* context) : p::Node*
+        ::= SimpleType(context):simpleType{ return simpleType; }
+        |   StringType(context):stringType{ return stringType; }
+        |   PointerType(context):pointerType{ return pointerType; }
+        |   ObjectType(context):objectType{ return objectType; }
+        |   ArrayType(context):arrayType{ return arrayType; }
+        |   Specialization(context):specialization{ return specialization; }
+        |   Identifier:typeIdentifier{ return typeIdentifier; }
+        ;
+
+    SimpleType(ParsingContext* context) : p::Node*
+        ::= OrdinalType(context):ordinalType{ return ordinalType; }
+        |   RealType(context):realType{ return realType; }
+        ;
+
+    OrdinalType(ParsingContext* context) : p::Node*
+        ::= SubrangeType(context):subrangeType{ return subrangeType; }
+        |   EnumeratedType(context):enumeratedType{ return enumeratedType; }
+        |   OrdinalTypeName(context):ordinalTypeName{ return ordinalTypeName; }
+        ;
+
+    SubrangeType(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            ConstantExpression(context):rangeStart{ span = lexer.GetSpan(pos); } DOTDOT ConstantExpression(context):rangeEnd{ span.Union(lexer.GetSpan(pos)); }
+        )
+        {
+            return new p::SubrangeTypeNode(span, rangeStart, rangeEnd);
+        }
+        ;
+
+    EnumeratedType(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            LPAREN{ span = lexer.GetSpan(pos); } IdentifierList:identifierList RPAREN{ span.Union(lexer.GetSpan(pos)); }
+        )
+        {
+            return new p::EnumeratedTypeNode(span, identifierList);
+        }
+        ;
+
+    OrdinalTypeName(ParsingContext* context) : p::Node*
+        ::= INTEGER{ return new p::IntegerNode(lexer.GetSpan(pos)); }
+        |   BOOLEAN{ return new p::BooleanNode(lexer.GetSpan(pos)); }
+        |   CHAR{ return new p::CharNode(lexer.GetSpan(pos)); }
+        ;
+
+    RealType(ParsingContext* context) : p::Node*
+        ::= REAL{ return new p::RealNode(lexer.GetSpan(pos)); }
+        ;
+
+    StringType(ParsingContext* context) : p::Node*
+        ::= STRING{ return new p::StringNode(lexer.GetSpan(pos)); }
+        ;
+
+    PointerType(ParsingContext* context) : p::Node*
+        ::= POINTER{ return new p::PointerNode(lexer.GetSpan(pos)); }
+        ;
+
+    ObjectType(ParsingContext* context, var std::unique_ptr<p::ObjectTypeNode> node) : p::Node*
+        ::= 
+        (
+            OBJECT{ node.reset(new p::ObjectTypeNode(lexer.GetSpan(pos))); }
+            (Heritage:heritage{ node->SetHeritage(heritage); })?
+            (GenericPart:typeParamId{ node->SetTypeParamId(typeParamId); })?
+            ComponentList(context, node.get()):componentList
+            END
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    Heritage : p::IdentifierNode*
+        ::= 
+        (
+            LPAREN Identifier:objectTypeIdentifier RPAREN 
+        )
+        {
+            return objectTypeIdentifier;
+        }
+        ;
+
+    GenericPart : p::IdentifierNode*
+        ::= 
+        (
+            OF Identifier:typeParamId
+        )
+        {
+            return typeParamId;
+        }
+        ;
+
+    ComponentList(ParsingContext* context, ObjectTypeNode* objectType)
+        ::= 
+        (
+            ObjectFieldList(context, objectType):objectFieldList?
+            MethodList(context, objectType):methodList?
+        )
+        ;
+
+    ObjectFieldList(ParsingContext* context, ObjectTypeNode* objectType, var soul::ast::Span span)
+        ::= 
+        (
+            (
+                IdentifierList:identifierList{ span = lexer.GetSpan(pos); } COLON TypeName(context):typeName SEMICOLON{ span.Union(lexer.GetSpan(pos)); }
+            )
+            {
+                objectType->AddFields(span, identifierList, typeName);
+            }
+        )+
+        ;
+
+    MethodList(ParsingContext* context, ObjectTypeNode* objectType)
+        ::= 
+        (
+            MethodHeading(context):methodHeading{ objectType->AddMethod(methodHeading); }
+            SEMICOLON
+        )+
+        ;
+
+    ArrayType(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            ARRAY{ span = lexer.GetSpan(pos); } OF TypeName(context):elementType{ span.Union(lexer.GetSpan(pos)); }
+        )
+        {
+            return new p::ArrayTypeNode(span, elementType);
+        }
+        ;
+
+    Specialization(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            Identifier:genericId{ span = lexer.GetSpan(pos); } OF TypeName(context):type{ span.Union(lexer.GetSpan(pos)); }
+        )
+        {
+            return new p::SpecializationNode(span, genericId, type);
+        }
+        ;
+}

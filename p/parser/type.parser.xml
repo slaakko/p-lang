@@ -1,0 +1,319 @@
+<parserFile>
+ <grammar name="TypeParser">
+  <rule first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" name="TypeName">
+   <choice first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}">
+    <choice first="{BOOLEAN, CHAR, INTEGER, POINTER, REAL, STRING}">
+     <choice first="{BOOLEAN, CHAR, INTEGER, REAL, STRING}">
+      <choice first="{BOOLEAN, CHAR, INTEGER, REAL}">
+       <choice first="{CHAR, INTEGER, REAL}">
+        <choice first="{INTEGER, REAL}">
+         <action first="{INTEGER}">
+          <token first="{INTEGER}" name="INTEGER"/>
+         </action>
+         <action first="{REAL}">
+          <token first="{REAL}" name="REAL"/>
+         </action>
+        </choice>
+        <action first="{CHAR}">
+         <token first="{CHAR}" name="CHAR"/>
+        </action>
+       </choice>
+       <action first="{BOOLEAN}">
+        <token first="{BOOLEAN}" name="BOOLEAN"/>
+       </action>
+      </choice>
+      <action first="{STRING}">
+       <token first="{STRING}" name="STRING"/>
+      </action>
+     </choice>
+     <action first="{POINTER}">
+      <token first="{POINTER}" name="POINTER"/>
+     </action>
+    </choice>
+    <action first="{ID}">
+     <nonterminal first="{ID}" ruleName="Identifier"/>
+    </action>
+   </choice>
+  </rule>
+  <rule first="{ID}" name="TypeDeclaration">
+   <action first="{ID}">
+    <group first="{ID}">
+     <sequence first="{ID}">
+      <sequence first="{ID}">
+       <sequence first="{ID}">
+        <action first="{ID}">
+         <nonterminal first="{ID}" ruleName="Identifier"/>
+        </action>
+        <token first="{EQUAL}" name="EQUAL"/>
+       </sequence>
+       <nonterminal first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="Type"/>
+      </sequence>
+      <token first="{SEMICOLON}" name="SEMICOLON"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" name="Type">
+   <choice first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+    <choice first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+     <choice first="{#, AND, ARRAY, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+      <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OBJECT, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+       <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+        <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+         <action first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+          <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="SimpleType"/>
+         </action>
+         <action first="{STRING}">
+          <nonterminal first="{STRING}" ruleName="StringType"/>
+         </action>
+        </choice>
+        <action first="{POINTER}">
+         <nonterminal first="{POINTER}" ruleName="PointerType"/>
+        </action>
+       </choice>
+       <action first="{OBJECT}">
+        <nonterminal first="{OBJECT}" ruleName="ObjectType"/>
+       </action>
+      </choice>
+      <action first="{ARRAY}">
+       <nonterminal first="{ARRAY}" ruleName="ArrayType"/>
+      </action>
+     </choice>
+     <action first="{ID}">
+      <nonterminal first="{ID}" ruleName="Specialization"/>
+     </action>
+    </choice>
+    <action first="{ID}">
+     <nonterminal first="{ID}" ruleName="Identifier"/>
+    </action>
+   </choice>
+  </rule>
+  <rule first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" name="SimpleType">
+   <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+    <action first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+     <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="OrdinalType"/>
+    </action>
+    <action first="{REAL}">
+     <nonterminal first="{REAL}" ruleName="RealType"/>
+    </action>
+   </choice>
+  </rule>
+  <rule first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" name="OrdinalType">
+   <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+    <choice first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+     <action first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+      <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="SubrangeType"/>
+     </action>
+     <action first="{LPAREN}">
+      <nonterminal first="{LPAREN}" ruleName="EnumeratedType"/>
+     </action>
+    </choice>
+    <action first="{BOOLEAN, CHAR, INTEGER}">
+     <nonterminal first="{BOOLEAN, CHAR, INTEGER}" ruleName="OrdinalTypeName"/>
+    </action>
+   </choice>
+  </rule>
+  <rule first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" name="SubrangeType">
+   <action first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+    <group first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+     <sequence first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+      <sequence first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, DOTDOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+       <action first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+        <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="ConstantExpression"/>
+       </action>
+       <token first="{DOTDOT}" name="DOTDOT"/>
+      </sequence>
+      <action first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}">
+       <nonterminal first="{#, AND, BASE, BOOLEAN, CHAR, CONTROL_STRING, DIV, DOT, EQUAL, FALSE, GREATER, GREATER_EQUAL, ID, INTEGER, INTEGER_LITERAL, LBRACKET, LESS, LESS_EQUAL, LPAREN, MINUS, MOD, NEW, NIL, NOT, NOT_EQUAL, OR, PLUS, POINTER, QUOTED_STRING, REAL, REAL_LITERAL, SHL, SHR, SLASH, STAR, STRING, THIS, TRUE, XOR}" ruleName="ConstantExpression"/>
+      </action>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{LPAREN}" name="EnumeratedType">
+   <action first="{LPAREN}">
+    <group first="{LPAREN}">
+     <sequence first="{LPAREN}">
+      <sequence first="{LPAREN}">
+       <action first="{LPAREN}">
+        <token first="{LPAREN}" name="LPAREN"/>
+       </action>
+       <nonterminal first="{ID}" ruleName="IdentifierList"/>
+      </sequence>
+      <action first="{RPAREN}">
+       <token first="{RPAREN}" name="RPAREN"/>
+      </action>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{BOOLEAN, CHAR, INTEGER}" name="OrdinalTypeName">
+   <choice first="{BOOLEAN, CHAR, INTEGER}">
+    <choice first="{BOOLEAN, INTEGER}">
+     <action first="{INTEGER}">
+      <token first="{INTEGER}" name="INTEGER"/>
+     </action>
+     <action first="{BOOLEAN}">
+      <token first="{BOOLEAN}" name="BOOLEAN"/>
+     </action>
+    </choice>
+    <action first="{CHAR}">
+     <token first="{CHAR}" name="CHAR"/>
+    </action>
+   </choice>
+  </rule>
+  <rule first="{REAL}" name="RealType">
+   <action first="{REAL}">
+    <token first="{REAL}" name="REAL"/>
+   </action>
+  </rule>
+  <rule first="{STRING}" name="StringType">
+   <action first="{STRING}">
+    <token first="{STRING}" name="STRING"/>
+   </action>
+  </rule>
+  <rule first="{POINTER}" name="PointerType">
+   <action first="{POINTER}">
+    <token first="{POINTER}" name="POINTER"/>
+   </action>
+  </rule>
+  <rule first="{OBJECT}" name="ObjectType">
+   <action first="{OBJECT}">
+    <group first="{OBJECT}">
+     <sequence first="{OBJECT}">
+      <sequence first="{OBJECT}">
+       <sequence first="{OBJECT}">
+        <sequence first="{OBJECT}">
+         <action first="{OBJECT}">
+          <token first="{OBJECT}" name="OBJECT"/>
+         </action>
+         <optional first="{#, LPAREN}">
+          <group first="{LPAREN}">
+           <action first="{LPAREN}">
+            <nonterminal first="{LPAREN}" ruleName="Heritage"/>
+           </action>
+          </group>
+         </optional>
+        </sequence>
+        <optional first="{#, OF}">
+         <group first="{OF}">
+          <action first="{OF}">
+           <nonterminal first="{OF}" ruleName="GenericPart"/>
+          </action>
+         </group>
+        </optional>
+       </sequence>
+       <nonterminal first="{#, CONSTRUCTOR, FUNCTION, ID, PROCEDURE}" ruleName="ComponentList"/>
+      </sequence>
+      <token first="{END}" name="END"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{LPAREN}" name="Heritage">
+   <action first="{LPAREN}">
+    <group first="{LPAREN}">
+     <sequence first="{LPAREN}">
+      <sequence first="{LPAREN}">
+       <token first="{LPAREN}" name="LPAREN"/>
+       <nonterminal first="{ID}" ruleName="Identifier"/>
+      </sequence>
+      <token first="{RPAREN}" name="RPAREN"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{OF}" name="GenericPart">
+   <action first="{OF}">
+    <group first="{OF}">
+     <sequence first="{OF}">
+      <token first="{OF}" name="OF"/>
+      <nonterminal first="{ID}" ruleName="Identifier"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{#, CONSTRUCTOR, FUNCTION, ID, PROCEDURE}" name="ComponentList">
+   <group first="{#, CONSTRUCTOR, FUNCTION, ID, PROCEDURE}">
+    <sequence first="{#, CONSTRUCTOR, FUNCTION, ID, PROCEDURE}">
+     <optional first="{#, ID}">
+      <nonterminal first="{ID}" ruleName="ObjectFieldList"/>
+     </optional>
+     <optional first="{#, CONSTRUCTOR, FUNCTION, PROCEDURE}">
+      <nonterminal first="{CONSTRUCTOR, FUNCTION, PROCEDURE}" ruleName="MethodList"/>
+     </optional>
+    </sequence>
+   </group>
+  </rule>
+  <rule first="{ID}" name="ObjectFieldList">
+   <positive first="{ID}">
+    <group first="{ID}">
+     <action first="{ID}">
+      <group first="{ID}">
+       <sequence first="{ID}">
+        <sequence first="{ID}">
+         <sequence first="{ID}">
+          <action first="{ID}">
+           <nonterminal first="{ID}" ruleName="IdentifierList"/>
+          </action>
+          <token first="{COLON}" name="COLON"/>
+         </sequence>
+         <nonterminal first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" ruleName="TypeName"/>
+        </sequence>
+        <action first="{SEMICOLON}">
+         <token first="{SEMICOLON}" name="SEMICOLON"/>
+        </action>
+       </sequence>
+      </group>
+     </action>
+    </group>
+   </positive>
+  </rule>
+  <rule first="{CONSTRUCTOR, FUNCTION, PROCEDURE}" name="MethodList">
+   <positive first="{CONSTRUCTOR, FUNCTION, PROCEDURE}">
+    <group first="{CONSTRUCTOR, FUNCTION, PROCEDURE}">
+     <sequence first="{CONSTRUCTOR, FUNCTION, PROCEDURE}">
+      <action first="{CONSTRUCTOR, FUNCTION, PROCEDURE}">
+       <nonterminal first="{CONSTRUCTOR, FUNCTION, PROCEDURE}" ruleName="MethodHeading"/>
+      </action>
+      <token first="{SEMICOLON}" name="SEMICOLON"/>
+     </sequence>
+    </group>
+   </positive>
+  </rule>
+  <rule first="{ARRAY}" name="ArrayType">
+   <action first="{ARRAY}">
+    <group first="{ARRAY}">
+     <sequence first="{ARRAY}">
+      <sequence first="{ARRAY}">
+       <action first="{ARRAY}">
+        <token first="{ARRAY}" name="ARRAY"/>
+       </action>
+       <token first="{OF}" name="OF"/>
+      </sequence>
+      <action first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}">
+       <nonterminal first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" ruleName="TypeName"/>
+      </action>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{ID}" name="Specialization">
+   <action first="{ID}">
+    <group first="{ID}">
+     <sequence first="{ID}">
+      <sequence first="{ID}">
+       <action first="{ID}">
+        <nonterminal first="{ID}" ruleName="Identifier"/>
+       </action>
+       <token first="{OF}" name="OF"/>
+      </sequence>
+      <action first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}">
+       <nonterminal first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" ruleName="TypeName"/>
+      </action>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+ </grammar>
+</parserFile>

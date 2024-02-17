@@ -1,0 +1,24 @@
+<parserFile>
+ <grammar name="VariableParser">
+  <rule first="{ID}" name="VariableDeclaration">
+   <action first="{ID}">
+    <group first="{ID}">
+     <sequence first="{ID}">
+      <sequence first="{ID}">
+       <sequence first="{ID}">
+        <action first="{ID}">
+         <nonterminal first="{ID}" ruleName="IdentifierList"/>
+        </action>
+        <token first="{COLON}" name="COLON"/>
+       </sequence>
+       <nonterminal first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" ruleName="TypeName"/>
+      </sequence>
+      <action first="{SEMICOLON}">
+       <token first="{SEMICOLON}" name="SEMICOLON"/>
+      </action>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+ </grammar>
+</parserFile>

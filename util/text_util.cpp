@@ -25,6 +25,14 @@ std::string Trim(const std::string& s)
     return s.substr(b, e - b + 1);
 }
 
+std::string TrimEnd(const std::string& s)
+{
+    int b = 0;
+    int e = int(s.length()) - 1;
+    while (e >= b && std::isspace(s[e])) --e;
+    return s.substr(b, e - b + 1);
+}
+
 std::string TrimAll(const std::string& s)
 {
     std::string result;

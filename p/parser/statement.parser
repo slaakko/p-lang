@@ -1,0 +1,229 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.statement.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.expression.parser;
+[implementation]import p.common.parser;
+
+parser StatementParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using ExpressionParser.Expression;
+    using ExpressionParser.ConstantExpression;
+    using CommonParser.Identifier;
+
+    Statement(ParsingContext* context) : p::StatementNode*
+        ::= SimpleStatent(context):simpleStatent{ return simpleStatent; }
+        |   StructuredStatement(context):structuredStatement{ return structuredStatement; }
+        |   empty{ return new p::EmptyStatementNode(lexer.GetSpan(pos)); }
+        ;
+
+    SimpleStatent(ParsingContext* context) : p::StatementNode*
+        ::= AssignmentStatement(context):assignmentStatement{ return assignmentStatement; }
+        |   ExpressionStatement(context):expressionStatement{ return expressionStatement; }
+        ;
+
+    AssignmentStatement(ParsingContext* context) : p::StatementNode*
+        ::= 
+        (
+            empty{ context->PushParsingLValue(); }
+            Expression(context):left{ context->PopParsingLValue(); } / { context->PopParsingLValue(); }
+            ASSIGN
+            Expression(context):right
+        )
+        {
+            return new p::AssignmentStatementNode(lexer.GetSpan(pos), left, right);
+        }
+        ;
+
+    ExpressionStatement(ParsingContext* context, var soul::ast::Span span) : p::StatementNode*
+        ::= 
+        (
+            empty{ context->PushParsingExpressionStatement(); }
+            Expression(context):expression{ span = lexer.GetSpan(pos); context->PopParsingExpressionStatement(); } / { context->PopParsingExpressionStatement(); }
+        )
+        {
+            return new p::ExpressionStatementNode(span, expression); 
+        }
+        ;
+
+    StructuredStatement(ParsingContext* context) : p::StatementNode*
+        ::= CompoundStatement(context):compoundStatement{ return compoundStatement; }
+        |   ConditionalStatement(context):conditionalStatement{ return conditionalStatement; }
+        |   RepetitiveStatement(context):repetitiveStatement{ return repetitiveStatement; }
+        ;
+
+    CompoundStatement(ParsingContext* context, var std::unique_ptr<p::CompoundStatementNode> node) : p::CompoundStatementNode*
+        ::= 
+        (
+            BEGIN{ node.reset(new p::CompoundStatementNode(lexer.GetSpan(pos))); }
+            Statement(context):first{ node->AddStatement(first); }
+            (   SEMICOLON 
+                Statement(context):next{ node->AddStatement(next); }
+            )* 
+            END
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    ConditionalStatement(ParsingContext* context) : p::StatementNode*
+        ::= IfStatement(context):ifStatement{ return ifStatement; }
+        |   CaseStatement(context):caseStatement{ return caseStatement; }
+        ;
+
+    IfStatement(ParsingContext* context, var std::unique_ptr<p::IfStatementNode> node) : p::StatementNode*
+        ::= 
+        (   IF
+            Expression(context):condition
+            THEN 
+            Statement(context):thenStatement{ node.reset(new p::IfStatementNode(lexer.GetSpan(pos), condition, thenStatement)); }
+            (   ELSE 
+                Statement(context):elseStatement{ node->SetElseStatement(elseStatement); }
+            )?
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    CaseStatement(ParsingContext* context, var std::unique_ptr<p::CaseStatementNode> node) : p::StatementNode*
+        ::= 
+        (
+            CASE 
+            Expression(context):condition{ node.reset(new p::CaseStatementNode(lexer.GetSpan(pos), condition)); }
+            OF 
+            Case(context):first{ node->AddCase(first); } 
+            (
+                SEMICOLON 
+                Case(context):next{ node->AddCase(next); } 
+            )* 
+            (
+                SEMICOLON? 
+                ElsePart(context):elsePart{ node->SetElsePart(elsePart); }
+            )? 
+            SEMICOLON? 
+            END
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    Case(ParsingContext* context, var std::unique_ptr<p::CaseNode> node) : p::CaseNode*
+        ::= 
+        (
+            empty{ node.reset(new p::CaseNode(lexer.GetSpan(pos))); }
+            ConstantRange(context):first{ node->AddRange(first); } 
+            (
+                COMMA 
+                ConstantRange(context):next{ node->AddRange(next); }
+            )* 
+            COLON 
+            Statement(context):statement{ node->SetStatement(statement); }
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    ConstantRange(ParsingContext* context, var std::unique_ptr<p::Node> node) : p::Node*
+        ::= 
+        (   ConstantExpression(context):rangeStart{ node.reset(rangeStart); }
+            (
+                (
+                    DOTDOT 
+                    ConstantExpression(context):rangeEnd{ node.reset(new p::ConstantRangeNode(lexer.GetSpan(pos), node.release(), rangeEnd)); }
+                )
+                |   empty
+                {
+                    node.reset(new p::ConstantRangeNode(lexer.GetSpan(pos), node.release(), nullptr));
+                }
+            )
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    ElsePart(ParsingContext* context) : p::StatementNode*
+        ::= ELSE Statement(context):statement{ return statement; }
+        ;
+
+    RepetitiveStatement(ParsingContext* context) : p::StatementNode*
+        ::= RepeatStatement(context):repeatStatement{ return repeatStatement; }
+        |   WhileStatement(context):whileStatement{ return whileStatement; }
+        |   ForStatement(context):forStatement{ return forStatement; }
+        ;
+
+    RepeatStatement(ParsingContext* context, var std::unique_ptr<p::RepeatStatementNode> node) : p::StatementNode*
+        ::= 
+        (
+            REPEAT{ node.reset(new p::RepeatStatementNode(lexer.GetSpan(pos))); }
+            Statement(context):first{ node->AddStatement(first); } 
+            (   SEMICOLON 
+                Statement(context):next{ node->AddStatement(next); } 
+            )* 
+            UNTIL 
+            Expression(context):condition{ node->SetCondition(condition); }
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    WhileStatement(ParsingContext* context) : p::StatementNode*
+        ::= 
+        (
+            WHILE Expression(context):condition DO Statement(context):statement
+        )
+        {
+            return new p::WhileStatementNode(lexer.GetSpan(pos), condition, statement);
+        }
+        ;
+
+    Direction : p::Direction
+        ::= TO{ return p::Direction::to; }
+        |   DOWNTO{ return p::Direction::downto; }
+        ;
+
+    ForStatement(ParsingContext* context) : p::StatementNode*
+        ::= 
+        (
+            FOR 
+            ControlVariable(context):controlVariable 
+            ASSIGN 
+            InitialValue(context):initialValue 
+            Direction:direction
+            FinalValue(context):finalValue 
+            DO 
+            Statement(context):statement
+        )
+        {
+            return new p::ForStatementNode(lexer.GetSpan(pos), controlVariable, initialValue, direction, finalValue, statement);
+        }
+        ;
+
+    ControlVariable(ParsingContext* context) : p::IdentifierNode*
+        ::= Identifier:identifier{ return identifier; }
+        ;
+
+    InitialValue(ParsingContext* context) : p::Node*
+        ::= Expression(context):expression{ return expression; }
+        ;
+
+    FinalValue(ParsingContext* context) : p::Node*
+        ::= Expression(context):expression{ return expression; }
+        ;
+
+}

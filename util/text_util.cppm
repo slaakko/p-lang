@@ -21,6 +21,7 @@ enum class FormatJustify
 };
 
 std::string Trim(const std::string& s);
+std::string TrimEnd(const std::string& s);
 std::string TrimAll(const std::string& s);
 std::vector<std::string> Split(const std::string& s, char c);
 std::vector<std::string> Split(const std::string& s, const std::string& subString);

@@ -1,0 +1,169 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.subroutine.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.parameter.parser;
+[implementation]import p.common.parser;
+[implementation]import p.type.parser;
+[implementation]import p.block.parser;
+[implementation]import p.expression.parser;
+
+parser SubroutineParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using ParameterParser.ParameterList;
+    using CommonParser.Identifier;
+    using TypeParser.TypeName;
+    using BlockParser.SubroutineBlock;
+    using ExpressionParser.Expression;
+
+    ProcedureDeclaration(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            ProcedureHeading(context):procedureHeading{ span = lexer.GetSpan(pos); }
+            SEMICOLON
+            SubroutineBlock(context):subroutineBlock
+            SEMICOLON
+        )
+        {
+            return new p::ProcedureDeclarationNode(span, procedureHeading, subroutineBlock);
+        }
+        ;
+
+    FunctionDeclaration(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            FunctionHeading(context):functionHeading{ span = lexer.GetSpan(pos); }
+            SEMICOLON
+            SubroutineBlock(context):subroutineBlock
+            SEMICOLON
+        )
+        {
+            return new p::FunctionDeclarationNode(span, functionHeading, subroutineBlock);
+        }
+        ;
+
+    ConstructorDeclaration(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= 
+        (
+            ConstructorHeading(context):constructorHeading{ span = lexer.GetSpan(pos); }
+            (
+                ConstructorCall(context):constructorCall?
+            )
+            SEMICOLON
+            SubroutineBlock(context):subroutineBlock
+            SEMICOLON
+        )
+        {
+            return new p::ConstructorDeclarationNode(span, constructorHeading, constructorCall, subroutineBlock);
+        }
+        ;
+
+    ConstructorCall(ParsingContext* context, var soul::ast::Span span, var std::unique_ptr<p::ConstructorCallNode> node) : p::ConstructorCallNode*
+        ::= 
+        (
+            COLON{ span = lexer.GetSpan(pos); }
+            (   BASE{ span.Union(lexer.GetSpan(pos)); node.reset(new p::ConstructorCallNode(span, new p::BaseNode(lexer.GetSpan(pos)))); }
+            |   THIS{ span.Union(lexer.GetSpan(pos)); node.reset(new p::ConstructorCallNode(span, new p::ThisNode(lexer.GetSpan(pos)))); }
+            )
+            LPAREN
+            (
+                Expression(context):first{ node->AddArgument(first); }
+                (
+                    COMMA
+                    Expression(context):next{ node->AddArgument(next); }
+                )*
+            )?
+            RPAREN
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    Virtual : p::Virtual
+        ::= VIRTUAL{ return p::Virtual::virtual_; }
+        |   OVERRIDE{ return p::Virtual::override_; }
+        ;
+
+    MethodHeading(ParsingContext* context, 
+        var std::unique_ptr<p::ProcedureHeadingNode> procedureHeadingNode,
+        var std::unique_ptr<p::FunctionHeadingNode> functionHeadingNode) : p::SubroutineHeadingNode*
+        ::= 
+            (
+                ProcedureHeading(context):procedureHeading{ procedureHeadingNode.reset(procedureHeading); }
+                (
+                    SEMICOLON Virtual:procVirtuality{ procedureHeadingNode->SetVirtual(procVirtuality); }
+                )?
+            )
+            {
+                return procedureHeadingNode.release();
+            }
+        |
+            (
+                FunctionHeading(context):functionHeading{ functionHeadingNode.reset(functionHeading); }
+                (
+                    SEMICOLON Virtual:funcVirtuality{ functionHeadingNode->SetVirtual(funcVirtuality); }
+                )?
+            )
+            {
+                return functionHeadingNode.release();
+            }
+        |
+            (
+                ConstructorHeading(context):constructorHeading{ return constructorHeading; }
+            )
+        ;
+
+    SubroutineId(var soul::ast::Span span) : p::SubroutineIdNode*
+        ::= Identifier:objectId{ span = lexer.GetSpan(pos); } DOT Identifier:subroutineId1{ span.Union(lexer.GetSpan(pos)); return new p::SubroutineIdNode(span, objectId, subroutineId1); }
+        |   Identifier:subroutineId2{ span = lexer.GetSpan(pos); return new p::SubroutineIdNode(span, nullptr, subroutineId2); }
+        ;
+
+    ProcedureHeading(ParsingContext* context, var soul::ast::Span span, var std::unique_ptr<p::ProcedureHeadingNode> procedureHeading) : p::ProcedureHeadingNode*
+        ::= 
+        (
+            PROCEDURE{ span = lexer.GetSpan(pos); }
+            SubroutineId:subroutineId{ span.Union(lexer.GetSpan(pos)); procedureHeading.reset(new p::ProcedureHeadingNode(span, subroutineId)); }
+            ParameterList(context, procedureHeading.get()):parameterList
+        )
+        {
+            return procedureHeading.release();
+        }
+        ;
+
+    FunctionHeading(ParsingContext* context, var soul::ast::Span span, var std::unique_ptr<p::FunctionHeadingNode> functionHeading) : p::FunctionHeadingNode*
+        ::=
+        (
+            FUNCTION{ span = lexer.GetSpan(pos); }
+            SubroutineId:subroutineId{ span.Union(lexer.GetSpan(pos)); functionHeading.reset(new p::FunctionHeadingNode(span, subroutineId)); }
+            ParameterList(context, functionHeading.get()):parameterList
+            COLON
+            TypeName(context):resultType{ functionHeading->SetResultType(resultType); }
+        )
+        {
+            return functionHeading.release();
+        }
+        ;
+
+    ConstructorHeading(ParsingContext* context, var std::unique_ptr<p::ConstructorHeadingNode> constructorHeading) : p::ConstructorHeadingNode*
+        ::=
+        (
+            CONSTRUCTOR{ constructorHeading.reset(new p::ConstructorHeadingNode(lexer.GetSpan(pos))); }
+            (Identifier:objectId{ constructorHeading->SetObjectId(objectId); })?
+            ParameterList(context, constructorHeading.get()):parameterList
+        )
+        {
+            return constructorHeading.release();
+        }
+        ;
+}

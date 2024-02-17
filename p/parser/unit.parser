@@ -1,0 +1,106 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.unit.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.common.parser;
+[implementation]import p.block.parser;
+[implementation]import p.subroutine.parser;
+
+parser UnitParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using CommonParser.UnitName;
+    using CommonParser.UsesClause;
+    using BlockParser.ConstantDeclarationPart;
+    using BlockParser.TypeDeclarationPart;
+    using BlockParser.VariableDeclarationPart;
+    using BlockParser.DeclarationPart;
+    using BlockParser.StatementPart;
+    using SubroutineParser.ProcedureHeading;
+    using SubroutineParser.FunctionHeading;
+
+    Unit(ParsingContext* context, var soul::ast::Span span, var std::unique_ptr<p::UnitNode> unitNode) : p::UnitNode*
+        ::= 
+        (
+            UNIT{ span = lexer.GetSpan(pos); }
+            UnitName:unitName{ span.Union(lexer.GetSpan(pos)); unitNode.reset(new p::UnitNode(span, lexer.FileName(), unitName)); }
+            SEMICOLON 
+            InterfacePart(context):interfacePart{ unitNode->SetInterfacePart(interfacePart); }
+            ImplementationPart(context):implementationPart{ unitNode->SetImplementationPart(implementationPart); } 
+            InitializationPart(context):initializationPart{ unitNode->SetInitializationPart(initializationPart); }
+            DOT
+        )
+        {
+            return unitNode.release();
+        }
+        ;
+
+    InterfacePart(ParsingContext* context, var std::unique_ptr<p::UnitPartNode> interfacePart) : p::UnitPartNode*
+        ::= 
+        (
+            INTERFACE
+            { 
+                interfacePart.reset(new p::UnitPartNode(lexer.GetSpan(pos), p::UnitPartKind::interfacePart)); 
+                interfacePart->SetBlock(new p::BlockNode(lexer.GetSpan(pos))); 
+            }
+            (UsesClause:usesList{ interfacePart->SetUsesList(usesList); })?
+            (   ConstantDeclarationPart(context, interfacePart->Block()):constantDeclarationPart
+            |   TypeDeclarationPart(context, interfacePart->Block()):typeDeclarationPart
+            |   VariableDeclarationPart(context, interfacePart->Block()):variableDeclarationParts
+            |   ProcedureAndFunctionHeadingPart(context, interfacePart->Block()):procedureAndFunctionHeadingPart
+            )*
+        )
+        {
+            return interfacePart.release();   
+        }
+        ;
+
+    ProcedureAndFunctionHeadingPart(ParsingContext* context, p::BlockNode* block)
+        ::= 
+        (
+            (   ProcedureHeading(context):procedureHeading{ block->AddDeclaration(procedureHeading); }
+            |   FunctionHeading(context):functionHeading{ block->AddDeclaration(functionHeading); }
+            )
+            SEMICOLON
+        )
+        ;
+
+    ImplementationPart(ParsingContext* context, var std::unique_ptr<p::UnitPartNode> implementationPart) : p::UnitPartNode*
+        ::= 
+        (   
+            IMPLEMENTATION
+            {   
+                implementationPart.reset(new p::UnitPartNode(lexer.GetSpan(pos), p::UnitPartKind::implementationPart)); 
+                implementationPart->SetBlock(new p::BlockNode(lexer.GetSpan(pos)));
+            }
+            (UsesClause:usesList{ implementationPart->SetUsesList(usesList); })?
+            DeclarationPart(context, implementationPart->Block()):declarationPart
+        )
+        {
+            return implementationPart.release();
+        }
+        ;
+
+    InitializationPart(ParsingContext* context, var std::unique_ptr<p::UnitPartNode> initializationPart) : p::UnitPartNode*
+        ::= empty
+        { 
+            initializationPart.reset(new p::UnitPartNode(lexer.GetSpan(pos), p::UnitPartKind::initializationPart)); 
+            initializationPart->SetBlock(new p::BlockNode(lexer.GetSpan(pos))); 
+        }
+        (   END
+        |   StatementPart(context, initializationPart->Block()):statementPart
+        )
+        {
+            return initializationPart.release();
+        }
+        ;
+}

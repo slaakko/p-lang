@@ -1,0 +1,79 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.constant.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.type.parser;
+[implementation]import p.expression.parser;
+[implementation]import p.common.parser;
+
+parser ConstantParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using CommonParser.Identifier;
+    using TypeParser.TypeName;
+    using ExpressionParser.ConstantExpression;
+
+    ConstantDeclaration(ParsingContext* context, var std::unique_ptr<p::ConstantDeclarationNode> constantDeclarationNode) : p::Node*
+        ::= 
+        (
+            Identifier:constantId{ constantDeclarationNode.reset(new p::ConstantDeclarationNode(lexer.GetSpan(pos), constantId)); }
+            COLON
+            TypeName(context):typeName{ constantDeclarationNode->SetTypeName(typeName); }
+            EQUAL
+            Constant(context):constant{ constantDeclarationNode->SetConstant(constant); }
+            SEMICOLON
+        )
+        {
+            return constantDeclarationNode.release();
+        }
+        ;
+
+    Constant(ParsingContext* context) : p::Node*
+        ::= 
+        (   ConstantExpression(context):constantExpression{ return constantExpression; } 
+        |   ArrayConstant(context):arraryConstant{ return arraryConstant; }
+        |   ObjectConstant(context):objectConstant{ return objectConstant; }
+        )
+        ;
+
+    ArrayConstant(ParsingContext* context, var std::unique_ptr<p::ArrayConstantNode> node) : p::Node*
+        ::= 
+        (
+            LBRACKET{ node.reset(new p::ArrayConstantNode(lexer.GetSpan(pos))); }
+            Constant(context):first{ node->AddElement(first); }
+            (
+                COMMA
+                Constant(context):next{ node->AddElement(next); }
+            )*
+            RBRACKET
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    ObjectConstant(ParsingContext* context, var std::unique_ptr<p::ObjectConstantNode> node) : p::Node*
+        ::= 
+        (
+            LPAREN{ node.reset(new p::ObjectConstantNode(lexer.GetSpan(pos))); }
+            Identifier:firstFieldName COLON Constant(context):firstConstant{ node->AddField(new p::FieldNode(firstFieldName, firstConstant)); }
+            (
+                SEMICOLON
+                Identifier:nextFieldName COLON Constant(context):nextConstant{ node->AddField(new p::FieldNode(nextFieldName, nextConstant)); }
+            )*
+            RPAREN
+        )
+        {
+            return node.release();
+        }
+        ;
+}

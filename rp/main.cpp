@@ -3,12 +3,14 @@
 // Distributed under the MIT license
 // =================================
 
-#include <Windows.h>
-
-import p;
-import std.core;
-import std.filesystem;
+import p.lexer;
+import p.parser;
+import p.core;
+import p.binder;
+import p.ast;
 import util;
+import std.filesystem;
+import std.core;
 
 void InitApplication()
 {
@@ -18,46 +20,6 @@ void InitApplication()
 void TerminateApplication()
 {
     util::Done();
-}
-
-void Run(const std::string& filePath, int32_t heapSize, bool verbose)
-{
-    if (verbose)
-    {
-        std::cout << "Running " << filePath << "...\n";
-    }
-    p::Init();
-    p::Heap heap(heapSize);
-    p::ModuleMap moduleMap;
-    p::Module mod;
-    p::ExecutionContext context;
-    context.SetModuleMap(&moduleMap);
-    context.SetHeap(&heap);
-    mod.Load(filePath, &context);
-    moduleMap.AddModule(&mod);
-    if (!mod.GetImplementationPart())
-    {
-        throw std::runtime_error("error: module '" + filePath + "' does not contain implementation part");
-    }
-    p::Block* block = mod.GetImplementationPart()->GetBlock();
-    p::Procedure* program = block->GetProcedure("@program");
-    if (!program)
-    {
-        throw std::runtime_error("error: module '" + filePath + "' does not contain procedure '@program'");
-    }
-    context.SetGlobalVariableMap(block->GetGlobalVariableMap());
-    context.GetGlobalVariableMap()->AllocateFrame();
-    context.PushBlock(block);
-    program->Resolve(&context);
-    mod.RunInits(&context);
-    program->Execute(&context);
-    context.PopBlock();
-    p::Done();
-    if (verbose)
-    {
-        std::cout << "Heap size was " << heapSize / 1024 / 1024 << " MB." << "\n";
-        std::cout << "Collected " << heap.CollectionCount() << " times." << "\n";
-    }
 }
 
 void PrintHelp()
@@ -77,6 +39,48 @@ void PrintHelp()
     std::cout << "  Set heap size to SIZE_MB megabytes." << "\n";
     std::cout << "  Default heap size is 16 megabytes." << "\n";
     std::cout << "\n";
+}
+
+std::unique_ptr<p::SymbolTable> Read(const std::string& pcodeFilePath, p::Context* context)
+{
+    p::SymbolReader reader(pcodeFilePath);
+    reader.SetContext(context);
+    reader.ReadHeader();
+    std::unique_ptr<p::SymbolTable> symbolTable(new p::SymbolTable());
+    symbolTable->Read(reader);
+    symbolTable->Resolve();
+    return symbolTable;
+}
+
+void Run(const std::string& pcodeFilePath, int32_t heapSize, bool verbose)
+{
+    if (verbose)
+    {
+        std::cout << "Running " << pcodeFilePath << "...\n";
+    }
+    soul::ast::Span span;
+    p::Init(pcodeFilePath, span);
+    p::Heap heap(heapSize);
+    p::ExecutionContext context;
+    context.SetHeap(&heap);
+    p::UnitLoader loader;
+    context.SetUnitLoader(&loader);
+    std::unique_ptr<p::SymbolTable> symbolTable = Read(pcodeFilePath, &context);
+    context.SetSymbolTable(symbolTable.get());
+    p::GlobalVariableMap* globalVariableMap = symbolTable->Root()->GetGlobalVariableMap();
+    context.SetGlobalVariableMap(globalVariableMap);
+    globalVariableMap->AllocateFrame();
+    p::ProcedureSymbol* program = symbolTable->Root()->Block()->GetProcedure("@program");
+    if (program)
+    {
+        symbolTable->RunInits(&context);
+        program->Execute(&context);
+    }
+    else
+    {
+        throw std::runtime_error("error: module '" + pcodeFilePath + "' does not contain procedure '@program'");
+    }
+    p::Done();
 }
 
 int main(int argc, const char** argv)
@@ -156,20 +160,20 @@ int main(int argc, const char** argv)
                     {
                         switch (o)
                         {
-                            case 'h':
-                            {
-                                PrintHelp();
-                                return 0;
-                            }
-                            case 'v':
-                            {
-                                verbose = true;
-                                break;
-                            }
-                            default:
-                            {
-                                throw std::runtime_error("unknown option '-" + std::string(1, o) + "'");
-                            }
+                        case 'h':
+                        {
+                            PrintHelp();
+                            return 0;
+                        }
+                        case 'v':
+                        {
+                            verbose = true;
+                            break;
+                        }
+                        default:
+                        {
+                            throw std::runtime_error("unknown option '-" + std::string(1, o) + "'");
+                        }
                         }
                     }
                 }
@@ -198,9 +202,8 @@ int main(int argc, const char** argv)
     }
     catch (const std::exception& ex)
     {
-        std::cerr << ex.what() << std::endl;
+        std::cerr << ex.what() << "\n";
         return 1;
     }
     TerminateApplication();
-    return 0;
 }

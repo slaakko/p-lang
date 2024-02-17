@@ -1,0 +1,64 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.common.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+
+parser CommonParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    UnitName(var soul::ast::Span span, var std::string unitName) : p::UnitNameNode*
+        ::= 
+        (
+            ID{ unitName.append(lexer.GetToken(pos).ToString()); span = lexer.GetSpan(pos); } 
+            (
+                DOT ID{ unitName.append(1, '.').append(lexer.GetToken(pos).ToString()); span.Union(lexer.GetSpan(pos)); }
+            )*
+        )
+        {
+            return new p::UnitNameNode(span, unitName);
+        }
+        ;
+
+    UsesClause(var std::unique_ptr<p::UnitNameListNode> usesList) : p::UnitNameListNode*
+        ::= 
+        (
+            USES{ usesList.reset(new p::UnitNameListNode(lexer.GetSpan(pos))); }
+            UnitName:first{ usesList->AddUnitName(first); }
+            (
+                COMMA 
+                UnitName:next{ usesList->AddUnitName(next); }
+            )*
+            SEMICOLON
+        )
+        {
+            return usesList.release();
+        }
+        ;
+
+    Identifier : p::IdentifierNode*
+        ::= ID{ return new p::IdentifierNode(lexer.GetSpan(pos), lexer.GetToken(pos).ToString()); }
+        ;
+
+    IdentifierList(var std::unique_ptr<p::IdentifierListNode> identifierList) : p::IdentifierListNode*
+        ::= 
+        (
+            Identifier:first{ identifierList.reset(new p::IdentifierListNode(lexer.GetSpan(pos))); identifierList->AddIdentifier(first); } 
+            (
+                COMMA 
+                Identifier:next{ identifierList->AddIdentifier(next); identifierList->Span().Union(lexer.GetSpan(pos)); }
+            )*
+        )
+        {
+            return identifierList.release();
+        }
+        ;
+}

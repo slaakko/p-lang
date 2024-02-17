@@ -1,14 +1,20 @@
-module Hello, id=1925189483
-implementation
-uses System
-procedure '@program'
-definition
-module id 1925189483
-id 1
-frame size: 0
-code
-  0 : receive(0)
-  1 : push_value('Hello, world!')
-  2 : call_stdproc(Writeln, 1)
-  3 : nop
-
+program 'Hello'
+  global variable map:
+source file path: C:/work/p-lang/prog/Hello.p
+pcode file path: C:/work/p-lang/prog/Hello.pcode
+block 'Hello'
+  procedure '@program'
+    block '@@program'
+    level: 0
+  flags: generated
+  id: a911ba08-d567-d2dd-8da9-6bd4e769717e
+  level: 0
+  block '@@program'
+  level: 0
+  frame size: 0
+  code
+    0 : receive(0)
+    1 : push_value('Hello, world!')
+    2 : call_subroutine(Writeln, 3f572ea1-e390-2dd8-3eba-1fa034d6a295, 1)
+    3 : nop
+level: 0

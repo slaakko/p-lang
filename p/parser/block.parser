@@ -1,0 +1,103 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.block.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.constant.parser;
+[implementation]import p.type.parser;
+[implementation]import p.variable.parser;
+[implementation]import p.subroutine.parser;
+[implementation]import p.statement.parser;
+
+parser BlockParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using ConstantParser.ConstantDeclaration;
+    using TypeParser.TypeDeclaration;
+    using VariableParser.VariableDeclaration;
+    using SubroutineParser.ProcedureDeclaration;
+    using SubroutineParser.FunctionDeclaration;
+    using SubroutineParser.ConstructorDeclaration;
+    using StatementParser.CompoundStatement;
+
+    Block(ParsingContext* context, var std::unique_ptr<p::BlockNode> block) : p::BlockNode*
+        ::= 
+        (
+            empty{ block.reset(new p::BlockNode(lexer.GetSpan(pos))); }
+            DeclarationPart(context, block.get()):declarationPart
+            StatementPart(context, block.get()):statementPart
+        )
+        {
+            return block.release();
+        }
+        ;
+
+    SubroutineBlock(ParsingContext* context) : p::Node*
+        ::= FORWARD{ return new p::ForwardNode(lexer.GetSpan(pos)); }
+        |   EXTERNAL{ return new p::ExternalNode(lexer.GetSpan(pos)); }
+        |   Block(context):block{ return block; }
+        ;
+
+    DeclarationPart(ParsingContext* context, p::BlockNode* block)
+        ::= 
+        (   ConstantDeclarationPart(context, block):constantDeclarationPart
+        |   TypeDeclarationPart(context, block):typeDeclarationPart
+        |   VariableDeclarationPart(context, block):variableDeclarationPart
+        |   SubroutineDeclarationPart(context, block):subroutineDeclarationPart
+        )*
+        ;
+
+    ConstantDeclarationPart(ParsingContext* context, p::BlockNode* block)
+        ::= 
+        (
+            CONST 
+            (
+                ConstantDeclaration(context):constantDeclaration{ block->AddDeclaration(constantDeclaration); }
+            )+
+        )
+        ;
+
+    TypeDeclarationPart(ParsingContext* context, p::BlockNode* block)
+        ::=
+        (
+            TYPE
+            (
+                TypeDeclaration(context):typeDeclaration{ block->AddDeclaration(typeDeclaration); }
+            )+
+        )
+        ;
+
+    VariableDeclarationPart(ParsingContext* context, p::BlockNode* block)
+        ::=
+        (
+            VAR
+            (
+                VariableDeclaration(context):variableDeclaration{ block->AddDeclaration(variableDeclaration); }
+            )+
+        )
+        ;
+
+    SubroutineDeclarationPart(ParsingContext* context, p::BlockNode* block)
+        ::=
+        (   ProcedureDeclaration(context):procedureDeclaration{ block->AddDeclaration(procedureDeclaration); }
+        |   FunctionDeclaration(context):functionDeclaration{ block->AddDeclaration(functionDeclaration); }
+        |   ConstructorDeclaration(context):constructorDeclaration{ block->AddDeclaration(constructorDeclaration); }
+        )
+        +
+        ;
+
+    StatementPart(ParsingContext* context, p::BlockNode* block)
+        ::=
+        (
+            CompoundStatement(context):compoundStatement{ block->SetCompoundStatement(compoundStatement); }
+        )
+        ;
+}

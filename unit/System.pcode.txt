@@ -1,192 +1,258 @@
-module System, id=1989286620
-interface
-type
-  subrange type 'Byte'
-  0..255
-  object type 'StringBuilder'
-    fields:
-      'native' index 0 type 'pointer'
-    methods:
-      constructor
-      declaration
-      parameter 'this' index 0 type 'StringBuilder'
-      object type 'StringBuilder'
-      module id 1989286620
-      implementation id 5
+unit 'System'
+  global variable map:
+source file path: C:/work/p-lang/unit/System.p
+pcode file path: C:/work/p-lang/unit/System.pcode
+block 'System'
+  boolean type 'boolean'
+  id: 00000000-0000-0000-0000-000000000001
+  integer type 'integer'
+  id: 00000000-0000-0000-0000-000000000002
+  char type 'char'
+  id: 00000000-0000-0000-0000-000000000003
+  real type 'real'
+  id: 00000000-0000-0000-0000-000000000004
+  string type 'string'
+  id: 00000000-0000-0000-0000-000000000005
+  pointer type 'pointer'
+  id: 00000000-0000-0000-0000-000000000006
+  nil type '@nil_type'
+  id: 00000000-0000-0000-0000-000000000007
+  ord 'Ord'
+  flags: standard
+  id: 8794f45d-4f01-7a24-46a6-a63d528200fe
+  frame size: 0
+  chr 'Chr'
+  flags: standard
+  id: 93a08982-fa44-eda3-985c-a0329405d9fd
+  frame size: 0
+  sin 'Sin'
+  flags: standard
+  id: add240bb-f9d0-0885-4261-321a42aed3ee
+  frame size: 0
+  cos 'Cos'
+  flags: standard
+  id: d1c7b02c-5fc3-99db-d0f0-3e6584e24cf3
+  frame size: 0
+  arcTan 'ArcTan'
+  flags: standard
+  id: 5ede86dd-12af-554b-7c62-08f95645d152
+  frame size: 0
+  sqrt 'Sqrt'
+  flags: standard
+  id: 1f2c467e-8a3a-4ca1-c5d6-6e9fd9c416a7
+  frame size: 0
+  abs 'Abs'
+  flags: standard
+  id: 298b1052-9a18-1ae2-60ae-19de661beddb
+  frame size: 0
+  succ 'Succ'
+  flags: standard
+  id: 08e026e5-3f30-652d-6952-d3a56ee5b3d5
+  frame size: 0
+  pred 'Pred'
+  flags: standard
+  id: 26307769-9a48-69a8-5c86-56e62c4addb3
+  frame size: 0
+  min 'Min'
+  flags: standard
+  id: ee253edb-6033-1f04-ef28-d65d601e94c7
+  frame size: 0
+  max 'Max'
+  flags: standard
+  id: a718f8dc-bcb4-6252-904f-5d14361907c9
+  frame size: 0
+  write 'Write'
+  flags: standard
+  id: e1eb18fb-1000-c847-736d-666804d6cecc
+  frame size: 0
+  writeln 'Writeln'
+  flags: standard
+  id: 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6
+  frame size: 0
+  unit part 'interface_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  unit part: inteface
+  block 'interface_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+    subrange type 'Byte'
+    id: 166420de-a070-d7c4-d1fa-54c64e64244d
+    range start: 0
+    range end: 255
+    constant 'pi'
+    id: 4baf80c2-39cc-6725-3d1e-d0b8bb1ff86a
+    type: real type 'real'
+    id: 00000000-0000-0000-0000-000000000004
+    function 'IntToString'
+      parameter 'x'
+      type: integer type 'integer'
+      id: 00000000-0000-0000-0000-000000000002
+      index: 0
+      qualifier: value
+      variable '@result'
+      type: string type 'string'
+      id: 00000000-0000-0000-0000-000000000005
+      index: 1
+    flags: external defined
+    id: 82f5ef43-8897-1a59-00e3-b76fa01a2df0
+    level: 1
+    external subroutine id: 01000000-0000-0000-0000-000000000002
+    frame size: 0
+    function 'RealToString'
+      parameter 'x'
+      type: real type 'real'
+      id: 00000000-0000-0000-0000-000000000004
+      index: 0
+      qualifier: value
+      variable '@result'
+      type: string type 'string'
+      id: 00000000-0000-0000-0000-000000000005
+      index: 1
+    flags: external defined
+    id: 17a41d8f-cb2d-01ef-5bb5-d65caf8092f0
+    level: 1
+    external subroutine id: 01000000-0000-0000-0000-000000000003
+    frame size: 0
+    function 'ParseInt'
+      parameter 'x'
+      type: string type 'string'
+      id: 00000000-0000-0000-0000-000000000005
+      index: 0
+      qualifier: value
+      variable '@result'
+      type: integer type 'integer'
+      id: 00000000-0000-0000-0000-000000000002
+      index: 1
+    flags: external defined
+    id: 2bd2423e-e617-8aa6-7364-c04e19104836
+    level: 1
+    external subroutine id: 01000000-0000-0000-0000-000000000004
+    frame size: 0
+    function 'ParseReal'
+      parameter 'x'
+      type: string type 'string'
+      id: 00000000-0000-0000-0000-000000000005
+      index: 0
+      qualifier: value
+      variable '@result'
+      type: real type 'real'
+      id: 00000000-0000-0000-0000-000000000004
+      index: 1
+    flags: external defined
+    id: 48a80c5f-b688-dc7e-b0c8-844b9334c974
+    level: 1
+    external subroutine id: 01000000-0000-0000-0000-000000000005
+    frame size: 0
+    object type 'StringBuilder'
+      field 'native'['StringBuilder.native']
+      type: pointer type 'pointer'
+      id: 00000000-0000-0000-0000-000000000006
+      index: 0
+      constructor group '@constructor_group'['StringBuilder.@constructor_group']
+      constructor 'constructor'['StringBuilder.constructor']
+        parameter 'this'
+        type: object type 'StringBuilder'
+        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        index: 0
+        qualifier: value
+        block '@StringBuilder.constructor'
+        level: 1
+      flags: defined
+      id: 83a71208-d007-61b6-d7bd-f428ce32afd1
+      level: 1
+      block '@StringBuilder.constructor'
+      level: 1
+      frame size: 1
+      code
+        0 : receive(1)
+        1 : load_local(0)
+        2 : call_external(InitStringBuilder, 01000000-0000-0000-0000-000000000006)
+        3 : nop
+      procedure 'Clear'['StringBuilder.Clear']
+        parameter 'this'
+        type: object type 'StringBuilder'
+        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        index: 0
+        qualifier: value
+      flags: external defined
+      id: 436b16c9-4c37-82ab-5164-0d088d986c47
+      level: 1
+      external subroutine id: 01000000-0000-0000-0000-000000000007
       frame size: 0
-
-      procedure 'StringBuilder.Clear'
-      declaration
-      common name 'Clear'
-      parameter 'this' index 0 type 'StringBuilder'
-      object type 'StringBuilder'
-      external
+      procedure 'AppendStr'['StringBuilder.AppendStr']
+        parameter 'this'
+        type: object type 'StringBuilder'
+        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        index: 0
+        qualifier: value
+        parameter 's'
+        type: string type 'string'
+        id: 00000000-0000-0000-0000-000000000005
+        index: 1
+        qualifier: value
+      flags: external defined
+      id: efdf0f2f-6b07-6f7a-fad9-d357383e0e19
+      level: 1
+      external subroutine id: 01000000-0000-0000-0000-000000000008
       frame size: 0
-
-      procedure 'StringBuilder.AppendStr'
-      declaration
-      common name 'AppendStr'
-      parameter 'this' index 0 type 'StringBuilder'
-      parameter 's' index 1 type 'string'
-      object type 'StringBuilder'
-      external
+      procedure 'AppendChar'['StringBuilder.AppendChar']
+        parameter 'this'
+        type: object type 'StringBuilder'
+        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        index: 0
+        qualifier: value
+        parameter 'c'
+        type: char type 'char'
+        id: 00000000-0000-0000-0000-000000000003
+        index: 1
+        qualifier: value
+      flags: external defined
+      id: 57f82b52-bd6b-f5fe-6fd2-8c3579502b23
+      level: 1
+      external subroutine id: 01000000-0000-0000-0000-000000000009
       frame size: 0
-
-      procedure 'StringBuilder.AppendChar'
-      declaration
-      common name 'AppendChar'
-      parameter 'this' index 0 type 'StringBuilder'
-      parameter 'c' index 1 type 'char'
-      object type 'StringBuilder'
-      external
+      function 'GetString'['StringBuilder.GetString']
+        parameter 'this'
+        type: object type 'StringBuilder'
+        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        index: 0
+        qualifier: value
+        variable '@result'
+        type: string type 'string'
+        id: 00000000-0000-0000-0000-000000000005
+        index: 1
+      flags: external defined
+      id: da654440-7951-bad2-edb3-9b0bc3ee595d
+      level: 1
+      external subroutine id: 01000000-0000-0000-0000-00000000000a
       frame size: 0
-
-      function 'StringBuilder.GetString'
-      declaration
-      common name 'GetString'
-      parameter 'this' index 0 type 'StringBuilder'
-      object type 'StringBuilder'
-      external
-      frame size: 0
-
-const
-  constant 'pi'
-    type 'real'
-    value '3.141593'
-function 'IntToString'
-declaration
-common name 'IntToString'
-parameter 'x' index 0 type 'integer'
-module id 1989286620
-id 0
-implementation id 0
-frame size: 0
-
-function 'RealToString'
-declaration
-common name 'RealToString'
-parameter 'x' index 0 type 'real'
-module id 1989286620
-id 1
-implementation id 1
-frame size: 0
-
-function 'ParseInt'
-declaration
-common name 'ParseInt'
-parameter 'x' index 0 type 'string'
-module id 1989286620
-id 2
-implementation id 2
-frame size: 0
-
-function 'ParseReal'
-declaration
-common name 'ParseReal'
-parameter 'x' index 0 type 'string'
-module id 1989286620
-id 3
-implementation id 3
-frame size: 0
-
-implementation
-procedure 'InitStringBuilder'
-definition
-common name 'InitStringBuilder'
-parameter 's' index 0 type 'StringBuilder'
-external
-module id 1989286620
-id 4
-frame size: 0
-
-procedure 'StringBuilder.Clear'
-definition
-common name 'Clear'
-parameter 'this' index 0 type 'StringBuilder'
-object type 'StringBuilder'
-external
-module id 1989286620
-id 6
-frame size: 0
-
-procedure 'StringBuilder.AppendStr'
-definition
-common name 'AppendStr'
-parameter 'this' index 0 type 'StringBuilder'
-parameter 's' index 1 type 'string'
-object type 'StringBuilder'
-external
-module id 1989286620
-id 7
-frame size: 0
-
-procedure 'StringBuilder.AppendChar'
-definition
-common name 'AppendChar'
-parameter 'this' index 0 type 'StringBuilder'
-parameter 'c' index 1 type 'char'
-object type 'StringBuilder'
-external
-module id 1989286620
-id 8
-frame size: 0
-
-function 'IntToString'
-definition
-common name 'IntToString'
-parameter 'x' index 0 type 'integer'
-external
-module id 1989286620
-id 0
-frame size: 0
-
-function 'RealToString'
-definition
-common name 'RealToString'
-parameter 'x' index 0 type 'real'
-external
-module id 1989286620
-id 1
-frame size: 0
-
-function 'ParseInt'
-definition
-common name 'ParseInt'
-parameter 'x' index 0 type 'string'
-external
-module id 1989286620
-id 2
-frame size: 0
-
-function 'ParseReal'
-definition
-common name 'ParseReal'
-parameter 'x' index 0 type 'string'
-external
-module id 1989286620
-id 3
-frame size: 0
-
-function 'StringBuilder.GetString'
-definition
-common name 'GetString'
-parameter 'this' index 0 type 'StringBuilder'
-object type 'StringBuilder'
-external
-module id 1989286620
-id 9
-frame size: 0
-
-constructor
-definition
-parameter 'this' index 0 type 'StringBuilder'
-object type 'StringBuilder'
-module id 1989286620
-id 5
-frame size: 1
-code
-  0 : receive(1)
-  1 : load_local(0)
-  2 : call_external(InitStringBuilder, 4)
-  3 : nop
-
+    id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+    procedure 'Panic'
+      parameter 'message'
+      type: string type 'string'
+      id: 00000000-0000-0000-0000-000000000005
+      index: 0
+      qualifier: value
+    flags: external defined
+    id: d39d088e-b64c-ad11-666f-9035c18179d4
+    level: 1
+    external subroutine id: 01000000-0000-0000-0000-000000000001
+    frame size: 0
+  level: 0
+  unit part 'implementation_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  unit part: implementation
+  block 'implementation_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+    procedure 'InitStringBuilder'
+      parameter 's'
+      type: object type 'StringBuilder'
+      id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+      index: 0
+      qualifier: value
+    flags: external defined
+    id: daf24712-3c28-d8f4-eb4a-53fcd0797455
+    level: 1
+    external subroutine id: 01000000-0000-0000-0000-000000000006
+    frame size: 0
+  level: 0
+  unit part 'initialization_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  unit part: initialization
+  block 'initialization_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  level: 0
+level: 0

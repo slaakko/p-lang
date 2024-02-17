@@ -1,0 +1,130 @@
+<parserFile>
+ <grammar name="BlockParser">
+  <rule first="{#, BEGIN, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}" name="Block">
+   <action first="{#, BEGIN, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+    <group first="{#, BEGIN, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+     <sequence first="{#, BEGIN, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+      <sequence first="{#, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+       <action first="{#}">
+        <empty first="{#}"/>
+       </action>
+       <nonterminal first="{#, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}" ruleName="DeclarationPart"/>
+      </sequence>
+      <nonterminal first="{BEGIN}" ruleName="StatementPart"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{#, BEGIN, CONST, CONSTRUCTOR, EXTERNAL, FORWARD, FUNCTION, PROCEDURE, TYPE, VAR}" name="SubroutineBlock">
+   <choice first="{#, BEGIN, CONST, CONSTRUCTOR, EXTERNAL, FORWARD, FUNCTION, PROCEDURE, TYPE, VAR}">
+    <switch first="{EXTERNAL, FORWARD}">
+     <case first="{FORWARD}">
+      <action first="{FORWARD}">
+       <token first="{FORWARD}" name="FORWARD"/>
+      </action>
+     </case>
+     <case first="{EXTERNAL}">
+      <action first="{EXTERNAL}">
+       <token first="{EXTERNAL}" name="EXTERNAL"/>
+      </action>
+     </case>
+    </switch>
+    <action first="{#, BEGIN, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+     <nonterminal first="{#, BEGIN, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}" ruleName="Block"/>
+    </action>
+   </choice>
+  </rule>
+  <rule first="{#, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}" name="DeclarationPart">
+   <kleene first="{#, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+    <group first="{CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+     <switch first="{CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+      <case first="{CONST}">
+       <nonterminal first="{CONST}" ruleName="ConstantDeclarationPart"/>
+      </case>
+      <case first="{TYPE}">
+       <nonterminal first="{TYPE}" ruleName="TypeDeclarationPart"/>
+      </case>
+      <case first="{VAR}">
+       <nonterminal first="{VAR}" ruleName="VariableDeclarationPart"/>
+      </case>
+      <case first="{CONSTRUCTOR, FUNCTION, PROCEDURE}">
+       <nonterminal first="{CONSTRUCTOR, FUNCTION, PROCEDURE}" ruleName="SubroutineDeclarationPart"/>
+      </case>
+     </switch>
+    </group>
+   </kleene>
+  </rule>
+  <rule first="{CONST}" name="ConstantDeclarationPart">
+   <group first="{CONST}">
+    <sequence first="{CONST}">
+     <token first="{CONST}" name="CONST"/>
+     <positive first="{ID}">
+      <group first="{ID}">
+       <action first="{ID}">
+        <nonterminal first="{ID}" ruleName="ConstantDeclaration"/>
+       </action>
+      </group>
+     </positive>
+    </sequence>
+   </group>
+  </rule>
+  <rule first="{TYPE}" name="TypeDeclarationPart">
+   <group first="{TYPE}">
+    <sequence first="{TYPE}">
+     <token first="{TYPE}" name="TYPE"/>
+     <positive first="{ID}">
+      <group first="{ID}">
+       <action first="{ID}">
+        <nonterminal first="{ID}" ruleName="TypeDeclaration"/>
+       </action>
+      </group>
+     </positive>
+    </sequence>
+   </group>
+  </rule>
+  <rule first="{VAR}" name="VariableDeclarationPart">
+   <group first="{VAR}">
+    <sequence first="{VAR}">
+     <token first="{VAR}" name="VAR"/>
+     <positive first="{ID}">
+      <group first="{ID}">
+       <action first="{ID}">
+        <nonterminal first="{ID}" ruleName="VariableDeclaration"/>
+       </action>
+      </group>
+     </positive>
+    </sequence>
+   </group>
+  </rule>
+  <rule first="{CONSTRUCTOR, FUNCTION, PROCEDURE}" name="SubroutineDeclarationPart">
+   <positive first="{CONSTRUCTOR, FUNCTION, PROCEDURE}">
+    <group first="{CONSTRUCTOR, FUNCTION, PROCEDURE}">
+     <switch first="{CONSTRUCTOR, FUNCTION, PROCEDURE}">
+      <case first="{PROCEDURE}">
+       <action first="{PROCEDURE}">
+        <nonterminal first="{PROCEDURE}" ruleName="ProcedureDeclaration"/>
+       </action>
+      </case>
+      <case first="{FUNCTION}">
+       <action first="{FUNCTION}">
+        <nonterminal first="{FUNCTION}" ruleName="FunctionDeclaration"/>
+       </action>
+      </case>
+      <case first="{CONSTRUCTOR}">
+       <action first="{CONSTRUCTOR}">
+        <nonterminal first="{CONSTRUCTOR}" ruleName="ConstructorDeclaration"/>
+       </action>
+      </case>
+     </switch>
+    </group>
+   </positive>
+  </rule>
+  <rule first="{BEGIN}" name="StatementPart">
+   <group first="{BEGIN}">
+    <action first="{BEGIN}">
+     <nonterminal first="{BEGIN}" ruleName="CompoundStatement"/>
+    </action>
+   </group>
+  </rule>
+ </grammar>
+</parserFile>

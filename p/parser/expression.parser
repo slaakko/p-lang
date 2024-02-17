@@ -1,0 +1,205 @@
+// =================================
+// Copyright (c) 2024 Seppo Laakko
+// Distributed under the MIT license
+// =================================
+
+export module p.expression.parser;
+
+[interface]import soul.ast.span;
+[interface]import p.lexer;
+[interface]import p.core.parsing_context;
+[interface]import p.ast;
+[implementation]import p.token;
+[implementation]import p.common.parser;
+[implementation]import p.type.parser;
+
+parser ExpressionParser
+{
+    lexer p::lexer::PLexer<char>;
+
+    using CommonParser.Identifier;
+    using TypeParser.TypeName;
+
+    ConstantExpression(ParsingContext* context) : p::Node*
+        ::= Expression(context):expression{ return expression; }
+        ;
+
+    Expression(ParsingContext* context, var std::unique_ptr<p::Node> node) : p::Node*
+        ::= 
+        (
+            SimpleExpression(context):first{ node.reset(first); }
+            (   RelationalOperator:relationalOperator{ if (context->ParsingLValueOrExpressionStatementAndNotParsingArgs()) pass = false; } 
+                SimpleExpression(context):next{ node.reset(new p::BinaryExprNode(relationalOperator, node.release(), next, lexer.GetSpan(pos))); }
+            )?
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    RelationalOperator : p::Operator
+        ::= EQUAL{ return p::Operator::equal; }
+        |   NOT_EQUAL{ return p::Operator::notEqual; }
+        |   LESS{ return p::Operator::less; }
+        |   LESS_EQUAL{ return p::Operator::lessOrEqual; }
+        |   GREATER{ return p::Operator::greater; }
+        |   GREATER_EQUAL{ return p::Operator::greaterOrEqual; }
+        ;
+
+    SimpleExpression(ParsingContext* context, var std::unique_ptr<p::Node> node) : p::Node*
+        ::= 
+        (
+            Term(context):first{ node.reset(first); }
+            (
+                WeakOperator:weakOperator{ if (context->ParsingLValueOrExpressionStatementAndNotParsingArgs()) pass = false; }  
+                Term(context):next{ node.reset(new p::BinaryExprNode(weakOperator, node.release(), next, lexer.GetSpan(pos))); }
+            )*
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    WeakOperator : p::Operator
+        ::= PLUS{ return p::Operator::plus; }
+        |   MINUS{ return p::Operator::minus; }
+        |   OR{ return p::Operator::or_; }
+        |   XOR{ return p::Operator::xor_; }
+        ;
+
+    Term(ParsingContext* context, var std::unique_ptr<p::Node> node) : p::Node*
+        ::= 
+        (
+            Factor(context):first{ node.reset(first); }
+            (
+                StrongOperator:strongOperator{ if (context->ParsingLValueOrExpressionStatementAndNotParsingArgs()) pass = false; } 
+                Factor(context):next{ node.reset(new p::BinaryExprNode(strongOperator, node.release(), next, lexer.GetSpan(pos))); }
+            )*
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    StrongOperator : p::Operator
+        ::= STAR{ return p::Operator::mul; }
+        |   SLASH{ return p::Operator::fractionalDivide; }
+        |   DIV{ return p::Operator::div; }
+        |   MOD{ return p::Operator::mod; }
+        |   AND{ return p::Operator::and_; }
+        |   SHL{ return p::Operator::shl; }
+        |   SHR{ return p::Operator::shr; }
+        ;
+
+    Factor(ParsingContext* context, var std::unique_ptr<p::Node> node) : p::Node*
+        ::= 
+        (   
+            Primary(context):primary{ node.reset(primary); }
+            (   &(LBRACKET | DOT) Qualifier(context, node.release()):qualifier{ node.reset(qualifier); }
+            |   &LPAREN{ node.reset(new p::InvokeExprNode(lexer.GetSpan(pos), node.release())); } ArgumentList(context, node.get()):argumentList
+            )*
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    Primary(ParsingContext* context) : p::Node*
+        ::= Identifier:identifier{ return identifier; }
+        |   UnsignedConstant:unsignedConstant{ return unsignedConstant; }
+        |   LPAREN Expression(context):expression RPAREN { return new p::ParenthesizedExprNode(expression, lexer.GetSpan(pos)); }
+        |   NOT Factor(context):notFactor{ return new p::UnaryExprNode(p::Operator::not_, notFactor, lexer.GetSpan(pos)); }
+        |   Sign:sign Factor(context):signFactor{ return new p::UnaryExprNode(sign, signFactor, lexer.GetSpan(pos)); }
+        |   NewExpression(context):newExpression{ return newExpression; }
+        |   THIS{ return new p::ThisNode(lexer.GetSpan(pos)); }
+        |   BASE{ return new p::BaseNode(lexer.GetSpan(pos)); }
+        |   TypeName(context):typeName{ return typeName; }
+        ;
+
+    UnsignedConstant : p::Node*
+        ::= UnsignedNumber:unsignedNumber{ return unsignedNumber; }
+        |   CharacterString:characterString{ return p::MakeCharacterStringConstant(characterString, lexer.GetSpan(pos)); }
+        |   TRUE{ return new p::BooleanLiteralNode(true, lexer.GetSpan(pos)); }
+        |   FALSE{ return new p::BooleanLiteralNode(false, lexer.GetSpan(pos)); }
+        |   NIL{ return new p::NilNode(lexer.GetSpan(pos)); }
+        ;
+
+    UnsignedNumber : p::Node*
+        ::= INTEGER_LITERAL{ return p::ParseIntegerLiteral(lexer, lexer.GetToken(pos), lexer.GetSpan(pos)); }
+        |   REAL_LITERAL{ return p::ParseRealLiteral(lexer, lexer.GetToken(pos), lexer.GetSpan(pos)); }
+        ;
+
+    Sign : p::Operator
+        ::= PLUS{ return p::Operator::plus; }
+        |   MINUS{ return p::Operator::minus; }
+        ;
+
+    CharacterString(var std::unique_ptr<p::StringLiteralNode> node) : p::StringLiteralNode*
+        ::= 
+        (
+            empty{ node.reset(new p::StringLiteralNode(lexer.GetSpan(pos))); }
+            (   QUOTED_STRING{ node->Append(p::ParseQuotedString(lexer, lexer.GetToken(pos), lexer.GetSpan(pos))); }
+            |   CONTROL_STRING{ node->Append(p::ParseControlString(lexer, lexer.GetToken(pos), lexer.GetSpan(pos))); }
+            )+
+        )
+        {
+            return node.release();
+        }
+        ;
+
+    Qualifier(ParsingContext* context, p::Node* primary) : p::Node*
+        ::= Index(context, primary):index{ return index;}
+        |   MemberSelection(context, primary):memberSelection{ return memberSelection; }
+        ;
+
+    Index(ParsingContext* context, p::Node* primary, var std::unique_ptr<p::IndexExprNode> expr) : p::Node*
+        ::= 
+        (
+            LBRACKET{ expr.reset(new p::IndexExprNode(lexer.GetSpan(pos), primary)); } 
+            Expression(context):index{ expr->SetIndex(index); } 
+            RBRACKET
+        )
+        {
+            return expr.release();
+        }
+        ;
+
+    MemberSelection(ParsingContext* context, p::Node* primary, var std::unique_ptr<p::DotNode> expr) : p::Node*
+        ::= 
+        (
+            DOT{ expr.reset(new p::DotNode(lexer.GetSpan(pos), primary)); } 
+            Identifier:id{ expr->SetId(id); }
+        )
+        {
+            return expr.release();
+        }
+        ;
+
+    ArgumentList(ParsingContext* context, p::Node* owner)
+        ::= LPAREN{ context->PushParsingArguments(); }
+            (   Argument(context):first{ owner->AddNode(first); } 
+                (
+                    COMMA 
+                    Argument(context):next{ owner->AddNode(next); }
+                )*
+            )? 
+            RPAREN{ context->PopParsingArguments(); } / { context->PopParsingArguments(); }
+        ;
+
+    Argument(ParsingContext* context) : p::Node*
+        ::= Expression(context):expression{ return expression; }
+        ;
+
+    NewExpression(ParsingContext* context, var soul::ast::Span span) : p::Node*
+        ::= NEW{ span = lexer.GetSpan(pos); } TypeName(context):typeName{ span.Union(lexer.GetSpan(pos)); }
+        (   LBRACKET 
+            Expression(context):arraySize
+            RBRACKET
+            { 
+                span.Union(lexer.GetSpan(pos));
+                return new p::NewArrayExprNode(span, typeName, arraySize); 
+            }
+        |   empty{ return new p::NewExprNode(span, typeName); }
+        )
+        ;
+}

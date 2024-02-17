@@ -1,0 +1,62 @@
+<parserFile>
+ <grammar name="ProgramParser">
+  <rule first="{PROGRAM}" name="Program">
+   <action first="{PROGRAM}">
+    <group first="{PROGRAM}">
+     <sequence first="{PROGRAM}">
+      <sequence first="{PROGRAM}">
+       <sequence first="{PROGRAM}">
+        <sequence first="{PROGRAM}">
+         <sequence first="{PROGRAM}">
+          <sequence first="{PROGRAM}">
+           <action first="{PROGRAM}">
+            <token first="{PROGRAM}" name="PROGRAM"/>
+           </action>
+           <action first="{ID}">
+            <nonterminal first="{ID}" ruleName="UnitName"/>
+           </action>
+          </sequence>
+          <optional first="{#, LPAREN}">
+           <group first="{LPAREN}">
+            <action first="{LPAREN}">
+             <nonterminal first="{LPAREN}" ruleName="ProgramParameterList"/>
+            </action>
+           </group>
+          </optional>
+         </sequence>
+         <token first="{SEMICOLON}" name="SEMICOLON"/>
+        </sequence>
+        <optional first="{#, USES}">
+         <group first="{USES}">
+          <action first="{USES}">
+           <nonterminal first="{USES}" ruleName="UsesClause"/>
+          </action>
+         </group>
+        </optional>
+       </sequence>
+       <action first="{#, BEGIN, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}">
+        <nonterminal first="{#, BEGIN, CONST, CONSTRUCTOR, FUNCTION, PROCEDURE, TYPE, VAR}" ruleName="Block"/>
+       </action>
+      </sequence>
+      <token first="{DOT}" name="DOT"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+  <rule first="{LPAREN}" name="ProgramParameterList">
+   <action first="{LPAREN}">
+    <group first="{LPAREN}">
+     <sequence first="{LPAREN}">
+      <sequence first="{LPAREN}">
+       <token first="{LPAREN}" name="LPAREN"/>
+       <optional first="{#, ID}">
+        <nonterminal first="{ID}" ruleName="IdentifierList"/>
+       </optional>
+      </sequence>
+      <token first="{RPAREN}" name="RPAREN"/>
+     </sequence>
+    </group>
+   </action>
+  </rule>
+ </grammar>
+</parserFile>

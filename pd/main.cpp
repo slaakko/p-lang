@@ -3,26 +3,54 @@
 // Distributed under the MIT license
 // =================================
 
-import p;
+import p.lexer;
+import p.parser;
+import p.core;
+import p.binder;
+import p.ast;
 import util;
+import std.filesystem;
 import std.core;
 
-void Print(const std::string& filePath)
+void InitApplication()
 {
-    p::Heap heap;
-    p::ModuleMap moduleMap;
-    p::Module mod;
-    p::ExecutionContext context;
-    context.SetModuleMap(&moduleMap);
-    context.SetHeap(&heap);
-    mod.Load(filePath, &context);
-    moduleMap.AddModule(&mod);
-    mod.Resolve(&context);
-    if (!mod.GetImplementationPart())
+    util::Init();
+}
+
+void TerminateApplication()
+{
+    util::Done();
+}
+
+std::unique_ptr<p::SymbolTable> Read(const std::string& pcodeFilePath, p::Context* context)
+{
+    p::SymbolReader reader(pcodeFilePath);
+    reader.SetContext(context);
+    reader.ReadHeader();
+    std::unique_ptr<p::SymbolTable> symbolTable(new p::SymbolTable());
+    symbolTable->Read(reader);
+    symbolTable->Resolve();
+    return symbolTable;
+}
+
+void Print(const std::string& filePath, bool verbose)
+{
+    std::string txtFilePath = filePath + ".txt";
+    std::ofstream txtFile(txtFilePath);
+    util::CodeFormatter formatter(txtFile);
+    formatter.SetIndentSize(2);
+    if (verbose)
     {
-        throw std::runtime_error("error: module '" + filePath + "' does not contain implementation part");
+        std::cout << "Printing " << filePath << " to " << txtFilePath << "...\n";
     }
-    mod.Print(filePath + ".txt", &context);
+    soul::ast::Span span;
+    p::Init(filePath, span);
+    p::ExecutionContext context;
+    p::UnitLoader loader;
+    context.SetUnitLoader(&loader);
+    std::unique_ptr<p::SymbolTable> symbolTable = Read(filePath, &context);
+    context.SetSymbolTable(symbolTable.get());
+    symbolTable->Print(formatter, &context);
 }
 
 void PrintHelp()
@@ -41,21 +69,22 @@ int main(int argc, const char** argv)
 {
     try
     {
+        InitApplication();
         bool verbose = false;
-        std::vector<std::string> files;
+        std::vector<std::string> filePaths;
         for (int i = 1; i < argc; ++i)
         {
             std::string arg = argv[i];
             if (arg.starts_with("--"))
             {
-                if (arg == "--verbose")
-                {
-                    verbose = true;
-                }
-                else if (arg == "--help")
+                if (arg == "--help")
                 {
                     PrintHelp();
                     return 0;
+                }
+                else if (arg == "--verbose")
+                {
+                    verbose = true;
                 }
                 else
                 {
@@ -64,20 +93,20 @@ int main(int argc, const char** argv)
             }
             else if (arg.starts_with("-"))
             {
-                std::string options = arg.substr(1);
+                std::string options(arg.substr(1));
                 for (char o : options)
                 {
                     switch (o)
                     {
-                        case 'v':
-                        {
-                            verbose = true;
-                            break;
-                        }
                         case 'h':
                         {
                             PrintHelp();
                             return 0;
+                        }
+                        case 'v':
+                        {
+                            verbose = true;
+                            break;
                         }
                         default:
                         {
@@ -88,28 +117,23 @@ int main(int argc, const char** argv)
             }
             else
             {
-                files.push_back(arg);
+                filePaths.push_back(arg);
             }
         }
-        if (files.size() != 1)
+        if (filePaths.empty())
         {
-            throw std::runtime_error("one file argument expected");
+            throw std::runtime_error("file path argument not given");
         }
-        const std::string& filePath = files[0];
-        if (verbose)
+        for (const auto& filePath : filePaths)
         {
-            std::cout << "> " << filePath << "\n";
-        }
-        Print(filePath);
-        if (verbose)
-        {
-            std::cout << "==> " << filePath  + ".txt" << "\n";
+            Print(util::GetFullPath(filePath), verbose);
         }
     }
     catch (const std::exception& ex)
     {
-        std::cerr << ex.what() << std::endl;
+        std::cerr << ex.what() << "\n";
         return 1;
     }
+    TerminateApplication();
     return 0;
 }

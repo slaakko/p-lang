@@ -3065,7 +3065,7 @@ procedure MakeDiagrams();
     procedureHeading, functionHeading, constructorHeading: RuleBox;
     semicolon1, semicolon2: Terminal;
     gap1: Gap;
-    virtuality1, virtuality2: RuleBox;
+    virtual1, virtual2: RuleBox;
     out: Out;
   begin
     title := new DiagramTitle('method-heading');
@@ -3086,8 +3086,8 @@ procedure MakeDiagrams();
     diagram.AddShape(1, 5, semicolon1);
     gap1 := new Gap();
     diagram.AddShape(1, 6, gap1);
-    virtuality1 := new RuleBox('virtuality');
-    diagram.AddShape(1, 7, virtuality1);
+    virtual1 := new RuleBox('virtual');
+    diagram.AddShape(1, 7, virtual1);
     branch4 := new Branch();
     diagram.AddShape(0, 8, branch4);
     branch5 := new Branch();
@@ -3101,8 +3101,8 @@ procedure MakeDiagrams();
     diagram.AddConnector(new SyntaxArrow(branch1, functionHeading, south, east));
     diagram.AddConnector(new SyntaxArrow(functionHeading, branch2, east, north));
     diagram.AddConnector(new SyntaxArrow(branch3, semicolon1, south, east));
-    diagram.AddConnector(new SyntaxArrow(semicolon1, virtuality1, east, noDir));
-    diagram.AddConnector(new SyntaxArrow(virtuality1, branch4, east, north));
+    diagram.AddConnector(new SyntaxArrow(semicolon1, virtual1, east, noDir));
+    diagram.AddConnector(new SyntaxArrow(virtual1, branch4, east, north));
     diagram.AddConnector(new SyntaxArrow(branch0, constructorHeading, south, east));
     diagram.AddConnector(new SyntaxArrow(constructorHeading, branch5, east, north));
     AddDiagram(diagram);
@@ -3116,8 +3116,8 @@ procedure MakeDiagrams();
     virtualKeyword, overrideKeyword: Keyword;
     out: Out;
   begin
-    title := new DiagramTitle('virtuality');
-    diagram := new Diagram(title, 'virtuality.png');
+    title := new DiagramTitle('virtual_');
+    diagram := new Diagram(title, 'virtual_.png');
     branch1 := new Branch();
     diagram.AddShape(0, 0, branch1);
     virtualKeyword := new Keyword('virtual');
@@ -4656,7 +4656,7 @@ var
   graphics: Graphics;
   dir, filePath: string;
 begin
-  dir := 'C:/work/p-lang/doc/image/';
+  dir := '../doc/image_temp/';
   for i := 0 to diagramCount - 1 do 
   begin
     diagram := diagrams[i];
