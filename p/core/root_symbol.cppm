@@ -29,7 +29,11 @@ public:
     void MakeVmts() override;
     void CheckDefined() override;
     void Print(util::CodeFormatter& formatter, bool full, ExecutionContext* context) override;
+    bool IsUpToDate(Context* context) const;
+    void AddUsedUnitName(const std::string& usedUnitName);
+    const std::vector<std::string>& UsedUnitNames() const { return usedUnitNames; }
 private:
+    std::vector<std::string> usedUnitNames;
     std::string sourceFilePath;
     std::string pcodeFilePath;
     std::unique_ptr<BlockSymbol> rootBlock;

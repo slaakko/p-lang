@@ -19,65 +19,65 @@ block 'System'
   id: 00000000-0000-0000-0000-000000000007
   ord 'Ord'
   flags: standard
-  id: 8794f45d-4f01-7a24-46a6-a63d528200fe
+  id: 95f361e1-2998-ed46-6812-588ab6d4cf76
   frame size: 0
   chr 'Chr'
   flags: standard
-  id: 93a08982-fa44-eda3-985c-a0329405d9fd
+  id: 76b9cbf7-da15-2b46-2567-d12520667e68
   frame size: 0
   sin 'Sin'
   flags: standard
-  id: add240bb-f9d0-0885-4261-321a42aed3ee
+  id: 7d7b6a7a-22f7-d11f-a20d-88fffd3c1b29
   frame size: 0
   cos 'Cos'
   flags: standard
-  id: d1c7b02c-5fc3-99db-d0f0-3e6584e24cf3
+  id: 9c33b82f-9528-8439-5406-42a696bb587c
   frame size: 0
   arcTan 'ArcTan'
   flags: standard
-  id: 5ede86dd-12af-554b-7c62-08f95645d152
+  id: 71a7bdbf-5505-8824-1906-d018124b80cb
   frame size: 0
   sqrt 'Sqrt'
   flags: standard
-  id: 1f2c467e-8a3a-4ca1-c5d6-6e9fd9c416a7
+  id: 0965c665-258d-2345-c720-c16cf2f115de
   frame size: 0
   abs 'Abs'
   flags: standard
-  id: 298b1052-9a18-1ae2-60ae-19de661beddb
+  id: 4595ed87-f1c7-ba0c-121a-5a2cdc770f5d
   frame size: 0
   succ 'Succ'
   flags: standard
-  id: 08e026e5-3f30-652d-6952-d3a56ee5b3d5
+  id: 72d95748-2aa7-ab91-98c9-4e73b97ed0bc
   frame size: 0
   pred 'Pred'
   flags: standard
-  id: 26307769-9a48-69a8-5c86-56e62c4addb3
+  id: 85bb8337-3cae-4261-4c4f-0620390cc5b1
   frame size: 0
   min 'Min'
   flags: standard
-  id: ee253edb-6033-1f04-ef28-d65d601e94c7
+  id: 4609684e-d580-ea9a-682f-f6c01e276bac
   frame size: 0
   max 'Max'
   flags: standard
-  id: a718f8dc-bcb4-6252-904f-5d14361907c9
+  id: c375f8b3-4a3a-b0b1-3910-d79e532bd7c8
   frame size: 0
   write 'Write'
   flags: standard
-  id: e1eb18fb-1000-c847-736d-666804d6cecc
+  id: 0befceac-05c1-2d44-5c39-824ce1453eb6
   frame size: 0
   writeln 'Writeln'
   flags: standard
-  id: 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6
+  id: ddc05cad-8fca-213c-fdd3-db7c36142352
   frame size: 0
-  unit part 'interface_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  unit part 'interface_2B16E7E4AE9259EC50CD15A48D79A21CD2ED8B46'
   unit part: inteface
-  block 'interface_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  block 'interface_2B16E7E4AE9259EC50CD15A48D79A21CD2ED8B46'
     subrange type 'Byte'
-    id: 166420de-a070-d7c4-d1fa-54c64e64244d
+    id: bccda794-4964-e3a7-b60a-eaa8090fd59b
     range start: 0
     range end: 255
     constant 'pi'
-    id: 4baf80c2-39cc-6725-3d1e-d0b8bb1ff86a
+    id: ffe18829-daf4-50fc-27f8-abd4cb49b73d
     type: real type 'real'
     id: 00000000-0000-0000-0000-000000000004
     function 'IntToString'
@@ -91,7 +91,7 @@ block 'System'
       id: 00000000-0000-0000-0000-000000000005
       index: 1
     flags: external defined
-    id: 82f5ef43-8897-1a59-00e3-b76fa01a2df0
+    id: f2343727-7027-98ee-1fe4-b9e96cc55aa9
     level: 1
     external subroutine id: 01000000-0000-0000-0000-000000000002
     frame size: 0
@@ -106,7 +106,7 @@ block 'System'
       id: 00000000-0000-0000-0000-000000000005
       index: 1
     flags: external defined
-    id: 17a41d8f-cb2d-01ef-5bb5-d65caf8092f0
+    id: d805a5be-c492-a129-5e7e-f88c77fd18d6
     level: 1
     external subroutine id: 01000000-0000-0000-0000-000000000003
     frame size: 0
@@ -121,7 +121,7 @@ block 'System'
       id: 00000000-0000-0000-0000-000000000002
       index: 1
     flags: external defined
-    id: 2bd2423e-e617-8aa6-7364-c04e19104836
+    id: 1634f3c6-c0c8-e8c0-a64c-723da19fa37f
     level: 1
     external subroutine id: 01000000-0000-0000-0000-000000000004
     frame size: 0
@@ -136,7 +136,7 @@ block 'System'
       id: 00000000-0000-0000-0000-000000000004
       index: 1
     flags: external defined
-    id: 48a80c5f-b688-dc7e-b0c8-844b9334c974
+    id: 829e2158-50af-1cf3-b7a0-777e6c0bf10a
     level: 1
     external subroutine id: 01000000-0000-0000-0000-000000000005
     frame size: 0
@@ -149,13 +149,13 @@ block 'System'
       constructor 'constructor'['StringBuilder.constructor']
         parameter 'this'
         type: object type 'StringBuilder'
-        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        id: e16eb6e0-4cd9-5fbd-40f6-70674efe3de8
         index: 0
         qualifier: value
         block '@StringBuilder.constructor'
         level: 1
       flags: defined
-      id: 83a71208-d007-61b6-d7bd-f428ce32afd1
+      id: af05c3b9-1d28-c2c2-db46-baf63d902496
       level: 1
       block '@StringBuilder.constructor'
       level: 1
@@ -168,18 +168,18 @@ block 'System'
       procedure 'Clear'['StringBuilder.Clear']
         parameter 'this'
         type: object type 'StringBuilder'
-        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        id: e16eb6e0-4cd9-5fbd-40f6-70674efe3de8
         index: 0
         qualifier: value
       flags: external defined
-      id: 436b16c9-4c37-82ab-5164-0d088d986c47
+      id: f8d72fe4-c731-6265-22ae-c40f07e88acc
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000007
       frame size: 0
       procedure 'AppendStr'['StringBuilder.AppendStr']
         parameter 'this'
         type: object type 'StringBuilder'
-        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        id: e16eb6e0-4cd9-5fbd-40f6-70674efe3de8
         index: 0
         qualifier: value
         parameter 's'
@@ -188,14 +188,14 @@ block 'System'
         index: 1
         qualifier: value
       flags: external defined
-      id: efdf0f2f-6b07-6f7a-fad9-d357383e0e19
+      id: c8e41497-43ae-70d7-66ec-bfdc1a23ae0b
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000008
       frame size: 0
       procedure 'AppendChar'['StringBuilder.AppendChar']
         parameter 'this'
         type: object type 'StringBuilder'
-        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        id: e16eb6e0-4cd9-5fbd-40f6-70674efe3de8
         index: 0
         qualifier: value
         parameter 'c'
@@ -204,14 +204,14 @@ block 'System'
         index: 1
         qualifier: value
       flags: external defined
-      id: 57f82b52-bd6b-f5fe-6fd2-8c3579502b23
+      id: fc010964-8c5d-1e9a-fe09-54f66a569f2a
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000009
       frame size: 0
       function 'GetString'['StringBuilder.GetString']
         parameter 'this'
         type: object type 'StringBuilder'
-        id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+        id: e16eb6e0-4cd9-5fbd-40f6-70674efe3de8
         index: 0
         qualifier: value
         variable '@result'
@@ -219,11 +219,11 @@ block 'System'
         id: 00000000-0000-0000-0000-000000000005
         index: 1
       flags: external defined
-      id: da654440-7951-bad2-edb3-9b0bc3ee595d
+      id: d8efc1d3-4a24-c7c9-9c10-2e99f4027951
       level: 1
       external subroutine id: 01000000-0000-0000-0000-00000000000a
       frame size: 0
-    id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+    id: e16eb6e0-4cd9-5fbd-40f6-70674efe3de8
     procedure 'Panic'
       parameter 'message'
       type: string type 'string'
@@ -231,28 +231,28 @@ block 'System'
       index: 0
       qualifier: value
     flags: external defined
-    id: d39d088e-b64c-ad11-666f-9035c18179d4
+    id: 551fdaa3-358d-47a5-0d21-3ff05ee0bb16
     level: 1
     external subroutine id: 01000000-0000-0000-0000-000000000001
     frame size: 0
   level: 0
-  unit part 'implementation_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  unit part 'implementation_2B16E7E4AE9259EC50CD15A48D79A21CD2ED8B46'
   unit part: implementation
-  block 'implementation_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  block 'implementation_2B16E7E4AE9259EC50CD15A48D79A21CD2ED8B46'
     procedure 'InitStringBuilder'
       parameter 's'
       type: object type 'StringBuilder'
-      id: fe94eb19-faaa-dc1b-9d53-e026e7d6e564
+      id: e16eb6e0-4cd9-5fbd-40f6-70674efe3de8
       index: 0
       qualifier: value
     flags: external defined
-    id: daf24712-3c28-d8f4-eb4a-53fcd0797455
+    id: f9c7d32f-ac15-b576-f6b6-49304640eff5
     level: 1
     external subroutine id: 01000000-0000-0000-0000-000000000006
     frame size: 0
   level: 0
-  unit part 'initialization_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  unit part 'initialization_2B16E7E4AE9259EC50CD15A48D79A21CD2ED8B46'
   unit part: initialization
-  block 'initialization_8796B4FD3D888A813F26A305C5B6695BE6F1740D'
+  block 'initialization_2B16E7E4AE9259EC50CD15A48D79A21CD2ED8B46'
   level: 0
 level: 0

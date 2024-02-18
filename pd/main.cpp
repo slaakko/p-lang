@@ -51,6 +51,10 @@ void Print(const std::string& filePath, bool verbose)
     std::unique_ptr<p::SymbolTable> symbolTable = Read(filePath, &context);
     context.SetSymbolTable(symbolTable.get());
     symbolTable->Print(formatter, &context);
+    if (verbose)
+    {
+        std::cout << "==> " << txtFilePath << "\n";
+    }
 }
 
 void PrintHelp()

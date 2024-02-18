@@ -1,12 +1,19 @@
-module Minimal, id=1418421296
-implementation
-uses System
-procedure '@program'
-definition
-module id 1418421296
-id 1
-frame size: 0
-code
-  0 : receive(0)
-  1 : nop
-
+program 'Minimal'
+  global variable map:
+uses: System
+source file path: C:/work/p-lang/prog/Minimal.p
+pcode file path: C:/work/p-lang/prog/Minimal.pcode
+block 'Minimal'
+  procedure '@program'
+    block '@@program'
+    level: 0
+  flags: generated
+  id: 37aff58c-374c-77a1-3722-07ba745830b1
+  level: 0
+  block '@@program'
+  level: 0
+  frame size: 0
+  code
+    0 : receive(0)
+    1 : nop
+level: 0

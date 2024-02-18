@@ -45,7 +45,6 @@ public:
     void MakeVmts();
     void CheckDefined();
     void RunInits(ExecutionContext* context);
-    void AddUsedUnitName(const std::string& usedUnitName);
     void Print(util::CodeFormatter& formatter, ExecutionContext* context);
 private:
     std::unique_ptr<RootSymbol> root;
@@ -56,7 +55,6 @@ private:
     std::map<util::uuid, SubroutineSymbol*> subroutineIdMap;
     std::vector<Symbol*> symbols;
     std::vector<SymbolTable*> importedUnits;
-    std::vector<std::string> usedUnitNames;
     bool initRun;
 };
 

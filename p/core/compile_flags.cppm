@@ -31,5 +31,6 @@ constexpr CompileFlags operator~(CompileFlags flags)
 
 void SetCompileFlags(CompileFlags flags);
 CompileFlags GetCompileFlags();
+bool GetCompileFlag(CompileFlags flag);
 
 } // namespace p

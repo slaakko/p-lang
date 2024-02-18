@@ -24,7 +24,7 @@ void TypeBinder::Visit(ProgramNode& node)
 {
     symbolTable->SetRoot(new ProgramSymbol(node.Span(), node.UnitName()->Name(), node.FilePath()));
     context->GetUnitLoader()->ImportUnit("System", symbolTable->Root(), context);
-    symbolTable->AddUsedUnitName("System");
+    symbolTable->Root()->AddUsedUnitName("System");
     MakeOperatorFunctions(symbolTable.get(), node.FilePath(), node.Span());
     if (node.Uses())
     {
@@ -76,7 +76,7 @@ void TypeBinder::Visit(UnitPartNode& node)
     if (symbolTable->Root()->Name() != "System")
     {
         context->GetUnitLoader()->ImportUnit("System", symbolTable->Root(), context);
-        symbolTable->AddUsedUnitName("System");
+        symbolTable->Root()->AddUsedUnitName("System");
     }
     MakeOperatorFunctions(symbolTable.get(), node.FilePath(), node.Span());
     if (node.Uses())
@@ -118,7 +118,7 @@ void TypeBinder::Visit(UnitNameNode& node)
 {
     if (node.Name() == "System") return;
     context->GetUnitLoader()->ImportUnit(node.Name(), symbolTable->Root(), context);
-    symbolTable->AddUsedUnitName(node.Name());
+    symbolTable->Root()->AddUsedUnitName(node.Name());
 }
 
 void TypeBinder::Visit(UnitNameListNode& node) 

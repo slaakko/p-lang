@@ -12,7 +12,7 @@ import p.core.instruction;
 
 namespace p {
 
-SymbolReader::SymbolReader(const std::string& filePath_) : AstReader(filePath_), symbolTable(nullptr), context(nullptr)
+SymbolReader::SymbolReader(const std::string& filePath_) : AstReader(filePath_), symbolTable(nullptr), context(nullptr), readOnlyHeader(false)
 {
 }
 

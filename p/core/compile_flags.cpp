@@ -19,5 +19,10 @@ CompileFlags GetCompileFlags()
     return compileFlags;
 }
 
+bool GetCompileFlag(CompileFlags flag)
+{
+    return (compileFlags & flag) != CompileFlags::none;
+}
+
 } // namespace p
 

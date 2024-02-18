@@ -38,8 +38,33 @@ void PrintHelp()
     std::cout << "\n";
 }
 
+void CompileUnit(const std::string& sourceFilePath, p::Context* context)
+{
+    if (context->Verbose())
+    {
+        std::cout << "> " << sourceFilePath << "\n";
+    }
+    std::unique_ptr<p::Node> node = p::ParsePLangSourceFile(sourceFilePath);
+    p::TypeBinder typeBinder(context);
+    node->Accept(typeBinder);
+    p::SymbolTable* symbolTable = typeBinder.GetSymbolTable();
+    symbolTable->MakeVmts();
+    symbolTable->CheckDefined();
+    p::SymbolWriter writer(symbolTable->Root()->PCodeFilePath());
+    writer.WriteHeader();
+    symbolTable->Write(writer);
+    if (context->Verbose())
+    {
+        std::cout << "==> " << symbolTable->Root()->SourceFilePath() << "\n";
+    }
+}
+
 void Compile(const std::string& file, bool verbose)
 {
+    if (verbose)
+    {
+        std::cout << "> " << file << "\n";
+    }
     std::unique_ptr<p::Node> node = p::ParsePLangSourceFile(file);
     p::Init(file, node->Span());
     p::UnitLoader loader;
@@ -70,6 +95,7 @@ int main(int argc, const char** argv)
     {
         InitApplication();
         p::ParserLibInit();
+        p::SetCompileUnitFunc(CompileUnit);
         p::CompileFlags flags = p::CompileFlags::none;
         bool verbose = false;
         std::vector<std::string> files;
@@ -142,10 +168,6 @@ int main(int argc, const char** argv)
         p::SetCompileFlags(flags);
         for (const auto& file : files)
         {
-            if (verbose)
-            {
-                std::cout << "> " << file << "\n";
-            }
             Compile(file, verbose);
         }
     }

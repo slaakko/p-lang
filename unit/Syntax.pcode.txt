@@ -1,92 +1,95 @@
 unit 'Syntax'
   global variable map:
-  04abe05b-e1ba-878f-a13d-a6a92d0bcfb2: variable 'blackBrush'
-  22e2cd97-9e3c-2d8e-8f91-7e85d5df056d: variable 'boldFont'
-  6440b14c-a53a-4da1-5664-1007ce89480f: variable 'titlePadding'
-  690aa83f-0ba5-e78b-dcaf-f22648bf8744: variable 'white'
-  9cd18c08-88fc-5d6e-b7d3-8d26058b4c5f: variable 'black'
-  ab5ed61c-f34e-3c1d-f685-3f976a2c2a32: variable 'ruleBoxPadding'
-  b11e1c45-808e-840c-b52f-dbd72eca9d32: variable 'terminalPadding'
-  ce0ef9ef-69a2-4916-1402-a905109bfc80: variable 'cellPadding'
-  d4baf0b9-3e58-3f17-12d2-97892e0a2604: variable 'noPadding'
-  d8dcaf58-67cc-db93-3cdf-98b5406553a6: variable 'font'
-  e475336a-4d62-4e70-31f4-64257e48798a: variable 'diagramPadding'
-  e5f9c595-5f08-3861-839e-2785753b0f8f: variable 'keywordPadding'
-  f41e70ad-505c-989f-3f51-159328d573f7: variable 'blackPen'
-  04abe05b-e1ba-878f-a13d-a6a92d0bcfb2: 9
-  22e2cd97-9e3c-2d8e-8f91-7e85d5df056d: 1
-  6440b14c-a53a-4da1-5664-1007ce89480f: 3
-  690aa83f-0ba5-e78b-dcaf-f22648bf8744: 10
-  9cd18c08-88fc-5d6e-b7d3-8d26058b4c5f: 11
-  ab5ed61c-f34e-3c1d-f685-3f976a2c2a32: 4
-  b11e1c45-808e-840c-b52f-dbd72eca9d32: 5
-  ce0ef9ef-69a2-4916-1402-a905109bfc80: 7
-  d4baf0b9-3e58-3f17-12d2-97892e0a2604: 2
-  d8dcaf58-67cc-db93-3cdf-98b5406553a6: 0
-  e475336a-4d62-4e70-31f4-64257e48798a: 8
-  e5f9c595-5f08-3861-839e-2785753b0f8f: 6
-  f41e70ad-505c-989f-3f51-159328d573f7: 12
+  01dc8bd4-0e39-a9a7-016a-c37bf18ca520: variable 'boldFont'
+  13b63df5-995a-ff8e-a678-6cfc4523d82a: variable 'terminalPadding'
+  2477c360-b881-a980-e82f-ee3deb14a13d: variable 'font'
+  2686d114-226b-5f5a-459b-b2eba5e7378f: variable 'cellPadding'
+  35bdf4f1-2218-0024-f38b-885f804b1051: variable 'titlePadding'
+  39092989-510f-e648-6b1b-cf2ba7624e57: variable 'diagramPadding'
+  3c6e86d1-cabd-7c8e-25eb-408ea1c5f761: variable 'black'
+  4af91244-c30a-dd25-08c6-d1a962e1635d: variable 'blackBrush'
+  799a2a13-050c-f44b-cf62-1e98a456ac67: variable 'ruleBoxPadding'
+  9fb06835-9718-ac5f-3e37-8caac6668076: variable 'keywordPadding'
+  afd18d20-c068-f164-427b-49c334db141c: variable 'white'
+  de352128-0e45-984c-758e-232e7cfcf1bf: variable 'blackPen'
+  fed3d93f-c59c-429e-ca50-f39c25bee46b: variable 'noPadding'
+  01dc8bd4-0e39-a9a7-016a-c37bf18ca520: 1
+  13b63df5-995a-ff8e-a678-6cfc4523d82a: 5
+  2477c360-b881-a980-e82f-ee3deb14a13d: 0
+  2686d114-226b-5f5a-459b-b2eba5e7378f: 7
+  35bdf4f1-2218-0024-f38b-885f804b1051: 3
+  39092989-510f-e648-6b1b-cf2ba7624e57: 8
+  3c6e86d1-cabd-7c8e-25eb-408ea1c5f761: 9
+  4af91244-c30a-dd25-08c6-d1a962e1635d: 10
+  799a2a13-050c-f44b-cf62-1e98a456ac67: 4
+  9fb06835-9718-ac5f-3e37-8caac6668076: 6
+  afd18d20-c068-f164-427b-49c334db141c: 11
+  de352128-0e45-984c-758e-232e7cfcf1bf: 12
+  fed3d93f-c59c-429e-ca50-f39c25bee46b: 2
+uses: System
+uses: System.Graphics.Primitive
+uses: System.Graphics
 source file path: C:/work/p-lang/unit/Syntax.p
 pcode file path: C:/work/p-lang/unit/Syntax.pcode
 block 'Syntax'
-  unit part 'interface_479D95CC47177BA7DD2049B2E2CADCB8C6BE21F0'
+  unit part 'interface_73AE1B30DA2A319C45717B495180A6A90CA8345E'
     variable 'font'
     type: object type 'Font'
-    id: 643ee39e-862c-afea-2fe4-4cd8f4a397b3
+    id: 96e48e5e-58ad-7a15-8853-c8bb796c1965
     global
-    global id: d8dcaf58-67cc-db93-3cdf-98b5406553a6
+    global id: 2477c360-b881-a980-e82f-ee3deb14a13d
     variable 'boldFont'
     type: object type 'Font'
-    id: 643ee39e-862c-afea-2fe4-4cd8f4a397b3
+    id: 96e48e5e-58ad-7a15-8853-c8bb796c1965
     global
-    global id: 22e2cd97-9e3c-2d8e-8f91-7e85d5df056d
+    global id: 01dc8bd4-0e39-a9a7-016a-c37bf18ca520
     variable 'noPadding'
     type: object type 'Padding'
-    id: efabcaa4-b867-6d01-d328-946f95339057
+    id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
     global
-    global id: d4baf0b9-3e58-3f17-12d2-97892e0a2604
+    global id: fed3d93f-c59c-429e-ca50-f39c25bee46b
     variable 'titlePadding'
     type: object type 'Padding'
-    id: efabcaa4-b867-6d01-d328-946f95339057
+    id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
     global
-    global id: 6440b14c-a53a-4da1-5664-1007ce89480f
+    global id: 35bdf4f1-2218-0024-f38b-885f804b1051
     variable 'ruleBoxPadding'
     type: object type 'Padding'
-    id: efabcaa4-b867-6d01-d328-946f95339057
+    id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
     global
-    global id: ab5ed61c-f34e-3c1d-f685-3f976a2c2a32
+    global id: 799a2a13-050c-f44b-cf62-1e98a456ac67
     variable 'terminalPadding'
     type: object type 'Padding'
-    id: efabcaa4-b867-6d01-d328-946f95339057
+    id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
     global
-    global id: b11e1c45-808e-840c-b52f-dbd72eca9d32
+    global id: 13b63df5-995a-ff8e-a678-6cfc4523d82a
     variable 'keywordPadding'
     type: object type 'Padding'
-    id: efabcaa4-b867-6d01-d328-946f95339057
+    id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
     global
-    global id: e5f9c595-5f08-3861-839e-2785753b0f8f
+    global id: 9fb06835-9718-ac5f-3e37-8caac6668076
     variable 'cellPadding'
     type: object type 'Padding'
-    id: efabcaa4-b867-6d01-d328-946f95339057
+    id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
     global
-    global id: ce0ef9ef-69a2-4916-1402-a905109bfc80
+    global id: 2686d114-226b-5f5a-459b-b2eba5e7378f
     variable 'diagramPadding'
     type: object type 'Padding'
-    id: efabcaa4-b867-6d01-d328-946f95339057
+    id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
     global
-    global id: e475336a-4d62-4e70-31f4-64257e48798a
+    global id: 39092989-510f-e648-6b1b-cf2ba7624e57
   unit part: inteface
-  block 'interface_479D95CC47177BA7DD2049B2E2CADCB8C6BE21F0'
+  block 'interface_73AE1B30DA2A319C45717B495180A6A90CA8345E'
     constant 'roundingRadius'
-    id: f7cdf4c8-0388-754e-35f3-e20238216e91
+    id: 17e82392-38c5-687a-e8c5-3cd15ece0b1f
     type: real type 'real'
     id: 00000000-0000-0000-0000-000000000004
     constant 'gapWidth'
-    id: 7e467f5f-31c6-5807-0952-36b9f8b191c7
+    id: 14360d98-34d8-f367-0714-76cd96a2644d
     type: real type 'real'
     id: 00000000-0000-0000-0000-000000000004
     constant 'branchWidth'
-    id: 2acdd94a-e246-0ce1-b5b9-40c0183c2aac
+    id: 3ff0865d-d973-ada6-0f21-98ff6047cb4e
     type: real type 'real'
     id: 00000000-0000-0000-0000-000000000004
     object type 'SyntaxShape'
@@ -99,27 +102,27 @@ block 'Syntax'
       index: 1
       field 'components'['SyntaxShape.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['SyntaxShape.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['SyntaxShape.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       constructor group '@constructor_group'['SyntaxShape.@constructor_group']
       constructor 'constructor'['SyntaxShape.constructor']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         block '@SyntaxShape.constructor'
         level: 1
       flags: defined
-      id: 6f2a602f-6b61-4b44-caf7-b3d11146dfed
+      id: bce6850d-0dc1-60a3-86ff-fd2b4af73a9e
       level: 1
       block '@SyntaxShape.constructor'
       level: 1
@@ -127,24 +130,24 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : load_global(d4baf0b9-3e58-3f17-12d2-97892e0a2604)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(fed3d93f-c59c-429e-ca50-f39c25bee46b)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : nop
       constructor 'constructor'['SyntaxShape.constructor']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         parameter 'padding'
         type: object type 'Padding'
-        id: efabcaa4-b867-6d01-d328-946f95339057
+        id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
         index: 1
         qualifier: value
         block '@SyntaxShape.constructor'
         level: 1
       flags: defined
-      id: f4356840-5cdb-2a53-35a0-29ee38eab686
+      id: c5770d76-ed9e-93d5-1911-71730fd14e9c
       level: 1
       block '@SyntaxShape.constructor'
       level: 1
@@ -152,9 +155,9 @@ block 'Syntax'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : call_ctor(CompoundShape.constructor, c8aa5f72-1d81-10e0-5f01-7d6c6c5507b8)
+        2 : call_ctor(CompoundShape.constructor, 81c4b2f7-893d-7f7d-ee5d-ff85518bfba4)
         3 : new_object(Rect)
-        4 : call_ctor(Rect.constructor, 012b255b-6a38-fc12-2c64-6d1531af1f4b)
+        4 : call_ctor(Rect.constructor, b4563fd2-251e-8121-11fa-e93921ff5f9c)
         5 : load_local(0)
         6 : store_field(3)
         7 : load_local(1)
@@ -164,13 +167,13 @@ block 'Syntax'
       procedure 'Print'['SyntaxShape.Print']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         block '@SyntaxShape.Print'
         level: 1
       flags: defined
-      id: bd224f14-49d1-0b7d-64a3-e3ef89882780
+      id: 50e15ad0-e68a-d528-0638-734a3a946f6d
       level: 1
       VMT index: 0
       virtual: override
@@ -180,33 +183,33 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : call_subroutine(CompoundShape.Print, 578be26c-c56b-9d8a-ff1e-c7aa3564c02d, 1)
+        2 : call_subroutine(CompoundShape.Print, 6e6ecaf7-ae16-9611-9749-d2f2d34b0d3a, 1)
         3 : push_value('bounds: ')
-        4 : call_subroutine(Write, e1eb18fb-1000-c847-736d-666804d6cecc, 1)
+        4 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 1)
         5 : load_local(0)
         6 : load_field(3)
-        7 : call_subroutine(Rect.Print, b03b0bb1-56ae-9cc3-025a-d38536bdaabf, 1)
+        7 : call_subroutine(Rect.Print, 68bc08c3-9a82-7cb6-82a8-3010d926f665, 1)
         8 : push_value('padding: ')
-        9 : call_subroutine(Write, e1eb18fb-1000-c847-736d-666804d6cecc, 1)
+        9 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 1)
         10 : load_local(0)
         11 : load_field(4)
-        12 : call_subroutine(Padding.Print, bd546c39-9138-1a26-5ceb-e881aad6377f, 1)
+        12 : call_subroutine(Padding.Print, 979b6126-60ff-8dcf-0a0f-c195782c3b59, 1)
         13 : nop
       procedure 'Measure'['SyntaxShape.Measure']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@SyntaxShape.Measure'
         level: 1
       flags: defined
-      id: 9968b694-da3e-539c-f96d-89b45ff3d1bf
+      id: 028c22a9-da3d-4982-aa5e-66f7bc04ce30
       level: 1
       VMT index: 1
       virtual: override
@@ -217,14 +220,14 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(CompoundShape.Measure, f7d15e1c-3845-01d6-5ff7-2d578cc49138, 2)
+        3 : call_subroutine(CompoundShape.Measure, 18ef789d-0fdc-f5da-95f4-4ad59f272bda, 2)
         4 : load_local(0)
         5 : load_field(3)
         6 : load_field(1)
         7 : load_field(0)
         8 : load_local(0)
         9 : load_field(4)
-        10 : call_subroutine(Padding.Horizontal, cfcf7bd0-5772-27eb-880c-96cd10cb40b2, 1)
+        10 : call_subroutine(Padding.Horizontal, 4cf05f83-3f35-c369-bc77-54fe493b4a60, 1)
         11 : plus_real
         12 : load_local(0)
         13 : load_field(3)
@@ -236,7 +239,7 @@ block 'Syntax'
         19 : load_field(1)
         20 : load_local(0)
         21 : load_field(4)
-        22 : call_subroutine(Padding.Vertical, e4153626-2e93-cbe6-a3a6-122999422e98, 1)
+        22 : call_subroutine(Padding.Vertical, 62e24e03-901d-2b69-3723-524f0cc94e2d, 1)
         23 : plus_real
         24 : load_local(0)
         25 : load_field(3)
@@ -246,17 +249,17 @@ block 'Syntax'
       function 'Bounds'['SyntaxShape.Bounds']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Rect'
-        id: eb891895-b770-8c28-25f1-2e8f142014d9
+        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
         index: 1
         block '@SyntaxShape.Bounds'
         level: 1
       flags: defined
-      id: 6a21fda3-2c19-8bd7-b757-c10643141742
+      id: 60e70ed5-5cc5-1195-6580-7d22b339cace
       level: 1
       VMT index: 3
       virtual: override
@@ -273,17 +276,17 @@ block 'Syntax'
       function 'Left'['SyntaxShape.Left']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@SyntaxShape.Left'
         level: 1
       flags: defined
-      id: 75b6c9e8-b00e-0de1-9770-479ae09e631f
+      id: 8038dff4-4930-e3aa-423e-2e8ebdecd36a
       level: 1
       VMT index: 4
       virtual: virtual
@@ -309,24 +312,24 @@ block 'Syntax'
         15 : int_to_real
         16 : fractional_divide_real
         17 : plus_real
-        18 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        18 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         19 : store_local(1)
         20 : nop
         21 : load_result_var(1)
       function 'Top'['SyntaxShape.Top']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@SyntaxShape.Top'
         level: 1
       flags: defined
-      id: 4d938f81-15c7-4eed-45dd-d6f9af3be66f
+      id: 7dcf8e58-a4a1-a32e-5693-e6062217e0f5
       level: 1
       VMT index: 5
       virtual: virtual
@@ -352,24 +355,24 @@ block 'Syntax'
         15 : load_field(3)
         16 : load_field(0)
         17 : load_field(1)
-        18 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        18 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         19 : store_local(1)
         20 : nop
         21 : load_result_var(1)
       function 'Right'['SyntaxShape.Right']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@SyntaxShape.Right'
         level: 1
       flags: defined
-      id: eb110280-c27c-6606-9e17-2c069e5e1a10
+      id: d4e5371d-bd06-56c5-7e04-9c6262376b70
       level: 1
       VMT index: 6
       virtual: virtual
@@ -400,24 +403,24 @@ block 'Syntax'
         20 : int_to_real
         21 : fractional_divide_real
         22 : plus_real
-        23 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        23 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         24 : store_local(1)
         25 : nop
         26 : load_result_var(1)
       function 'Bottom'['SyntaxShape.Bottom']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@SyntaxShape.Bottom'
         level: 1
       flags: defined
-      id: b66c4247-7978-807e-6e99-8aafe83c5c84
+      id: abe85e3f-09b7-25ac-e2e2-3c388aad7be9
       level: 1
       VMT index: 7
       virtual: virtual
@@ -448,24 +451,24 @@ block 'Syntax'
         20 : load_field(1)
         21 : load_field(1)
         22 : plus_real
-        23 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        23 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         24 : store_local(1)
         25 : nop
         26 : load_result_var(1)
       function 'Center'['SyntaxShape.Center']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@SyntaxShape.Center'
         level: 1
       flags: defined
-      id: 3d9e5101-88cb-37e4-3bf6-a0662f5530fd
+      id: 82078751-5a4c-abae-55c8-38c99304bcbf
       level: 1
       VMT index: 8
       virtual: virtual
@@ -499,28 +502,28 @@ block 'Syntax'
         23 : int_to_real
         24 : fractional_divide_real
         25 : plus_real
-        26 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        26 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         27 : store_local(1)
         28 : nop
         29 : load_result_var(1)
       function 'ContentOrigin'['SyntaxShape.ContentOrigin']
         parameter 'this'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@SyntaxShape.ContentOrigin'
         level: 1
         variable 'contentOrigin'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 2
       flags: defined
-      id: b2e878ca-07db-c769-3737-cef0381c7634
+      id: d08c5a21-f93d-09a0-a79e-4708db2b204b
       level: 1
       VMT index: 9
       virtual: virtual
@@ -538,7 +541,7 @@ block 'Syntax'
         7 : load_field(3)
         8 : load_field(0)
         9 : load_field(1)
-        10 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        10 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         11 : store_local(2)
         12 : load_local(2)
         13 : load_local(0)
@@ -547,14 +550,14 @@ block 'Syntax'
         16 : load_local(0)
         17 : load_field(4)
         18 : load_field(1)
-        19 : call_subroutine(Point.Offset, ac4a2aac-ee96-2b57-6653-7cf7e4a560ad, 3)
+        19 : call_subroutine(Point.Offset, 8b9cabed-8ec3-c5c8-3341-bb90cf2868e0, 3)
         20 : load_local(2)
         21 : store_local(1)
         22 : nop
         23 : load_result_var(1)
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     base type: object type 'CompoundShape'
-    id: 2ad5eb2a-20bb-86ce-36d2-ce380d37c8aa
+    id: 87105f6e-28c8-03c3-f252-4171788c27fe
     VMT pointer field index: 0
     object type 'DiagramTitle'
       field '@vmt'['DiagramTitle.@vmt']
@@ -566,15 +569,15 @@ block 'Syntax'
       index: 1
       field 'components'['DiagramTitle.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['DiagramTitle.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['DiagramTitle.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'title'['DiagramTitle.title']
       type: string type 'string'
@@ -582,13 +585,13 @@ block 'Syntax'
       index: 5
       field 'titleSize'['DiagramTitle.titleSize']
       type: object type 'Size'
-      id: f06da760-32e1-e1dd-2e93-eb756a6f4614
+      id: df16497c-f6f3-9038-46b6-301df4f4adf3
       index: 6
       constructor group '@constructor_group'['DiagramTitle.@constructor_group']
       constructor 'constructor'['DiagramTitle.constructor']
         parameter 'this'
         type: object type 'DiagramTitle'
-        id: 1d9def64-21af-8437-316d-dc732cfedb16
+        id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
         index: 0
         qualifier: value
         parameter 'title'
@@ -599,7 +602,7 @@ block 'Syntax'
         block '@DiagramTitle.constructor'
         level: 1
       flags: defined
-      id: eae28a64-f727-270d-9635-8985190533e7
+      id: ea1819e4-7eaa-a3f7-9a80-2941766845e1
       level: 1
       block '@DiagramTitle.constructor'
       level: 1
@@ -607,8 +610,8 @@ block 'Syntax'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : load_global(6440b14c-a53a-4da1-5664-1007ce89480f)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(35bdf4f1-2218-0024-f38b-885f804b1051)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : load_local(1)
         5 : load_local(0)
         6 : store_field(5)
@@ -616,23 +619,23 @@ block 'Syntax'
       constructor 'constructor'['DiagramTitle.constructor']
         parameter 'this'
         type: object type 'DiagramTitle'
-        id: 1d9def64-21af-8437-316d-dc732cfedb16
+        id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
         index: 0
         qualifier: value
       flags: generated
-      id: 4cd3c526-2aa1-16cf-742f-6a2ed3f11a4a
+      id: 6198768a-6f0d-b80c-1256-f9d4db1de2e0
       level: 1
       frame size: 1
       procedure 'Print'['DiagramTitle.Print']
         parameter 'this'
         type: object type 'DiagramTitle'
-        id: 1d9def64-21af-8437-316d-dc732cfedb16
+        id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
         index: 0
         qualifier: value
         block '@DiagramTitle.Print'
         level: 1
       flags: defined
-      id: fa7a2373-6473-2074-7ec7-5de97ab32497
+      id: ac2a21c2-9dc1-6fb4-59dc-22ea783ccf6d
       level: 1
       VMT index: 0
       virtual: override
@@ -645,19 +648,19 @@ block 'Syntax'
         2 : load_local(0)
         3 : load_field(5)
         4 : push_value(''')
-        5 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 3)
+        5 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 3)
         6 : load_local(0)
-        7 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        7 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         8 : nop
       function 'ContentOrigin'['DiagramTitle.ContentOrigin']
         parameter 'this'
         type: object type 'DiagramTitle'
-        id: 1d9def64-21af-8437-316d-dc732cfedb16
+        id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@DiagramTitle.ContentOrigin'
         level: 1
@@ -670,7 +673,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000004
         index: 3
       flags: defined
-      id: a1935df3-ac5f-0220-d8cc-6a2a4a810b44
+      id: db62c344-6a30-0681-1265-f37ee7c2a51a
       level: 1
       VMT index: 9
       virtual: override
@@ -700,25 +703,25 @@ block 'Syntax'
         19 : new_object(Point)
         20 : load_local(2)
         21 : load_local(3)
-        22 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        22 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         23 : store_local(1)
         24 : nop
         25 : load_result_var(1)
       procedure 'Measure'['DiagramTitle.Measure']
         parameter 'this'
         type: object type 'DiagramTitle'
-        id: 1d9def64-21af-8437-316d-dc732cfedb16
+        id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@DiagramTitle.Measure'
         level: 1
       flags: defined
-      id: f1b8c598-31ca-ce96-162b-7c32bbbde6a0
+      id: 39f580f5-954b-5d1f-1cfc-79e3f1eeed02
       level: 1
       VMT index: 1
       virtual: override
@@ -729,11 +732,11 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxShape.Measure, 9968b694-da3e-539c-f96d-89b45ff3d1bf, 2)
+        3 : call_subroutine(SyntaxShape.Measure, 028c22a9-da3d-4982-aa5e-66f7bc04ce30, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(d8dcaf58-67cc-db93-3cdf-98b5406553a6)
+        7 : load_global(2477c360-b881-a980-e82f-ee3deb14a13d)
         8 : call_external(Graphics.MeasureString, 01000000-0000-0000-0000-000000000011)
         9 : load_local(0)
         10 : store_field(6)
@@ -756,24 +759,24 @@ block 'Syntax'
         27 : load_field(6)
         28 : load_field(1)
         29 : plus_real
-        30 : call_ctor(Size.constructor, 9bb3d5d4-21df-67b3-2b83-675f99eac2f9)
-        31 : call_subroutine(Rect.SetSize, 58b9a154-10a5-a083-32a2-05a360954175, 2)
+        30 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
+        31 : call_subroutine(Rect.SetSize, 0e01a01b-90b5-fa74-b2fe-12702863fb4c, 2)
         32 : nop
       procedure 'Draw'['DiagramTitle.Draw']
         parameter 'this'
         type: object type 'DiagramTitle'
-        id: 1d9def64-21af-8437-316d-dc732cfedb16
+        id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@DiagramTitle.Draw'
         level: 1
       flags: defined
-      id: fd4e42fc-b536-b2a4-e74a-1799d5f73449
+      id: ee0168b0-de20-dbb3-1dea-d6d8565a37ac
       level: 1
       VMT index: 2
       virtual: override
@@ -784,20 +787,20 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(CompoundShape.Draw, 784131f6-3db5-e090-eab1-aaf0e11928a6, 2)
+        3 : call_subroutine(CompoundShape.Draw, aed14504-b823-e722-c8d4-2a04700dd7cd, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(d8dcaf58-67cc-db93-3cdf-98b5406553a6)
-        8 : load_global(04abe05b-e1ba-878f-a13d-a6a92d0bcfb2)
+        7 : load_global(2477c360-b881-a980-e82f-ee3deb14a13d)
+        8 : load_global(4af91244-c30a-dd25-08c6-d1a962e1635d)
         9 : load_local(0)
         10 : load_local(0)
         11 : call_virtual(DiagramTitle.ContentOrigin, 9)
         12 : call_external(Graphics.DrawString, 01000000-0000-0000-0000-000000000012)
         13 : nop
-    id: 1d9def64-21af-8437-316d-dc732cfedb16
+    id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'RuleBox'
       field '@vmt'['RuleBox.@vmt']
@@ -809,15 +812,15 @@ block 'Syntax'
       index: 1
       field 'components'['RuleBox.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['RuleBox.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['RuleBox.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'ruleName'['RuleBox.ruleName']
       type: string type 'string'
@@ -825,13 +828,13 @@ block 'Syntax'
       index: 5
       field 'ruleSize'['RuleBox.ruleSize']
       type: object type 'Size'
-      id: f06da760-32e1-e1dd-2e93-eb756a6f4614
+      id: df16497c-f6f3-9038-46b6-301df4f4adf3
       index: 6
       constructor group '@constructor_group'['RuleBox.@constructor_group']
       constructor 'constructor'['RuleBox.constructor']
         parameter 'this'
         type: object type 'RuleBox'
-        id: 73b77971-ca94-269d-0d4b-b7ae715a8281
+        id: 1815df2f-4353-c2f9-1d12-bf47c886b8d3
         index: 0
         qualifier: value
         parameter 'ruleName'
@@ -842,7 +845,7 @@ block 'Syntax'
         block '@RuleBox.constructor'
         level: 1
       flags: defined
-      id: 9dc38673-48d8-17c3-2eb3-13a314b0b048
+      id: 04898c60-6943-db0e-8171-dabaedcec65a
       level: 1
       block '@RuleBox.constructor'
       level: 1
@@ -850,8 +853,8 @@ block 'Syntax'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : load_global(ab5ed61c-f34e-3c1d-f685-3f976a2c2a32)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(799a2a13-050c-f44b-cf62-1e98a456ac67)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : load_local(1)
         5 : load_local(0)
         6 : store_field(5)
@@ -859,23 +862,23 @@ block 'Syntax'
       constructor 'constructor'['RuleBox.constructor']
         parameter 'this'
         type: object type 'RuleBox'
-        id: 73b77971-ca94-269d-0d4b-b7ae715a8281
+        id: 1815df2f-4353-c2f9-1d12-bf47c886b8d3
         index: 0
         qualifier: value
       flags: generated
-      id: 776433c3-44d8-8f4b-7a31-d569bca54bee
+      id: b39328de-05ed-af18-17a9-4ee0bb521fcf
       level: 1
       frame size: 1
       procedure 'Print'['RuleBox.Print']
         parameter 'this'
         type: object type 'RuleBox'
-        id: 73b77971-ca94-269d-0d4b-b7ae715a8281
+        id: 1815df2f-4353-c2f9-1d12-bf47c886b8d3
         index: 0
         qualifier: value
         block '@RuleBox.Print'
         level: 1
       flags: defined
-      id: 28e66b91-2d84-7437-60f6-984392b51204
+      id: 3a68e223-0575-dd64-e3a5-4078e4e1e9d7
       level: 1
       VMT index: 0
       virtual: override
@@ -888,19 +891,19 @@ block 'Syntax'
         2 : load_local(0)
         3 : load_field(5)
         4 : push_value(''')
-        5 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 3)
+        5 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 3)
         6 : load_local(0)
-        7 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        7 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         8 : nop
       function 'ContentOrigin'['RuleBox.ContentOrigin']
         parameter 'this'
         type: object type 'RuleBox'
-        id: 73b77971-ca94-269d-0d4b-b7ae715a8281
+        id: 1815df2f-4353-c2f9-1d12-bf47c886b8d3
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@RuleBox.ContentOrigin'
         level: 1
@@ -913,7 +916,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000004
         index: 3
       flags: defined
-      id: bcb3c673-fa36-577f-0141-6b5eea644af9
+      id: 96226bf3-8bf6-d9a9-3b04-c21f66a2079e
       level: 1
       VMT index: 9
       virtual: override
@@ -943,25 +946,25 @@ block 'Syntax'
         19 : new_object(Point)
         20 : load_local(2)
         21 : load_local(3)
-        22 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        22 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         23 : store_local(1)
         24 : nop
         25 : load_result_var(1)
       procedure 'Measure'['RuleBox.Measure']
         parameter 'this'
         type: object type 'RuleBox'
-        id: 73b77971-ca94-269d-0d4b-b7ae715a8281
+        id: 1815df2f-4353-c2f9-1d12-bf47c886b8d3
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@RuleBox.Measure'
         level: 1
       flags: defined
-      id: 62936f59-ecb9-ef35-d601-09ea49ad0a41
+      id: 24ca24bf-fffd-6b7b-4f60-356688b7db20
       level: 1
       VMT index: 1
       virtual: override
@@ -972,11 +975,11 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxShape.Measure, 9968b694-da3e-539c-f96d-89b45ff3d1bf, 2)
+        3 : call_subroutine(SyntaxShape.Measure, 028c22a9-da3d-4982-aa5e-66f7bc04ce30, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(d8dcaf58-67cc-db93-3cdf-98b5406553a6)
+        7 : load_global(2477c360-b881-a980-e82f-ee3deb14a13d)
         8 : call_external(Graphics.MeasureString, 01000000-0000-0000-0000-000000000011)
         9 : load_local(0)
         10 : store_field(6)
@@ -999,24 +1002,24 @@ block 'Syntax'
         27 : load_field(6)
         28 : load_field(1)
         29 : plus_real
-        30 : call_ctor(Size.constructor, 9bb3d5d4-21df-67b3-2b83-675f99eac2f9)
-        31 : call_subroutine(Rect.SetSize, 58b9a154-10a5-a083-32a2-05a360954175, 2)
+        30 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
+        31 : call_subroutine(Rect.SetSize, 0e01a01b-90b5-fa74-b2fe-12702863fb4c, 2)
         32 : nop
       procedure 'Draw'['RuleBox.Draw']
         parameter 'this'
         type: object type 'RuleBox'
-        id: 73b77971-ca94-269d-0d4b-b7ae715a8281
+        id: 1815df2f-4353-c2f9-1d12-bf47c886b8d3
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@RuleBox.Draw'
         level: 1
       flags: defined
-      id: caa2189f-4569-ba50-97a9-6039eab30182
+      id: a882c217-dbfb-5720-30f3-2834b2e7c139
       level: 1
       VMT index: 2
       virtual: override
@@ -1027,25 +1030,25 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(CompoundShape.Draw, 784131f6-3db5-e090-eab1-aaf0e11928a6, 2)
+        3 : call_subroutine(CompoundShape.Draw, aed14504-b823-e722-c8d4-2a04700dd7cd, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(d8dcaf58-67cc-db93-3cdf-98b5406553a6)
-        8 : load_global(04abe05b-e1ba-878f-a13d-a6a92d0bcfb2)
+        7 : load_global(2477c360-b881-a980-e82f-ee3deb14a13d)
+        8 : load_global(4af91244-c30a-dd25-08c6-d1a962e1635d)
         9 : load_local(0)
         10 : load_local(0)
         11 : call_virtual(RuleBox.ContentOrigin, 9)
         12 : call_external(Graphics.DrawString, 01000000-0000-0000-0000-000000000012)
         13 : load_local(1)
-        14 : load_global(f41e70ad-505c-989f-3f51-159328d573f7)
+        14 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
         15 : load_local(0)
         16 : load_field(3)
         17 : call_external(Graphics.DrawRectangle, 01000000-0000-0000-0000-000000000010)
         18 : nop
-    id: 73b77971-ca94-269d-0d4b-b7ae715a8281
+    id: 1815df2f-4353-c2f9-1d12-bf47c886b8d3
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'Terminal'
       field '@vmt'['Terminal.@vmt']
@@ -1057,15 +1060,15 @@ block 'Syntax'
       index: 1
       field 'components'['Terminal.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['Terminal.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['Terminal.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'terminal'['Terminal.terminal']
       type: string type 'string'
@@ -1073,13 +1076,13 @@ block 'Syntax'
       index: 5
       field 'terminalSize'['Terminal.terminalSize']
       type: object type 'Size'
-      id: f06da760-32e1-e1dd-2e93-eb756a6f4614
+      id: df16497c-f6f3-9038-46b6-301df4f4adf3
       index: 6
       constructor group '@constructor_group'['Terminal.@constructor_group']
       constructor 'constructor'['Terminal.constructor']
         parameter 'this'
         type: object type 'Terminal'
-        id: 0e9fd1e1-90c4-31b5-2911-bc636630b560
+        id: 711990eb-4cf5-ba65-ac6e-6810eb070f2d
         index: 0
         qualifier: value
         parameter 'terminal'
@@ -1090,7 +1093,7 @@ block 'Syntax'
         block '@Terminal.constructor'
         level: 1
       flags: defined
-      id: b4615c84-dea9-07f6-3276-42235162b98d
+      id: 5a68e38d-66fb-b79d-f03c-d40605d1948b
       level: 1
       block '@Terminal.constructor'
       level: 1
@@ -1098,8 +1101,8 @@ block 'Syntax'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : load_global(b11e1c45-808e-840c-b52f-dbd72eca9d32)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(13b63df5-995a-ff8e-a678-6cfc4523d82a)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : load_local(1)
         5 : load_local(0)
         6 : store_field(5)
@@ -1107,23 +1110,23 @@ block 'Syntax'
       constructor 'constructor'['Terminal.constructor']
         parameter 'this'
         type: object type 'Terminal'
-        id: 0e9fd1e1-90c4-31b5-2911-bc636630b560
+        id: 711990eb-4cf5-ba65-ac6e-6810eb070f2d
         index: 0
         qualifier: value
       flags: generated
-      id: d0fb153a-5c14-5ef6-419f-06ec00d77ee0
+      id: c0dc2f86-0b41-ae27-fbda-fc22d26c1c3b
       level: 1
       frame size: 1
       procedure 'Print'['Terminal.Print']
         parameter 'this'
         type: object type 'Terminal'
-        id: 0e9fd1e1-90c4-31b5-2911-bc636630b560
+        id: 711990eb-4cf5-ba65-ac6e-6810eb070f2d
         index: 0
         qualifier: value
         block '@Terminal.Print'
         level: 1
       flags: defined
-      id: 03506696-61e9-0d40-a940-ab25ea28f783
+      id: 957a71bd-b9e6-b80d-55c3-e8591e68a915
       level: 1
       VMT index: 0
       virtual: override
@@ -1135,19 +1138,19 @@ block 'Syntax'
         1 : push_value('terminal ')
         2 : load_local(0)
         3 : load_field(5)
-        4 : call_subroutine(Write, e1eb18fb-1000-c847-736d-666804d6cecc, 2)
+        4 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 2)
         5 : load_local(0)
-        6 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        6 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         7 : nop
       function 'ContentOrigin'['Terminal.ContentOrigin']
         parameter 'this'
         type: object type 'Terminal'
-        id: 0e9fd1e1-90c4-31b5-2911-bc636630b560
+        id: 711990eb-4cf5-ba65-ac6e-6810eb070f2d
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@Terminal.ContentOrigin'
         level: 1
@@ -1160,7 +1163,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000004
         index: 3
       flags: defined
-      id: 97d7e70e-098c-1fa5-0f62-60b02d38d048
+      id: f073af7a-58cc-d041-cb64-2a8cefbf911c
       level: 1
       VMT index: 9
       virtual: override
@@ -1206,19 +1209,19 @@ block 'Syntax'
         35 : new_object(Point)
         36 : load_local(2)
         37 : load_local(3)
-        38 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        38 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         39 : store_local(1)
         40 : nop
         41 : load_result_var(1)
       procedure 'Measure'['Terminal.Measure']
         parameter 'this'
         type: object type 'Terminal'
-        id: 0e9fd1e1-90c4-31b5-2911-bc636630b560
+        id: 711990eb-4cf5-ba65-ac6e-6810eb070f2d
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@Terminal.Measure'
@@ -1228,7 +1231,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000004
         index: 2
       flags: defined
-      id: 421cc9b2-43a8-9a97-71bb-a043562a158f
+      id: 5ab65ed7-b0f7-ab10-fd57-10296720dac8
       level: 1
       VMT index: 1
       virtual: override
@@ -1239,11 +1242,11 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxShape.Measure, 9968b694-da3e-539c-f96d-89b45ff3d1bf, 2)
+        3 : call_subroutine(SyntaxShape.Measure, 028c22a9-da3d-4982-aa5e-66f7bc04ce30, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(22e2cd97-9e3c-2d8e-8f91-7e85d5df056d)
+        7 : load_global(01dc8bd4-0e39-a9a7-016a-c37bf18ca520)
         8 : call_external(Graphics.MeasureString, 01000000-0000-0000-0000-000000000011)
         9 : load_local(0)
         10 : store_field(6)
@@ -1253,7 +1256,7 @@ block 'Syntax'
         14 : load_local(0)
         15 : load_field(6)
         16 : load_field(1)
-        17 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        17 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         18 : store_local(2)
         19 : load_local(0)
         20 : load_field(3)
@@ -1270,24 +1273,24 @@ block 'Syntax'
         31 : load_field(1)
         32 : load_local(2)
         33 : plus_real
-        34 : call_ctor(Size.constructor, 9bb3d5d4-21df-67b3-2b83-675f99eac2f9)
-        35 : call_subroutine(Rect.SetSize, 58b9a154-10a5-a083-32a2-05a360954175, 2)
+        34 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
+        35 : call_subroutine(Rect.SetSize, 0e01a01b-90b5-fa74-b2fe-12702863fb4c, 2)
         36 : nop
       procedure 'Draw'['Terminal.Draw']
         parameter 'this'
         type: object type 'Terminal'
-        id: 0e9fd1e1-90c4-31b5-2911-bc636630b560
+        id: 711990eb-4cf5-ba65-ac6e-6810eb070f2d
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@Terminal.Draw'
         level: 1
       flags: defined
-      id: 0aebe75f-8715-19d3-5284-970f9345c423
+      id: 144d759f-e3f5-e650-4c0c-5698833ebd34
       level: 1
       VMT index: 2
       virtual: override
@@ -1298,12 +1301,12 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(CompoundShape.Draw, 784131f6-3db5-e090-eab1-aaf0e11928a6, 2)
+        3 : call_subroutine(CompoundShape.Draw, aed14504-b823-e722-c8d4-2a04700dd7cd, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(22e2cd97-9e3c-2d8e-8f91-7e85d5df056d)
-        8 : load_global(04abe05b-e1ba-878f-a13d-a6a92d0bcfb2)
+        7 : load_global(01dc8bd4-0e39-a9a7-016a-c37bf18ca520)
+        8 : load_global(4af91244-c30a-dd25-08c6-d1a962e1635d)
         9 : load_local(0)
         10 : load_local(0)
         11 : call_virtual(Terminal.ContentOrigin, 9)
@@ -1316,7 +1319,7 @@ block 'Syntax'
         18 : equal_int
         19 : branch(20, 26)
         20 : load_local(1)
-        21 : load_global(f41e70ad-505c-989f-3f51-159328d573f7)
+        21 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
         22 : load_local(0)
         23 : load_field(3)
         24 : call_external(Graphics.DrawEllipse, 01000000-0000-0000-0000-000000000014)
@@ -1325,12 +1328,12 @@ block 'Syntax'
         27 : load_local(0)
         28 : load_field(3)
         29 : push_value(3)
-        30 : call_subroutine(DrawRoundedRectangle, 5f36af62-3626-fe14-ea49-e1911649de5d, 3)
+        30 : call_subroutine(DrawRoundedRectangle, 1f1b3f98-50eb-a4aa-629a-3635d5a027d6, 3)
         31 : jump(32)
         32 : nop
-    id: 0e9fd1e1-90c4-31b5-2911-bc636630b560
+    id: 711990eb-4cf5-ba65-ac6e-6810eb070f2d
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'TerminalNoFrame'
       field '@vmt'['TerminalNoFrame.@vmt']
@@ -1342,15 +1345,15 @@ block 'Syntax'
       index: 1
       field 'components'['TerminalNoFrame.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['TerminalNoFrame.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['TerminalNoFrame.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'terminal'['TerminalNoFrame.terminal']
       type: string type 'string'
@@ -1358,13 +1361,13 @@ block 'Syntax'
       index: 5
       field 'terminalSize'['TerminalNoFrame.terminalSize']
       type: object type 'Size'
-      id: f06da760-32e1-e1dd-2e93-eb756a6f4614
+      id: df16497c-f6f3-9038-46b6-301df4f4adf3
       index: 6
       constructor group '@constructor_group'['TerminalNoFrame.@constructor_group']
       constructor 'constructor'['TerminalNoFrame.constructor']
         parameter 'this'
         type: object type 'TerminalNoFrame'
-        id: 1f31effd-d99a-1429-e6a4-5635b1ecd74d
+        id: 131c84b7-c2dd-aa41-5b11-36d177c4f14a
         index: 0
         qualifier: value
         parameter 'terminal'
@@ -1375,7 +1378,7 @@ block 'Syntax'
         block '@TerminalNoFrame.constructor'
         level: 1
       flags: defined
-      id: 976a25a2-1e35-3e15-4a78-a37adf187b38
+      id: a19b003e-a9f2-b00a-1557-750a1cf7eb09
       level: 1
       block '@TerminalNoFrame.constructor'
       level: 1
@@ -1383,8 +1386,8 @@ block 'Syntax'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : load_global(b11e1c45-808e-840c-b52f-dbd72eca9d32)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(13b63df5-995a-ff8e-a678-6cfc4523d82a)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : load_local(1)
         5 : load_local(0)
         6 : store_field(5)
@@ -1392,23 +1395,23 @@ block 'Syntax'
       constructor 'constructor'['TerminalNoFrame.constructor']
         parameter 'this'
         type: object type 'TerminalNoFrame'
-        id: 1f31effd-d99a-1429-e6a4-5635b1ecd74d
+        id: 131c84b7-c2dd-aa41-5b11-36d177c4f14a
         index: 0
         qualifier: value
       flags: generated
-      id: 5901a65f-a95c-6330-8958-7c7fe9c5088f
+      id: 07b2e841-9330-5893-15c5-46a4e13616af
       level: 1
       frame size: 1
       procedure 'Print'['TerminalNoFrame.Print']
         parameter 'this'
         type: object type 'TerminalNoFrame'
-        id: 1f31effd-d99a-1429-e6a4-5635b1ecd74d
+        id: 131c84b7-c2dd-aa41-5b11-36d177c4f14a
         index: 0
         qualifier: value
         block '@TerminalNoFrame.Print'
         level: 1
       flags: defined
-      id: 37a10dd7-18f6-e57d-8d7b-787012f30b63
+      id: bca6009c-c4ba-884b-29b9-adef83450ebd
       level: 1
       VMT index: 0
       virtual: override
@@ -1420,19 +1423,19 @@ block 'Syntax'
         1 : push_value('terminal no frame')
         2 : load_local(0)
         3 : load_field(5)
-        4 : call_subroutine(Write, e1eb18fb-1000-c847-736d-666804d6cecc, 2)
+        4 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 2)
         5 : load_local(0)
-        6 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        6 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         7 : nop
       function 'ContentOrigin'['TerminalNoFrame.ContentOrigin']
         parameter 'this'
         type: object type 'TerminalNoFrame'
-        id: 1f31effd-d99a-1429-e6a4-5635b1ecd74d
+        id: 131c84b7-c2dd-aa41-5b11-36d177c4f14a
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@TerminalNoFrame.ContentOrigin'
         level: 1
@@ -1445,7 +1448,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000004
         index: 3
       flags: defined
-      id: 6e2216b0-791c-108a-7e3e-db51370e70d9
+      id: 99807426-99a0-909b-50f7-75ffa3f13210
       level: 1
       VMT index: 9
       virtual: override
@@ -1491,19 +1494,19 @@ block 'Syntax'
         35 : new_object(Point)
         36 : load_local(2)
         37 : load_local(3)
-        38 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        38 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         39 : store_local(1)
         40 : nop
         41 : load_result_var(1)
       procedure 'Measure'['TerminalNoFrame.Measure']
         parameter 'this'
         type: object type 'TerminalNoFrame'
-        id: 1f31effd-d99a-1429-e6a4-5635b1ecd74d
+        id: 131c84b7-c2dd-aa41-5b11-36d177c4f14a
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@TerminalNoFrame.Measure'
@@ -1513,7 +1516,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000004
         index: 2
       flags: defined
-      id: a58ba280-6124-b1e4-f861-420fd3e9ffd0
+      id: 7715eb8d-f5f3-23ed-a308-12394a7de19e
       level: 1
       VMT index: 1
       virtual: override
@@ -1524,11 +1527,11 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxShape.Measure, 9968b694-da3e-539c-f96d-89b45ff3d1bf, 2)
+        3 : call_subroutine(SyntaxShape.Measure, 028c22a9-da3d-4982-aa5e-66f7bc04ce30, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(22e2cd97-9e3c-2d8e-8f91-7e85d5df056d)
+        7 : load_global(01dc8bd4-0e39-a9a7-016a-c37bf18ca520)
         8 : call_external(Graphics.MeasureString, 01000000-0000-0000-0000-000000000011)
         9 : load_local(0)
         10 : store_field(6)
@@ -1538,7 +1541,7 @@ block 'Syntax'
         14 : load_local(0)
         15 : load_field(6)
         16 : load_field(1)
-        17 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        17 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         18 : store_local(2)
         19 : load_local(0)
         20 : load_field(3)
@@ -1555,24 +1558,24 @@ block 'Syntax'
         31 : load_field(1)
         32 : load_local(2)
         33 : plus_real
-        34 : call_ctor(Size.constructor, 9bb3d5d4-21df-67b3-2b83-675f99eac2f9)
-        35 : call_subroutine(Rect.SetSize, 58b9a154-10a5-a083-32a2-05a360954175, 2)
+        34 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
+        35 : call_subroutine(Rect.SetSize, 0e01a01b-90b5-fa74-b2fe-12702863fb4c, 2)
         36 : nop
       procedure 'Draw'['TerminalNoFrame.Draw']
         parameter 'this'
         type: object type 'TerminalNoFrame'
-        id: 1f31effd-d99a-1429-e6a4-5635b1ecd74d
+        id: 131c84b7-c2dd-aa41-5b11-36d177c4f14a
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@TerminalNoFrame.Draw'
         level: 1
       flags: defined
-      id: 62fb6bec-daa2-f5bb-3f4f-4c8c572ee3a8
+      id: 82700d0c-7648-e958-e118-e892de3133cb
       level: 1
       VMT index: 2
       virtual: override
@@ -1583,20 +1586,20 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(CompoundShape.Draw, 784131f6-3db5-e090-eab1-aaf0e11928a6, 2)
+        3 : call_subroutine(CompoundShape.Draw, aed14504-b823-e722-c8d4-2a04700dd7cd, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(d8dcaf58-67cc-db93-3cdf-98b5406553a6)
-        8 : load_global(04abe05b-e1ba-878f-a13d-a6a92d0bcfb2)
+        7 : load_global(2477c360-b881-a980-e82f-ee3deb14a13d)
+        8 : load_global(4af91244-c30a-dd25-08c6-d1a962e1635d)
         9 : load_local(0)
         10 : load_local(0)
         11 : call_virtual(TerminalNoFrame.ContentOrigin, 9)
         12 : call_external(Graphics.DrawString, 01000000-0000-0000-0000-000000000012)
         13 : nop
-    id: 1f31effd-d99a-1429-e6a4-5635b1ecd74d
+    id: 131c84b7-c2dd-aa41-5b11-36d177c4f14a
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'Keyword'
       field '@vmt'['Keyword.@vmt']
@@ -1608,15 +1611,15 @@ block 'Syntax'
       index: 1
       field 'components'['Keyword.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['Keyword.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['Keyword.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'keyword'['Keyword.keyword']
       type: string type 'string'
@@ -1624,13 +1627,13 @@ block 'Syntax'
       index: 5
       field 'keywordSize'['Keyword.keywordSize']
       type: object type 'Size'
-      id: f06da760-32e1-e1dd-2e93-eb756a6f4614
+      id: df16497c-f6f3-9038-46b6-301df4f4adf3
       index: 6
       constructor group '@constructor_group'['Keyword.@constructor_group']
       constructor 'constructor'['Keyword.constructor']
         parameter 'this'
         type: object type 'Keyword'
-        id: 8465fa97-79fd-7037-e50b-364d9405a566
+        id: aa8482ab-5ec8-54c2-dee9-489a56b50126
         index: 0
         qualifier: value
         parameter 'keyword'
@@ -1641,7 +1644,7 @@ block 'Syntax'
         block '@Keyword.constructor'
         level: 1
       flags: defined
-      id: 65582f9c-47e2-9018-06cb-a99b68b80bc9
+      id: 55251acc-e124-9ace-b98a-3fa8c2a79f8e
       level: 1
       block '@Keyword.constructor'
       level: 1
@@ -1649,8 +1652,8 @@ block 'Syntax'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : load_global(e5f9c595-5f08-3861-839e-2785753b0f8f)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(9fb06835-9718-ac5f-3e37-8caac6668076)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : load_local(1)
         5 : load_local(0)
         6 : store_field(5)
@@ -1658,23 +1661,23 @@ block 'Syntax'
       constructor 'constructor'['Keyword.constructor']
         parameter 'this'
         type: object type 'Keyword'
-        id: 8465fa97-79fd-7037-e50b-364d9405a566
+        id: aa8482ab-5ec8-54c2-dee9-489a56b50126
         index: 0
         qualifier: value
       flags: generated
-      id: de5541be-1072-fc4e-3d4d-8807216da94f
+      id: 7a3a1af9-1581-a6dc-8186-f5d43a1f284f
       level: 1
       frame size: 1
       procedure 'Print'['Keyword.Print']
         parameter 'this'
         type: object type 'Keyword'
-        id: 8465fa97-79fd-7037-e50b-364d9405a566
+        id: aa8482ab-5ec8-54c2-dee9-489a56b50126
         index: 0
         qualifier: value
         block '@Keyword.Print'
         level: 1
       flags: defined
-      id: 5f39e123-279e-8f79-9d8e-50708f6c9bc3
+      id: 61354623-5945-9ec8-c56f-54023222d62e
       level: 1
       VMT index: 0
       virtual: override
@@ -1687,19 +1690,19 @@ block 'Syntax'
         2 : load_local(0)
         3 : load_field(5)
         4 : push_value(''')
-        5 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 3)
+        5 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 3)
         6 : load_local(0)
-        7 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        7 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         8 : nop
       function 'ContentOrigin'['Keyword.ContentOrigin']
         parameter 'this'
         type: object type 'Keyword'
-        id: 8465fa97-79fd-7037-e50b-364d9405a566
+        id: aa8482ab-5ec8-54c2-dee9-489a56b50126
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         block '@Keyword.ContentOrigin'
         level: 1
@@ -1712,7 +1715,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000004
         index: 3
       flags: defined
-      id: f7fda582-3f87-31ea-bc93-76ba6b2157b2
+      id: bc46821a-f44b-c60f-f944-f8d7178c99af
       level: 1
       VMT index: 9
       virtual: override
@@ -1742,25 +1745,25 @@ block 'Syntax'
         19 : new_object(Point)
         20 : load_local(2)
         21 : load_local(3)
-        22 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        22 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         23 : store_local(1)
         24 : nop
         25 : load_result_var(1)
       procedure 'Measure'['Keyword.Measure']
         parameter 'this'
         type: object type 'Keyword'
-        id: 8465fa97-79fd-7037-e50b-364d9405a566
+        id: aa8482ab-5ec8-54c2-dee9-489a56b50126
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@Keyword.Measure'
         level: 1
       flags: defined
-      id: 78e7b561-b378-1a62-888a-8ed4b3dac36e
+      id: 112c0fe6-483a-ddb9-c0b6-ff1575bda8bb
       level: 1
       VMT index: 1
       virtual: override
@@ -1771,11 +1774,11 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxShape.Measure, 9968b694-da3e-539c-f96d-89b45ff3d1bf, 2)
+        3 : call_subroutine(SyntaxShape.Measure, 028c22a9-da3d-4982-aa5e-66f7bc04ce30, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(22e2cd97-9e3c-2d8e-8f91-7e85d5df056d)
+        7 : load_global(01dc8bd4-0e39-a9a7-016a-c37bf18ca520)
         8 : call_external(Graphics.MeasureString, 01000000-0000-0000-0000-000000000011)
         9 : load_local(0)
         10 : store_field(6)
@@ -1798,24 +1801,24 @@ block 'Syntax'
         27 : load_field(6)
         28 : load_field(1)
         29 : plus_real
-        30 : call_ctor(Size.constructor, 9bb3d5d4-21df-67b3-2b83-675f99eac2f9)
-        31 : call_subroutine(Rect.SetSize, 58b9a154-10a5-a083-32a2-05a360954175, 2)
+        30 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
+        31 : call_subroutine(Rect.SetSize, 0e01a01b-90b5-fa74-b2fe-12702863fb4c, 2)
         32 : nop
       procedure 'Draw'['Keyword.Draw']
         parameter 'this'
         type: object type 'Keyword'
-        id: 8465fa97-79fd-7037-e50b-364d9405a566
+        id: aa8482ab-5ec8-54c2-dee9-489a56b50126
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@Keyword.Draw'
         level: 1
       flags: defined
-      id: c66b93be-71bd-12a6-005f-dcbe7127354e
+      id: c9011f7c-050b-9519-4e01-2a6a97312b0d
       level: 1
       VMT index: 2
       virtual: override
@@ -1826,12 +1829,12 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(CompoundShape.Draw, 784131f6-3db5-e090-eab1-aaf0e11928a6, 2)
+        3 : call_subroutine(CompoundShape.Draw, aed14504-b823-e722-c8d4-2a04700dd7cd, 2)
         4 : load_local(1)
         5 : load_local(0)
         6 : load_field(5)
-        7 : load_global(22e2cd97-9e3c-2d8e-8f91-7e85d5df056d)
-        8 : load_global(04abe05b-e1ba-878f-a13d-a6a92d0bcfb2)
+        7 : load_global(01dc8bd4-0e39-a9a7-016a-c37bf18ca520)
+        8 : load_global(4af91244-c30a-dd25-08c6-d1a962e1635d)
         9 : load_local(0)
         10 : load_local(0)
         11 : call_virtual(Keyword.ContentOrigin, 9)
@@ -1840,11 +1843,11 @@ block 'Syntax'
         14 : load_local(0)
         15 : load_field(3)
         16 : push_value(3)
-        17 : call_subroutine(DrawRoundedRectangle, 5f36af62-3626-fe14-ea49-e1911649de5d, 3)
+        17 : call_subroutine(DrawRoundedRectangle, 1f1b3f98-50eb-a4aa-629a-3635d5a027d6, 3)
         18 : nop
-    id: 8465fa97-79fd-7037-e50b-364d9405a566
+    id: aa8482ab-5ec8-54c2-dee9-489a56b50126
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'Gap'
       field '@vmt'['Gap.@vmt']
@@ -1856,27 +1859,27 @@ block 'Syntax'
       index: 1
       field 'components'['Gap.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['Gap.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['Gap.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       constructor group '@constructor_group'['Gap.@constructor_group']
       constructor 'constructor'['Gap.constructor']
         parameter 'this'
         type: object type 'Gap'
-        id: 920ac1dd-8ee5-56b9-4a32-20ebb7b803e8
+        id: a3e20c15-3e93-a0d3-c740-512979b3a9b7
         index: 0
         qualifier: value
         block '@Gap.constructor'
         level: 1
       flags: defined
-      id: d2f2ceb0-696c-69e7-7c66-800581d07ada
+      id: b5b34a48-b2bf-2551-2903-7daf1a92b80f
       level: 1
       block '@Gap.constructor'
       level: 1
@@ -1884,7 +1887,7 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : call_ctor(SyntaxShape.constructor, 6f2a602f-6b61-4b44-caf7-b3d11146dfed)
+        2 : call_ctor(SyntaxShape.constructor, bce6850d-0dc1-60a3-86ff-fd2b4af73a9e)
         3 : push_value(3)
         4 : load_local(0)
         5 : load_field(3)
@@ -1900,13 +1903,13 @@ block 'Syntax'
       procedure 'Print'['Gap.Print']
         parameter 'this'
         type: object type 'Gap'
-        id: 920ac1dd-8ee5-56b9-4a32-20ebb7b803e8
+        id: a3e20c15-3e93-a0d3-c740-512979b3a9b7
         index: 0
         qualifier: value
         block '@Gap.Print'
         level: 1
       flags: defined
-      id: e26d4710-35af-9906-380c-d7cb7c869576
+      id: 617e1050-3e8e-5e63-2f46-5a6a63304c44
       level: 1
       VMT index: 0
       virtual: override
@@ -1916,13 +1919,13 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : push_value('branch')
-        2 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 1)
+        2 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
         3 : load_local(0)
-        4 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        4 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         5 : nop
-    id: 920ac1dd-8ee5-56b9-4a32-20ebb7b803e8
+    id: a3e20c15-3e93-a0d3-c740-512979b3a9b7
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'Branch'
       field '@vmt'['Branch.@vmt']
@@ -1934,27 +1937,27 @@ block 'Syntax'
       index: 1
       field 'components'['Branch.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['Branch.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['Branch.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       constructor group '@constructor_group'['Branch.@constructor_group']
       constructor 'constructor'['Branch.constructor']
         parameter 'this'
         type: object type 'Branch'
-        id: 0da4ac1c-71b1-0dd7-a4f7-6dcbba4b112c
+        id: 18996d9b-7e13-36a7-55a2-608945411eab
         index: 0
         qualifier: value
         block '@Branch.constructor'
         level: 1
       flags: defined
-      id: 5d8cdb09-c5e0-a5de-ffec-3940a37d3ca4
+      id: c38397b5-4ef0-b467-cb94-13ab8689a015
       level: 1
       block '@Branch.constructor'
       level: 1
@@ -1962,7 +1965,7 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : call_ctor(SyntaxShape.constructor, 6f2a602f-6b61-4b44-caf7-b3d11146dfed)
+        2 : call_ctor(SyntaxShape.constructor, bce6850d-0dc1-60a3-86ff-fd2b4af73a9e)
         3 : push_value(6)
         4 : load_local(0)
         5 : load_field(3)
@@ -1978,13 +1981,13 @@ block 'Syntax'
       procedure 'Print'['Branch.Print']
         parameter 'this'
         type: object type 'Branch'
-        id: 0da4ac1c-71b1-0dd7-a4f7-6dcbba4b112c
+        id: 18996d9b-7e13-36a7-55a2-608945411eab
         index: 0
         qualifier: value
         block '@Branch.Print'
         level: 1
       flags: defined
-      id: 36db4bdc-33e6-64b0-c9c5-08dfe6f5cda8
+      id: ebc09864-685a-4f57-3be7-a56e0ae61b94
       level: 1
       VMT index: 0
       virtual: override
@@ -1994,13 +1997,13 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : push_value('branch')
-        2 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 1)
+        2 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
         3 : load_local(0)
-        4 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        4 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         5 : nop
-    id: 0da4ac1c-71b1-0dd7-a4f7-6dcbba4b112c
+    id: 18996d9b-7e13-36a7-55a2-608945411eab
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'Out'
       field '@vmt'['Out.@vmt']
@@ -2012,27 +2015,27 @@ block 'Syntax'
       index: 1
       field 'components'['Out.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['Out.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['Out.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       constructor group '@constructor_group'['Out.@constructor_group']
       constructor 'constructor'['Out.constructor']
         parameter 'this'
         type: object type 'Out'
-        id: 80cdbde8-3d54-9637-33e2-1f031e1c9f3f
+        id: c28ee158-4690-fb98-48f6-e9ff5c0bcee2
         index: 0
         qualifier: value
         block '@Out.constructor'
         level: 1
       flags: defined
-      id: f0a6ce09-1f1c-a1b8-795d-7f6fcc7c80d7
+      id: acce8a6d-c1e8-1aac-c044-99f27ea24fa5
       level: 1
       block '@Out.constructor'
       level: 1
@@ -2040,7 +2043,7 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : call_ctor(SyntaxShape.constructor, 6f2a602f-6b61-4b44-caf7-b3d11146dfed)
+        2 : call_ctor(SyntaxShape.constructor, bce6850d-0dc1-60a3-86ff-fd2b4af73a9e)
         3 : push_value(0)
         4 : int_to_real
         5 : load_local(0)
@@ -2057,13 +2060,13 @@ block 'Syntax'
       procedure 'Print'['Out.Print']
         parameter 'this'
         type: object type 'Out'
-        id: 80cdbde8-3d54-9637-33e2-1f031e1c9f3f
+        id: c28ee158-4690-fb98-48f6-e9ff5c0bcee2
         index: 0
         qualifier: value
         block '@Out.Print'
         level: 1
       flags: defined
-      id: 202bf9cb-7ecf-7aa3-0df0-16e43612f0ea
+      id: a57bccc9-afeb-aebe-09d8-4276971ae1d6
       level: 1
       VMT index: 0
       virtual: override
@@ -2073,13 +2076,13 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : push_value('out')
-        2 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 1)
+        2 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
         3 : load_local(0)
-        4 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        4 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         5 : nop
-    id: 80cdbde8-3d54-9637-33e2-1f031e1c9f3f
+    id: c28ee158-4690-fb98-48f6-e9ff5c0bcee2
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'RoutingPoint'
       field '@vmt'['RoutingPoint.@vmt']
@@ -2091,27 +2094,27 @@ block 'Syntax'
       index: 1
       field 'components'['RoutingPoint.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['RoutingPoint.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['RoutingPoint.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       constructor group '@constructor_group'['RoutingPoint.@constructor_group']
       constructor 'constructor'['RoutingPoint.constructor']
         parameter 'this'
         type: object type 'RoutingPoint'
-        id: 829fa1f8-dc6f-4cf2-9f0c-28b864e02f39
+        id: 4fa3f0f4-f4c6-b787-6705-0aa84ae0ec50
         index: 0
         qualifier: value
         block '@RoutingPoint.constructor'
         level: 1
       flags: defined
-      id: c112a6ce-e40d-becf-a744-3d500b3c6caf
+      id: 86ac5ba6-ba03-7467-d043-f56f32e96fdc
       level: 1
       block '@RoutingPoint.constructor'
       level: 1
@@ -2119,7 +2122,7 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : call_ctor(SyntaxShape.constructor, 6f2a602f-6b61-4b44-caf7-b3d11146dfed)
+        2 : call_ctor(SyntaxShape.constructor, bce6850d-0dc1-60a3-86ff-fd2b4af73a9e)
         3 : push_value(0)
         4 : int_to_real
         5 : load_local(0)
@@ -2133,9 +2136,9 @@ block 'Syntax'
         13 : load_field(1)
         14 : store_field(1)
         15 : nop
-    id: 829fa1f8-dc6f-4cf2-9f0c-28b864e02f39
+    id: 4fa3f0f4-f4c6-b787-6705-0aa84ae0ec50
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'SyntaxConnector'
       field '@vmt'['SyntaxConnector.@vmt']
@@ -2147,67 +2150,67 @@ block 'Syntax'
       index: 1
       field 'components'['SyntaxConnector.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['SyntaxConnector.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['SyntaxConnector.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'source'['SyntaxConnector.source']
       type: object type 'SyntaxShape'
-      id: edbb257e-6f5b-fd29-438b-ea97768712de
+      id: 9967feee-d656-cc9f-e287-51f630681347
       index: 5
       field 'target'['SyntaxConnector.target']
       type: object type 'SyntaxShape'
-      id: edbb257e-6f5b-fd29-438b-ea97768712de
+      id: 9967feee-d656-cc9f-e287-51f630681347
       index: 6
       field 'direction1'['SyntaxConnector.direction1']
       type: enumerated type 'Direction'
-      id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+      id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
       index: 7
       field 'direction2'['SyntaxConnector.direction2']
       type: enumerated type 'Direction'
-      id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+      id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
       index: 8
       field 'connector'['SyntaxConnector.connector']
       type: object type 'Shape'
-      id: a1c342fb-7b5d-bbe6-1354-c5534315d01f
+      id: 3abffc5b-eade-c6ac-b654-75cd353d365a
       index: 9
       constructor group '@constructor_group'['SyntaxConnector.@constructor_group']
       constructor 'constructor'['SyntaxConnector.constructor']
         parameter 'this'
         type: object type 'SyntaxConnector'
-        id: 14aacd99-ea19-4f58-8e44-8567e7c743fc
+        id: 5d7c5b9c-39bd-04aa-aed2-1a2f21828bd2
         index: 0
         qualifier: value
         parameter 'source'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 1
         qualifier: value
         parameter 'target'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 2
         qualifier: value
         parameter 'direction1'
         type: enumerated type 'Direction'
-        id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+        id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
         index: 3
         qualifier: value
         parameter 'direction2'
         type: enumerated type 'Direction'
-        id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+        id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
         index: 4
         qualifier: value
         block '@SyntaxConnector.constructor'
         level: 1
       flags: defined
-      id: 10971849-320a-6693-46f6-d293e78dc149
+      id: cd387013-be65-6b7a-7192-35bc8dba9300
       level: 1
       block '@SyntaxConnector.constructor'
       level: 1
@@ -2215,7 +2218,7 @@ block 'Syntax'
       code
         0 : receive(5)
         1 : load_local(0)
-        2 : call_ctor(SyntaxShape.constructor, 6f2a602f-6b61-4b44-caf7-b3d11146dfed)
+        2 : call_ctor(SyntaxShape.constructor, bce6850d-0dc1-60a3-86ff-fd2b4af73a9e)
         3 : load_local(1)
         4 : load_local(0)
         5 : store_field(5)
@@ -2232,28 +2235,28 @@ block 'Syntax'
       constructor 'constructor'['SyntaxConnector.constructor']
         parameter 'this'
         type: object type 'SyntaxConnector'
-        id: 14aacd99-ea19-4f58-8e44-8567e7c743fc
+        id: 5d7c5b9c-39bd-04aa-aed2-1a2f21828bd2
         index: 0
         qualifier: value
       flags: generated
-      id: ecb04f65-b282-2e5f-459e-ea5af54bfbbb
+      id: c743f04d-359e-f471-a55c-3b04d0f260e4
       level: 1
       frame size: 1
       procedure 'CreateConnectorShape'['SyntaxConnector.CreateConnectorShape']
         parameter 'this'
         type: object type 'SyntaxConnector'
-        id: 14aacd99-ea19-4f58-8e44-8567e7c743fc
+        id: 5d7c5b9c-39bd-04aa-aed2-1a2f21828bd2
         index: 0
         qualifier: value
         parameter 'points'
         type: array type 'PointArray'
-        id: 8589d000-79b7-e44f-32d9-4d6451d4c98d
+        id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
         index: 1
         qualifier: value
         block '@SyntaxConnector.CreateConnectorShape'
         level: 1
       flags: defined
-      id: c3185be9-e5e2-b966-8d7f-31c1b4480083
+      id: 08c3bdf9-d04e-034c-3f67-5503f395b123
       level: 1
       VMT index: 10
       virtual: virtual
@@ -2266,22 +2269,22 @@ block 'Syntax'
       procedure 'Measure'['SyntaxConnector.Measure']
         parameter 'this'
         type: object type 'SyntaxConnector'
-        id: 14aacd99-ea19-4f58-8e44-8567e7c743fc
+        id: 5d7c5b9c-39bd-04aa-aed2-1a2f21828bd2
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@SyntaxConnector.Measure'
         level: 1
         variable 'points'
         type: array type 'PointArray'
-        id: 8589d000-79b7-e44f-32d9-4d6451d4c98d
+        id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
         index: 2
       flags: defined
-      id: 4d3183d2-f7a8-f6a6-625d-e4ff9c8d3965
+      id: c798b726-5dcc-3c1e-65eb-ed657e353222
       level: 1
       VMT index: 1
       virtual: override
@@ -2409,7 +2412,7 @@ block 'Syntax'
         117 : load_field(6)
         118 : call_virtual(SyntaxShape.Center, 8)
         119 : load_field(1)
-        120 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        120 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         121 : push_value(1)
         122 : load_local(2)
         123 : store_element
@@ -2436,7 +2439,7 @@ block 'Syntax'
         144 : load_field(6)
         145 : call_virtual(SyntaxShape.Center, 8)
         146 : load_field(1)
-        147 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        147 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         148 : push_value(1)
         149 : load_local(2)
         150 : store_element
@@ -2463,7 +2466,7 @@ block 'Syntax'
         171 : load_field(5)
         172 : call_virtual(SyntaxShape.Right, 6)
         173 : load_field(1)
-        174 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        174 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         175 : push_value(1)
         176 : load_local(2)
         177 : store_element
@@ -2490,7 +2493,7 @@ block 'Syntax'
         198 : load_field(5)
         199 : call_virtual(SyntaxShape.Left, 4)
         200 : load_field(1)
-        201 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        201 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         202 : push_value(1)
         203 : load_local(2)
         204 : store_element
@@ -2553,18 +2556,18 @@ block 'Syntax'
       procedure 'Draw'['SyntaxConnector.Draw']
         parameter 'this'
         type: object type 'SyntaxConnector'
-        id: 14aacd99-ea19-4f58-8e44-8567e7c743fc
+        id: 5d7c5b9c-39bd-04aa-aed2-1a2f21828bd2
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@SyntaxConnector.Draw'
         level: 1
       flags: defined
-      id: 425bcc89-e548-d612-0fd3-65edc7598385
+      id: 94406ecd-8e06-bbaa-fd52-c5e35bf9f26f
       level: 1
       VMT index: 2
       virtual: override
@@ -2580,9 +2583,9 @@ block 'Syntax'
         5 : load_field(9)
         6 : call_virtual(Shape.Draw, 2)
         7 : nop
-    id: 14aacd99-ea19-4f58-8e44-8567e7c743fc
+    id: 5d7c5b9c-39bd-04aa-aed2-1a2f21828bd2
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'SyntaxArrow'
       field '@vmt'['SyntaxArrow.@vmt']
@@ -2594,67 +2597,67 @@ block 'Syntax'
       index: 1
       field 'components'['SyntaxArrow.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['SyntaxArrow.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['SyntaxArrow.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'source'['SyntaxArrow.source']
       type: object type 'SyntaxShape'
-      id: edbb257e-6f5b-fd29-438b-ea97768712de
+      id: 9967feee-d656-cc9f-e287-51f630681347
       index: 5
       field 'target'['SyntaxArrow.target']
       type: object type 'SyntaxShape'
-      id: edbb257e-6f5b-fd29-438b-ea97768712de
+      id: 9967feee-d656-cc9f-e287-51f630681347
       index: 6
       field 'direction1'['SyntaxArrow.direction1']
       type: enumerated type 'Direction'
-      id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+      id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
       index: 7
       field 'direction2'['SyntaxArrow.direction2']
       type: enumerated type 'Direction'
-      id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+      id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
       index: 8
       field 'connector'['SyntaxArrow.connector']
       type: object type 'Shape'
-      id: a1c342fb-7b5d-bbe6-1354-c5534315d01f
+      id: 3abffc5b-eade-c6ac-b654-75cd353d365a
       index: 9
       constructor group '@constructor_group'['SyntaxArrow.@constructor_group']
       constructor 'constructor'['SyntaxArrow.constructor']
         parameter 'this'
         type: object type 'SyntaxArrow'
-        id: be9bd3c1-dfc3-0421-2f61-f3bc37a072bd
+        id: 4c893a58-a541-2fb4-fa45-9c6e3468a49b
         index: 0
         qualifier: value
         parameter 'source'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 1
         qualifier: value
         parameter 'target'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 2
         qualifier: value
         parameter 'direction1'
         type: enumerated type 'Direction'
-        id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+        id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
         index: 3
         qualifier: value
         parameter 'direction2'
         type: enumerated type 'Direction'
-        id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+        id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
         index: 4
         qualifier: value
         block '@SyntaxArrow.constructor'
         level: 1
       flags: defined
-      id: b3afc200-3ebf-4b6c-5e4e-80eaa291696f
+      id: a0ad19e0-c316-1d5f-544a-6cf4f508dfb4
       level: 1
       block '@SyntaxArrow.constructor'
       level: 1
@@ -2666,28 +2669,28 @@ block 'Syntax'
         3 : load_local(2)
         4 : load_local(3)
         5 : load_local(4)
-        6 : call_ctor(SyntaxConnector.constructor, 10971849-320a-6693-46f6-d293e78dc149)
+        6 : call_ctor(SyntaxConnector.constructor, cd387013-be65-6b7a-7192-35bc8dba9300)
         7 : nop
       constructor 'constructor'['SyntaxArrow.constructor']
         parameter 'this'
         type: object type 'SyntaxArrow'
-        id: be9bd3c1-dfc3-0421-2f61-f3bc37a072bd
+        id: 4c893a58-a541-2fb4-fa45-9c6e3468a49b
         index: 0
         qualifier: value
       flags: generated
-      id: de75c80c-39d7-8d1f-4046-71ed6bfff03a
+      id: 4df0c079-ff94-85f9-f675-b80648a41d2f
       level: 1
       frame size: 1
       procedure 'Print'['SyntaxArrow.Print']
         parameter 'this'
         type: object type 'SyntaxArrow'
-        id: be9bd3c1-dfc3-0421-2f61-f3bc37a072bd
+        id: 4c893a58-a541-2fb4-fa45-9c6e3468a49b
         index: 0
         qualifier: value
         block '@SyntaxArrow.Print'
         level: 1
       flags: defined
-      id: f362c70c-026b-844f-8dc2-9deedb328577
+      id: 78aef491-e7f2-c438-c856-284944ac1bcd
       level: 1
       VMT index: 0
       virtual: override
@@ -2697,25 +2700,25 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : push_value('syntax-arrow')
-        2 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 1)
+        2 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
         3 : load_local(0)
-        4 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        4 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         5 : nop
       procedure 'CreateConnectorShape'['SyntaxArrow.CreateConnectorShape']
         parameter 'this'
         type: object type 'SyntaxArrow'
-        id: be9bd3c1-dfc3-0421-2f61-f3bc37a072bd
+        id: 4c893a58-a541-2fb4-fa45-9c6e3468a49b
         index: 0
         qualifier: value
         parameter 'points'
         type: array type 'PointArray'
-        id: 8589d000-79b7-e44f-32d9-4d6451d4c98d
+        id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
         index: 1
         qualifier: value
         block '@SyntaxArrow.CreateConnectorShape'
         level: 1
       flags: defined
-      id: 4cd49625-1ecf-43cb-dc64-39486e222f81
+      id: 6c1665d9-fbde-d653-31a8-e09b68a96284
       level: 1
       VMT index: 10
       virtual: override
@@ -2726,13 +2729,13 @@ block 'Syntax'
         0 : receive(2)
         1 : new_object(Arrow)
         2 : load_local(1)
-        3 : call_ctor(Arrow.constructor, da4841f9-1f27-25f4-d2ce-9fde99c6ca72)
+        3 : call_ctor(Arrow.constructor, e4ebc76d-24a8-7951-0a84-665bc105068e)
         4 : load_local(0)
         5 : store_field(9)
         6 : nop
-    id: be9bd3c1-dfc3-0421-2f61-f3bc37a072bd
+    id: 4c893a58-a541-2fb4-fa45-9c6e3468a49b
     base type: object type 'SyntaxConnector'
-    id: 14aacd99-ea19-4f58-8e44-8567e7c743fc
+    id: 5d7c5b9c-39bd-04aa-aed2-1a2f21828bd2
     VMT pointer field index: 0
     object type 'SyntaxLine'
       field '@vmt'['SyntaxLine.@vmt']
@@ -2744,67 +2747,67 @@ block 'Syntax'
       index: 1
       field 'components'['SyntaxLine.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['SyntaxLine.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['SyntaxLine.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'source'['SyntaxLine.source']
       type: object type 'SyntaxShape'
-      id: edbb257e-6f5b-fd29-438b-ea97768712de
+      id: 9967feee-d656-cc9f-e287-51f630681347
       index: 5
       field 'target'['SyntaxLine.target']
       type: object type 'SyntaxShape'
-      id: edbb257e-6f5b-fd29-438b-ea97768712de
+      id: 9967feee-d656-cc9f-e287-51f630681347
       index: 6
       field 'direction1'['SyntaxLine.direction1']
       type: enumerated type 'Direction'
-      id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+      id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
       index: 7
       field 'direction2'['SyntaxLine.direction2']
       type: enumerated type 'Direction'
-      id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+      id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
       index: 8
       field 'connector'['SyntaxLine.connector']
       type: object type 'Shape'
-      id: a1c342fb-7b5d-bbe6-1354-c5534315d01f
+      id: 3abffc5b-eade-c6ac-b654-75cd353d365a
       index: 9
       constructor group '@constructor_group'['SyntaxLine.@constructor_group']
       constructor 'constructor'['SyntaxLine.constructor']
         parameter 'this'
         type: object type 'SyntaxLine'
-        id: e78028b8-997a-2ca7-6f28-6bc75acf4b0a
+        id: 83636972-3337-b8cd-f49a-c8c98e83afb3
         index: 0
         qualifier: value
         parameter 'source'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 1
         qualifier: value
         parameter 'target'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 2
         qualifier: value
         parameter 'direction1'
         type: enumerated type 'Direction'
-        id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+        id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
         index: 3
         qualifier: value
         parameter 'direction2'
         type: enumerated type 'Direction'
-        id: 3860e520-fa05-9f28-0fdd-a9fea9c4e70a
+        id: 2bdc5946-539e-0784-a844-8cc6ebb7f500
         index: 4
         qualifier: value
         block '@SyntaxLine.constructor'
         level: 1
       flags: defined
-      id: c2bae7b1-146d-504b-fa9d-9e73b442eadd
+      id: 66d06020-1916-fd3d-8928-f4b42b4927d3
       level: 1
       block '@SyntaxLine.constructor'
       level: 1
@@ -2816,28 +2819,28 @@ block 'Syntax'
         3 : load_local(2)
         4 : load_local(3)
         5 : load_local(4)
-        6 : call_ctor(SyntaxConnector.constructor, 10971849-320a-6693-46f6-d293e78dc149)
+        6 : call_ctor(SyntaxConnector.constructor, cd387013-be65-6b7a-7192-35bc8dba9300)
         7 : nop
       constructor 'constructor'['SyntaxLine.constructor']
         parameter 'this'
         type: object type 'SyntaxLine'
-        id: e78028b8-997a-2ca7-6f28-6bc75acf4b0a
+        id: 83636972-3337-b8cd-f49a-c8c98e83afb3
         index: 0
         qualifier: value
       flags: generated
-      id: d76a12e5-03c8-6919-2c83-f2f4a08b11eb
+      id: a481e481-b403-79ca-78dc-454c745e9c7e
       level: 1
       frame size: 1
       procedure 'Print'['SyntaxLine.Print']
         parameter 'this'
         type: object type 'SyntaxLine'
-        id: e78028b8-997a-2ca7-6f28-6bc75acf4b0a
+        id: 83636972-3337-b8cd-f49a-c8c98e83afb3
         index: 0
         qualifier: value
         block '@SyntaxLine.Print'
         level: 1
       flags: defined
-      id: fcb0854c-a8e1-edca-bfd2-62a0dd0e506d
+      id: 2dc32bdc-3ce2-2b50-93c1-2497a7100e2f
       level: 1
       VMT index: 0
       virtual: override
@@ -2847,25 +2850,25 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : push_value('syntax-line')
-        2 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 1)
+        2 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
         3 : load_local(0)
-        4 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        4 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         5 : nop
       procedure 'CreateConnectorShape'['SyntaxLine.CreateConnectorShape']
         parameter 'this'
         type: object type 'SyntaxLine'
-        id: e78028b8-997a-2ca7-6f28-6bc75acf4b0a
+        id: 83636972-3337-b8cd-f49a-c8c98e83afb3
         index: 0
         qualifier: value
         parameter 'points'
         type: array type 'PointArray'
-        id: 8589d000-79b7-e44f-32d9-4d6451d4c98d
+        id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
         index: 1
         qualifier: value
         block '@SyntaxLine.CreateConnectorShape'
         level: 1
       flags: defined
-      id: d651c97f-4a00-85e7-e046-05bc764286d3
+      id: 49d621bf-4048-5b5d-3fb7-30702d3aaa82
       level: 1
       VMT index: 10
       virtual: override
@@ -2876,13 +2879,13 @@ block 'Syntax'
         0 : receive(2)
         1 : new_object(Line)
         2 : load_local(1)
-        3 : call_ctor(Line.constructor, 02e0cf74-85ed-9eb8-cd4c-421a74581487)
+        3 : call_ctor(Line.constructor, cc7becab-a242-b367-6486-9c520689f9c4)
         4 : load_local(0)
         5 : store_field(9)
         6 : nop
-    id: e78028b8-997a-2ca7-6f28-6bc75acf4b0a
+    id: 83636972-3337-b8cd-f49a-c8c98e83afb3
     base type: object type 'SyntaxConnector'
-    id: 14aacd99-ea19-4f58-8e44-8567e7c743fc
+    id: 5d7c5b9c-39bd-04aa-aed2-1a2f21828bd2
     VMT pointer field index: 0
     object type 'SyntaxCell'
       field '@vmt'['SyntaxCell.@vmt']
@@ -2894,15 +2897,15 @@ block 'Syntax'
       index: 1
       field 'components'['SyntaxCell.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['SyntaxCell.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['SyntaxCell.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'row'['SyntaxCell.row']
       type: integer type 'integer'
@@ -2916,7 +2919,7 @@ block 'Syntax'
       constructor 'constructor'['SyntaxCell.constructor']
         parameter 'this'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 0
         qualifier: value
         parameter 'row'
@@ -2932,7 +2935,7 @@ block 'Syntax'
         block '@SyntaxCell.constructor'
         level: 1
       flags: defined
-      id: 44b3aed1-66d8-7633-56dd-f5c9e2a60c65
+      id: b8587046-a218-ad44-dd9a-08fd883bf9a2
       level: 1
       block '@SyntaxCell.constructor'
       level: 1
@@ -2940,8 +2943,8 @@ block 'Syntax'
       code
         0 : receive(3)
         1 : load_local(0)
-        2 : load_global(ce0ef9ef-69a2-4916-1402-a905109bfc80)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(2686d114-226b-5f5a-459b-b2eba5e7378f)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : load_local(1)
         5 : load_local(0)
         6 : store_field(5)
@@ -2952,23 +2955,23 @@ block 'Syntax'
       constructor 'constructor'['SyntaxCell.constructor']
         parameter 'this'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 0
         qualifier: value
       flags: generated
-      id: 5572e885-0c11-86a5-2829-82a17be64b94
+      id: 874008e3-95e6-caac-5a5c-62bb9c0db698
       level: 1
       frame size: 1
       procedure 'Print'['SyntaxCell.Print']
         parameter 'this'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 0
         qualifier: value
         block '@SyntaxCell.Print'
         level: 1
       flags: defined
-      id: ab0e7910-5086-7edb-02a8-aafba6104e93
+      id: fca92936-2526-a543-acd0-44e0fabe6fc1
       level: 1
       VMT index: 0
       virtual: override
@@ -2984,19 +2987,19 @@ block 'Syntax'
         5 : load_local(0)
         6 : load_field(6)
         7 : push_value(']')
-        8 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 5)
+        8 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 5)
         9 : load_local(0)
-        10 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        10 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         11 : nop
       procedure 'Measure'['SyntaxCell.Measure']
         parameter 'this'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@SyntaxCell.Measure'
@@ -3007,7 +3010,7 @@ block 'Syntax'
         index: 2
         variable 's'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 3
         variable 'w'
         type: real type 'real'
@@ -3026,7 +3029,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 7
       flags: defined
-      id: f3599103-28c9-f2ff-bbb6-cdf330810f67
+      id: 09299034-3ca6-1edd-281b-38e6183ef245
       level: 1
       VMT index: 1
       virtual: override
@@ -3037,7 +3040,7 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxShape.Measure, 9968b694-da3e-539c-f96d-89b45ff3d1bf, 2)
+        3 : call_subroutine(SyntaxShape.Measure, 028c22a9-da3d-4982-aa5e-66f7bc04ce30, 2)
         4 : push_value(0)
         5 : int_to_real
         6 : store_local(4)
@@ -3075,7 +3078,7 @@ block 'Syntax'
         38 : load_field(3)
         39 : load_field(1)
         40 : load_field(1)
-        41 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        41 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         42 : store_local(5)
         43 : nop
         44 : jump(45)
@@ -3084,7 +3087,7 @@ block 'Syntax'
         47 : not_equal_int
         48 : branch(49, 73)
         49 : load_local(2)
-        50 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        50 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         51 : store_local(2)
         52 : load_local(2)
         53 : load_local(0)
@@ -3103,7 +3106,7 @@ block 'Syntax'
         66 : load_field(3)
         67 : load_field(1)
         68 : load_field(1)
-        69 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        69 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         70 : store_local(5)
         71 : nop
         72 : jump(45)
@@ -3123,7 +3126,7 @@ block 'Syntax'
         86 : load_field(1)
         87 : load_local(5)
         88 : plus_real
-        89 : call_ctor(Size.constructor, 9bb3d5d4-21df-67b3-2b83-675f99eac2f9)
+        89 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
         90 : load_local(0)
         91 : load_field(3)
         92 : store_field(1)
@@ -3131,14 +3134,14 @@ block 'Syntax'
       procedure 'SetLocations'['SyntaxCell.SetLocations']
         parameter 'this'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 0
         qualifier: value
         block '@SyntaxCell.SetLocations'
         level: 1
         variable 'loc'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         variable 'i'
         type: integer type 'integer'
@@ -3146,7 +3149,7 @@ block 'Syntax'
         index: 2
         variable 's'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 3
         variable 'y'
         type: real type 'real'
@@ -3161,7 +3164,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 6
       flags: defined
-      id: e0c49b2a-1ed5-0203-3866-5ff270614396
+      id: dad4c328-420f-2341-dc69-7b7d793f4b8f
       level: 1
       block '@SyntaxCell.SetLocations'
       level: 1
@@ -3185,7 +3188,7 @@ block 'Syntax'
         15 : load_field(0)
         16 : load_field(1)
         17 : plus_real
-        18 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        18 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         19 : store_local(1)
         20 : push_value(0)
         21 : store_local(5)
@@ -3228,7 +3231,7 @@ block 'Syntax'
         58 : load_local(1)
         59 : load_field(0)
         60 : load_local(4)
-        61 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        61 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         62 : load_local(3)
         63 : load_field(3)
         64 : store_field(0)
@@ -3239,7 +3242,7 @@ block 'Syntax'
         69 : load_field(0)
         70 : push_value(0)
         71 : int_to_real
-        72 : call_subroutine(Point.Offset, ac4a2aac-ee96-2b57-6653-7cf7e4a560ad, 3)
+        72 : call_subroutine(Point.Offset, 8b9cabed-8ec3-c5c8-3341-bb90cf2868e0, 3)
         73 : nop
         74 : jump(75)
         75 : load_local(2)
@@ -3247,7 +3250,7 @@ block 'Syntax'
         77 : not_equal_int
         78 : branch(79, 123)
         79 : load_local(2)
-        80 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        80 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         81 : store_local(2)
         82 : load_local(2)
         83 : load_local(0)
@@ -3276,7 +3279,7 @@ block 'Syntax'
         106 : load_local(1)
         107 : load_field(0)
         108 : load_local(4)
-        109 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        109 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         110 : load_local(3)
         111 : load_field(3)
         112 : store_field(0)
@@ -3287,16 +3290,16 @@ block 'Syntax'
         117 : load_field(0)
         118 : push_value(0)
         119 : int_to_real
-        120 : call_subroutine(Point.Offset, ac4a2aac-ee96-2b57-6653-7cf7e4a560ad, 3)
+        120 : call_subroutine(Point.Offset, 8b9cabed-8ec3-c5c8-3341-bb90cf2868e0, 3)
         121 : nop
         122 : jump(75)
         123 : nop
         124 : jump(125)
         125 : nop
         126 : nop
-    id: 93666102-5215-fbc6-7c5b-045053a80cd8
+    id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'SyntaxRow'
       field '@vmt'['SyntaxRow.@vmt']
@@ -3308,15 +3311,15 @@ block 'Syntax'
       index: 1
       field 'components'['SyntaxRow.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['SyntaxRow.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['SyntaxRow.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'row'['SyntaxRow.row']
       type: integer type 'integer'
@@ -3325,7 +3328,7 @@ block 'Syntax'
       function 'GetCell'['SyntaxRow.GetCell']
         parameter 'this'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 0
         qualifier: value
         parameter 'column'
@@ -3335,16 +3338,16 @@ block 'Syntax'
         qualifier: value
         variable '@result'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 2
         block '@SyntaxRow.GetCell'
         level: 1
         variable 'cell'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 3
       flags: defined
-      id: 9fa34f03-c21d-2696-e3b3-a23fa982717a
+      id: 7e23d935-77a8-1430-996d-f78a1ef60c20
       level: 1
       block '@SyntaxRow.GetCell'
       level: 1
@@ -3363,8 +3366,8 @@ block 'Syntax'
         10 : load_field(5)
         11 : load_local(0)
         12 : load_field(1)
-        13 : call_ctor(SyntaxCell.constructor, 44b3aed1-66d8-7633-56dd-f5c9e2a60c65)
-        14 : call_subroutine(CompoundShape.Add, 3ae28640-6da0-ea0b-293e-e2651d939f5e, 2)
+        13 : call_ctor(SyntaxCell.constructor, b8587046-a218-ad44-dd9a-08fd883bf9a2)
+        14 : call_subroutine(CompoundShape.Add, 6246747b-6875-5145-ca21-97f9f93e5508, 2)
         15 : nop
         16 : jump(2)
         17 : load_local(1)
@@ -3380,7 +3383,7 @@ block 'Syntax'
       constructor 'constructor'['SyntaxRow.constructor']
         parameter 'this'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 0
         qualifier: value
         parameter 'row'
@@ -3391,7 +3394,7 @@ block 'Syntax'
         block '@SyntaxRow.constructor'
         level: 1
       flags: defined
-      id: 4cde9373-4e10-c453-0fce-2395e81a5f84
+      id: e2d8ed8e-a4ae-9d9c-349d-75eafccab5f4
       level: 1
       block '@SyntaxRow.constructor'
       level: 1
@@ -3399,8 +3402,8 @@ block 'Syntax'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : load_global(d4baf0b9-3e58-3f17-12d2-97892e0a2604)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(fed3d93f-c59c-429e-ca50-f39c25bee46b)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : load_local(1)
         5 : load_local(0)
         6 : store_field(5)
@@ -3408,23 +3411,23 @@ block 'Syntax'
       constructor 'constructor'['SyntaxRow.constructor']
         parameter 'this'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 0
         qualifier: value
       flags: generated
-      id: 523cc7c1-6e7b-1b95-a40a-e184ef25afb7
+      id: 26c7d744-0cd5-b81f-414b-deeb3f87134a
       level: 1
       frame size: 1
       procedure 'Print'['SyntaxRow.Print']
         parameter 'this'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 0
         qualifier: value
         block '@SyntaxRow.Print'
         level: 1
       flags: defined
-      id: d074dcdd-b2ad-8e6c-1650-0608dbdb8e95
+      id: 59f776fe-429c-5e60-c143-9fcd402ddfdf
       level: 1
       VMT index: 0
       virtual: override
@@ -3436,19 +3439,19 @@ block 'Syntax'
         1 : push_value('syntax-row: ')
         2 : load_local(0)
         3 : load_field(5)
-        4 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 2)
+        4 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 2)
         5 : load_local(0)
-        6 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        6 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         7 : nop
       procedure 'MeasureRow'['SyntaxRow.MeasureRow']
         parameter 'this'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@SyntaxRow.MeasureRow'
@@ -3467,7 +3470,7 @@ block 'Syntax'
         index: 4
         variable 'cell'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 5
         variable '@tmp0'
         type: integer type 'integer'
@@ -3478,7 +3481,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 7
       flags: defined
-      id: 4c97e3fd-f6d6-8980-13aa-5a2fdab45aa2
+      id: 2ba8b527-cd84-be8c-4544-2a868ce0b871
       level: 1
       block '@SyntaxRow.MeasureRow'
       level: 1
@@ -3522,7 +3525,7 @@ block 'Syntax'
         35 : load_field(3)
         36 : load_field(1)
         37 : load_field(1)
-        38 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        38 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         39 : store_local(4)
         40 : nop
         41 : jump(42)
@@ -3531,7 +3534,7 @@ block 'Syntax'
         44 : not_equal_int
         45 : branch(46, 70)
         46 : load_local(2)
-        47 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        47 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         48 : store_local(2)
         49 : load_local(2)
         50 : load_local(0)
@@ -3550,7 +3553,7 @@ block 'Syntax'
         63 : load_field(3)
         64 : load_field(1)
         65 : load_field(1)
-        66 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        66 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         67 : store_local(4)
         68 : nop
         69 : jump(42)
@@ -3560,7 +3563,7 @@ block 'Syntax'
         73 : new_object(Size)
         74 : load_local(3)
         75 : load_local(4)
-        76 : call_ctor(Size.constructor, 9bb3d5d4-21df-67b3-2b83-675f99eac2f9)
+        76 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
         77 : load_local(0)
         78 : load_field(3)
         79 : store_field(1)
@@ -3568,14 +3571,14 @@ block 'Syntax'
       procedure 'SetLocations'['SyntaxRow.SetLocations']
         parameter 'this'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 0
         qualifier: value
         block '@SyntaxRow.SetLocations'
         level: 1
         variable 'loc'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 1
         variable 'i'
         type: integer type 'integer'
@@ -3587,7 +3590,7 @@ block 'Syntax'
         index: 3
         variable 'cell'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 4
         variable '@tmp0'
         type: integer type 'integer'
@@ -3598,7 +3601,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 6
       flags: defined
-      id: ad43c0ad-f43d-d78b-e3b3-8697816a74ae
+      id: 63fad36d-0cfb-6c90-a328-6ade08c6138f
       level: 1
       block '@SyntaxRow.SetLocations'
       level: 1
@@ -3614,7 +3617,7 @@ block 'Syntax'
         7 : load_field(3)
         8 : load_field(0)
         9 : load_field(1)
-        10 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        10 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         11 : store_local(1)
         12 : push_value(0)
         13 : store_local(5)
@@ -3655,7 +3658,7 @@ block 'Syntax'
         48 : load_local(1)
         49 : load_field(0)
         50 : load_local(3)
-        51 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        51 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         52 : load_local(4)
         53 : load_field(3)
         54 : store_field(0)
@@ -3666,9 +3669,9 @@ block 'Syntax'
         59 : load_field(0)
         60 : push_value(0)
         61 : int_to_real
-        62 : call_subroutine(Point.Offset, ac4a2aac-ee96-2b57-6653-7cf7e4a560ad, 3)
+        62 : call_subroutine(Point.Offset, 8b9cabed-8ec3-c5c8-3341-bb90cf2868e0, 3)
         63 : load_local(4)
-        64 : call_subroutine(SyntaxCell.SetLocations, e0c49b2a-1ed5-0203-3866-5ff270614396, 1)
+        64 : call_subroutine(SyntaxCell.SetLocations, dad4c328-420f-2341-dc69-7b7d793f4b8f, 1)
         65 : nop
         66 : jump(67)
         67 : load_local(2)
@@ -3676,7 +3679,7 @@ block 'Syntax'
         69 : not_equal_int
         70 : branch(71, 115)
         71 : load_local(2)
-        72 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        72 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         73 : store_local(2)
         74 : load_local(2)
         75 : load_local(0)
@@ -3703,7 +3706,7 @@ block 'Syntax'
         96 : load_local(1)
         97 : load_field(0)
         98 : load_local(3)
-        99 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        99 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         100 : load_local(4)
         101 : load_field(3)
         102 : store_field(0)
@@ -3714,18 +3717,18 @@ block 'Syntax'
         107 : load_field(0)
         108 : push_value(0)
         109 : int_to_real
-        110 : call_subroutine(Point.Offset, ac4a2aac-ee96-2b57-6653-7cf7e4a560ad, 3)
+        110 : call_subroutine(Point.Offset, 8b9cabed-8ec3-c5c8-3341-bb90cf2868e0, 3)
         111 : load_local(4)
-        112 : call_subroutine(SyntaxCell.SetLocations, e0c49b2a-1ed5-0203-3866-5ff270614396, 1)
+        112 : call_subroutine(SyntaxCell.SetLocations, dad4c328-420f-2341-dc69-7b7d793f4b8f, 1)
         113 : nop
         114 : jump(67)
         115 : nop
         116 : jump(117)
         117 : nop
         118 : nop
-    id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+    id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'SyntaxGrid'
       field '@vmt'['SyntaxGrid.@vmt']
@@ -3737,27 +3740,27 @@ block 'Syntax'
       index: 1
       field 'components'['SyntaxGrid.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['SyntaxGrid.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['SyntaxGrid.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       constructor group '@constructor_group'['SyntaxGrid.@constructor_group']
       constructor 'constructor'['SyntaxGrid.constructor']
         parameter 'this'
         type: object type 'SyntaxGrid'
-        id: a900b709-e106-3f47-017f-aab3684d98ee
+        id: 33d16102-955f-b2a7-0027-6eff9416d852
         index: 0
         qualifier: value
         block '@SyntaxGrid.constructor'
         level: 1
       flags: defined
-      id: 645c262e-f02c-132c-e7b7-dba3004eb9ab
+      id: 3a2126d4-3de3-1dc8-f83e-7ff807ca1c85
       level: 1
       block '@SyntaxGrid.constructor'
       level: 1
@@ -3765,13 +3768,13 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : load_global(d4baf0b9-3e58-3f17-12d2-97892e0a2604)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(fed3d93f-c59c-429e-ca50-f39c25bee46b)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : nop
       function 'GetRow'['SyntaxGrid.GetRow']
         parameter 'this'
         type: object type 'SyntaxGrid'
-        id: a900b709-e106-3f47-017f-aab3684d98ee
+        id: 33d16102-955f-b2a7-0027-6eff9416d852
         index: 0
         qualifier: value
         parameter 'row'
@@ -3781,16 +3784,16 @@ block 'Syntax'
         qualifier: value
         variable '@result'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 2
         block '@SyntaxGrid.GetRow'
         level: 1
         variable 'syntaxRow'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 3
       flags: defined
-      id: 1d972239-ea5a-5694-2ac9-b54d1b208f9d
+      id: 9daef3d5-55a5-88e4-e17c-17ba7bcd1764
       level: 1
       block '@SyntaxGrid.GetRow'
       level: 1
@@ -3807,8 +3810,8 @@ block 'Syntax'
         8 : new_object(SyntaxRow)
         9 : load_local(0)
         10 : load_field(1)
-        11 : call_ctor(SyntaxRow.constructor, 4cde9373-4e10-c453-0fce-2395e81a5f84)
-        12 : call_subroutine(CompoundShape.Add, 3ae28640-6da0-ea0b-293e-e2651d939f5e, 2)
+        11 : call_ctor(SyntaxRow.constructor, e2d8ed8e-a4ae-9d9c-349d-75eafccab5f4)
+        12 : call_subroutine(CompoundShape.Add, 6246747b-6875-5145-ca21-97f9f93e5508, 2)
         13 : nop
         14 : jump(2)
         15 : load_local(1)
@@ -3823,7 +3826,7 @@ block 'Syntax'
       function 'GetCell'['SyntaxGrid.GetCell']
         parameter 'this'
         type: object type 'SyntaxGrid'
-        id: a900b709-e106-3f47-017f-aab3684d98ee
+        id: 33d16102-955f-b2a7-0027-6eff9416d852
         index: 0
         qualifier: value
         parameter 'row'
@@ -3838,20 +3841,20 @@ block 'Syntax'
         qualifier: value
         variable '@result'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 3
         block '@SyntaxGrid.GetCell'
         level: 1
         variable 'syntaxRow'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 4
         variable 'syntaxCell'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 5
       flags: defined
-      id: 9c7e3ff1-dbac-584a-1875-d413edfca254
+      id: 89743937-7fcf-1d96-9a91-1adfa090c391
       level: 1
       block '@SyntaxGrid.GetCell'
       level: 1
@@ -3860,11 +3863,11 @@ block 'Syntax'
         0 : receive(3)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxGrid.GetRow, 1d972239-ea5a-5694-2ac9-b54d1b208f9d, 2)
+        3 : call_subroutine(SyntaxGrid.GetRow, 9daef3d5-55a5-88e4-e17c-17ba7bcd1764, 2)
         4 : store_local(4)
         5 : load_local(4)
         6 : load_local(2)
-        7 : call_subroutine(SyntaxRow.GetCell, 9fa34f03-c21d-2696-e3b3-a23fa982717a, 2)
+        7 : call_subroutine(SyntaxRow.GetCell, 7e23d935-77a8-1430-996d-f78a1ef60c20, 2)
         8 : store_local(5)
         9 : load_local(5)
         10 : store_local(3)
@@ -3873,7 +3876,7 @@ block 'Syntax'
       procedure 'Print'['SyntaxGrid.Print']
         parameter 'this'
         type: object type 'SyntaxGrid'
-        id: a900b709-e106-3f47-017f-aab3684d98ee
+        id: 33d16102-955f-b2a7-0027-6eff9416d852
         index: 0
         qualifier: value
         block '@SyntaxGrid.Print'
@@ -3884,7 +3887,7 @@ block 'Syntax'
         index: 1
         variable 'syntaxRow'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 2
         variable '@tmp0'
         type: integer type 'integer'
@@ -3895,7 +3898,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 4
       flags: defined
-      id: fdb0e992-cdac-b5f1-ec4f-d00fde57d783
+      id: 8b85df40-5af3-0e58-b0de-c555ce7093b7
       level: 1
       VMT index: 0
       virtual: override
@@ -3933,7 +3936,7 @@ block 'Syntax'
         27 : not_equal_int
         28 : branch(29, 42)
         29 : load_local(1)
-        30 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        30 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         31 : store_local(1)
         32 : load_local(1)
         33 : load_local(0)
@@ -3952,12 +3955,12 @@ block 'Syntax'
       procedure 'Measure'['SyntaxGrid.Measure']
         parameter 'this'
         type: object type 'SyntaxGrid'
-        id: a900b709-e106-3f47-017f-aab3684d98ee
+        id: 33d16102-955f-b2a7-0027-6eff9416d852
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@SyntaxGrid.Measure'
@@ -3984,11 +3987,11 @@ block 'Syntax'
         index: 6
         variable 'r'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 7
         variable 'cell'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 8
         variable '@tmp0'
         type: integer type 'integer'
@@ -4047,7 +4050,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 22
       flags: defined
-      id: 7089fef8-a08a-4a18-59a6-566fb16e03bd
+      id: cff0df24-3980-9f27-644c-31a28b76d56a
       level: 1
       VMT index: 1
       virtual: override
@@ -4058,7 +4061,7 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxShape.Measure, 9968b694-da3e-539c-f96d-89b45ff3d1bf, 2)
+        3 : call_subroutine(SyntaxShape.Measure, 028c22a9-da3d-4982-aa5e-66f7bc04ce30, 2)
         4 : push_value(0)
         5 : store_local(4)
         6 : push_value(0)
@@ -4083,7 +4086,7 @@ block 'Syntax'
         25 : load_local(4)
         26 : load_local(7)
         27 : load_field(1)
-        28 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        28 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         29 : store_local(4)
         30 : nop
         31 : jump(32)
@@ -4092,7 +4095,7 @@ block 'Syntax'
         34 : not_equal_int
         35 : branch(36, 51)
         36 : load_local(3)
-        37 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        37 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         38 : store_local(3)
         39 : load_local(3)
         40 : load_local(0)
@@ -4102,7 +4105,7 @@ block 'Syntax'
         44 : load_local(4)
         45 : load_local(7)
         46 : load_field(1)
-        47 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        47 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         48 : store_local(4)
         49 : nop
         50 : jump(32)
@@ -4145,21 +4148,21 @@ block 'Syntax'
         87 : load_local(0)
         88 : load_local(3)
         89 : load_local(2)
-        90 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        90 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         91 : store_local(8)
         92 : load_local(5)
         93 : load_local(8)
         94 : load_field(3)
         95 : load_field(1)
         96 : load_field(0)
-        97 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        97 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         98 : store_local(5)
         99 : load_local(6)
         100 : load_local(8)
         101 : load_field(3)
         102 : load_field(1)
         103 : load_field(1)
-        104 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        104 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         105 : store_local(6)
         106 : nop
         107 : jump(108)
@@ -4168,26 +4171,26 @@ block 'Syntax'
         110 : not_equal_int
         111 : branch(112, 136)
         112 : load_local(3)
-        113 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        113 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         114 : store_local(3)
         115 : load_local(0)
         116 : load_local(3)
         117 : load_local(2)
-        118 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        118 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         119 : store_local(8)
         120 : load_local(5)
         121 : load_local(8)
         122 : load_field(3)
         123 : load_field(1)
         124 : load_field(0)
-        125 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        125 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         126 : store_local(5)
         127 : load_local(6)
         128 : load_local(8)
         129 : load_field(3)
         130 : load_field(1)
         131 : load_field(1)
-        132 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        132 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         133 : store_local(6)
         134 : nop
         135 : jump(108)
@@ -4211,7 +4214,7 @@ block 'Syntax'
         153 : load_local(0)
         154 : load_local(3)
         155 : load_local(2)
-        156 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        156 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         157 : store_local(8)
         158 : load_local(5)
         159 : load_local(8)
@@ -4230,12 +4233,12 @@ block 'Syntax'
         172 : not_equal_int
         173 : branch(174, 194)
         174 : load_local(3)
-        175 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        175 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         176 : store_local(3)
         177 : load_local(0)
         178 : load_local(3)
         179 : load_local(2)
-        180 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        180 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         181 : store_local(8)
         182 : load_local(5)
         183 : load_local(8)
@@ -4259,7 +4262,7 @@ block 'Syntax'
         201 : not_equal_int
         202 : branch(203, 338)
         203 : load_local(2)
-        204 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        204 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         205 : store_local(2)
         206 : push_value(0)
         207 : int_to_real
@@ -4284,21 +4287,21 @@ block 'Syntax'
         226 : load_local(0)
         227 : load_local(3)
         228 : load_local(2)
-        229 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        229 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         230 : store_local(8)
         231 : load_local(5)
         232 : load_local(8)
         233 : load_field(3)
         234 : load_field(1)
         235 : load_field(0)
-        236 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        236 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         237 : store_local(5)
         238 : load_local(6)
         239 : load_local(8)
         240 : load_field(3)
         241 : load_field(1)
         242 : load_field(1)
-        243 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        243 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         244 : store_local(6)
         245 : nop
         246 : jump(247)
@@ -4307,26 +4310,26 @@ block 'Syntax'
         249 : not_equal_int
         250 : branch(251, 275)
         251 : load_local(3)
-        252 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        252 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         253 : store_local(3)
         254 : load_local(0)
         255 : load_local(3)
         256 : load_local(2)
-        257 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        257 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         258 : store_local(8)
         259 : load_local(5)
         260 : load_local(8)
         261 : load_field(3)
         262 : load_field(1)
         263 : load_field(0)
-        264 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        264 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         265 : store_local(5)
         266 : load_local(6)
         267 : load_local(8)
         268 : load_field(3)
         269 : load_field(1)
         270 : load_field(1)
-        271 : call_subroutine(Max, a718f8dc-bcb4-6252-904f-5d14361907c9, 2)
+        271 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
         272 : store_local(6)
         273 : nop
         274 : jump(247)
@@ -4350,7 +4353,7 @@ block 'Syntax'
         292 : load_local(0)
         293 : load_local(3)
         294 : load_local(2)
-        295 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        295 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         296 : store_local(8)
         297 : load_local(5)
         298 : load_local(8)
@@ -4369,12 +4372,12 @@ block 'Syntax'
         311 : not_equal_int
         312 : branch(313, 333)
         313 : load_local(3)
-        314 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        314 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         315 : store_local(3)
         316 : load_local(0)
         317 : load_local(3)
         318 : load_local(2)
-        319 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        319 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         320 : store_local(8)
         321 : load_local(5)
         322 : load_local(8)
@@ -4417,7 +4420,7 @@ block 'Syntax'
         359 : store_local(7)
         360 : load_local(7)
         361 : load_local(1)
-        362 : call_subroutine(SyntaxRow.MeasureRow, 4c97e3fd-f6d6-8980-13aa-5a2fdab45aa2, 2)
+        362 : call_subroutine(SyntaxRow.MeasureRow, 2ba8b527-cd84-be8c-4544-2a868ce0b871, 2)
         363 : nop
         364 : jump(365)
         365 : load_local(3)
@@ -4425,7 +4428,7 @@ block 'Syntax'
         367 : not_equal_int
         368 : branch(369, 382)
         369 : load_local(3)
-        370 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        370 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         371 : store_local(3)
         372 : load_local(3)
         373 : load_local(0)
@@ -4434,7 +4437,7 @@ block 'Syntax'
         376 : store_local(7)
         377 : load_local(7)
         378 : load_local(1)
-        379 : call_subroutine(SyntaxRow.MeasureRow, 4c97e3fd-f6d6-8980-13aa-5a2fdab45aa2, 2)
+        379 : call_subroutine(SyntaxRow.MeasureRow, 2ba8b527-cd84-be8c-4544-2a868ce0b871, 2)
         380 : nop
         381 : jump(365)
         382 : nop
@@ -4444,7 +4447,7 @@ block 'Syntax'
       procedure 'AddShape'['SyntaxGrid.AddShape']
         parameter 'this'
         type: object type 'SyntaxGrid'
-        id: a900b709-e106-3f47-017f-aab3684d98ee
+        id: 33d16102-955f-b2a7-0027-6eff9416d852
         index: 0
         qualifier: value
         parameter 'row'
@@ -4459,17 +4462,17 @@ block 'Syntax'
         qualifier: value
         parameter 'shape'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 3
         qualifier: value
         block '@SyntaxGrid.AddShape'
         level: 1
         variable 'syntaxCell'
         type: object type 'SyntaxCell'
-        id: 93666102-5215-fbc6-7c5b-045053a80cd8
+        id: 1f05f28e-d4e4-eace-7013-c7d2bbfc4357
         index: 4
       flags: defined
-      id: 14d200bd-90ae-fec7-e494-29e4f1f5ade2
+      id: 758a1452-678a-7a48-0187-d9df666320e7
       level: 1
       block '@SyntaxGrid.AddShape'
       level: 1
@@ -4482,24 +4485,24 @@ block 'Syntax'
         4 : equal_nil
         5 : branch(6, 10)
         6 : push_value('trying to add nil shape')
-        7 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 1)
+        7 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
         8 : nop
         9 : jump(20)
         10 : load_local(0)
         11 : load_local(1)
         12 : load_local(2)
-        13 : call_subroutine(SyntaxGrid.GetCell, 9c7e3ff1-dbac-584a-1875-d413edfca254, 3)
+        13 : call_subroutine(SyntaxGrid.GetCell, 89743937-7fcf-1d96-9a91-1adfa090c391, 3)
         14 : store_local(4)
         15 : load_local(4)
         16 : load_local(3)
-        17 : call_subroutine(CompoundShape.Add, 3ae28640-6da0-ea0b-293e-e2651d939f5e, 2)
+        17 : call_subroutine(CompoundShape.Add, 6246747b-6875-5145-ca21-97f9f93e5508, 2)
         18 : nop
         19 : jump(20)
         20 : nop
       procedure 'SetLocations'['SyntaxGrid.SetLocations']
         parameter 'this'
         type: object type 'SyntaxGrid'
-        id: a900b709-e106-3f47-017f-aab3684d98ee
+        id: 33d16102-955f-b2a7-0027-6eff9416d852
         index: 0
         qualifier: value
         block '@SyntaxGrid.SetLocations'
@@ -4510,11 +4513,11 @@ block 'Syntax'
         index: 1
         variable 'row'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 2
         variable 'loc'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 3
         variable '@tmp0'
         type: integer type 'integer'
@@ -4525,7 +4528,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 5
       flags: defined
-      id: 95732a36-c5f6-d336-7699-e9c5def0e477
+      id: 3a79e9b1-7f47-4fc9-510d-7217622b8978
       level: 1
       block '@SyntaxGrid.SetLocations'
       level: 1
@@ -4541,7 +4544,7 @@ block 'Syntax'
         7 : load_field(3)
         8 : load_field(0)
         9 : load_field(1)
-        10 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        10 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         11 : store_local(3)
         12 : push_value(0)
         13 : store_local(4)
@@ -4567,12 +4570,12 @@ block 'Syntax'
         33 : load_field(0)
         34 : load_local(3)
         35 : load_field(1)
-        36 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        36 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         37 : load_local(2)
         38 : load_field(3)
         39 : store_field(0)
         40 : load_local(2)
-        41 : call_subroutine(SyntaxRow.SetLocations, ad43c0ad-f43d-d78b-e3b3-8697816a74ae, 1)
+        41 : call_subroutine(SyntaxRow.SetLocations, 63fad36d-0cfb-6c90-a328-6ade08c6138f, 1)
         42 : load_local(3)
         43 : push_value(0)
         44 : int_to_real
@@ -4580,7 +4583,7 @@ block 'Syntax'
         46 : load_field(3)
         47 : load_field(1)
         48 : load_field(1)
-        49 : call_subroutine(Point.Offset, ac4a2aac-ee96-2b57-6653-7cf7e4a560ad, 3)
+        49 : call_subroutine(Point.Offset, 8b9cabed-8ec3-c5c8-3341-bb90cf2868e0, 3)
         50 : nop
         51 : jump(52)
         52 : load_local(1)
@@ -4588,7 +4591,7 @@ block 'Syntax'
         54 : not_equal_int
         55 : branch(56, 85)
         56 : load_local(1)
-        57 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        57 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         58 : store_local(1)
         59 : load_local(1)
         60 : load_local(0)
@@ -4600,12 +4603,12 @@ block 'Syntax'
         66 : load_field(0)
         67 : load_local(3)
         68 : load_field(1)
-        69 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        69 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         70 : load_local(2)
         71 : load_field(3)
         72 : store_field(0)
         73 : load_local(2)
-        74 : call_subroutine(SyntaxRow.SetLocations, ad43c0ad-f43d-d78b-e3b3-8697816a74ae, 1)
+        74 : call_subroutine(SyntaxRow.SetLocations, 63fad36d-0cfb-6c90-a328-6ade08c6138f, 1)
         75 : load_local(3)
         76 : push_value(0)
         77 : int_to_real
@@ -4613,16 +4616,16 @@ block 'Syntax'
         79 : load_field(3)
         80 : load_field(1)
         81 : load_field(1)
-        82 : call_subroutine(Point.Offset, ac4a2aac-ee96-2b57-6653-7cf7e4a560ad, 3)
+        82 : call_subroutine(Point.Offset, 8b9cabed-8ec3-c5c8-3341-bb90cf2868e0, 3)
         83 : nop
         84 : jump(52)
         85 : nop
         86 : jump(87)
         87 : nop
         88 : nop
-    id: a900b709-e106-3f47-017f-aab3684d98ee
+    id: 33d16102-955f-b2a7-0027-6eff9416d852
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
     object type 'Connectors'
       field '@vmt'['Connectors.@vmt']
@@ -4634,19 +4637,19 @@ block 'Syntax'
       index: 1
       field 'components'['Connectors.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       constructor group '@constructor_group'['Connectors.@constructor_group']
       constructor 'constructor'['Connectors.constructor']
         parameter 'this'
         type: object type 'Connectors'
-        id: 69d35ec2-a9e1-2574-1050-a0aad7594a8a
+        id: 0ae75c77-708c-c3f7-566c-0307e668ef7c
         index: 0
         qualifier: value
         block '@Connectors.constructor'
         level: 1
       flags: defined
-      id: d7cb2e48-d4d6-a33b-e9b5-45366ffa3694
+      id: 297dcebb-d72c-0510-79a2-ebf201e5a995
       level: 1
       block '@Connectors.constructor'
       level: 1
@@ -4654,11 +4657,11 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : call_ctor(CompoundShape.constructor, c8aa5f72-1d81-10e0-5f01-7d6c6c5507b8)
+        2 : call_ctor(CompoundShape.constructor, 81c4b2f7-893d-7f7d-ee5d-ff85518bfba4)
         3 : nop
-    id: 69d35ec2-a9e1-2574-1050-a0aad7594a8a
+    id: 0ae75c77-708c-c3f7-566c-0307e668ef7c
     base type: object type 'CompoundShape'
-    id: 2ad5eb2a-20bb-86ce-36d2-ce380d37c8aa
+    id: 87105f6e-28c8-03c3-f252-4171788c27fe
     VMT pointer field index: 0
     object type 'Diagram'
       field '@vmt'['Diagram.@vmt']
@@ -4670,19 +4673,19 @@ block 'Syntax'
       index: 1
       field 'components'['Diagram.components']
       type: array type 'ShapeArray'
-      id: 667e68aa-343e-3759-3982-5fc3f4c33ce6
+      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
       index: 2
       field 'bounds'['Diagram.bounds']
       type: object type 'Rect'
-      id: eb891895-b770-8c28-25f1-2e8f142014d9
+      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
       index: 3
       field 'padding'['Diagram.padding']
       type: object type 'Padding'
-      id: efabcaa4-b867-6d01-d328-946f95339057
+      id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
       index: 4
       field 'title'['Diagram.title']
       type: object type 'DiagramTitle'
-      id: 1d9def64-21af-8437-316d-dc732cfedb16
+      id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
       index: 5
       field 'fileName'['Diagram.fileName']
       type: string type 'string'
@@ -4690,22 +4693,22 @@ block 'Syntax'
       index: 6
       field 'grid'['Diagram.grid']
       type: object type 'SyntaxGrid'
-      id: a900b709-e106-3f47-017f-aab3684d98ee
+      id: 33d16102-955f-b2a7-0027-6eff9416d852
       index: 7
       field 'connectors'['Diagram.connectors']
       type: object type 'Connectors'
-      id: 69d35ec2-a9e1-2574-1050-a0aad7594a8a
+      id: 0ae75c77-708c-c3f7-566c-0307e668ef7c
       index: 8
       constructor group '@constructor_group'['Diagram.@constructor_group']
       constructor 'constructor'['Diagram.constructor']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         parameter 'title'
         type: object type 'DiagramTitle'
-        id: 1d9def64-21af-8437-316d-dc732cfedb16
+        id: 80bddb2d-edb6-6fdd-1e94-7ecbd7672347
         index: 1
         qualifier: value
         parameter 'fileName'
@@ -4716,7 +4719,7 @@ block 'Syntax'
         block '@Diagram.constructor'
         level: 1
       flags: defined
-      id: 30d38843-9420-07fe-9715-5c3a523cbfdb
+      id: e36de07e-27b5-49c5-350d-d063a36fb1bd
       level: 1
       block '@Diagram.constructor'
       level: 1
@@ -4724,50 +4727,50 @@ block 'Syntax'
       code
         0 : receive(3)
         1 : load_local(0)
-        2 : load_global(e475336a-4d62-4e70-31f4-64257e48798a)
-        3 : call_ctor(SyntaxShape.constructor, f4356840-5cdb-2a53-35a0-29ee38eab686)
+        2 : load_global(39092989-510f-e648-6b1b-cf2ba7624e57)
+        3 : call_ctor(SyntaxShape.constructor, c5770d76-ed9e-93d5-1911-71730fd14e9c)
         4 : load_local(1)
         5 : load_local(0)
         6 : store_field(5)
         7 : load_local(0)
         8 : load_local(1)
-        9 : call_subroutine(CompoundShape.Add, 3ae28640-6da0-ea0b-293e-e2651d939f5e, 2)
+        9 : call_subroutine(CompoundShape.Add, 6246747b-6875-5145-ca21-97f9f93e5508, 2)
         10 : load_local(2)
         11 : load_local(0)
         12 : store_field(6)
         13 : new_object(SyntaxGrid)
-        14 : call_ctor(SyntaxGrid.constructor, 645c262e-f02c-132c-e7b7-dba3004eb9ab)
+        14 : call_ctor(SyntaxGrid.constructor, 3a2126d4-3de3-1dc8-f83e-7ff807ca1c85)
         15 : load_local(0)
         16 : store_field(7)
         17 : load_local(0)
         18 : load_local(0)
         19 : load_field(7)
-        20 : call_subroutine(CompoundShape.Add, 3ae28640-6da0-ea0b-293e-e2651d939f5e, 2)
+        20 : call_subroutine(CompoundShape.Add, 6246747b-6875-5145-ca21-97f9f93e5508, 2)
         21 : new_object(Connectors)
-        22 : call_ctor(Connectors.constructor, d7cb2e48-d4d6-a33b-e9b5-45366ffa3694)
+        22 : call_ctor(Connectors.constructor, 297dcebb-d72c-0510-79a2-ebf201e5a995)
         23 : load_local(0)
         24 : store_field(8)
         25 : nop
       constructor 'constructor'['Diagram.constructor']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
       flags: generated
-      id: 27d348af-e35d-ca6a-2ebe-6e568de9f9d6
+      id: 2546d09b-029e-5e67-a249-88b4c131fb47
       level: 1
       frame size: 1
       procedure 'Print'['Diagram.Print']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         block '@Diagram.Print'
         level: 1
       flags: defined
-      id: 433ccc22-878e-d422-2f06-74bbcfb13a60
+      id: 171cd6f1-548e-b352-44ae-2ef312d5cac0
       level: 1
       VMT index: 0
       virtual: override
@@ -4777,25 +4780,25 @@ block 'Syntax'
       code
         0 : receive(1)
         1 : push_value('Diagram:')
-        2 : call_subroutine(Writeln, 7c3b85fc-0ca0-4f6c-fc35-9b59fea43ca6, 1)
+        2 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
         3 : load_local(0)
-        4 : call_subroutine(SyntaxShape.Print, bd224f14-49d1-0b7d-64a3-e3ef89882780, 1)
+        4 : call_subroutine(SyntaxShape.Print, 50e15ad0-e68a-d528-0638-734a3a946f6d, 1)
         5 : nop
       procedure 'Draw'['Diagram.Draw']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@Diagram.Draw'
         level: 1
       flags: defined
-      id: 77433558-7549-9f95-6211-0a9a855750f1
+      id: ff275e3d-9895-e2b0-2183-f23ce15a1219
       level: 1
       VMT index: 2
       virtual: override
@@ -4805,26 +4808,26 @@ block 'Syntax'
       code
         0 : receive(2)
         1 : load_local(1)
-        2 : load_global(690aa83f-0ba5-e78b-dcaf-f22648bf8744)
+        2 : load_global(afd18d20-c068-f164-427b-49c334db141c)
         3 : call_external(Graphics.Clear, 01000000-0000-0000-0000-00000000000e)
         4 : load_local(0)
         5 : load_local(1)
-        6 : call_subroutine(CompoundShape.Draw, 784131f6-3db5-e090-eab1-aaf0e11928a6, 2)
+        6 : call_subroutine(CompoundShape.Draw, aed14504-b823-e722-c8d4-2a04700dd7cd, 2)
         7 : load_local(0)
         8 : load_local(1)
-        9 : call_subroutine(Diagram.DrawConnectors, de5ec5ea-a392-72e1-c615-abcb73e1ca22, 2)
+        9 : call_subroutine(Diagram.DrawConnectors, 9b64ec05-e6e3-34ae-2e2d-6825eba100a4, 2)
         10 : nop
       procedure 'SetLocations'['Diagram.SetLocations']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         block '@Diagram.SetLocations'
         level: 1
         variable 'firstRow'
         type: object type 'SyntaxRow'
-        id: 27a961c9-e65e-dc8e-8e8b-1b032f5ed008
+        id: dcc8555a-8ce7-2c9c-19d2-7bff6d8d51b9
         index: 1
         variable 'h'
         type: real type 'real'
@@ -4832,10 +4835,10 @@ block 'Syntax'
         index: 2
         variable 'loc'
         type: object type 'Point'
-        id: 8404f093-4b6d-0e47-8359-c29baac3fb5f
+        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
         index: 3
       flags: defined
-      id: 8a716cc9-9ced-e464-6024-7b1cbf6e427c
+      id: bcffaef9-c410-aa9d-2bfc-1077ee68cb58
       level: 1
       block '@Diagram.SetLocations'
       level: 1
@@ -4869,7 +4872,7 @@ block 'Syntax'
         25 : load_local(0)
         26 : load_field(4)
         27 : load_field(1)
-        28 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        28 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         29 : store_local(3)
         30 : new_object(Point)
         31 : load_local(3)
@@ -4878,7 +4881,7 @@ block 'Syntax'
         34 : load_field(1)
         35 : load_local(2)
         36 : plus_real
-        37 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        37 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         38 : load_local(0)
         39 : load_field(5)
         40 : load_field(3)
@@ -4891,30 +4894,30 @@ block 'Syntax'
         47 : load_field(0)
         48 : push_value(0)
         49 : int_to_real
-        50 : call_subroutine(Point.Offset, ac4a2aac-ee96-2b57-6653-7cf7e4a560ad, 3)
+        50 : call_subroutine(Point.Offset, 8b9cabed-8ec3-c5c8-3341-bb90cf2868e0, 3)
         51 : new_object(Point)
         52 : load_local(3)
         53 : load_field(0)
         54 : load_local(3)
         55 : load_field(1)
-        56 : call_ctor(Point.constructor, 9a21f9ff-569e-5502-9c8c-b078ff9560c4)
+        56 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
         57 : load_local(0)
         58 : load_field(7)
         59 : load_field(3)
         60 : store_field(0)
         61 : load_local(0)
         62 : load_field(7)
-        63 : call_subroutine(SyntaxGrid.SetLocations, 95732a36-c5f6-d336-7699-e9c5def0e477, 1)
+        63 : call_subroutine(SyntaxGrid.SetLocations, 3a79e9b1-7f47-4fc9-510d-7217622b8978, 1)
         64 : nop
       procedure 'MeasureConnectors'['Diagram.MeasureConnectors']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@Diagram.MeasureConnectors'
@@ -4925,7 +4928,7 @@ block 'Syntax'
         index: 2
         variable 'connector'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 3
         variable '@tmp0'
         type: integer type 'integer'
@@ -4936,7 +4939,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 5
       flags: defined
-      id: 5aacbe9b-e4bc-3d51-c4ba-ed05004c83de
+      id: 67dbf89c-f093-4b12-e9b9-d664f3911f28
       level: 1
       block '@Diagram.MeasureConnectors'
       level: 1
@@ -4975,7 +4978,7 @@ block 'Syntax'
         30 : not_equal_int
         31 : branch(32, 47)
         32 : load_local(2)
-        33 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        33 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         34 : store_local(2)
         35 : load_local(2)
         36 : load_local(0)
@@ -4995,26 +4998,26 @@ block 'Syntax'
       procedure 'Measure'['Diagram.Measure']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@Diagram.Measure'
         level: 1
         variable 'combinedBounds'
         type: object type 'Rect'
-        id: eb891895-b770-8c28-25f1-2e8f142014d9
+        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
         index: 2
         variable 'i'
         type: integer type 'integer'
         id: 00000000-0000-0000-0000-000000000002
         index: 3
       flags: defined
-      id: 6f27a24f-6e9f-3576-a04f-c88ea4ae2662
+      id: dac99ecb-fb7c-8dcf-ef14-3179d62331b8
       level: 1
       VMT index: 1
       virtual: override
@@ -5025,17 +5028,17 @@ block 'Syntax'
         0 : receive(2)
         1 : load_local(0)
         2 : load_local(1)
-        3 : call_subroutine(SyntaxShape.Measure, 9968b694-da3e-539c-f96d-89b45ff3d1bf, 2)
+        3 : call_subroutine(SyntaxShape.Measure, 028c22a9-da3d-4982-aa5e-66f7bc04ce30, 2)
         4 : load_local(0)
-        5 : call_subroutine(Diagram.SetLocations, 8a716cc9-9ced-e464-6024-7b1cbf6e427c, 1)
+        5 : call_subroutine(Diagram.SetLocations, bcffaef9-c410-aa9d-2bfc-1077ee68cb58, 1)
         6 : load_local(0)
         7 : load_field(7)
-        8 : call_subroutine(CompoundShape.CombinedBounds, 42832d3d-2dbd-b044-dcfd-7b3b99d2a09d, 1)
+        8 : call_subroutine(CompoundShape.CombinedBounds, d6d12c82-07f6-81c3-52c7-c4c9e16e3f72, 1)
         9 : load_local(0)
         10 : load_field(7)
         11 : store_field(3)
         12 : load_local(0)
-        13 : call_subroutine(CompoundShape.CombinedBounds, 42832d3d-2dbd-b044-dcfd-7b3b99d2a09d, 1)
+        13 : call_subroutine(CompoundShape.CombinedBounds, d6d12c82-07f6-81c3-52c7-c4c9e16e3f72, 1)
         14 : store_local(2)
         15 : load_local(0)
         16 : load_field(3)
@@ -5063,12 +5066,12 @@ block 'Syntax'
         38 : store_field(1)
         39 : load_local(0)
         40 : load_local(1)
-        41 : call_subroutine(Diagram.MeasureConnectors, 5aacbe9b-e4bc-3d51-c4ba-ed05004c83de, 2)
+        41 : call_subroutine(Diagram.MeasureConnectors, 67dbf89c-f093-4b12-e9b9-d664f3911f28, 2)
         42 : nop
       procedure 'AddShape'['Diagram.AddShape']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         parameter 'row'
@@ -5083,13 +5086,13 @@ block 'Syntax'
         qualifier: value
         parameter 'shape'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 3
         qualifier: value
         block '@Diagram.AddShape'
         level: 1
       flags: defined
-      id: de0e24bf-bc6e-bd9a-124d-1c48a5140e06
+      id: 5f23faed-0406-a326-f9fe-5eeeaff55e71
       level: 1
       block '@Diagram.AddShape'
       level: 1
@@ -5101,23 +5104,23 @@ block 'Syntax'
         3 : load_local(1)
         4 : load_local(2)
         5 : load_local(3)
-        6 : call_subroutine(SyntaxGrid.AddShape, 14d200bd-90ae-fec7-e494-29e4f1f5ade2, 4)
+        6 : call_subroutine(SyntaxGrid.AddShape, 758a1452-678a-7a48-0187-d9df666320e7, 4)
         7 : nop
       procedure 'AddConnector'['Diagram.AddConnector']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         parameter 'connector'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 1
         qualifier: value
         block '@Diagram.AddConnector'
         level: 1
       flags: defined
-      id: 0086614c-8640-aa0b-67d2-d2455287a17e
+      id: 7f080ad3-7c77-29df-2664-8266d6015221
       level: 1
       block '@Diagram.AddConnector'
       level: 1
@@ -5127,17 +5130,17 @@ block 'Syntax'
         1 : load_local(0)
         2 : load_field(8)
         3 : load_local(1)
-        4 : call_subroutine(CompoundShape.Add, 3ae28640-6da0-ea0b-293e-e2651d939f5e, 2)
+        4 : call_subroutine(CompoundShape.Add, 6246747b-6875-5145-ca21-97f9f93e5508, 2)
         5 : nop
       procedure 'DrawConnectors'['Diagram.DrawConnectors']
         parameter 'this'
         type: object type 'Diagram'
-        id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+        id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: da9b2c0d-85bb-5ded-d1f8-341351914eee
+        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
         index: 1
         qualifier: value
         block '@Diagram.DrawConnectors'
@@ -5148,7 +5151,7 @@ block 'Syntax'
         index: 2
         variable 'connector'
         type: object type 'SyntaxShape'
-        id: edbb257e-6f5b-fd29-438b-ea97768712de
+        id: 9967feee-d656-cc9f-e287-51f630681347
         index: 3
         variable '@tmp0'
         type: integer type 'integer'
@@ -5159,7 +5162,7 @@ block 'Syntax'
         id: 00000000-0000-0000-0000-000000000002
         index: 5
       flags: defined
-      id: de5ec5ea-a392-72e1-c615-abcb73e1ca22
+      id: 9b64ec05-e6e3-34ae-2e2d-6825eba100a4
       level: 1
       block '@Diagram.DrawConnectors'
       level: 1
@@ -5198,7 +5201,7 @@ block 'Syntax'
         30 : not_equal_int
         31 : branch(32, 47)
         32 : load_local(2)
-        33 : call_subroutine(Succ, 08e026e5-3f30-652d-6952-d3a56ee5b3d5, 1)
+        33 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
         34 : store_local(2)
         35 : load_local(2)
         36 : load_local(0)
@@ -5216,23 +5219,23 @@ block 'Syntax'
         48 : jump(49)
         49 : nop
         50 : nop
-    id: 197c0cda-8839-52eb-c28e-36c099b7f29e
+    id: 07fe8026-45ae-feda-dd00-dbc97cfd70c7
     base type: object type 'SyntaxShape'
-    id: edbb257e-6f5b-fd29-438b-ea97768712de
+    id: 9967feee-d656-cc9f-e287-51f630681347
     VMT pointer field index: 0
   level: 0
-  unit part 'implementation_479D95CC47177BA7DD2049B2E2CADCB8C6BE21F0'
+  unit part 'implementation_73AE1B30DA2A319C45717B495180A6A90CA8345E'
   unit part: implementation
-  block 'implementation_479D95CC47177BA7DD2049B2E2CADCB8C6BE21F0'
+  block 'implementation_73AE1B30DA2A319C45717B495180A6A90CA8345E'
   level: 0
-  unit part 'initialization_479D95CC47177BA7DD2049B2E2CADCB8C6BE21F0'
+  unit part 'initialization_73AE1B30DA2A319C45717B495180A6A90CA8345E'
   unit part: initialization
-  block 'initialization_479D95CC47177BA7DD2049B2E2CADCB8C6BE21F0'
+  block 'initialization_73AE1B30DA2A319C45717B495180A6A90CA8345E'
     procedure '@init'
       block '@@init'
       level: 0
     flags: generated
-    id: fcdbfbc2-5459-124d-2cb3-b8a051545a4a
+    id: 76e6c035-c5cb-75c4-bc9f-05499eacd30b
     level: 0
     block '@@init'
     level: 0
@@ -5244,15 +5247,15 @@ block 'Syntax'
       3 : push_value(11)
       4 : int_to_real
       5 : push_value(0)
-      6 : call_ctor(Font.constructor, 850a356d-8fc9-65ef-6e57-485461497e83)
-      7 : store_global(d8dcaf58-67cc-db93-3cdf-98b5406553a6)
+      6 : call_ctor(Font.constructor, 704456ce-f7f6-3292-3326-48e089ce1b6c)
+      7 : store_global(2477c360-b881-a980-e82f-ee3deb14a13d)
       8 : new_object(Font)
       9 : push_value('Arial')
       10 : push_value(11)
       11 : int_to_real
       12 : push_value(1)
-      13 : call_ctor(Font.constructor, 850a356d-8fc9-65ef-6e57-485461497e83)
-      14 : store_global(22e2cd97-9e3c-2d8e-8f91-7e85d5df056d)
+      13 : call_ctor(Font.constructor, 704456ce-f7f6-3292-3326-48e089ce1b6c)
+      14 : store_global(01dc8bd4-0e39-a9a7-016a-c37bf18ca520)
       15 : new_object(Padding)
       16 : push_value(0)
       17 : int_to_real
@@ -5262,17 +5265,17 @@ block 'Syntax'
       21 : int_to_real
       22 : push_value(0)
       23 : int_to_real
-      24 : call_ctor(Padding.constructor, c4f2ed8d-9f69-ac1b-69b9-8ed828deda11)
-      25 : store_global(d4baf0b9-3e58-3f17-12d2-97892e0a2604)
-      26 : load_global(d4baf0b9-3e58-3f17-12d2-97892e0a2604)
-      27 : store_global(6440b14c-a53a-4da1-5664-1007ce89480f)
+      24 : call_ctor(Padding.constructor, 9160c140-346b-f0b3-ee04-ce5ba48079fa)
+      25 : store_global(fed3d93f-c59c-429e-ca50-f39c25bee46b)
+      26 : load_global(fed3d93f-c59c-429e-ca50-f39c25bee46b)
+      27 : store_global(35bdf4f1-2218-0024-f38b-885f804b1051)
       28 : new_object(Padding)
       29 : push_value(0.500000)
       30 : push_value(0.500000)
       31 : push_value(0.500000)
       32 : push_value(0.500000)
-      33 : call_ctor(Padding.constructor, c4f2ed8d-9f69-ac1b-69b9-8ed828deda11)
-      34 : store_global(ab5ed61c-f34e-3c1d-f685-3f976a2c2a32)
+      33 : call_ctor(Padding.constructor, 9160c140-346b-f0b3-ee04-ce5ba48079fa)
+      34 : store_global(799a2a13-050c-f44b-cf62-1e98a456ac67)
       35 : new_object(Padding)
       36 : push_value(1)
       37 : int_to_real
@@ -5282,8 +5285,8 @@ block 'Syntax'
       41 : int_to_real
       42 : push_value(1)
       43 : int_to_real
-      44 : call_ctor(Padding.constructor, c4f2ed8d-9f69-ac1b-69b9-8ed828deda11)
-      45 : store_global(b11e1c45-808e-840c-b52f-dbd72eca9d32)
+      44 : call_ctor(Padding.constructor, 9160c140-346b-f0b3-ee04-ce5ba48079fa)
+      45 : store_global(13b63df5-995a-ff8e-a678-6cfc4523d82a)
       46 : new_object(Padding)
       47 : push_value(1)
       48 : int_to_real
@@ -5293,8 +5296,8 @@ block 'Syntax'
       52 : int_to_real
       53 : push_value(1)
       54 : int_to_real
-      55 : call_ctor(Padding.constructor, c4f2ed8d-9f69-ac1b-69b9-8ed828deda11)
-      56 : store_global(e5f9c595-5f08-3861-839e-2785753b0f8f)
+      55 : call_ctor(Padding.constructor, 9160c140-346b-f0b3-ee04-ce5ba48079fa)
+      56 : store_global(9fb06835-9718-ac5f-3e37-8caac6668076)
       57 : new_object(Padding)
       58 : push_value(2)
       59 : int_to_real
@@ -5304,8 +5307,8 @@ block 'Syntax'
       63 : int_to_real
       64 : push_value(2)
       65 : int_to_real
-      66 : call_ctor(Padding.constructor, c4f2ed8d-9f69-ac1b-69b9-8ed828deda11)
-      67 : store_global(ce0ef9ef-69a2-4916-1402-a905109bfc80)
+      66 : call_ctor(Padding.constructor, 9160c140-346b-f0b3-ee04-ce5ba48079fa)
+      67 : store_global(2686d114-226b-5f5a-459b-b2eba5e7378f)
       68 : new_object(Padding)
       69 : push_value(5)
       70 : int_to_real
@@ -5315,8 +5318,8 @@ block 'Syntax'
       74 : int_to_real
       75 : push_value(5)
       76 : int_to_real
-      77 : call_ctor(Padding.constructor, c4f2ed8d-9f69-ac1b-69b9-8ed828deda11)
-      78 : store_global(e475336a-4d62-4e70-31f4-64257e48798a)
+      77 : call_ctor(Padding.constructor, 9160c140-346b-f0b3-ee04-ce5ba48079fa)
+      78 : store_global(39092989-510f-e648-6b1b-cf2ba7624e57)
       79 : nop
   level: 0
 level: 0

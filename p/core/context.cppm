@@ -13,6 +13,7 @@ export namespace p {
 
 class UnitLoader;
 class SymbolTable;
+class UnitHeaderCache;
 
 class Context
 {
@@ -31,6 +32,11 @@ public:
     void SetCurrentUnitPartKind(UnitPartKind unitPartKind) { currentUnitPartKind = unitPartKind; }
     bool Verbose() const { return verbose; }
     void SetVerbose() { verbose = true; }
+    void AddUpdatedUnit(const std::string& updatedUnitName);
+    const std::set<std::string>& UpdatedUnits() const { return updatedUnits; }
+    bool UnitUpdated(const std::string& unitName) const;
+    bool UpdateUnits() const { return updateUnits; }
+    void SetUpdateUnits() { updateUnits = true; }
 private:
     UnitLoader* unitLoader;
     SymbolTable* symbolTable;
@@ -39,6 +45,8 @@ private:
     Node* node;
     UnitPartKind currentUnitPartKind;
     bool verbose;
+    std::set<std::string> updatedUnits;
+    bool updateUnits;
 };
 
 } // namespace p

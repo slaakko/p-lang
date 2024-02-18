@@ -32,10 +32,13 @@ public:
     void ClearInstructionMap();
     void MapInstruction(Instruction* instruction);
     Instruction* GetInstruction(int32_t instIndex);
+    bool ReadOnlyHeader() const { return readOnlyHeader; }
+    void SetReadOnlyHeader() { readOnlyHeader = true; }
 private:
     SymbolTable* symbolTable;
     Context* context;
     std::map<int32_t, Instruction*> instructionMap;
+    bool readOnlyHeader;
 };
 
 } // namespace p

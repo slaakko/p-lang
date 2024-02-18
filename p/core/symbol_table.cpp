@@ -66,38 +66,18 @@ void SymbolTable::Import(SymbolTable* symbolTableToImport)
 
 void SymbolTable::Write(SymbolWriter& writer)
 {
-    int32_t n = usedUnitNames.size();
-    writer.GetBinaryWriter().Write(n);
-    for (const auto& usedUnitName : usedUnitNames)
-    {
-        writer.GetBinaryWriter().Write(usedUnitName);
-    }
     writer.WriteSymbol(root.get());
 }
 
 void SymbolTable::Read(SymbolReader& reader)
 {
     reader.SetSymbolTable(this);
-    int32_t n = reader.GetBinaryReader().ReadInt();
-    for (int32_t i = 0; i < n; ++i)
-    {
-        std::string usedUnitName = reader.GetBinaryReader().ReadUtf8String();
-        AddUsedUnitName(usedUnitName);
-    }
     root.reset(static_cast<RootSymbol*>(reader.ReadSymbol(nullptr)));
     Context* context = reader.GetContext();
     UnitLoader* loader = context->GetUnitLoader();
-    for (const auto& usedUnitName : usedUnitNames)
+    for (const auto& usedUnitName : root->UsedUnitNames())
     {
         loader->ImportUnit(usedUnitName, root.get(), context);
-    }
-}
-
-void SymbolTable::AddUsedUnitName(const std::string& usedUnitName)
-{
-    if (std::find(usedUnitNames.begin(), usedUnitNames.end(), usedUnitName) == usedUnitNames.end())
-    {
-        usedUnitNames.push_back(usedUnitName);
     }
 }
 
