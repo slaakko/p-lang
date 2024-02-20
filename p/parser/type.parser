@@ -30,6 +30,7 @@ parser TypeParser
         |   BOOLEAN{ return new p::BooleanNode(lexer.GetSpan(pos)); }
         |   STRING{ return new p::StringNode(lexer.GetSpan(pos)); }
         |   POINTER{ return new p::PointerNode(lexer.GetSpan(pos)); }
+        |   ArrayType(context):arrayType{ return arrayType; }
         |   Identifier:identifier{ return identifier; }
         ;
 

@@ -148,6 +148,8 @@ public:
     void AddMethod(SubroutineHeadingNode* method);
     const std::vector<std::unique_ptr<SubroutineHeadingNode>>& Methods() const { return methods; }
     Node* Clone() const override;
+    void SetFilePath(const std::string& filePath_);
+    const std::string& FilePath() const override;
     void Accept(Visitor& visitor) override;
     void Write(AstWriter& writer) override;
     void Read(AstReader& reader) override;
@@ -156,6 +158,7 @@ private:
     std::unique_ptr<IdentifierNode> typeParamId;
     std::vector<std::unique_ptr<FieldListNode>> fieldLists;
     std::vector<std::unique_ptr<SubroutineHeadingNode>> methods;
+    std::string filePath;
 };
 
 class ArrayTypeNode : public Node

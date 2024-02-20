@@ -124,12 +124,15 @@ public:
     ProcedureHeadingNode* Heading() const { return heading.get(); }
     Node* SubroutineBlock() const { return subroutineBlock.get(); }
     Node* Clone() const override;
+    void SetFilePath(const std::string& filePath_);
+    const std::string& FilePath() const override;
     void Accept(Visitor& visitor) override;
     void Write(AstWriter& writer) override;
     void Read(AstReader& reader) override;
 private:
     std::unique_ptr<ProcedureHeadingNode> heading;
     std::unique_ptr<Node> subroutineBlock;
+    std::string filePath;
 };
 
 class FunctionDeclarationNode : public Node
@@ -139,6 +142,8 @@ public:
     FunctionDeclarationNode(const soul::ast::Span& span_, FunctionHeadingNode* heading_, Node* subroutineBlock_);
     FunctionHeadingNode* Heading() const { return heading.get(); }
     Node* SubroutineBlock() const { return subroutineBlock.get(); }
+    void SetFilePath(const std::string& filePath_);
+    const std::string& FilePath() const override;
     Node* Clone() const override;
     void Accept(Visitor& visitor) override;
     void Write(AstWriter& writer) override;
@@ -146,6 +151,7 @@ public:
 private:
     std::unique_ptr<FunctionHeadingNode> heading;
     std::unique_ptr<Node> subroutineBlock;
+    std::string filePath;
 };
 
 class ConstructorCallNode : public Node
@@ -173,6 +179,8 @@ public:
     ConstructorHeadingNode* Heading() const { return heading.get(); }
     Node* ConstructorCall() const { return constructorCall.get(); }
     Node* SubroutineBlock() const { return subroutineBlock.get(); }
+    void SetFilePath(const std::string& filePath_);
+    const std::string& FilePath() const override;
     Node* Clone() const override;
     void Accept(Visitor& visitor) override;
     void Write(AstWriter& writer) override;
@@ -181,6 +189,7 @@ private:
     std::unique_ptr<ConstructorHeadingNode> heading;
     std::unique_ptr<ConstructorCallNode> constructorCall;
     std::unique_ptr<Node> subroutineBlock;
+    std::string filePath;
 };
 
 } // namespace p

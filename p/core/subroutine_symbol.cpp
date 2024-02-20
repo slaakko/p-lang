@@ -82,7 +82,7 @@ SubroutineSymbol::SubroutineSymbol(SymbolKind kind_, const soul::ast::Span& span
 ObjectTypeSymbol* SubroutineSymbol::GetObjectType() const
 {
     ContainerSymbol* parent = Parent();
-    if (parent->IsObjectTypeSymbol())
+    if (parent->IsObjectTypeOrSpecializationSymbol())
     {
         return static_cast<ObjectTypeSymbol*>(parent);
     }
@@ -97,7 +97,7 @@ void SubroutineSymbol::SetVirtual(Virtual virtual__, Node* node)
     if (virtual__ == Virtual::virtual_ || virtual__ == Virtual::override_)
     {
         ContainerSymbol* parent = Parent();
-        if (parent->IsObjectTypeSymbol())
+        if (parent->IsObjectTypeOrSpecializationSymbol())
         {
             ObjectTypeSymbol* objectType = static_cast<ObjectTypeSymbol*>(parent);
             objectType->SetVirtual();
@@ -166,7 +166,7 @@ bool SubroutineSymbol::Match(const std::vector<TypeSymbol*>& parameterTypes, int
             {
                 ++numConversions;
             }
-            else if (left->Type()->IsObjectTypeSymbol() && right->IsObjectTypeSymbol())
+            else if (left->Type()->IsObjectTypeOrSpecializationSymbol() && right->IsObjectTypeOrSpecializationSymbol())
             {
                 ObjectTypeSymbol* leftObjectType = static_cast<ObjectTypeSymbol*>(left->Type());
                 ObjectTypeSymbol* rightObjectType = static_cast<ObjectTypeSymbol*>(right);
@@ -217,6 +217,7 @@ void SubroutineSymbol::Write(SymbolWriter& writer)
     writer.GetBinaryWriter().Write(level);
     writer.GetBinaryWriter().Write(vmtIndex);
     writer.GetBinaryWriter().Write(static_cast<uint8_t>(virtual_));
+    writer.GetBinaryWriter().Write(sourceFilePath);
     writer.GetBinaryWriter().Write(externalSubroutineId);
     writer.GetBinaryWriter().Write(frameSize);
     writer.GetBinaryWriter().Write(numBasicBlocks);
@@ -236,6 +237,7 @@ void SubroutineSymbol::Read(SymbolReader& reader)
     level = reader.GetBinaryReader().ReadInt();
     vmtIndex = reader.GetBinaryReader().ReadInt();
     virtual_ = static_cast<Virtual>(reader.GetBinaryReader().ReadByte());
+    sourceFilePath = reader.GetBinaryReader().ReadUtf8String();
     reader.GetBinaryReader().ReadUuid(externalSubroutineId);
     frameSize = reader.GetBinaryReader().ReadInt();
     numBasicBlocks = reader.GetBinaryReader().ReadInt();
@@ -255,10 +257,6 @@ void SubroutineSymbol::Read(SymbolReader& reader)
 
 void SubroutineSymbol::Execute(ExecutionContext* context)
 {
-    if (FullName() == "MakeProgramHeadingDiagram")
-    {
-        int x = 0;
-    }
     context->PushSubroutine(this);
     Frame* frame = new Frame(frameSize, Parameters(), this);
     context->PushFrame(frame);
@@ -312,6 +310,23 @@ void SubroutineSymbol::CheckDefined()
     if (block)
     {
         block->CheckDefined();
+    }
+}
+
+void SubroutineSymbol::SetSourceFilePath(const std::string& sourceFilePath_)
+{
+    sourceFilePath = sourceFilePath_;
+}
+
+const std::string& SubroutineSymbol::SourceFilePath() const
+{
+    if (!sourceFilePath.empty())
+    {
+        return sourceFilePath;
+    }
+    else
+    {
+        return ContainerSymbol::SourceFilePath();
     }
 }
 
@@ -451,7 +466,7 @@ ObjectTypeSymbol* ConstructorSymbol::GetObjectType() const
     {
         ConstructorGroupSymbol* constructorGroupSymbol = static_cast<ConstructorGroupSymbol*>(parent);
         parent = constructorGroupSymbol->Parent();
-        if (parent->IsObjectTypeSymbol())
+        if (parent->IsObjectTypeOrSpecializationSymbol())
         {
             return static_cast<ObjectTypeSymbol*>(parent);
         }

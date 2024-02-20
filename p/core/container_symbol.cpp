@@ -1,4 +1,4 @@
-// =================================
+    // =================================
 // Copyright (c) 2024 Seppo Laakko
 // Distributed under the MIT license
 // =================================
@@ -17,6 +17,7 @@ import p.core.variable_symbol;
 import p.core.value;
 import p.core.symbol_table;
 import p.core.execution_context;
+import p.core.context;
 
 namespace p {
 
@@ -121,9 +122,16 @@ void ContainerSymbol::MapArrayTypeSymbol(ArrayTypeSymbol* arrayTypeSymbol)
     }
 }
 
-Symbol* ContainerSymbol::GetSymbol(const std::string& symbolName, Node* node) const
+Symbol* ContainerSymbol::GetSymbol(const std::string& symbolName, Node* node, Context* context) const
 {
-    return GetSymbol(symbolName, node, false, true);
+    if (context->NoThrow())
+    {
+        return GetSymbol(symbolName, node, false, false);
+    }
+    else
+    {
+        return GetSymbol(symbolName, node, false, true);
+    }
 }
 
 Symbol* ContainerSymbol::GetSymbol(const std::string& symbolName, Node* node, bool searchBase, bool mustExist) const
@@ -151,16 +159,19 @@ Symbol* ContainerSymbol::GetSymbol(const std::string& symbolName, Node* node, bo
     return nullptr;
 }
 
-TypeSymbol* ContainerSymbol::GetType(const std::string& typeName, Node* node) const
+TypeSymbol* ContainerSymbol::GetType(const std::string& typeName, Node* node, Context* context) const
 {
-    Symbol* symbol = GetSymbol(typeName, node);
-    if (symbol->IsTypeSymbol())
+    Symbol* symbol = GetSymbol(typeName, node, context);
+    if (symbol && symbol->IsTypeSymbol())
     {
         return static_cast<TypeSymbol*>(symbol);
     }
     else
     {
-        ThrowError("error: type symbol '" + typeName + "' expected", node->FilePath(), node->Span());
+        if (!context->NoThrow())
+        {
+            ThrowError("error: type symbol '" + typeName + "' expected", node->FilePath(), node->Span());
+        }
     }
     return nullptr;
 }
@@ -186,30 +197,36 @@ ArrayTypeSymbol* ContainerSymbol::GetArrayType(const std::string& elementTypeNam
     }
 }
 
-VariableSymbol* ContainerSymbol::GetVariable(const std::string& variableName, Node* node) const
+VariableSymbol* ContainerSymbol::GetVariable(const std::string& variableName, Node* node, Context* context) const
 {
-    Symbol* symbol = GetSymbol(variableName, node);
-    if (symbol->IsVariableSymbol())
+    Symbol* symbol = GetSymbol(variableName, node, context);
+    if (symbol && symbol->IsVariableSymbol())
     {
         return static_cast<VariableSymbol*>(symbol);
     }
     else
     {
-        ThrowError("error: variable symbol '" + variableName + "' expected", node->FilePath(), node->Span());
+        if (!context->NoThrow())
+        {
+            ThrowError("error: variable symbol '" + variableName + "' expected", node->FilePath(), node->Span());
+        }
     }
     return nullptr;
 }
 
-ObjectTypeSymbol* ContainerSymbol::GetObjectType(const std::string& objectTypeName, Node* node) const
+ObjectTypeSymbol* ContainerSymbol::GetObjectType(const std::string& objectTypeName, Node* node, Context* context) const
 {
-    Symbol* symbol = GetSymbol(objectTypeName, node);
-    if (symbol->IsObjectTypeSymbol())
+    Symbol* symbol = GetSymbol(objectTypeName, node, context);
+    if (symbol && symbol->IsObjectTypeOrSpecializationSymbol())
     {
         return static_cast<ObjectTypeSymbol*>(symbol);
     }
     else
     {
-        ThrowError("error: object type symbol '" + objectTypeName + "' expected", node->FilePath(), node->Span());
+        if (!context->NoThrow())
+        {
+            ThrowError("error: object type symbol '" + objectTypeName + "' expected", node->FilePath(), node->Span());
+        }
     }
     return nullptr;
 }

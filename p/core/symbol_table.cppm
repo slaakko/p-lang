@@ -16,6 +16,7 @@ export namespace p {
 class ConstantSymbol;
 class SubroutineSymbol;
 class ExecutionContext;
+class SpecializationSymbol;
 
 class SymbolTable
 {
@@ -26,12 +27,14 @@ public:
     void Import(SymbolTable* symbolTableToImport);
     void Write(SymbolWriter& writer);
     void Read(SymbolReader& reader);
-    TypeSymbol* GetType(const util::uuid& id) const;
-    TypeSymbol* GetType(const util::uuid& id, Node* node) const;
+    TypeSymbol* GetType(const util::uuid& id, Context* context) const;
+    TypeSymbol* GetType(const util::uuid& id, Node* node, Context* context) const;
     TypeSymbol* GetType(const util::uuid& id, const std::string& sourceFilePath, const soul::ast::Span& span) const;
     TypeSymbol* GetType(const std::string& typeName, const std::string& sourceFilePath, const soul::ast::Span& span) const;
     ArrayTypeSymbol* GetArrayType(const util::uuid& elementTypeId, Node* node) const;
-    TypeSymbol* GetFundamentalType(SymbolKind kind, Node* node) const;
+    ArrayTypeSymbol* GetArrayTypeNoThrow(const util::uuid& elementTypeId) const;
+    SpecializationSymbol* GetSpecializationNoThrow(const util::uuid& genericId, const util::uuid& typeParameterId) const;
+    TypeSymbol* GetFundamentalType(SymbolKind kind, Node* node, Context* context) const;
     void MapType(TypeSymbol* type);
     void AddTypeToRoot(TypeSymbol* type);
     void MapConstant(ConstantSymbol* constantSymbol);
@@ -53,6 +56,7 @@ private:
     std::map<util::uuid, ArrayTypeSymbol*> arrayTypeIdMap;
     std::map<util::uuid, ConstantSymbol*> constantIdMap;
     std::map<util::uuid, SubroutineSymbol*> subroutineIdMap;
+    std::map<std::pair<util::uuid, util::uuid>, SpecializationSymbol*> specializationMap;
     std::vector<Symbol*> symbols;
     std::vector<SymbolTable*> importedUnits;
     bool initRun;

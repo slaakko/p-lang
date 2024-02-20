@@ -98,281 +98,305 @@ BinaryOperatorFunctionSymbol::BinaryOperatorFunctionSymbol(const soul::ast::Span
 
 void BinaryOperatorFunctionSymbol::GenerateCode(Emitter* emitter, const soul::ast::Span& span)
 {
-    switch (type->Kind())
+    if (type->IsObjectTypeOrSpecializationSymbol())
     {
-        case SymbolKind::booleanTypeSymbol:
+        switch (op)
         {
-            switch (op)
+            case Operator::equal:
             {
-                case Operator::equal:
-                {
-                    emitter->Emit(new EqualBoolInstruction());
-                    break;
-                }
-                case Operator::notEqual:
-                {
-                    emitter->Emit(new NotEqualBoolInstruction());
-                    break;
-                }
-                case Operator::and_:
-                {
-                    emitter->Emit(new AndBoolInstruction());
-                    break;
-                }
-                case Operator::or_:
-                {
-                    emitter->Emit(new OrBoolInstruction());
-                    break;
-                }
-                case Operator::xor_:
-                {
-                    emitter->Emit(new XorBoolInstruction());
-                    break;
-                }
-                default:
-                {
-                    ThrowError("error: invalid Boolean binary operation", emitter->FilePath(), span);
-                    break;
-                }
+                emitter->Emit(new EqualObjectInstruction());
+                break;
             }
-            break;
-        }
-        case SymbolKind::integerTypeSymbol:
-        {
-            switch (op)
+            case Operator::notEqual:
             {
-                case Operator::equal:
-                {
-                    emitter->Emit(new EqualIntInstruction());
-                    break;
-                }
-                case Operator::notEqual:
-                {
-                    emitter->Emit(new NotEqualIntInstruction());
-                    break;
-                }
-                case Operator::less:
-                {
-                    emitter->Emit(new LessIntInstruction());
-                    break;
-                }
-                case Operator::greater:
-                {
-                    emitter->Emit(new GreaterIntInstruction());
-                    break;
-                }
-                case Operator::lessOrEqual:
-                {
-                    emitter->Emit(new LessOrEqualIntInstruction());
-                    break;
-                }
-                case Operator::greaterOrEqual:
-                {
-                    emitter->Emit(new GreaterOrEqualIntInstruction());
-                    break;
-                }
-                case Operator::plus:
-                {
-                    emitter->Emit(new PlusIntInstruction());
-                    break;
-                }
-                case Operator::minus:
-                {
-                    emitter->Emit(new MinusIntInstruction());
-                    break;
-                }
-                case Operator::mul:
-                {
-                    emitter->Emit(new MultiplyIntInstruction());
-                    break;
-                }
-                case Operator::fractionalDivide:
-                {
-                    emitter->Emit(new FractionalDivideIntInstruction());
-                    break;
-                }
-                case Operator::div:
-                {
-                    emitter->Emit(new DivIntInstruction());
-                    break;
-                }
-                case Operator::mod:
-                {
-                    emitter->Emit(new ModIntInstruction());
-                    break;
-                }
-                case Operator::and_:
-                {
-                    emitter->Emit(new AndIntInstruction());
-                    break;
-                }
-                case Operator::shl:
-                {
-                    emitter->Emit(new ShlIntInstruction());
-                    break;
-                }
-                case Operator::shr:
-                {
-                    emitter->Emit(new ShrIntInstruction());
-                    break;
-                }
-                case Operator::or_:
-                {
-                    emitter->Emit(new OrIntInstruction());
-                    break;
-                }
-                case Operator::xor_:
-                {
-                    emitter->Emit(new XorIntInstruction());
-                    break;
-                }
-                default:
-                {
-                    ThrowError("error: invalid integer binary operation", emitter->FilePath(), span);
-                    break;
-                }
+                emitter->Emit(new NotEqualObjectInstruction());
+                break;
             }
-            break;
-        }
-        case SymbolKind::realTypeSymbol:
-        {
-            switch (op)
+            default:
             {
-                case Operator::equal:
-                {
-                    emitter->Emit(new EqualRealInstruction());
-                    break;
-                }
-                case Operator::notEqual:
-                {
-                    emitter->Emit(new NotEqualRealInstruction());
-                    break;
-                }
-                case Operator::less:
-                {
-                    emitter->Emit(new LessRealInstruction());
-                    break;
-                }
-                case Operator::greater:
-                {
-                    emitter->Emit(new GreaterRealInstruction());
-                    break;
-                }
-                case Operator::lessOrEqual:
-                {
-                    emitter->Emit(new LessOrEqualRealInstruction());
-                    break;
-                }
-                case Operator::greaterOrEqual:
-                {
-                    emitter->Emit(new GreaterOrEqualRealInstruction());
-                    break;
-                }
-                case Operator::plus:
-                {
-                    emitter->Emit(new PlusRealInstruction());
-                    break;
-                }
-                case Operator::minus:
-                {
-                    emitter->Emit(new MinusRealInstruction());
-                    break;
-                }
-                case Operator::mul:
-                {
-                    emitter->Emit(new MultiplyRealInstruction());
-                    break;
-                }
-                case Operator::fractionalDivide:
-                {
-                    emitter->Emit(new FractionalDivideRealInstruction());
-                    break;
-                }
-                default:
-                {
-                    ThrowError("error: invalid real binary operation", emitter->FilePath(), span);
-                    break;
-                }
+                ThrowError("error: invalid object binary operation", emitter->FilePath(), span);
+                break;
             }
-            break;
         }
-        case SymbolKind::charTypeSymbol:
+    }
+    else
+    {
+        switch (type->Kind())
         {
-            switch (op)
+            case SymbolKind::booleanTypeSymbol:
             {
-                case Operator::equal:
+                switch (op)
                 {
-                    emitter->Emit(new EqualCharInstruction());
-                    break;
+                    case Operator::equal:
+                    {
+                        emitter->Emit(new EqualBoolInstruction());
+                        break;
+                    }
+                    case Operator::notEqual:
+                    {
+                        emitter->Emit(new NotEqualBoolInstruction());
+                        break;
+                    }
+                    case Operator::and_:
+                    {
+                        emitter->Emit(new AndBoolInstruction());
+                        break;
+                    }
+                    case Operator::or_:
+                    {
+                        emitter->Emit(new OrBoolInstruction());
+                        break;
+                    }
+                    case Operator::xor_:
+                    {
+                        emitter->Emit(new XorBoolInstruction());
+                        break;
+                    }
+                    default:
+                    {
+                        ThrowError("error: invalid Boolean binary operation", emitter->FilePath(), span);
+                        break;
+                    }
                 }
-                case Operator::notEqual:
-                {
-                    emitter->Emit(new NotEqualCharInstruction());
-                    break;
-                }
-                default:
-                {
-                    ThrowError("error: invalid character binary operation", emitter->FilePath(), span);
-                    break;
-                }
+                break;
             }
-            break;
-        }
-        case SymbolKind::stringTypeSymbol:
-        {
-            switch (op)
+            case SymbolKind::integerTypeSymbol:
             {
-                case Operator::equal:
+                switch (op)
                 {
-                    emitter->Emit(new EqualStringInstruction());
-                    break;
+                    case Operator::equal:
+                    {
+                        emitter->Emit(new EqualIntInstruction());
+                        break;
+                    }
+                    case Operator::notEqual:
+                    {
+                        emitter->Emit(new NotEqualIntInstruction());
+                        break;
+                    }
+                    case Operator::less:
+                    {
+                        emitter->Emit(new LessIntInstruction());
+                        break;
+                    }
+                    case Operator::greater:
+                    {
+                        emitter->Emit(new GreaterIntInstruction());
+                        break;
+                    }
+                    case Operator::lessOrEqual:
+                    {
+                        emitter->Emit(new LessOrEqualIntInstruction());
+                        break;
+                    }
+                    case Operator::greaterOrEqual:
+                    {
+                        emitter->Emit(new GreaterOrEqualIntInstruction());
+                        break;
+                    }
+                    case Operator::plus:
+                    {
+                        emitter->Emit(new PlusIntInstruction());
+                        break;
+                    }
+                    case Operator::minus:
+                    {
+                        emitter->Emit(new MinusIntInstruction());
+                        break;
+                    }
+                    case Operator::mul:
+                    {
+                        emitter->Emit(new MultiplyIntInstruction());
+                        break;
+                    }
+                    case Operator::fractionalDivide:
+                    {
+                        emitter->Emit(new FractionalDivideIntInstruction());
+                        break;
+                    }
+                    case Operator::div:
+                    {
+                        emitter->Emit(new DivIntInstruction());
+                        break;
+                    }
+                    case Operator::mod:
+                    {
+                        emitter->Emit(new ModIntInstruction());
+                        break;
+                    }
+                    case Operator::and_:
+                    {
+                        emitter->Emit(new AndIntInstruction());
+                        break;
+                    }
+                    case Operator::shl:
+                    {
+                        emitter->Emit(new ShlIntInstruction());
+                        break;
+                    }
+                    case Operator::shr:
+                    {
+                        emitter->Emit(new ShrIntInstruction());
+                        break;
+                    }
+                    case Operator::or_:
+                    {
+                        emitter->Emit(new OrIntInstruction());
+                        break;
+                    }
+                    case Operator::xor_:
+                    {
+                        emitter->Emit(new XorIntInstruction());
+                        break;
+                    }
+                    default:
+                    {
+                        ThrowError("error: invalid integer binary operation", emitter->FilePath(), span);
+                        break;
+                    }
                 }
-                case Operator::notEqual:
-                {
-                    emitter->Emit(new NotEqualStringInstruction());
-                    break;
-                }
-                case Operator::less:
-                {
-                    emitter->Emit(new LessStringInstruction());
-                    break;
-                }
-                case Operator::greater:
-                {
-                    emitter->Emit(new GreaterStringInstruction());
-                    break;
-                }
-                case Operator::lessOrEqual:
-                {
-                    emitter->Emit(new LessOrEqualStringInstruction());
-                    break;
-                }
-                case Operator::greaterOrEqual:
-                {
-                    emitter->Emit(new GreaterOrEqualStringInstruction());
-                    break;
-                }
-                case Operator::plus:
-                {
-                    emitter->Emit(new PlusStringInstruction());
-                    break;
-                }
-                default:
-                {
-                    ThrowError("error: invalid string binary operation", emitter->FilePath(), span);
-                    break;
-                }
+                break;
             }
-            break;
-        }
-        case SymbolKind::nilTypeSymbol:
-        {
-            emitter->Emit(new EqualNilInstruction());
-            break;
-        }
-        default:
-        {
-            ThrowError("error: invalid binary operation operand type", emitter->FilePath(), span);
+            case SymbolKind::realTypeSymbol:
+            {
+                switch (op)
+                {
+                    case Operator::equal:
+                    {
+                        emitter->Emit(new EqualRealInstruction());
+                        break;
+                    }
+                    case Operator::notEqual:
+                    {
+                        emitter->Emit(new NotEqualRealInstruction());
+                        break;
+                    }
+                    case Operator::less:
+                    {
+                        emitter->Emit(new LessRealInstruction());
+                        break;
+                    }
+                    case Operator::greater:
+                    {
+                        emitter->Emit(new GreaterRealInstruction());
+                        break;
+                    }
+                    case Operator::lessOrEqual:
+                    {
+                        emitter->Emit(new LessOrEqualRealInstruction());
+                        break;
+                    }
+                    case Operator::greaterOrEqual:
+                    {
+                        emitter->Emit(new GreaterOrEqualRealInstruction());
+                        break;
+                    }
+                    case Operator::plus:
+                    {
+                        emitter->Emit(new PlusRealInstruction());
+                        break;
+                    }
+                    case Operator::minus:
+                    {
+                        emitter->Emit(new MinusRealInstruction());
+                        break;
+                    }
+                    case Operator::mul:
+                    {
+                        emitter->Emit(new MultiplyRealInstruction());
+                        break;
+                    }
+                    case Operator::fractionalDivide:
+                    {
+                        emitter->Emit(new FractionalDivideRealInstruction());
+                        break;
+                    }
+                    default:
+                    {
+                        ThrowError("error: invalid real binary operation", emitter->FilePath(), span);
+                        break;
+                    }
+                }
+                break;
+            }
+            case SymbolKind::charTypeSymbol:
+            {
+                switch (op)
+                {
+                    case Operator::equal:
+                    {
+                        emitter->Emit(new EqualCharInstruction());
+                        break;
+                    }
+                    case Operator::notEqual:
+                    {
+                        emitter->Emit(new NotEqualCharInstruction());
+                        break;
+                    }
+                    default:
+                    {
+                        ThrowError("error: invalid character binary operation", emitter->FilePath(), span);
+                        break;
+                    }
+                }
+                break;
+            }
+            case SymbolKind::stringTypeSymbol:
+            {
+                switch (op)
+                {
+                    case Operator::equal:
+                    {
+                        emitter->Emit(new EqualStringInstruction());
+                        break;
+                    }
+                    case Operator::notEqual:
+                    {
+                        emitter->Emit(new NotEqualStringInstruction());
+                        break;
+                    }
+                    case Operator::less:
+                    {
+                        emitter->Emit(new LessStringInstruction());
+                        break;
+                    }
+                    case Operator::greater:
+                    {
+                        emitter->Emit(new GreaterStringInstruction());
+                        break;
+                    }
+                    case Operator::lessOrEqual:
+                    {
+                        emitter->Emit(new LessOrEqualStringInstruction());
+                        break;
+                    }
+                    case Operator::greaterOrEqual:
+                    {
+                        emitter->Emit(new GreaterOrEqualStringInstruction());
+                        break;
+                    }
+                    case Operator::plus:
+                    {
+                        emitter->Emit(new PlusStringInstruction());
+                        break;
+                    }
+                    default:
+                    {
+                        ThrowError("error: invalid string binary operation", emitter->FilePath(), span);
+                        break;
+                    }
+                }
+                break;
+            }
+            case SymbolKind::nilTypeSymbol:
+            {
+                emitter->Emit(new EqualNilInstruction());
+                break;
+            }
+            default:
+            {
+                ThrowError("error: invalid binary operation operand type", emitter->FilePath(), span);
+            }
         }
     }
 }
@@ -528,6 +552,7 @@ public:
     static FunctionRepository& Instance();
     void AddBinaryOperatorFunction(BinaryOperatorFunctionSymbol* function);
     FunctionSymbol* GetBinaryOperatorFunction(Operator op, TypeSymbol* type, Node* node) const;
+    FunctionSymbol* GetBinaryOperatorFunctionNoThrow(Operator op, TypeSymbol* type) const;
     void AddUnaryOperatorFunction(UnaryOperatorFunctionSymbol* function);
     FunctionSymbol* GetUnaryOperatorFunction(Operator op, TypeSymbol* type, Node* node) const;
     void AddConversionFunction(ConversionFunctionSymbol* function);
@@ -563,6 +588,19 @@ void FunctionRepository::AddBinaryOperatorFunction(BinaryOperatorFunctionSymbol*
 {
     binaryOperatorFunctionMap[std::make_pair(function->Op(), function->Type())] = function;
     functions.push_back(std::unique_ptr<FunctionSymbol>(function));
+}
+
+FunctionSymbol* FunctionRepository::GetBinaryOperatorFunctionNoThrow(Operator op, TypeSymbol* type) const
+{
+    auto it = binaryOperatorFunctionMap.find(std::make_pair(op, type));
+    if (it != binaryOperatorFunctionMap.end())
+    {
+        return it->second;
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
 FunctionSymbol* FunctionRepository::GetBinaryOperatorFunction(Operator op, TypeSymbol* type, Node* node) const
@@ -631,6 +669,15 @@ FunctionSymbol* FunctionRepository::GetConversionFunction(TypeSymbol* targetType
     return nullptr;
 }
 
+
+void AddBinaryOperatorFunction(const soul::ast::Span& span, Operator op, TypeSymbol* type, TypeSymbol* resultType)
+{
+    FunctionSymbol* binaryOperatorFunction = FunctionRepository::Instance().GetBinaryOperatorFunctionNoThrow(op, type);
+    if (!binaryOperatorFunction)
+    {
+        FunctionRepository::Instance().AddBinaryOperatorFunction(new BinaryOperatorFunctionSymbol(span, op, type, resultType));
+    }
+}
 
 FunctionSymbol* GetBinaryOperatorFunction(Operator op, TypeSymbol* type, Node* node)
 {

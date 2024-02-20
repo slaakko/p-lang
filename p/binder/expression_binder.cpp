@@ -54,32 +54,32 @@ BoundExpressionNode* ExpressionBinder::GetBoundExpression()
 
 void ExpressionBinder::Visit(IntegerNode& node)
 {
-    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block())));
+    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block(), context)));
 }
 
 void ExpressionBinder::Visit(RealNode& node)
 {
-    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block())));
+    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block(), context)));
 }
 
 void ExpressionBinder::Visit(CharNode& node)
 {
-    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block())));
+    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block(), context)));
 }
 
 void ExpressionBinder::Visit(BooleanNode& node)
 {
-    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block())));
+    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block(), context)));
 }
 
 void ExpressionBinder::Visit(StringNode& node) 
 {
-    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block())));
+    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block(), context)));
 }
 
 void ExpressionBinder::Visit(PointerNode& node)
 {
-    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block())));
+    boundExpression.reset(new BoundTypeNode(node.Span(), GetType(&node, currentSubroutine->Block(), context)));
 }
 
 void ExpressionBinder::Visit(BinaryExprNode& node)
@@ -96,34 +96,40 @@ void ExpressionBinder::Visit(BinaryExprNode& node)
         {
             if (left->Type()->IsNilTypeSymbol())
             {
-                TypeSymbol* type = context->GetSymbolTable()->GetFundamentalType(commonType, &node);
+                TypeSymbol* type = context->GetSymbolTable()->GetFundamentalType(commonType, &node, context);
                 FunctionSymbol* binaryOperatorFunction = GetBinaryOperatorFunction(node.Op(), type, &node);
                 boundExpression.reset(new BoundBinaryExpressionNode(node.Span(), right.release(), left.release(), binaryOperatorFunction, &node));
             }
             else
             {
-                TypeSymbol* type = context->GetSymbolTable()->GetFundamentalType(commonType, &node);
+                TypeSymbol* type = context->GetSymbolTable()->GetFundamentalType(commonType, &node, context);
                 FunctionSymbol* binaryOperatorFunction = GetBinaryOperatorFunction(node.Op(), type, &node);
                 boundExpression.reset(new BoundBinaryExpressionNode(node.Span(), left.release(), right.release(), binaryOperatorFunction, &node));
             }
+        }
+        else if (commonType == SymbolKind::objectTypeSymbol || commonType == SymbolKind::specializationSymbol)
+        {
+            TypeSymbol* type = left->Type();
+            FunctionSymbol* binaryOperatorFunction = GetBinaryOperatorFunction(node.Op(), type, &node);
+            boundExpression.reset(new BoundBinaryExpressionNode(node.Span(), left.release(), right.release(), binaryOperatorFunction, &node));
         }
         else
         {
             if (left->Type()->Kind() != commonType)
             {
-                TypeSymbol* targetType = context->GetSymbolTable()->GetFundamentalType(commonType, &node);
+                TypeSymbol* targetType = context->GetSymbolTable()->GetFundamentalType(commonType, &node, context);
                 TypeSymbol* leftType = left->Type();
                 BoundConversionNode* conversion = new BoundConversionNode(node.Span(), GetConversionFunction(targetType, leftType, &node, true), left.release());
                 left.reset(conversion);
             }
             if (right->Type()->Kind() != commonType)
             {
-                TypeSymbol* targetType = context->GetSymbolTable()->GetFundamentalType(commonType, &node);
+                TypeSymbol* targetType = context->GetSymbolTable()->GetFundamentalType(commonType, &node, context);
                 TypeSymbol* rightType = right->Type();
                 BoundConversionNode* conversion = new BoundConversionNode(node.Span(), GetConversionFunction(targetType, rightType, &node, true), right.release());
                 right.reset(conversion);
             }
-            TypeSymbol* type = context->GetSymbolTable()->GetFundamentalType(commonType, &node);
+            TypeSymbol* type = context->GetSymbolTable()->GetFundamentalType(commonType, &node, context);
             FunctionSymbol* binaryOperatorFunction = GetBinaryOperatorFunction(node.Op(), type, &node);
             boundExpression.reset(new BoundBinaryExpressionNode(node.Span(), left.release(), right.release(), binaryOperatorFunction, &node));
         }
@@ -152,7 +158,7 @@ void ExpressionBinder::Visit(ParenthesizedExprNode& node)
 
 void ExpressionBinder::Visit(IntegerLiteralNode& node)
 {
-    TypeSymbol* integerType = context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node);
+    TypeSymbol* integerType = context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context);
     IntegerValue* integerValue = new IntegerValue(node.Value());
     integerValue->SetType(integerType);
     boundExpression.reset(new BoundLiteralNode(node.Span(), integerValue, integerType));
@@ -160,7 +166,7 @@ void ExpressionBinder::Visit(IntegerLiteralNode& node)
 
 void ExpressionBinder::Visit(RealLiteralNode& node)
 {
-    TypeSymbol* realType = context->GetSymbolTable()->GetType(GetRealTypeId(), &node);
+    TypeSymbol* realType = context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context);
     RealValue* realValue = new RealValue(node.Value());
     realValue->SetType(realType);
     boundExpression.reset(new BoundLiteralNode(node.Span(), realValue, realType));
@@ -168,7 +174,7 @@ void ExpressionBinder::Visit(RealLiteralNode& node)
 
 void ExpressionBinder::Visit(BooleanLiteralNode& node)
 {
-    TypeSymbol* booleanType = context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node);
+    TypeSymbol* booleanType = context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context);
     BooleanValue* booleanValue = new BooleanValue(node.Value());
     booleanValue->SetType(booleanType);
     boundExpression.reset(new BoundLiteralNode(node.Span(), booleanValue, booleanType));
@@ -176,7 +182,7 @@ void ExpressionBinder::Visit(BooleanLiteralNode& node)
 
 void ExpressionBinder::Visit(CharLiteralNode& node)
 {
-    TypeSymbol* charType = context->GetSymbolTable()->GetType(GetCharTypeId(), &node);
+    TypeSymbol* charType = context->GetSymbolTable()->GetType(GetCharTypeId(), &node, context);
     CharValue* charValue = new CharValue(node.Value());
     charValue->SetType(charType);
     boundExpression.reset(new BoundLiteralNode(node.Span(), charValue, charType));
@@ -184,7 +190,7 @@ void ExpressionBinder::Visit(CharLiteralNode& node)
 
 void ExpressionBinder::Visit(StringLiteralNode& node)
 {
-    TypeSymbol* stringType = context->GetSymbolTable()->GetType(GetStringTypeId(), &node);
+    TypeSymbol* stringType = context->GetSymbolTable()->GetType(GetStringTypeId(), &node, context);
     StringValue* stringValue = new StringValue(node.Value());
     stringValue->SetType(stringType);
     boundExpression.reset(new BoundLiteralNode(node.Span(), stringValue, stringType));
@@ -294,7 +300,7 @@ void ExpressionBinder::Visit(BaseNode& node)
 
 void ExpressionBinder::Visit(NilNode& node)
 {
-    boundExpression.reset(new BoundLiteralNode(node.Span(), new NilValue(), context->GetSymbolTable()->GetType(GetNilTypeId(), &node)));
+    boundExpression.reset(new BoundLiteralNode(node.Span(), new NilValue(), context->GetSymbolTable()->GetType(GetNilTypeId(), &node, context)));
 }
 
 void ExpressionBinder::Visit(NewExprNode& node)
@@ -307,8 +313,8 @@ void ExpressionBinder::Visit(NewExprNode& node)
         invokeParent = true;
     }
     BlockSymbol* block = currentSubroutine->Block();
-    TypeSymbol* type = GetType(node.Type(), block);
-    if (type->IsObjectTypeSymbol())
+    TypeSymbol* type = GetType(node.Type(), block, context);
+    if (type->IsObjectTypeOrSpecializationSymbol())
     {
         ObjectTypeSymbol* objectType = static_cast<ObjectTypeSymbol*>(type);
         if (invokeParent)
@@ -331,7 +337,7 @@ void ExpressionBinder::Visit(NewArrayExprNode& node)
 {
     context->PushNode(&node);
     BlockSymbol* block = currentSubroutine->Block();
-    TypeSymbol* elementType = GetType(node.ElementType(), block);
+    TypeSymbol* elementType = GetType(node.ElementType(), block, context);
     node.ArraySize()->Accept(*this);
     std::unique_ptr<BoundExpressionNode> arraySize = std::move(boundExpression);
     ArrayTypeSymbol* arrayType = block->GetArrayType(elementType->Name());
@@ -478,7 +484,7 @@ void ExpressionBinder::Visit(InvokeExprNode& node)
                     }
                     if (index < boundArguments.size() && boundArguments[index]->Type() != parameter->Type())
                     {
-                        if (parameter->Type()->IsObjectTypeSymbol() && boundArguments[index]->Type()->IsObjectTypeSymbol())
+                        if (parameter->Type()->IsObjectTypeOrSpecializationSymbol() && boundArguments[index]->Type()->IsObjectTypeOrSpecializationSymbol())
                         {
                             ObjectTypeSymbol* paramObjectType = static_cast<ObjectTypeSymbol*>(parameter->Type());
                             ObjectTypeSymbol* argObjectType = static_cast<ObjectTypeSymbol*>(boundArguments[index]->Type());
@@ -516,7 +522,7 @@ void ExpressionBinder::Visit(InvokeExprNode& node)
                     if (!subjectArg->GetFlag(ArgumentFlags::thisOrBaseArgument))
                     {
                         TypeSymbol* type = subjectArg->Type();
-                        if (type->IsObjectTypeSymbol())
+                        if (type->IsObjectTypeOrSpecializationSymbol())
                         {
                             ObjectTypeSymbol* objectType = static_cast<ObjectTypeSymbol*>(type);
                             if (objectType->IsVirtual() && subroutine->GetVirtual() != Virtual::none)
@@ -556,7 +562,7 @@ void ExpressionBinder::Visit(DotNode& node)
 {
     context->PushNode(&node);
     node.Subject()->Accept(*this);
-    if (boundExpression->Type()->IsObjectTypeSymbol())
+    if (boundExpression->Type()->IsObjectTypeOrSpecializationSymbol())
     {
         ObjectTypeSymbol* objectType = static_cast<ObjectTypeSymbol*>(boundExpression->Type());
         int32_t fieldIndex = objectType->GetFieldIndexNoThrow(node.Id()->Str());
@@ -607,7 +613,7 @@ void ExpressionBinder::Visit(DotNode& node)
     {
         if (node.Id()->Str() == "Length")
         {
-            TypeSymbol* integerType = context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node);
+            TypeSymbol* integerType = context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context);
             boundExpression.reset(new BoundArrayLengthNode(node.Span(), boundExpression.release(), integerType));
         }
         else
@@ -619,7 +625,7 @@ void ExpressionBinder::Visit(DotNode& node)
     {
         if (node.Id()->Str() == "Length")
         {
-            TypeSymbol* integerType = context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node);
+            TypeSymbol* integerType = context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context);
             boundExpression.reset(new BoundStringLengthNode(node.Span(), boundExpression.release(), integerType));
         }
         else

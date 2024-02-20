@@ -30,7 +30,7 @@ enum class InstructionKind
     equal_real, not_equal_real, less_real, greater_real, less_or_equal_real, greater_or_equal_real,
     plus_real, minus_real, mul_real, fractional_divide_real, unary_plus_real, unary_minus_real,
     equal_char, not_equal_char, equal_string, not_equal_string, less_string, greater_string, less_or_equal_string, greater_or_equal_string, plus_string,
-    int_to_real, real_to_int, char_to_string, identity, equal_nil
+    int_to_real, real_to_int, char_to_string, identity, equal_nil, equal_object, not_equal_object
 };
 
 std::string InstructionKindStr(InstructionKind instructionKind);
@@ -789,6 +789,20 @@ class EqualNilInstruction : public Instruction
 {
 public:
     EqualNilInstruction();
+    Instruction* Execute(ExecutionContext* context) override;
+};
+
+class EqualObjectInstruction : public Instruction
+{
+public:
+    EqualObjectInstruction();
+    Instruction* Execute(ExecutionContext* context) override;
+};
+
+class NotEqualObjectInstruction : public Instruction
+{
+public:
+    NotEqualObjectInstruction();
     Instruction* Execute(ExecutionContext* context) override;
 };
 

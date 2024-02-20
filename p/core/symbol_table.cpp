@@ -7,6 +7,8 @@ module p.core.symbol_table;
 
 import p.core.type_symbol;
 import p.core.array_type_symbol;
+import p.core.object_type_symbol;
+import p.core.specialization_symbol;
 import p.core.constant_symbol;
 import p.core.unit_part_symbol;
 import p.core.value;
@@ -81,7 +83,7 @@ void SymbolTable::Read(SymbolReader& reader)
     }
 }
 
-TypeSymbol* SymbolTable::GetType(const util::uuid& id) const
+TypeSymbol* SymbolTable::GetType(const util::uuid& id, Context* context) const
 {
     auto it = typeIdMap.find(id);
     if (it != typeIdMap.end())
@@ -90,11 +92,15 @@ TypeSymbol* SymbolTable::GetType(const util::uuid& id) const
     }
     else
     {
-        throw std::runtime_error("error: type id " + util::ToString(id) + " not found");
+        if (!context->NoThrow())
+        {
+            throw std::runtime_error("error: type id " + util::ToString(id) + " not found");
+        }
     }
+    return nullptr;
 }
 
-TypeSymbol* SymbolTable::GetType(const util::uuid& id, Node* node) const
+TypeSymbol* SymbolTable::GetType(const util::uuid& id, Node* node, Context* context) const
 {
     auto it = typeIdMap.find(id);
     if (it != typeIdMap.end())
@@ -103,7 +109,10 @@ TypeSymbol* SymbolTable::GetType(const util::uuid& id, Node* node) const
     }
     else
     {
-        ThrowError("error: type id " + util::ToString(id) + " not found", node->FilePath(), node->Span());
+        if (!context->NoThrow())
+        {
+            ThrowError("error: type id " + util::ToString(id) + " not found", node->FilePath(), node->Span());
+        }
     }
     return nullptr;
 }
@@ -136,6 +145,19 @@ TypeSymbol* SymbolTable::GetType(const std::string& typeName, const std::string&
     return nullptr;
 }
 
+ArrayTypeSymbol* SymbolTable::GetArrayTypeNoThrow(const util::uuid& elementTypeId) const
+{
+    auto it = arrayTypeIdMap.find(elementTypeId);
+    if (it != arrayTypeIdMap.end())
+    {
+        return it->second;
+    }
+    else
+    {
+        return nullptr;
+    }
+}
+
 ArrayTypeSymbol* SymbolTable::GetArrayType(const util::uuid& elementTypeId, Node* node) const
 {
     auto it = arrayTypeIdMap.find(elementTypeId);
@@ -150,41 +172,58 @@ ArrayTypeSymbol* SymbolTable::GetArrayType(const util::uuid& elementTypeId, Node
     return nullptr;
 }
 
-TypeSymbol* SymbolTable::GetFundamentalType(SymbolKind kind, Node* node) const
+SpecializationSymbol* SymbolTable::GetSpecializationNoThrow(const util::uuid& genericId, const util::uuid& typeParameterId) const
+{
+    std::pair<util::uuid, util::uuid> specializationId = std::make_pair(genericId, typeParameterId);
+    auto it = specializationMap.find(specializationId);
+    if (it != specializationMap.end())
+    {
+        return it->second;
+    }
+    else
+    {
+        return nullptr;
+    }
+}
+
+TypeSymbol* SymbolTable::GetFundamentalType(SymbolKind kind, Node* node, Context* context) const
 {
     switch (kind)
     {
         case SymbolKind::booleanTypeSymbol:
         {
-            return GetType(GetBooleanTypeId(), node);
+            return GetType(GetBooleanTypeId(), node, context);
         }
         case SymbolKind::integerTypeSymbol:
         case SymbolKind::enumeratedTypeSymbol:
         {
-            return GetType(GetIntegerTypeId(), node);
+            return GetType(GetIntegerTypeId(), node, context);
         }
         case SymbolKind::charTypeSymbol:
         {
-            return GetType(GetCharTypeId(), node);
+            return GetType(GetCharTypeId(), node, context);
         }
         case SymbolKind::realTypeSymbol:
         {
-            return GetType(GetRealTypeId(), node);
+            return GetType(GetRealTypeId(), node, context);
         }
         case SymbolKind::stringTypeSymbol:
         {
-            return GetType(GetStringTypeId(), node);
+            return GetType(GetStringTypeId(), node, context);
         }
         case SymbolKind::pointerTypeSymbol:
         {
-            return GetType(GetPointerTypeId(), node);
+            return GetType(GetPointerTypeId(), node, context);
         }
         case SymbolKind::nilTypeSymbol:
         {
-            return GetType(GetNilTypeId(), node);
+            return GetType(GetNilTypeId(), node, context);
         }
     }
-    ThrowError("error: fundamental type kind expected", node->FilePath(), node->Span());
+    if (!context->NoThrow())
+    {
+        ThrowError("error: fundamental type kind expected", node->FilePath(), node->Span());
+    }
     return nullptr;
 }
 
@@ -198,6 +237,14 @@ void SymbolTable::MapType(TypeSymbol* type)
         if (arrayType->ElementType())
         {
             arrayTypeIdMap[arrayType->ElementType()->Id()] = arrayType;
+        }
+    }
+    else if (type->IsSpecializationSymbol())
+    {
+        SpecializationSymbol* specializationSymbol = static_cast<SpecializationSymbol*>(type);
+        if (specializationSymbol->GenericType() && specializationSymbol->TypeArgument())
+        {
+            specializationMap[std::make_pair(specializationSymbol->GenericType()->Id(), specializationSymbol->TypeArgument()->Id())] = specializationSymbol;
         }
     }
 }

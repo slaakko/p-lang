@@ -1,0 +1,644 @@
+program 'ShapeList'
+  global variable map:
+uses: 'System'
+uses: 'System.List'
+source file path: C:/work/p-lang/prog/ShapeList.p
+pcode file path: C:/work/p-lang/prog/ShapeList.pcode
+block 'ShapeList'
+  procedure '@program'
+    block '@@program'
+      object type 'Shape'
+        field 'name'['Shape.name']
+        type: string type 'string'
+        id: 00000000-0000-0000-0000-000000000005
+        index: 0
+        constructor group '@constructor_group'['Shape.@constructor_group']
+        constructor 'constructor'['Shape.constructor']
+          parameter 'this'
+          type: object type 'Shape'
+          id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+          index: 0
+          qualifier: value
+          parameter 'name'
+          type: string type 'string'
+          id: 00000000-0000-0000-0000-000000000005
+          index: 1
+          qualifier: value
+          block '@Shape.constructor'
+          level: 1
+        flags: defined
+        id: aa2c0446-ee82-12ad-e1ba-41fda3a45a63
+        level: 1
+        block '@Shape.constructor'
+        level: 1
+        frame size: 2
+        code
+          0 : receive(2)
+          1 : load_local(1)
+          2 : load_local(0)
+          3 : store_field(0)
+          4 : nop
+        constructor 'constructor'['Shape.constructor']
+          parameter 'this'
+          type: object type 'Shape'
+          id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+          index: 0
+          qualifier: value
+        flags: generated
+        id: 34b39268-caa4-f865-9e41-065c9b4279c2
+        level: 1
+        frame size: 1
+      id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+      specialization '@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65'
+        bound type parameter 'T'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.T']
+        id: e2fd72f3-f2cc-3a77-e69f-ed56d0a0b3bf
+        type argument: object type 'Shape'
+        id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+        array type '@array_type_F17B42796EB64E0A0B99E510B4DF6EC425C79907'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.@array_type_F17B42796EB64E0A0B99E510B4DF6EC425C79907']
+        id: abce3831-b0f1-2647-01d2-53129e7ba23a
+        element type: object type 'Shape'
+        id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+        field 'items'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.items']
+        type: array type '@array_type_F17B42796EB64E0A0B99E510B4DF6EC425C79907'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.@array_type_F17B42796EB64E0A0B99E510B4DF6EC425C79907']
+        id: abce3831-b0f1-2647-01d2-53129e7ba23a
+        index: 0
+        field 'count'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.count']
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 1
+        constructor group '@constructor_group'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.@constructor_group']
+        constructor 'constructor'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.constructor']
+          parameter 'this'
+          type: index: 0
+          qualifier: value
+          block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.constructor'
+          level: 1
+        flags: defined
+        id: f12092f5-db80-da05-5bd8-bb54d32e2667
+        level: 1
+        block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.constructor'
+        level: 1
+        frame size: 1
+        code
+          0 : receive(1)
+          1 : push_value(0)
+          2 : new_array(@array_type_F17B42796EB64E0A0B99E510B4DF6EC425C79907)
+          3 : load_local(0)
+          4 : store_field(0)
+          5 : push_value(0)
+          6 : load_local(0)
+          7 : store_field(1)
+          8 : nop
+        function 'IsEmpty'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.IsEmpty']
+          parameter 'this'
+          type: index: 0
+          qualifier: value
+          variable '@result'
+          type: boolean type 'boolean'
+          id: 00000000-0000-0000-0000-000000000001
+          index: 1
+          block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.IsEmpty'
+          level: 1
+        flags: defined
+        id: b2b710be-2de2-e84f-d4d8-149c8fa4b29c
+        level: 1
+        block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.IsEmpty'
+        level: 1
+        frame size: 2
+        code
+          0 : receive(1)
+          1 : load_local(0)
+          2 : load_field(1)
+          3 : push_value(0)
+          4 : equal_int
+          5 : store_local(1)
+          6 : nop
+          7 : load_result_var(1)
+        procedure 'Add'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Add']
+          parameter 'this'
+          type: index: 0
+          qualifier: value
+          parameter 'item'
+          type: object type 'Shape'
+          id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+          index: 1
+          qualifier: value
+          block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Add'
+          level: 1
+          variable 'length'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 2
+          variable 'newLength'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 3
+          variable 'i'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 4
+          variable 'newItems'
+          type: array type '@array_type_F17B42796EB64E0A0B99E510B4DF6EC425C79907'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.@array_type_F17B42796EB64E0A0B99E510B4DF6EC425C79907']
+          id: abce3831-b0f1-2647-01d2-53129e7ba23a
+          index: 5
+          variable '@tmp0'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 6
+          variable '@tmp1'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 7
+        flags: defined
+        id: dc74c467-29b3-2e35-7cbc-b58826d89198
+        level: 1
+        block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Add'
+        level: 1
+        frame size: 8
+        code
+          0 : receive(2)
+          1 : load_local(0)
+          2 : load_field(0)
+          3 : array_length
+          4 : store_local(2)
+          5 : jump(6)
+          6 : load_local(0)
+          7 : load_field(1)
+          8 : load_local(2)
+          9 : equal_int
+          10 : branch(11, 72)
+          11 : jump(12)
+          12 : load_local(2)
+          13 : push_value(4)
+          14 : less_int
+          15 : branch(16, 19)
+          16 : push_value(4)
+          17 : store_local(3)
+          18 : jump(24)
+          19 : push_value(2)
+          20 : load_local(2)
+          21 : mul_int
+          22 : store_local(3)
+          23 : jump(24)
+          24 : load_local(3)
+          25 : new_array(@array_type_F17B42796EB64E0A0B99E510B4DF6EC425C79907)
+          26 : store_local(5)
+          27 : push_value(0)
+          28 : store_local(6)
+          29 : load_local(0)
+          30 : load_field(1)
+          31 : push_value(1)
+          32 : minus_int
+          33 : store_local(7)
+          34 : jump(35)
+          35 : load_local(6)
+          36 : load_local(7)
+          37 : less_or_equal_int
+          38 : branch(39, 66)
+          39 : load_local(6)
+          40 : store_local(4)
+          41 : load_local(4)
+          42 : load_local(0)
+          43 : load_field(0)
+          44 : load_element
+          45 : load_local(4)
+          46 : load_local(5)
+          47 : store_element
+          48 : jump(49)
+          49 : load_local(4)
+          50 : load_local(7)
+          51 : not_equal_int
+          52 : branch(53, 64)
+          53 : load_local(4)
+          54 : call_subroutine(Succ, 31c6f58b-2fa7-0e1c-fb2c-a6f8ee13043b, 1)
+          55 : store_local(4)
+          56 : load_local(4)
+          57 : load_local(0)
+          58 : load_field(0)
+          59 : load_element
+          60 : load_local(4)
+          61 : load_local(5)
+          62 : store_element
+          63 : jump(49)
+          64 : nop
+          65 : jump(66)
+          66 : nop
+          67 : load_local(5)
+          68 : load_local(0)
+          69 : store_field(0)
+          70 : nop
+          71 : jump(72)
+          72 : load_local(1)
+          73 : load_local(0)
+          74 : load_field(1)
+          75 : load_local(0)
+          76 : load_field(0)
+          77 : store_element
+          78 : load_local(0)
+          79 : load_field(1)
+          80 : call_subroutine(Succ, 31c6f58b-2fa7-0e1c-fb2c-a6f8ee13043b, 1)
+          81 : load_local(0)
+          82 : store_field(1)
+          83 : nop
+        function 'Get'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Get']
+          parameter 'this'
+          type: index: 0
+          qualifier: value
+          parameter 'index'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 1
+          qualifier: value
+          variable '@result'
+          type: object type 'Shape'
+          id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+          index: 2
+          block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Get'
+          level: 1
+        flags: defined
+        id: 2ccab8a5-b766-649b-1920-cd550780ed55
+        level: 1
+        block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Get'
+        level: 1
+        frame size: 3
+        code
+          0 : receive(2)
+          1 : jump(2)
+          2 : load_local(1)
+          3 : push_value(0)
+          4 : greater_or_equal_int
+          5 : load_local(1)
+          6 : load_local(0)
+          7 : load_field(1)
+          8 : less_int
+          9 : and_bool
+          10 : branch(11, 17)
+          11 : load_local(1)
+          12 : load_local(0)
+          13 : load_field(0)
+          14 : load_element
+          15 : store_local(2)
+          16 : jump(20)
+          17 : push_value('invalid List index')
+          18 : call_external(Panic, 01000000-0000-0000-0000-000000000001)
+          19 : jump(20)
+          20 : nop
+          21 : load_result_var(2)
+        function 'IndexOf'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.IndexOf']
+          parameter 'this'
+          type: index: 0
+          qualifier: value
+          parameter 'item'
+          type: object type 'Shape'
+          id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+          index: 1
+          qualifier: value
+          variable '@result'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 2
+          block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.IndexOf'
+          level: 1
+          variable 'i'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 3
+          variable 'index'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 4
+          variable '@tmp0'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 5
+          variable '@tmp1'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 6
+        flags: defined
+        id: c5b218ad-82b3-67dd-4ff4-89de9584b83e
+        level: 1
+        block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.IndexOf'
+        level: 1
+        frame size: 7
+        code
+          0 : receive(2)
+          1 : push_value(1)
+          2 : unary_minus_int
+          3 : store_local(4)
+          4 : push_value(0)
+          5 : store_local(5)
+          6 : load_local(0)
+          7 : load_field(1)
+          8 : push_value(1)
+          9 : minus_int
+          10 : store_local(6)
+          11 : jump(12)
+          12 : load_local(5)
+          13 : load_local(6)
+          14 : less_or_equal_int
+          15 : branch(16, 52)
+          16 : load_local(5)
+          17 : store_local(3)
+          18 : jump(19)
+          19 : load_local(3)
+          20 : load_local(0)
+          21 : load_field(0)
+          22 : load_element
+          23 : load_local(1)
+          24 : equal_object
+          25 : branch(26, 29)
+          26 : load_local(3)
+          27 : store_local(4)
+          28 : jump(29)
+          29 : jump(30)
+          30 : load_local(3)
+          31 : load_local(6)
+          32 : not_equal_int
+          33 : branch(34, 50)
+          34 : load_local(3)
+          35 : call_subroutine(Succ, 31c6f58b-2fa7-0e1c-fb2c-a6f8ee13043b, 1)
+          36 : store_local(3)
+          37 : jump(38)
+          38 : load_local(3)
+          39 : load_local(0)
+          40 : load_field(0)
+          41 : load_element
+          42 : load_local(1)
+          43 : equal_object
+          44 : branch(45, 48)
+          45 : load_local(3)
+          46 : store_local(4)
+          47 : jump(48)
+          48 : nop
+          49 : jump(30)
+          50 : nop
+          51 : jump(52)
+          52 : nop
+          53 : load_local(4)
+          54 : store_local(2)
+          55 : nop
+          56 : load_result_var(2)
+        procedure 'Remove'['@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Remove']
+          parameter 'this'
+          type: index: 0
+          qualifier: value
+          parameter 'index'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 1
+          qualifier: value
+          block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Remove'
+          level: 1
+          variable 'i'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 2
+          variable '@tmp0'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 3
+          variable '@tmp1'
+          type: integer type 'integer'
+          id: 00000000-0000-0000-0000-000000000002
+          index: 4
+        flags: defined
+        id: 8c9b8939-2d5f-b935-00c2-1c9d3c5557a1
+        level: 1
+        block '@@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Remove'
+        level: 1
+        frame size: 5
+        code
+          0 : receive(2)
+          1 : jump(2)
+          2 : load_local(1)
+          3 : push_value(0)
+          4 : greater_or_equal_int
+          5 : load_local(1)
+          6 : load_local(0)
+          7 : load_field(1)
+          8 : less_int
+          9 : and_bool
+          10 : branch(11, 64)
+          11 : load_local(1)
+          12 : store_local(3)
+          13 : load_local(0)
+          14 : load_field(1)
+          15 : push_value(2)
+          16 : minus_int
+          17 : store_local(4)
+          18 : jump(19)
+          19 : load_local(3)
+          20 : load_local(4)
+          21 : less_or_equal_int
+          22 : branch(23, 56)
+          23 : load_local(3)
+          24 : store_local(2)
+          25 : load_local(2)
+          26 : push_value(1)
+          27 : plus_int
+          28 : load_local(0)
+          29 : load_field(0)
+          30 : load_element
+          31 : load_local(2)
+          32 : load_local(0)
+          33 : load_field(0)
+          34 : store_element
+          35 : jump(36)
+          36 : load_local(2)
+          37 : load_local(4)
+          38 : not_equal_int
+          39 : branch(40, 54)
+          40 : load_local(2)
+          41 : call_subroutine(Succ, 31c6f58b-2fa7-0e1c-fb2c-a6f8ee13043b, 1)
+          42 : store_local(2)
+          43 : load_local(2)
+          44 : push_value(1)
+          45 : plus_int
+          46 : load_local(0)
+          47 : load_field(0)
+          48 : load_element
+          49 : load_local(2)
+          50 : load_local(0)
+          51 : load_field(0)
+          52 : store_element
+          53 : jump(36)
+          54 : nop
+          55 : jump(56)
+          56 : nop
+          57 : load_local(0)
+          58 : load_field(1)
+          59 : call_subroutine(Pred, a9c78f40-2ae7-ae0f-be46-e186937ad107, 1)
+          60 : load_local(0)
+          61 : store_field(1)
+          62 : nop
+          63 : jump(67)
+          64 : push_value('invalid List index')
+          65 : call_external(Panic, 01000000-0000-0000-0000-000000000001)
+          66 : jump(67)
+          67 : nop
+      id: 3b95ec5d-6cb9-2360-7424-3512fb26855b
+      generic type: object type 'List'
+      id: e7762504-1985-9e24-d5e0-08fddbe485a4
+      type argument: object type 'Shape'
+      id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+      true
+      alias type 'ShapeList'
+      id: 62e1f0ef-4f32-637d-4e8c-636161e2bc57
+      type: level: 0
+    variable 's1'
+    type: object type 'Shape'
+    id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+    index: 0
+    variable 's2'
+    type: object type 'Shape'
+    id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+    index: 1
+    variable 's3'
+    type: object type 'Shape'
+    id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+    index: 2
+    variable 's4'
+    type: object type 'Shape'
+    id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+    index: 3
+    variable 'shapeList'
+    type: index: 4
+    variable 'i'
+    type: integer type 'integer'
+    id: 00000000-0000-0000-0000-000000000002
+    index: 5
+    variable '@tmp0'
+    type: integer type 'integer'
+    id: 00000000-0000-0000-0000-000000000002
+    index: 6
+    variable '@tmp1'
+    type: integer type 'integer'
+    id: 00000000-0000-0000-0000-000000000002
+    index: 7
+  flags: generated
+  id: a71d3466-b033-d4b0-8196-50fea3428844
+  level: 0
+  block '@@program'
+    object type 'Shape'
+      field 'name'['Shape.name']
+      type: string type 'string'
+      id: 00000000-0000-0000-0000-000000000005
+      index: 0
+      constructor group '@constructor_group'['Shape.@constructor_group']
+      constructor 'constructor'['Shape.constructor']
+        parameter 'this'
+        type: object type 'Shape'
+        id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+        index: 0
+        qualifier: value
+        parameter 'name'
+        type: string type 'string'
+        id: 00000000-0000-0000-0000-000000000005
+        index: 1
+        qualifier: value
+        block '@Shape.constructor'
+        level: 1
+      flags: defined
+      id: aa2c0446-ee82-12ad-e1ba-41fda3a45a63
+      level: 1
+      block '@Shape.constructor'
+      level: 1
+      frame size: 2
+      code
+        0 : receive(2)
+        1 : load_local(1)
+        2 : load_local(0)
+        3 : store_field(0)
+        4 : nop
+      constructor 'constructor'['Shape.constructor']
+        parameter 'this'
+        type: object type 'Shape'
+        id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+        index: 0
+        qualifier: value
+      flags: generated
+      id: 34b39268-caa4-f865-9e41-065c9b4279c2
+      level: 1
+      frame size: 1
+    id: 6b1c4dfd-4ab2-6067-6d97-c9d685f5a8e9
+    alias type 'ShapeList'
+    id: 62e1f0ef-4f32-637d-4e8c-636161e2bc57
+    type: level: 0
+  frame size: 8
+  code
+    0 : receive(0)
+    1 : new_object(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65)
+    2 : call_ctor(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.constructor, f12092f5-db80-da05-5bd8-bb54d32e2667)
+    3 : store_local(4)
+    4 : new_object(Shape)
+    5 : push_value('square')
+    6 : call_ctor(Shape.constructor, aa2c0446-ee82-12ad-e1ba-41fda3a45a63)
+    7 : store_local(0)
+    8 : new_object(Shape)
+    9 : push_value('circle')
+    10 : call_ctor(Shape.constructor, aa2c0446-ee82-12ad-e1ba-41fda3a45a63)
+    11 : store_local(1)
+    12 : new_object(Shape)
+    13 : push_value('triangle')
+    14 : call_ctor(Shape.constructor, aa2c0446-ee82-12ad-e1ba-41fda3a45a63)
+    15 : store_local(2)
+    16 : new_object(Shape)
+    17 : push_value('ellipse')
+    18 : call_ctor(Shape.constructor, aa2c0446-ee82-12ad-e1ba-41fda3a45a63)
+    19 : store_local(3)
+    20 : load_local(4)
+    21 : load_local(0)
+    22 : call_subroutine(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Add, dc74c467-29b3-2e35-7cbc-b58826d89198, 2)
+    23 : load_local(4)
+    24 : load_local(1)
+    25 : call_subroutine(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Add, dc74c467-29b3-2e35-7cbc-b58826d89198, 2)
+    26 : load_local(4)
+    27 : load_local(2)
+    28 : call_subroutine(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Add, dc74c467-29b3-2e35-7cbc-b58826d89198, 2)
+    29 : push_value(0)
+    30 : store_local(6)
+    31 : load_local(4)
+    32 : load_field(1)
+    33 : push_value(1)
+    34 : minus_int
+    35 : store_local(7)
+    36 : jump(37)
+    37 : load_local(6)
+    38 : load_local(7)
+    39 : less_or_equal_int
+    40 : branch(41, 64)
+    41 : load_local(6)
+    42 : store_local(5)
+    43 : load_local(4)
+    44 : load_local(5)
+    45 : call_subroutine(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Get, 2ccab8a5-b766-649b-1920-cd550780ed55, 2)
+    46 : load_field(0)
+    47 : call_subroutine(Writeln, dad0a8b6-6ce1-9cfc-948a-2eb1a89cd2f5, 1)
+    48 : jump(49)
+    49 : load_local(5)
+    50 : load_local(7)
+    51 : not_equal_int
+    52 : branch(53, 62)
+    53 : load_local(5)
+    54 : call_subroutine(Succ, 31c6f58b-2fa7-0e1c-fb2c-a6f8ee13043b, 1)
+    55 : store_local(5)
+    56 : load_local(4)
+    57 : load_local(5)
+    58 : call_subroutine(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.Get, 2ccab8a5-b766-649b-1920-cd550780ed55, 2)
+    59 : load_field(0)
+    60 : call_subroutine(Writeln, dad0a8b6-6ce1-9cfc-948a-2eb1a89cd2f5, 1)
+    61 : jump(49)
+    62 : nop
+    63 : jump(64)
+    64 : nop
+    65 : load_local(4)
+    66 : load_local(3)
+    67 : call_subroutine(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.IndexOf, c5b218ad-82b3-67dd-4ff4-89de9584b83e, 2)
+    68 : call_subroutine(Writeln, dad0a8b6-6ce1-9cfc-948a-2eb1a89cd2f5, 1)
+    69 : load_local(4)
+    70 : load_local(1)
+    71 : call_subroutine(@specialization_ShapeList_6EB1B19FE91908F05BC128C28335CE8F7B321D65.IndexOf, c5b218ad-82b3-67dd-4ff4-89de9584b83e, 2)
+    72 : call_subroutine(Writeln, dad0a8b6-6ce1-9cfc-948a-2eb1a89cd2f5, 1)
+    73 : nop
+level: 0

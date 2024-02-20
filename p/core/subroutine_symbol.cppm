@@ -89,6 +89,8 @@ public:
     void MakeVmts() override;
     void CheckDefined() override;
     void Print(util::CodeFormatter& formatter, bool full, ExecutionContext* context) override;
+    void SetSourceFilePath(const std::string& sourceFilePath_);
+    const std::string& SourceFilePath() const override;
 private:
     SubroutineFlags flags;
     util::uuid id;
@@ -97,6 +99,7 @@ private:
     Virtual virtual_;
     std::vector<ParameterSymbol*> parameters;
     std::vector<VariableSymbol*> variables;
+    std::string sourceFilePath;
     BlockSymbol* block;
     util::uuid externalSubroutineId;
     int32_t nextTempVarIndex;

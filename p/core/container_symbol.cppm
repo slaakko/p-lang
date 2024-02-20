@@ -35,12 +35,12 @@ public:
     void Import(ContainerSymbol* that);
     void MapSymbol(Symbol* symbol);
     void MapArrayTypeSymbol(ArrayTypeSymbol* arrayTypeSymbol);
-    Symbol* GetSymbol(const std::string& symbolName, Node* node) const;
+    Symbol* GetSymbol(const std::string& symbolName, Node* node, Context* context) const;
     virtual Symbol* GetSymbol(const std::string& symbolName, Node* node, bool searchBase, bool mustExist) const;
-    TypeSymbol* GetType(const std::string& typeName, Node* node) const;
+    TypeSymbol* GetType(const std::string& typeName, Node* node, Context* context) const;
     ArrayTypeSymbol* GetArrayType(const std::string& elementTypeName) const;
-    VariableSymbol* GetVariable(const std::string& variableName, Node* node) const;
-    ObjectTypeSymbol* GetObjectType(const std::string& objectTypeName, Node* node) const;
+    VariableSymbol* GetVariable(const std::string& variableName, Node* node, Context* context) const;
+    ObjectTypeSymbol* GetObjectType(const std::string& objectTypeName, Node* node, Context* context) const;
     ProcedureSymbol* GetProcedure(const std::string& procedureName) const;
     ProcedureSymbol* GetProcedure(const std::string& procedureName, Node* node, bool mustExist) const;
     FunctionSymbol* GetFunction(const std::string& functionName, Node* node, bool mustExist) const;

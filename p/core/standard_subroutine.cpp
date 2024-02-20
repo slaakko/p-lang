@@ -7,6 +7,7 @@ module p.core.standard_subroutine;
 
 import p.ast;
 import p.core.execution_context;
+import p.core.context;
 import p.core.symbol_table;
 import p.core.type_symbol;
 import p.core.object;
@@ -24,9 +25,9 @@ StandardProcedureSymbol::StandardProcedureSymbol(SymbolKind kind_, const soul::a
     SetStandard();
 }
 
-Ord::Ord(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::ordSymbol, node->Span(), "Ord")
+Ord::Ord(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::ordSymbol, node->Span(), "Ord")
 {
-    SetResultType(symbolTable->GetType(GetIntegerTypeId(), node));
+    SetResultType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), node, context));
 }
 
 Ord::Ord(const soul::ast::Span& span_, const std::string& name_) : StandardFunctionSymbol(SymbolKind::ordSymbol, span_, name_)
@@ -65,9 +66,9 @@ void Ord::Execute(ExecutionContext* context)
     context->GetStack()->Push(result.release());
 }
 
-Chr::Chr(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::chrSymbol, node->Span(), "Chr")
+Chr::Chr(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::chrSymbol, node->Span(), "Chr")
 {
-    SetResultType(symbolTable->GetType(GetCharTypeId(), node));
+    SetResultType(context->GetSymbolTable()->GetType(GetCharTypeId(), node, context));
 }
 
 Chr::Chr(const soul::ast::Span& span_, const std::string& name_) : StandardFunctionSymbol(SymbolKind::chrSymbol, span_, name_)
@@ -107,9 +108,9 @@ void Chr::Execute(ExecutionContext* context)
     context->GetStack()->Push(result.release());
 }
 
-Sin::Sin(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::sinSymbol, node->Span(), "Sin")
+Sin::Sin(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::sinSymbol, node->Span(), "Sin")
 {
-    SetResultType(symbolTable->GetType(GetRealTypeId(), node));
+    SetResultType(context->GetSymbolTable()->GetType(GetRealTypeId(), node, context));
 }
 
 Sin::Sin(const soul::ast::Span& span_, const std::string& name_) : StandardFunctionSymbol(SymbolKind::sinSymbol, span_, name_)
@@ -123,9 +124,9 @@ void Sin::Execute(ExecutionContext* context)
     context->GetStack()->Push(result.release());
 }
 
-Cos::Cos(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::cosSymbol, node->Span(), "Cos")
+Cos::Cos(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::cosSymbol, node->Span(), "Cos")
 {
-    SetResultType(symbolTable->GetType(GetRealTypeId(), node));
+    SetResultType(context->GetSymbolTable()->GetType(GetRealTypeId(), node, context));
 }
 
 Cos::Cos(const soul::ast::Span& span_, const std::string& name_) : StandardFunctionSymbol(SymbolKind::cosSymbol, span_, name_)
@@ -139,9 +140,9 @@ void Cos::Execute(ExecutionContext* context)
     context->GetStack()->Push(result.release());
 }
 
-ArcTan::ArcTan(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::arcTanSymbol, node->Span(), "ArcTan")
+ArcTan::ArcTan(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::arcTanSymbol, node->Span(), "ArcTan")
 {
-    SetResultType(symbolTable->GetType(GetRealTypeId(), node));
+    SetResultType(context->GetSymbolTable()->GetType(GetRealTypeId(), node, context));
 }
 
 ArcTan::ArcTan(const soul::ast::Span& span_, const std::string& name_) : StandardFunctionSymbol(SymbolKind::arcTanSymbol, span_, name_)
@@ -155,9 +156,9 @@ void ArcTan::Execute(ExecutionContext* context)
     context->GetStack()->Push(result.release());
 }
 
-Sqrt::Sqrt(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::sqrtSymbol, node->Span(), "Sqrt")
+Sqrt::Sqrt(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::sqrtSymbol, node->Span(), "Sqrt")
 {
-    SetResultType(symbolTable->GetType(GetRealTypeId(), node));
+    SetResultType(context->GetSymbolTable()->GetType(GetRealTypeId(), node, context));
 }
 
 Sqrt::Sqrt(const soul::ast::Span& span_, const std::string& name_) : StandardFunctionSymbol(SymbolKind::sqrtSymbol, span_, name_)
@@ -179,7 +180,7 @@ void Sqrt::Execute(ExecutionContext* context)
     }
 }
 
-Abs::Abs(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::absSymbol, node->Span(), "Abs")
+Abs::Abs(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::absSymbol, node->Span(), "Abs")
 {
 }
 
@@ -199,13 +200,13 @@ Value* Abs::Evaluate(const std::vector<std::unique_ptr<Value>>& argumentValues, 
         case ValueKind::integerValue:
         {
             IntegerValue* integerValue = new IntegerValue(value->ToInteger());
-            integerValue->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), node));
+            integerValue->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), node, context));
             return integerValue;
         }
         case ValueKind::realValue:
         {
             RealValue* realValue = new RealValue(value->ToReal());
-            realValue->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), node));
+            realValue->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), node, context));
             return realValue;
         }
         default:
@@ -247,7 +248,7 @@ void Abs::Execute(ExecutionContext* context)
     context->GetStack()->Push(result.release());
 }
 
-Succ::Succ(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::succSymbol, node->Span(), "Succ")
+Succ::Succ(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::succSymbol, node->Span(), "Succ")
 {
 }
 
@@ -280,7 +281,7 @@ void Succ::Execute(ExecutionContext* context)
     }
 }
 
-Pred::Pred(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::predSymbol, node->Span(), "Pred")
+Pred::Pred(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::predSymbol, node->Span(), "Pred")
 {
 }
 
@@ -313,7 +314,7 @@ void Pred::Execute(ExecutionContext* context)
     }
 }
 
-Min::Min(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::minSymbol, node->Span(), "Min")
+Min::Min(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::minSymbol, node->Span(), "Min")
 {
 }
 
@@ -376,7 +377,7 @@ void Min::Execute(ExecutionContext* context)
     context->GetStack()->Push(result.release());
 }
 
-Max::Max(Node* node, SymbolTable* symbolTable) : StandardFunctionSymbol(SymbolKind::maxSymbol, node->Span(), "Max")
+Max::Max(Node* node, Context* context) : StandardFunctionSymbol(SymbolKind::maxSymbol, node->Span(), "Max")
 {
 }
 
@@ -506,7 +507,7 @@ void WriteValue(Value* value)
     }
 }
 
-Write::Write(Node* node, SymbolTable* symbolTable) : StandardProcedureSymbol(SymbolKind::writeSymbol, node->Span(), "Write")
+Write::Write(Node* node, Context* context) : StandardProcedureSymbol(SymbolKind::writeSymbol, node->Span(), "Write")
 {
 }
 
@@ -541,7 +542,7 @@ void Write::Execute(ExecutionContext* context)
     }
 }
 
-Writeln::Writeln(Node* node, SymbolTable* symbolTable) : StandardProcedureSymbol(SymbolKind::writelnSymbol, node->Span(), "Writeln")
+Writeln::Writeln(Node* node, Context* context) : StandardProcedureSymbol(SymbolKind::writelnSymbol, node->Span(), "Writeln")
 {
 }
 
@@ -577,21 +578,21 @@ void Writeln::Execute(ExecutionContext* context)
     std::cout << "\n";
 }
 
-void CreateStandardSubroutines(Node* node, SymbolTable* symbolTable)
+void CreateStandardSubroutines(Node* node, Context* context)
 {
-    symbolTable->Root()->Block()->AddSymbol(new Ord(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Chr(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Sin(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Cos(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new ArcTan(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Sqrt(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Abs(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Succ(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Pred(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Min(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Max(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Write(node, symbolTable));
-    symbolTable->Root()->Block()->AddSymbol(new Writeln(node, symbolTable));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Ord(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Chr(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Sin(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Cos(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new ArcTan(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Sqrt(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Abs(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Succ(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Pred(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Min(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Max(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Write(node, context));
+    context->GetSymbolTable()->Root()->Block()->AddSymbol(new Writeln(node, context));
 }
 
 } // namespace p

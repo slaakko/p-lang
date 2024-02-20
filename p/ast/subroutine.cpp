@@ -292,9 +292,28 @@ ProcedureDeclarationNode::ProcedureDeclarationNode(const soul::ast::Span& span_,
     subroutineBlock->SetParent(this);
 }
 
+void ProcedureDeclarationNode::SetFilePath(const std::string& filePath_)
+{
+    filePath = filePath_;
+}
+
+const std::string& ProcedureDeclarationNode::FilePath() const
+{
+    if (!filePath.empty())
+    {
+        return filePath;
+    }
+    else
+    {
+        return Node::FilePath();
+    }
+}
+
 Node* ProcedureDeclarationNode::Clone() const
 {
-    return new ProcedureDeclarationNode(Span(), static_cast<ProcedureHeadingNode*>(heading->Clone()), subroutineBlock->Clone());
+    ProcedureDeclarationNode* clone = new ProcedureDeclarationNode(Span(), static_cast<ProcedureHeadingNode*>(heading->Clone()), subroutineBlock->Clone());
+    clone->SetFilePath(filePath);
+    return clone;
 }
 
 void ProcedureDeclarationNode::Accept(Visitor& visitor)
@@ -306,6 +325,7 @@ void ProcedureDeclarationNode::Write(AstWriter& writer)
 {
     writer.WriteNode(heading.get());
     writer.WriteNode(subroutineBlock.get());
+    writer.GetBinaryWriter().Write(filePath);
 }
 
 void ProcedureDeclarationNode::Read(AstReader& reader)
@@ -314,6 +334,7 @@ void ProcedureDeclarationNode::Read(AstReader& reader)
     heading->SetParent(this);
     subroutineBlock.reset(reader.ReadNode());
     subroutineBlock->SetParent(this);
+    filePath = reader.GetBinaryReader().ReadUtf8String();
 }
 
 FunctionDeclarationNode::FunctionDeclarationNode(const soul::ast::Span& span_) : Node(NodeKind::functionDeclarationNode, span_)
@@ -327,9 +348,28 @@ FunctionDeclarationNode::FunctionDeclarationNode(const soul::ast::Span& span_, F
     subroutineBlock->SetParent(this);
 }
 
+void FunctionDeclarationNode::SetFilePath(const std::string& filePath_)
+{
+    filePath = filePath_;
+}
+
+const std::string& FunctionDeclarationNode::FilePath() const
+{
+    if (!filePath.empty())
+    {
+        return filePath;
+    }
+    else
+    {
+        return Node::FilePath();
+    }
+}
+
 Node* FunctionDeclarationNode::Clone() const
 {
-    return new FunctionDeclarationNode(Span(), static_cast<FunctionHeadingNode*>(heading->Clone()), subroutineBlock->Clone());
+    FunctionDeclarationNode* clone = new FunctionDeclarationNode(Span(), static_cast<FunctionHeadingNode*>(heading->Clone()), subroutineBlock->Clone());
+    clone->SetFilePath(filePath);
+    return clone;
 }
 
 void FunctionDeclarationNode::Accept(Visitor& visitor)
@@ -341,6 +381,7 @@ void FunctionDeclarationNode::Write(AstWriter& writer)
 {
     writer.WriteNode(heading.get());
     writer.WriteNode(subroutineBlock.get());
+    writer.GetBinaryWriter().Write(filePath);
 }
 
 void FunctionDeclarationNode::Read(AstReader& reader)
@@ -349,6 +390,7 @@ void FunctionDeclarationNode::Read(AstReader& reader)
     heading->SetParent(this);
     subroutineBlock.reset(reader.ReadNode());
     subroutineBlock->SetParent(this);
+    filePath = reader.GetBinaryReader().ReadUtf8String();
 }
 
 ConstructorCallNode::ConstructorCallNode(const soul::ast::Span& span_) : Node(NodeKind::constructorCallNode, span_)
@@ -426,7 +468,10 @@ Node* ConstructorDeclarationNode::Clone() const
     {
         clonedConstructorCall = static_cast<ConstructorCallNode*>(constructorCall->Clone());
     }
-    return new ConstructorDeclarationNode(Span(), static_cast<ConstructorHeadingNode*>(heading->Clone()), clonedConstructorCall, subroutineBlock->Clone());
+    ConstructorDeclarationNode* clone = new ConstructorDeclarationNode(Span(), static_cast<ConstructorHeadingNode*>(heading->Clone()), clonedConstructorCall, 
+        subroutineBlock->Clone());
+    clone->SetFilePath(filePath);
+    return clone;
 }
 
 void ConstructorDeclarationNode::Accept(Visitor& visitor)
@@ -439,6 +484,7 @@ void ConstructorDeclarationNode::Write(AstWriter& writer)
     writer.WriteNode(heading.get());
     writer.WriteNode(constructorCall.get());
     writer.WriteNode(subroutineBlock.get());
+    writer.GetBinaryWriter().Write(filePath);
 }
 
 void ConstructorDeclarationNode::Read(AstReader& reader)
@@ -452,6 +498,24 @@ void ConstructorDeclarationNode::Read(AstReader& reader)
     }
     subroutineBlock.reset(reader.ReadNode());
     subroutineBlock->SetParent(this);
+    filePath = reader.GetBinaryReader().ReadUtf8String();
+}
+
+void ConstructorDeclarationNode::SetFilePath(const std::string& filePath_)
+{
+    filePath = filePath_;
+}
+
+const std::string& ConstructorDeclarationNode::FilePath() const
+{
+    if (!filePath.empty())
+    {
+        return filePath;
+    }
+    else
+    {
+        return Node::FilePath();
+    }
 }
 
 } // namespace p

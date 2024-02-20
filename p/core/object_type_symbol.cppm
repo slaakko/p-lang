@@ -5,6 +5,7 @@
 
 export module p.core.object_type_symbol;
 
+import p.ast;
 import p.core.symbol;
 import p.core.type_symbol;
 import p.core.vmt;
@@ -52,14 +53,23 @@ private:
     int32_t index;
 };
 
+class TypeParamSymbol : public TypeSymbol
+{
+public:
+    TypeParamSymbol(const soul::ast::Span& span_, const std::string& name_);
+};
+
 class ObjectTypeSymbol : public TypeSymbol
 {
 public:
     ObjectTypeSymbol(const soul::ast::Span& span_, const std::string& name_);
+    ObjectTypeSymbol(SymbolKind kind_, const soul::ast::Span& span_, const std::string& name_);
     void AddSymbol(Symbol* symbol) override;
     Symbol* GetSymbol(const std::string& symbolName, Node* node, bool searchBase, bool mustExist) const override;
     void SetBaseType(ObjectTypeSymbol* baseType_);
     ObjectTypeSymbol* BaseType() const { return baseType; }
+    bool IsGeneric() const { return typeParam != nullptr; }
+    TypeParamSymbol* TypeParam() const { return typeParam; }
     void AddFields(ObjectTypeSymbol* objectTypeSymbol);
     void Write(SymbolWriter& writer) override;
     void Read(SymbolReader& reader) override;
@@ -80,6 +90,10 @@ public:
     void GenerateDefaults(Node* node, Context* context);
     bool IsSameOrHasBaseType(ObjectTypeSymbol* objectType) const;
     void Print(util::CodeFormatter& formatter, bool full, ExecutionContext* context) override;
+    Node* ObjectTypeNode() const { return objectTypeNode.get(); }
+    void SetObjectTypeNode(Node* objectTypeNode_);
+    const NodeList<Node>& SubroutineNodes() const { return subroutineNodes; }
+    void AddSubroutineNode(Node* subroutineNode);
 private:
     ObjectTypeFlags flags;
     ObjectTypeSymbol* baseType;
@@ -87,7 +101,10 @@ private:
     int32_t vmtPtrFieldIndex;
     std::vector<FieldSymbol*> fields;
     std::vector<SubroutineSymbol*> methods;
+    TypeParamSymbol* typeParam;
     Vmt vmt;
+    std::unique_ptr<Node> objectTypeNode;
+    NodeList<Node> subroutineNodes;
 };
 
 } // namespace p

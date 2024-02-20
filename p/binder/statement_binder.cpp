@@ -142,7 +142,7 @@ void StatementBinder::Visit(AssignmentStatementNode& node)
         FunctionSymbol* function = boundFunction->Function();
         if (function == currentSubroutine)
         {
-            VariableSymbol* resultVar = function->GetVariable("@result", &node);
+            VariableSymbol* resultVar = function->GetVariable("@result", &node, context);
             if (resultVar)
             {
                 target.reset(new BoundVariableNode(node.Span(), resultVar));
@@ -165,7 +165,7 @@ void StatementBinder::Visit(AssignmentStatementNode& node)
         {
             objectTypeMatch = true;
         }
-        else if (target->Type()->IsObjectTypeSymbol() && source->Type()->IsObjectTypeSymbol())
+        else if (target->Type()->IsObjectTypeOrSpecializationSymbol() && source->Type()->IsObjectTypeOrSpecializationSymbol())
         {
             ObjectTypeSymbol* targetObjectType = static_cast<ObjectTypeSymbol*>(target->Type());
             ObjectTypeSymbol* sourceObjectType = static_cast<ObjectTypeSymbol*>(source->Type());
@@ -218,7 +218,7 @@ void StatementBinder::Visit(CompoundStatementNode& node)
     }
     if (level == 0 && currentSubroutine->IsFunctionSymbol())
     {
-        VariableSymbol* functionResultVar = currentSubroutine->Block()->GetVariable("@result", &node);
+        VariableSymbol* functionResultVar = currentSubroutine->Block()->GetVariable("@result", &node, context);
         if (functionResultVar)
         {
             BoundFunctionResultNode* boundFunctionResult = new BoundFunctionResultNode(node.Span(), functionResultVar);

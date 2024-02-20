@@ -191,6 +191,8 @@
     <ClCompile Include="root_symbol.cppm" />
     <ClCompile Include="rt.cpp" />
     <ClCompile Include="rt.cppm" />
+    <ClCompile Include="specialization_symbol.cpp" />
+    <ClCompile Include="specialization_symbol.cppm" />
     <ClCompile Include="standard_subroutine.cpp" />
     <ClCompile Include="standard_subroutine.cppm" />
     <ClCompile Include="subroutine_symbol.cpp" />

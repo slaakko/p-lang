@@ -11,6 +11,7 @@ import std.core;
 export namespace p {
 
 class ExecutionContext;
+class Context;
 
 class StandardFunctionSymbol : public FunctionSymbol
 {
@@ -29,7 +30,7 @@ public:
 class Ord : public StandardFunctionSymbol
 {
 public:
-    Ord(Node* node, SymbolTable* symbolTable);
+    Ord(Node* node, Context* context);
     Ord(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     Value* Evaluate(const std::vector<std::unique_ptr<Value>>& argumentValues, Context* context, Node* node) const override;
@@ -39,7 +40,7 @@ public:
 class Chr : public StandardFunctionSymbol
 {
 public:
-    Chr(Node* node, SymbolTable* symbolTable);
+    Chr(Node* node, Context* context);
     Chr(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     Value* Evaluate(const std::vector<std::unique_ptr<Value>>& argumentValues, Context* context, Node* node) const override;
@@ -49,7 +50,7 @@ public:
 class Sin : public StandardFunctionSymbol
 {
 public:
-    Sin(Node* node, SymbolTable* symbolTable);
+    Sin(Node* node, Context* context);
     Sin(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     void Execute(ExecutionContext* context) override;
@@ -58,7 +59,7 @@ public:
 class Cos : public StandardFunctionSymbol
 {
 public:
-    Cos(Node* node, SymbolTable* symbolTable);
+    Cos(Node* node, Context* context);
     Cos(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     void Execute(ExecutionContext* context) override;
@@ -67,7 +68,7 @@ public:
 class ArcTan : public StandardFunctionSymbol
 {
 public:
-    ArcTan(Node* node, SymbolTable* symbolTable);
+    ArcTan(Node* node, Context* context);
     ArcTan(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     void Execute(ExecutionContext* context) override;
@@ -76,7 +77,7 @@ public:
 class Sqrt : public StandardFunctionSymbol
 {
 public:
-    Sqrt(Node* node, SymbolTable* symbolTable);
+    Sqrt(Node* node, Context* context);
     Sqrt(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     void Execute(ExecutionContext* context) override;
@@ -85,7 +86,7 @@ public:
 class Abs : public StandardFunctionSymbol
 {
 public:
-    Abs(Node* node, SymbolTable* symbolTable);
+    Abs(Node* node, Context* context);
     Abs(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     Value* Evaluate(const std::vector<std::unique_ptr<Value>>& argumentValues, Context* context, Node* node) const override;
@@ -95,7 +96,7 @@ public:
 class Succ : public StandardFunctionSymbol
 {
 public:
-    Succ(Node* node, SymbolTable* symbolTable);
+    Succ(Node* node, Context* context);
     Succ(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     Value* Evaluate(const std::vector<std::unique_ptr<Value>>& argumentValues, Context* context, Node* node) const override;
@@ -105,7 +106,7 @@ public:
 class Pred : public StandardFunctionSymbol
 {
 public:
-    Pred(Node* node, SymbolTable* symbolTable);
+    Pred(Node* node, Context* context);
     Pred(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 1; }
     Value* Evaluate(const std::vector<std::unique_ptr<Value>>& argumentValues, Context* context, Node* node) const override;
@@ -115,7 +116,7 @@ public:
 class Min : public StandardFunctionSymbol
 {
 public:
-    Min(Node* node, SymbolTable* symbolTable);
+    Min(Node* node, Context* context);
     Min(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 2; }
     TypeSymbol* ResultType(const std::vector<TypeSymbol*>& argumentTypes, Node* node) const override;
@@ -125,7 +126,7 @@ public:
 class Max : public StandardFunctionSymbol
 {
 public:
-    Max(Node* node, SymbolTable* symbolTable);
+    Max(Node* node, Context* context);
     Max(const soul::ast::Span& span_, const std::string& name_);
     int ParameterCount() const override { return 2; }
     TypeSymbol* ResultType(const std::vector<TypeSymbol*>& argumentTypes, Node* node) const override;
@@ -135,7 +136,7 @@ public:
 class Write : public StandardProcedureSymbol
 {
 public:
-    Write(Node* node, SymbolTable* symbolTable);
+    Write(Node* node, Context* context);
     Write(const soul::ast::Span& span_, const std::string& name_);
     bool IsVariableParamSubroutine() const override { return true; }
     void Execute(ExecutionContext* context) override;
@@ -144,12 +145,12 @@ public:
 class Writeln : public StandardProcedureSymbol
 {
 public:
-    Writeln(Node* node, SymbolTable* symbolTable);
+    Writeln(Node* node, Context* context);
     Writeln(const soul::ast::Span& span_, const std::string& name_);
     bool IsVariableParamSubroutine() const override { return true; }
     void Execute(ExecutionContext* context) override;
 };
 
-void CreateStandardSubroutines(Node* node, SymbolTable* symbolTable);
+void CreateStandardSubroutines(Node* node, Context* context);
 
 } // namespace p

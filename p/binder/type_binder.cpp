@@ -54,7 +54,7 @@ void TypeBinder::Visit(UnitNode& node)
     if (symbolTable->Root()->Name() == "System")
     {
         CreateFundamentalTypes(symbolTable.get(), node.Span());
-        CreateStandardSubroutines(&node, symbolTable.get());
+        CreateStandardSubroutines(&node, context);
     }
     node.InterfacePart()->Accept(*this);
     node.ImplementationPart()->Accept(*this);
@@ -142,7 +142,7 @@ void TypeBinder::Visit(IntegerNode& node)
         {
             typeName = "@alias_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
         }
-        TypeSymbol* type = GetType(&node, currentBlock);
+        TypeSymbol* type = GetType(&node, currentContainer, context);
         currentBlock->AddSymbol(new AliasTypeSymbol(node.Span(), typeName, type));
     }
 }
@@ -160,7 +160,7 @@ void TypeBinder::Visit(RealNode& node)
         {
             typeName = "@alias_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
         }
-        TypeSymbol* type = GetType(&node, currentBlock);
+        TypeSymbol* type = GetType(&node, currentContainer, context);
         currentBlock->AddSymbol(new AliasTypeSymbol(node.Span(), typeName, type));
     }
 }
@@ -178,7 +178,7 @@ void TypeBinder::Visit(CharNode& node)
         {
             typeName = "@alias_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
         }
-        TypeSymbol* type = GetType(&node, currentBlock);
+        TypeSymbol* type = GetType(&node, currentContainer, context);
         currentBlock->AddSymbol(new AliasTypeSymbol(node.Span(), typeName, type));
     }
 }
@@ -196,7 +196,7 @@ void TypeBinder::Visit(BooleanNode& node)
         {
             typeName = "@alias_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
         }
-        TypeSymbol* type = GetType(&node, currentBlock);
+        TypeSymbol* type = GetType(&node, currentContainer, context);
         currentBlock->AddSymbol(new AliasTypeSymbol(node.Span(), typeName, type));
     }
 }
@@ -214,7 +214,7 @@ void TypeBinder::Visit(StringNode& node)
         {
             typeName = "@alias_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
         }
-        TypeSymbol* type = GetType(&node, currentBlock);
+        TypeSymbol* type = GetType(&node, currentContainer, context);
         currentBlock->AddSymbol(new AliasTypeSymbol(node.Span(), typeName, type));
     }
 }
@@ -232,7 +232,7 @@ void TypeBinder::Visit(PointerNode& node)
         {
             typeName = "@alias_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
         }
-        TypeSymbol* type = GetType(&node, currentBlock);
+        TypeSymbol* type = GetType(&node, currentContainer, context);
         currentBlock->AddSymbol(new AliasTypeSymbol(node.Span(), typeName, type));
     }
 }
@@ -250,7 +250,7 @@ void TypeBinder::Visit(IdentifierNode& node)
         {
             typeName = "@alias_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
         }
-        TypeSymbol* type = GetType(&node, currentBlock);
+        TypeSymbol* type = GetType(&node, currentContainer, context);
         currentBlock->AddSymbol(new AliasTypeSymbol(node.Span(), typeName, type));
     }
 }
@@ -400,7 +400,7 @@ void TypeBinder::Visit(BlockNode& node)
 void TypeBinder::Visit(ConstantDeclarationNode& node)
 {
     ConstantSymbol* constantSymbol = new ConstantSymbol(node.Span(), node.ConstantId()->Str());
-    TypeSymbol* type = GetType(node.TypeName(), currentBlock);
+    TypeSymbol* type = GetType(node.TypeName(), currentContainer, context);
     constantSymbol->SetType(type);
     Value* value = Evaluate(node.Constant(), context, currentBlock);
     constantSymbol->SetValue(value);
@@ -420,7 +420,7 @@ void TypeBinder::Visit(TypeDeclarationNode& node)
 
 void TypeBinder::Visit(VariableDeclarationNode& node)
 {
-    TypeSymbol* type = GetType(node.TypeName(), currentBlock);
+    TypeSymbol* type = GetType(node.TypeName(), currentContainer, context);
     for (const auto& varId : node.IdentifierList()->IdentifierNodes())
     {
         VariableSymbol* variableSymbol = new VariableSymbol(varId->Span(), varId->Str());
@@ -463,7 +463,7 @@ void TypeBinder::Visit(EnumeratedTypeNode& node)
         ConstantSymbol* enumConstantSymbol = new ConstantSymbol(enumConstantId->Span(), enumConstantId->Str());
         enumConstantSymbol->SetType(enumTypeSymbol);
         IntegerValue* integerValue = new IntegerValue(index);
-        integerValue->SetType(symbolTable->GetType(GetIntegerTypeId(), enumConstantId.get()));
+        integerValue->SetType(symbolTable->GetType(GetIntegerTypeId(), enumConstantId.get(), context));
         enumConstantSymbol->SetValue(integerValue);
         currentBlock->AddSymbol(enumConstantSymbol);
         enumTypeSymbol->AddEnumConstant(enumConstantSymbol);
@@ -491,13 +491,18 @@ void TypeBinder::Visit(ProcedureHeadingNode& node)
     bool mustExist = false;
     if (objectId)
     {
-        ObjectTypeSymbol* objectType = currentBlock->GetObjectType(objectId->Str(), &node);
+        std::string objectTypeName = objectId->Str();
+        if (context->InstantiatingGeneric())
+        {
+            objectTypeName = context->Specialization()->Name();
+        }
+        ObjectTypeSymbol* objectType = currentContainer->GetObjectType(objectTypeName, &node, context);
         currentContainer = objectType;
         mustExist = true;
     }
     IdentifierNode* subroutineId = node.SubroutineId()->SubroutineId();
     std::vector<std::unique_ptr<ParameterSymbol>> parameters;
-    if (currentContainer->IsObjectTypeSymbol())
+    if (currentContainer->IsObjectTypeOrSpecializationSymbol())
     {
         ObjectTypeSymbol* objectType = static_cast<ObjectTypeSymbol*>(currentContainer);
         ParameterSymbol* parameterSymbol = new ParameterSymbol(objectType->Span(), "this");
@@ -507,7 +512,7 @@ void TypeBinder::Visit(ProcedureHeadingNode& node)
     }
     for (const auto& parameterList : node.ParameterLists())
     {
-        TypeSymbol* type = GetType(parameterList->Type(), currentBlock);
+        TypeSymbol* type = GetType(parameterList->Type(), currentContainer, context);
         for (const auto& parameterId : parameterList->IdentifierList()->IdentifierNodes())
         {
             ParameterSymbol* parameterSymbol = new ParameterSymbol(parameterId->Span(), parameterId->Str());
@@ -520,6 +525,10 @@ void TypeBinder::Visit(ProcedureHeadingNode& node)
     if (!procedureSymbol)
     {
         procedureSymbol = new ProcedureSymbol(node.Span(), subroutineId->Str());
+        if (context->InstantiatingGeneric())
+        {
+            procedureSymbol->SetSourceFilePath(node.FilePath());
+        }
         currentContainer->AddSymbol(procedureSymbol);
         procedureSymbol->SetVirtual(node.GetVirtual(), &node);
         procedureSymbol->SetParameters(parameters);
@@ -539,14 +548,19 @@ void TypeBinder::Visit(FunctionHeadingNode& node)
     bool mustExist = false;
     if (objectId)
     {
-        ObjectTypeSymbol* objectType = currentBlock->GetObjectType(objectId->Str(), &node);
+        std::string objectTypeName = objectId->Str();
+        if (context->InstantiatingGeneric())
+        {
+            objectTypeName = context->Specialization()->Name();
+        }
+        ObjectTypeSymbol* objectType = currentContainer->GetObjectType(objectTypeName, &node, context);
         currentContainer = objectType;
         mustExist = true;
     }
     IdentifierNode* subroutineId = node.SubroutineId()->SubroutineId();
-    TypeSymbol* resultType = GetType(node.ResultType(), currentBlock);
+    TypeSymbol* resultType = GetType(node.ResultType(), currentContainer, context);
     std::vector<std::unique_ptr<ParameterSymbol>> parameters;
-    if (currentContainer->IsObjectTypeSymbol())
+    if (currentContainer->IsObjectTypeOrSpecializationSymbol())
     {
         ObjectTypeSymbol* objectType = static_cast<ObjectTypeSymbol*>(currentContainer);
         ParameterSymbol* parameterSymbol = new ParameterSymbol(objectType->Span(), "this");
@@ -556,7 +570,7 @@ void TypeBinder::Visit(FunctionHeadingNode& node)
     }
     for (const auto& parameterList : node.ParameterLists())
     {
-        TypeSymbol* type = GetType(parameterList->Type(), currentBlock);
+        TypeSymbol* type = GetType(parameterList->Type(), currentContainer, context);
         for (const auto& parameterId : parameterList->IdentifierList()->IdentifierNodes())
         {
             ParameterSymbol* parameterSymbol = new ParameterSymbol(parameterId->Span(), parameterId->Str());
@@ -569,6 +583,10 @@ void TypeBinder::Visit(FunctionHeadingNode& node)
     if (!functionSymbol)
     {
         functionSymbol = new FunctionSymbol(node.Span(), subroutineId->Str());
+        if (context->InstantiatingGeneric())
+        {
+            functionSymbol->SetSourceFilePath(node.FilePath());
+        }
         currentContainer->AddSymbol(functionSymbol);
         functionSymbol->SetVirtual(node.GetVirtual(), &node);
         functionSymbol->SetParameters(parameters);
@@ -590,12 +608,17 @@ void TypeBinder::Visit(ConstructorHeadingNode& node)
     bool mustExist = false;
     if (objectId)
     {
-        ObjectTypeSymbol* objectType = currentBlock->GetObjectType(objectId->Str(), &node);
+        std::string objectTypeName = objectId->Str();
+        if (context->InstantiatingGeneric())
+        {
+            objectTypeName = context->Specialization()->Name();
+        }
+        ObjectTypeSymbol* objectType = currentContainer->GetObjectType(objectTypeName, &node, context);
         currentContainer = objectType;
         mustExist = true;
     }
     std::vector<std::unique_ptr<ParameterSymbol>> parameters;
-    if (currentContainer->IsObjectTypeSymbol())
+    if (currentContainer->IsObjectTypeOrSpecializationSymbol())
     {
         ObjectTypeSymbol* objectType = static_cast<ObjectTypeSymbol*>(currentContainer);
         ParameterSymbol* parameterSymbol = new ParameterSymbol(objectType->Span(), "this");
@@ -605,7 +628,7 @@ void TypeBinder::Visit(ConstructorHeadingNode& node)
     }
     for (const auto& parameterList : node.ParameterLists())
     {
-        TypeSymbol* type = GetType(parameterList->Type(), currentBlock);
+        TypeSymbol* type = GetType(parameterList->Type(), currentContainer, context);
         for (const auto& parameterId : parameterList->IdentifierList()->IdentifierNodes())
         {
             ParameterSymbol* parameterSymbol = new ParameterSymbol(parameterId->Span(), parameterId->Str());
@@ -615,6 +638,10 @@ void TypeBinder::Visit(ConstructorHeadingNode& node)
         }
     }
     ConstructorSymbol* constructorSymbol = currentContainer->GetOrInsertConstructor(parameters, &node, mustExist);
+    if (context->InstantiatingGeneric())
+    {
+        constructorSymbol->SetSourceFilePath(node.FilePath());
+    }
     currentContainer = prevContainer;
     currentConstructor = constructorSymbol;
 }
@@ -625,6 +652,7 @@ void TypeBinder::Visit(ProcedureDeclarationNode& node)
     ContainerSymbol* prevContainer = currentContainer;
     ProcedureSymbol* prevProcedure = currentProcedure;
     currentProcedure = nullptr;
+    bool generic = false;
     node.Heading()->Accept(*this);
     bool prevExternal = external;
     external = false;
@@ -638,26 +666,37 @@ void TypeBinder::Visit(ProcedureDeclarationNode& node)
         }
         currentProcedure->SetDefined();
         currentContainer = currentProcedure;
+        ObjectTypeSymbol* objectType = currentProcedure->GetObjectType();
+        if (objectType && objectType->IsGeneric())
+        {
+            generic = true;
+            ProcedureDeclarationNode* clone = static_cast<ProcedureDeclarationNode*>(node.Clone());
+            clone->SetFilePath(node.FilePath());
+            objectType->AddSubroutineNode(clone);
+        }
     }
     else
     {
         ThrowError("procedure declaration expected", node.FilePath(), node.Span());
     }
-    SubroutineSymbol* prevSubroutine = currentSubroutine;
-    currentSubroutine = currentProcedure;
-    currentSubroutine->SetLevel(currentBlock->Level() + 1);
-    node.SubroutineBlock()->Accept(*this);
-    currentSubroutine = prevSubroutine;
-    if (external)
+    if (!generic)
     {
-        currentProcedure->SetExternal();
-        ExternalSubroutineSymbol* externalSubroutine = GetExternalSubroutine(currentProcedure->FullName(), &node);
-        currentProcedure->SetExternalSubroutineId(externalSubroutine->Id());
-    }
-    else if (forward)
-    {
-        currentProcedure->ResetDefined();
-        currentProcedure->SetForward();
+        SubroutineSymbol* prevSubroutine = currentSubroutine;
+        currentSubroutine = currentProcedure;
+        currentSubroutine->SetLevel(currentBlock->Level() + 1);
+        node.SubroutineBlock()->Accept(*this);
+        currentSubroutine = prevSubroutine;
+        if (external)
+        {
+            currentProcedure->SetExternal();
+            ExternalSubroutineSymbol* externalSubroutine = GetExternalSubroutine(currentProcedure->FullName(), &node);
+            currentProcedure->SetExternalSubroutineId(externalSubroutine->Id());
+        }
+        else if (forward)
+        {
+            currentProcedure->ResetDefined();
+            currentProcedure->SetForward();
+        }
     }
     external = prevExternal;
     forward = prevForward;
@@ -671,6 +710,7 @@ void TypeBinder::Visit(FunctionDeclarationNode& node)
     ContainerSymbol* prevContainer = currentContainer;
     FunctionSymbol* prevFunction = currentFunction;
     currentFunction = nullptr;
+    bool generic = false;
     node.Heading()->Accept(*this);
     bool prevForward = forward;
     forward = false;
@@ -684,30 +724,41 @@ void TypeBinder::Visit(FunctionDeclarationNode& node)
         }
         currentFunction->SetDefined();
         currentContainer = currentFunction;
+        ObjectTypeSymbol* objectType = currentFunction->GetObjectType();
+        if (objectType && objectType->IsGeneric())
+        {
+            generic = true;
+            FunctionDeclarationNode* clone = static_cast<FunctionDeclarationNode*>(node.Clone());
+            clone->SetFilePath(node.FilePath());
+            objectType->AddSubroutineNode(clone);
+        }
     }
     else
     {
         ThrowError("function declaration expected", node.FilePath(), node.Span());
     }
-    TypeSymbol* resultType = currentFunction->ResultType(std::vector<TypeSymbol*>(), &node);
-    VariableSymbol* resultVar = new VariableSymbol(node.Span(), "@result");
-    resultVar->SetType(resultType);
-    currentFunction->AddSymbol(resultVar);
-    SubroutineSymbol* prevSubroutine = currentSubroutine;
-    currentSubroutine = currentFunction;
-    currentSubroutine->SetLevel(currentBlock->Level() + 1);
-    node.SubroutineBlock()->Accept(*this);
-    currentSubroutine = prevSubroutine;
-    if (external)
+    if (!generic)
     {
-        currentFunction->SetExternal();
-        ExternalSubroutineSymbol* externalSubroutine = GetExternalSubroutine(currentFunction->FullName(), &node);
-        currentFunction->SetExternalSubroutineId(externalSubroutine->Id());
-    }
-    else if (forward)
-    {
-        currentFunction->ResetDefined();
-        currentFunction->SetForward();
+        TypeSymbol* resultType = currentFunction->ResultType(std::vector<TypeSymbol*>(), &node);
+        VariableSymbol* resultVar = new VariableSymbol(node.Span(), "@result");
+        resultVar->SetType(resultType);
+        currentFunction->AddSymbol(resultVar);
+        SubroutineSymbol* prevSubroutine = currentSubroutine;
+        currentSubroutine = currentFunction;
+        currentSubroutine->SetLevel(currentBlock->Level() + 1);
+        node.SubroutineBlock()->Accept(*this);
+        currentSubroutine = prevSubroutine;
+        if (external)
+        {
+            currentFunction->SetExternal();
+            ExternalSubroutineSymbol* externalSubroutine = GetExternalSubroutine(currentFunction->FullName(), &node);
+            currentFunction->SetExternalSubroutineId(externalSubroutine->Id());
+        }
+        else if (forward)
+        {
+            currentFunction->ResetDefined();
+            currentFunction->SetForward();
+        }
     }
     external = prevExternal;
     forward = prevForward;
@@ -721,6 +772,7 @@ void TypeBinder::Visit(ConstructorDeclarationNode& node)
     ContainerSymbol* prevContainer = currentContainer;
     ConstructorSymbol* prevConstructor = currentConstructor;
     currentConstructor = nullptr;
+    bool generic = false;
     bool prevForward = forward;
     forward = false;
     bool prevExternal = external;
@@ -735,30 +787,41 @@ void TypeBinder::Visit(ConstructorDeclarationNode& node)
         currentConstructor->SetDefined();
         context->SetCurrentConstructor(currentConstructor);
         currentContainer = currentConstructor;
+        ObjectTypeSymbol* objectType = currentConstructor->GetObjectType();
+        if (objectType && objectType->IsGeneric())
+        {
+            generic = true;
+            ConstructorDeclarationNode* clone = static_cast<ConstructorDeclarationNode*>(node.Clone());
+            clone->SetFilePath(node.FilePath());
+            objectType->AddSubroutineNode(clone);
+        }
     }
     else
     {
         ThrowError("constructor declaration expected", node.FilePath(), node.Span());
     }
-    if (node.ConstructorCall())
+    if (!generic)
     {
-        currentConstructor->SetConstructorCall(node.ConstructorCall());
-    }
-    SubroutineSymbol* prevSubroutine = currentSubroutine;
-    currentSubroutine = currentConstructor;
-    currentSubroutine->SetLevel(currentBlock->Level() + 1);
-    node.SubroutineBlock()->Accept(*this);
-    currentSubroutine = prevSubroutine;
-    if (external)
-    {
-        currentConstructor->SetExternal();
-        ExternalSubroutineSymbol* externalSubroutine = GetExternalSubroutine(currentConstructor->FullName(), &node);
-        currentConstructor->SetExternalSubroutineId(externalSubroutine->Id());
-    }
-    else if (forward)
-    {
-        currentConstructor->ResetDefined();
-        currentConstructor->SetForward();
+        if (node.ConstructorCall())
+        {
+            currentConstructor->SetConstructorCall(node.ConstructorCall());
+        }
+        SubroutineSymbol* prevSubroutine = currentSubroutine;
+        currentSubroutine = currentConstructor;
+        currentSubroutine->SetLevel(currentBlock->Level() + 1);
+        node.SubroutineBlock()->Accept(*this);
+        currentSubroutine = prevSubroutine;
+        if (external)
+        {
+            currentConstructor->SetExternal();
+            ExternalSubroutineSymbol* externalSubroutine = GetExternalSubroutine(currentConstructor->FullName(), &node);
+            currentConstructor->SetExternalSubroutineId(externalSubroutine->Id());
+        }
+        else if (forward)
+        {
+            currentConstructor->ResetDefined();
+            currentConstructor->SetForward();
+        }
     }
     external = prevExternal;
     forward = prevForward;
@@ -788,12 +851,28 @@ void TypeBinder::Visit(ObjectTypeNode& node)
     {
         objectTypeName = "@object_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
     }
-    ObjectTypeSymbol* objectTypeSymbol = new ObjectTypeSymbol(node.Span(), objectTypeName);
-    currentBlock->AddSymbol(objectTypeSymbol);
+    ObjectTypeSymbol* objectTypeSymbol = nullptr; 
+    if (context->InstantiatingGeneric())
+    {
+        objectTypeSymbol = context->Specialization();
+    }
+    else
+    {
+        objectTypeSymbol = new ObjectTypeSymbol(node.Span(), objectTypeName);
+        currentBlock->AddSymbol(objectTypeSymbol);
+        if (node.TypeParamId())
+        {
+            TypeParamSymbol* typeParamSymbol = new TypeParamSymbol(node.TypeParamId()->Span(), node.TypeParamId()->Str());
+            objectTypeSymbol->AddSymbol(typeParamSymbol);
+            ObjectTypeNode* clone = static_cast<ObjectTypeNode*>(node.Clone());
+            clone->SetFilePath(node.FilePath());
+            objectTypeSymbol->SetObjectTypeNode(clone);
+        }
+    }
     if (node.BaseObjectTypeName())
     {
-        TypeSymbol* type = GetType(node.BaseObjectTypeName(), currentBlock);
-        if (type->IsObjectTypeSymbol())
+        TypeSymbol* type = GetType(node.BaseObjectTypeName(), currentBlock, context);
+        if (type->IsObjectTypeOrSpecializationSymbol())
         {
             ObjectTypeSymbol* baseType = static_cast<ObjectTypeSymbol*>(type);
             objectTypeSymbol->SetBaseType(baseType);
@@ -803,17 +882,23 @@ void TypeBinder::Visit(ObjectTypeNode& node)
             ThrowError("error: object type expected for base type of '" + objectTypeSymbol->Name() + "'", node.FilePath(), node.BaseObjectTypeName()->Span());
         }
     }
+    if (!objectTypeSymbol->IsGeneric())
+    {
+        TypeSymbol* booleanType = symbolTable->GetType(GetBooleanTypeId(), context);
+        AddBinaryOperatorFunction(node.Span(), Operator::equal, objectTypeSymbol, booleanType);
+        AddBinaryOperatorFunction(node.Span(), Operator::notEqual, objectTypeSymbol, booleanType);
+    }
+    ContainerSymbol* prevContainer = currentContainer;
+    currentContainer = objectTypeSymbol;
     for (const auto& fieldList : node.FieldLists())
     {
-        TypeSymbol* type = GetType(fieldList->TypeName(), currentBlock);
+        TypeSymbol* type = GetType(fieldList->TypeName(), currentContainer, context);
         for (const auto& fieldId : fieldList->FieldNames()->IdentifierNodes())
         {
             FieldSymbol* fieldSymbol = new FieldSymbol(fieldId->Span(), fieldId->Str(), type);
             objectTypeSymbol->AddSymbol(fieldSymbol);
         }
     }
-    ContainerSymbol* prevContainer = currentContainer;
-    currentContainer = objectTypeSymbol;
     for (const auto& method : node.Methods())
     {
         method->Accept(*this);
@@ -849,14 +934,57 @@ void TypeBinder::Visit(ArrayTypeNode& node)
         arrayTypeName = "@array_type_" + util::GetSha1MessageDigest(util::ToString(util::uuid::random()));
     }
     ArrayTypeSymbol* arrayTypeSymbol = new ArrayTypeSymbol(node.Span(), arrayTypeName);
-    TypeSymbol* elementType = GetType(node.ElementType(), currentBlock);
+    TypeSymbol* elementType = GetType(node.ElementType(), currentContainer, context);
     arrayTypeSymbol->SetElementType(elementType);
     currentBlock->AddSymbol(arrayTypeSymbol);
 }
 
 void TypeBinder::Visit(SpecializationNode& node)
 {
-    // todo
+    if (typeId)
+    {
+        context->SetSpecializationName(typeId->Str());
+    }
+    else
+    {
+        context->SetSpecializationName(std::string());
+    }
+    TypeSymbol* specializationType = GetType(&node, currentContainer, context);
+    if (specializationType->IsSpecializationSymbol())
+    {
+        SpecializationSymbol* specialization = static_cast<SpecializationSymbol*>(specializationType);
+        if (!specialization->Instantiated())
+        {
+            specialization->SetInstantiated();
+            ObjectTypeSymbol* genericType = specialization->GenericType();
+            Node* objectTypeNode = genericType->ObjectTypeNode();
+            TypeSymbol* typeArgument = specialization->TypeArgument();
+            specialization->AddSymbol(new BoundTypeParamSymbol(node.Span(), genericType->TypeParam()->Name(), typeArgument));
+            context->PushInstantiatingGeneric();
+            context->PushSpecialization(specialization);
+            objectTypeNode->Accept(*this);
+            for (const auto& subroutine : genericType->SubroutineNodes())
+            {
+                subroutine->Accept(*this);
+            }
+            context->PopSpecialization();
+            context->PopInstantiatingGeneric();
+        }
+        if (typeId)
+        {
+            context->PushNoThrow();
+            TypeSymbol* type = GetType(typeId, currentContainer, context);
+            context->PopNoThrow();
+            if (!type)
+            {
+                currentBlock->AddSymbol(new AliasTypeSymbol(node.Span(), typeId->Str(), specialization));
+            }
+        }
+    }
+    else
+    {
+        ThrowError("error: specialization expected", node.FilePath(), node.Span());
+    }
 }
 
 } // namespace p

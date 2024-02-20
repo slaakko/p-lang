@@ -12,6 +12,7 @@ import p.core.block_symbol;
 import p.core.type_symbol;
 import p.core.object_type_symbol;
 import p.core.array_type_symbol;
+import p.core.specialization_symbol;
 import p.core.alias_type_symbol;
 import p.core.container_symbol;
 import p.core.constant_symbol;
@@ -45,6 +46,9 @@ std::string SymbolKindStr(SymbolKind kind)
         case SymbolKind::objectTypeSymbol: return "object type";
         case SymbolKind::arrayTypeSymbol: return "array type";
         case SymbolKind::aliasTypeSymbol: return "alias type";
+        case SymbolKind::typeParamSymbol: return "type parameter";
+        case SymbolKind::boundTypeParamSymbol: return "bound type parameter";
+        case SymbolKind::specializationSymbol: return "specialization";
         case SymbolKind::constantSymbol: return "constant";
         case SymbolKind::variableSymbol: return "variable";
         case SymbolKind::parameterSymbol: return "parameter";
@@ -95,7 +99,7 @@ const std::string& Symbol::SourceFilePath() const
 std::string Symbol::FullName() const
 {
     ContainerSymbol* parent = Parent();
-    if (parent && parent->IsObjectTypeSymbol())
+    if (parent && parent->IsObjectTypeOrSpecializationSymbol())
     {
         return parent->Name() + "." + Name();
     }
@@ -103,7 +107,7 @@ std::string Symbol::FullName() const
     {
         std::string name = Name();
         parent = parent->Parent();
-        if (parent && parent->IsObjectTypeSymbol())
+        if (parent && parent->IsObjectTypeOrSpecializationSymbol())
         {
             return parent->Name() + "." + name;
         }
@@ -183,6 +187,9 @@ Symbol* CreateSymbol(SymbolKind kind, const soul::ast::Span& span, const std::st
         case SymbolKind::objectTypeSymbol: return new ObjectTypeSymbol(span, name);
         case SymbolKind::arrayTypeSymbol: return new ArrayTypeSymbol(span, name);
         case SymbolKind::aliasTypeSymbol: return new AliasTypeSymbol(span, name);
+        case SymbolKind::typeParamSymbol: return new TypeParamSymbol(span, name);
+        case SymbolKind::boundTypeParamSymbol: return new BoundTypeParamSymbol(span, name);
+        case SymbolKind::specializationSymbol: return new SpecializationSymbol(span, name);
         case SymbolKind::constantSymbol: return new ConstantSymbol(span, name);
         case SymbolKind::variableSymbol: return new VariableSymbol(span, name);
         case SymbolKind::parameterSymbol: return new ParameterSymbol(span, name);

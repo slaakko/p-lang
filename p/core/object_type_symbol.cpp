@@ -12,6 +12,8 @@ import p.core.reader;
 import p.core.variable_symbol;
 import p.core.subroutine_symbol;
 import p.core.block_symbol;
+import p.core.context;
+import p.core.function_repository;
 
 namespace p {
 
@@ -70,8 +72,17 @@ void FieldSymbol::Print(util::CodeFormatter& formatter, bool full, ExecutionCont
     }
 }
 
+TypeParamSymbol::TypeParamSymbol(const soul::ast::Span& span_, const std::string& name_) : TypeSymbol(SymbolKind::typeParamSymbol, span_, name_)
+{
+}
+
 ObjectTypeSymbol::ObjectTypeSymbol(const soul::ast::Span& span_, const std::string& name_) : 
-    TypeSymbol(SymbolKind::objectTypeSymbol, span_, name_), flags(ObjectTypeFlags::none), baseType(nullptr), vmtPtrFieldIndex(-1)
+    TypeSymbol(SymbolKind::objectTypeSymbol, span_, name_), flags(ObjectTypeFlags::none), baseType(nullptr), vmtPtrFieldIndex(-1), typeParam(nullptr)
+{
+}
+
+ObjectTypeSymbol::ObjectTypeSymbol(SymbolKind kind_, const soul::ast::Span& span_, const std::string& name_) : 
+    TypeSymbol(kind_, span_, name_), flags(ObjectTypeFlags::none), baseType(nullptr), vmtPtrFieldIndex(-1), typeParam(nullptr)
 {
 }
 
@@ -88,6 +99,10 @@ void ObjectTypeSymbol::AddSymbol(Symbol* symbol)
     {
         SubroutineSymbol* method = static_cast<SubroutineSymbol*>(symbol);
         methods.push_back(method);
+    }
+    else if (symbol->IsTypeParamSymbol())
+    {
+        typeParam = static_cast<TypeParamSymbol*>(symbol);
     }
 }
 
@@ -163,6 +178,11 @@ void ObjectTypeSymbol::Write(SymbolWriter& writer)
         writer.GetBinaryWriter().Write(vmtPtrFieldIndex);
         vmt.Write(writer);
     }
+    if (IsGeneric())
+    {
+        writer.WriteNode(objectTypeNode.get());
+        subroutineNodes.Write(writer);
+    }
 }
 
 void ObjectTypeSymbol::Read(SymbolReader& reader)
@@ -175,6 +195,11 @@ void ObjectTypeSymbol::Read(SymbolReader& reader)
         vmtPtrFieldIndex = reader.GetBinaryReader().ReadInt();
         vmt.Read(reader);
     }
+    if (IsGeneric())
+    {
+        objectTypeNode.reset(reader.ReadNode());
+        subroutineNodes.Read(reader);
+    }
 }
 
 void ObjectTypeSymbol::Resolve()
@@ -184,7 +209,7 @@ void ObjectTypeSymbol::Resolve()
     if (baseTypeId != util::nil_uuid())
     {
         TypeSymbol* type = symbolTable->GetType(baseTypeId, SourceFilePath(), Span());
-        if (type->IsObjectTypeSymbol())
+        if (type->IsObjectTypeOrSpecializationSymbol())
         {
             baseType = static_cast<ObjectTypeSymbol*>(type);
         }
@@ -196,6 +221,13 @@ void ObjectTypeSymbol::Resolve()
     if (IsVirtual())
     {
         vmt.Resolve(symbolTable);
+    }
+    if (!IsGeneric())
+    {
+        Context context;
+        TypeSymbol* booleanType = symbolTable->GetType(GetBooleanTypeId(), &context);
+        AddBinaryOperatorFunction(Span(), Operator::equal, this, booleanType);
+        AddBinaryOperatorFunction(Span(), Operator::notEqual, this, booleanType);
     }
 }
 
@@ -300,6 +332,16 @@ void ObjectTypeSymbol::Print(util::CodeFormatter& formatter, bool full, Executio
             formatter.WriteLine("VMT pointer field index: " + std::to_string(vmtPtrFieldIndex));
         }
     }
+}
+
+void ObjectTypeSymbol::SetObjectTypeNode(Node* objectTypeNode_)
+{
+    objectTypeNode.reset(objectTypeNode_);
+}
+
+void ObjectTypeSymbol::AddSubroutineNode(Node* subroutineNode)
+{
+    subroutineNodes.Add(subroutineNode);
 }
 
 } // namespace p

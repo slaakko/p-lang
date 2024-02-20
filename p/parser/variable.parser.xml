@@ -11,7 +11,7 @@
         </action>
         <token first="{COLON}" name="COLON"/>
        </sequence>
-       <nonterminal first="{BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" ruleName="TypeName"/>
+       <nonterminal first="{ARRAY, BOOLEAN, CHAR, ID, INTEGER, POINTER, REAL, STRING}" ruleName="TypeName"/>
       </sequence>
       <action first="{SEMICOLON}">
        <token first="{SEMICOLON}" name="SEMICOLON"/>

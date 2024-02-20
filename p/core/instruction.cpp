@@ -107,6 +107,8 @@ std::string InstructionKindStr(InstructionKind instructionKind)
         case InstructionKind::char_to_string: return "char_to_string";
         case InstructionKind::identity: return "identity";
         case InstructionKind::equal_nil: return "equal_nil";
+        case InstructionKind::equal_object: return "equal_object";
+        case InstructionKind::not_equal_object: return "not_equal_object";
     }
     return std::string();
 }
@@ -1385,7 +1387,7 @@ std::string NewObjectInstruction::ToString(ExecutionContext* context) const
     Heap* heap = context->GetHeap();
     Stack* stack = context->GetStack();
     SymbolTable* symbolTable = context->GetSymbolTable();
-    TypeSymbol* type = symbolTable->GetType(objectTypeId);
+    TypeSymbol* type = symbolTable->GetType(objectTypeId, context);
     return Instruction::ToString(context) + "(" + type->Name() + ")";
 }
 
@@ -1394,8 +1396,8 @@ Instruction* NewObjectInstruction::Execute(ExecutionContext* context)
     Heap* heap = context->GetHeap();
     Stack* stack = context->GetStack();
     SymbolTable* symbolTable = context->GetSymbolTable();
-    TypeSymbol* type = symbolTable->GetType(objectTypeId);
-    if (type->IsObjectTypeSymbol())
+    TypeSymbol* type = symbolTable->GetType(objectTypeId, context);
+    if (type->IsObjectTypeOrSpecializationSymbol())
     {
         ObjectTypeSymbol* objectType = static_cast<ObjectTypeSymbol*>(type);
         HeapObject* object = heap->Allocate(objectType, context);
@@ -1436,7 +1438,7 @@ std::string NewArrayInstruction::ToString(ExecutionContext* context) const
     Heap* heap = context->GetHeap();
     Stack* stack = context->GetStack();
     SymbolTable* symbolTable = context->GetSymbolTable();
-    TypeSymbol* type = symbolTable->GetType(arrayTypeId);
+    TypeSymbol* type = symbolTable->GetType(arrayTypeId, context);
     return Instruction::ToString(context) + "(" + type->Name() + ")";
 }
 
@@ -1466,7 +1468,7 @@ Instruction* NewArrayInstruction::Execute(ExecutionContext* context)
         throw std::runtime_error("error: integer array length expected in function '" + context->CurrentSubroutine()->FullName() + "' new_array instruction " +
             std::to_string(InstIndex()));
     }
-    TypeSymbol* type = symbolTable->GetType(arrayTypeId);
+    TypeSymbol* type = symbolTable->GetType(arrayTypeId, context);
     if (type->IsArrayTypeSymbol())
     {
         ArrayTypeSymbol* arrayType = static_cast<ArrayTypeSymbol*>(type);
@@ -2360,8 +2362,40 @@ Instruction* MakeInstruction(InstructionKind kind)
         case InstructionKind::char_to_string: return new CharToStringInstruction();
         case InstructionKind::identity: return new IdentityInstruction();
         case InstructionKind::equal_nil: return new EqualNilInstruction();
+        case InstructionKind::equal_object: return new EqualObjectInstruction();
+        case InstructionKind::not_equal_object: return new NotEqualObjectInstruction();
     }
     throw std::runtime_error("invalid instruction kind " + std::to_string(static_cast<int32_t>(kind)));
+}
+
+EqualObjectInstruction::EqualObjectInstruction() : Instruction(InstructionKind::equal_object)
+{
+}
+
+Instruction* EqualObjectInstruction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> right = stack->Pop();
+    std::unique_ptr<Object> left = stack->Pop();
+    Object* leftObj = left->GetObject();
+    Object* RightObj = right->GetObject();
+    stack->Push(new BooleanValue(leftObj == RightObj));
+    return Next();
+}
+
+NotEqualObjectInstruction::NotEqualObjectInstruction() : Instruction(InstructionKind::not_equal_object)
+{
+}
+
+Instruction* NotEqualObjectInstruction::Execute(ExecutionContext* context)
+{
+    Stack* stack = context->GetStack();
+    std::unique_ptr<Object> right = stack->Pop();
+    std::unique_ptr<Object> left = stack->Pop();
+    Object* leftObj = left->GetObject();
+    Object* RightObj = right->GetObject();
+    stack->Push(new BooleanValue(leftObj != RightObj));
+    return Next();
 }
 
 } // namespace p

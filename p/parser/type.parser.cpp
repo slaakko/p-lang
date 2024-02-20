@@ -30,6 +30,7 @@ soul::parser::Match TypeParser<LexerT>::TypeName(LexerT& lexer, ParsingContext* 
     }
     #endif
     soul::lexer::RuleGuard<LexerT> ruleGuard(lexer, 1060958820211097601);
+    std::unique_ptr<p::Node> arrayType;
     std::unique_ptr<p::IdentifierNode> identifier;
     soul::parser::Match match(false);
     soul::parser::Match* parentMatch0 = &match;
@@ -209,10 +210,35 @@ soul::parser::Match TypeParser<LexerT>::TypeName(LexerT& lexer, ParsingContext* 
             }
             break;
         }
-        case ID:
+        case ARRAY:
         {
             soul::parser::Match match(false);
             soul::parser::Match* parentMatch7 = &match;
+            {
+                int64_t pos = lexer.GetPos();
+                soul::parser::Match match = TypeParser<LexerT>::ArrayType(lexer, context);
+                arrayType.reset(static_cast<p::Node*>(match.value));
+                if (match.hit)
+                {
+                    {
+                        #ifdef SOUL_PARSER_DEBUG_SUPPORT
+                        if (parser_debug_write_to_log) soul::lexer::WriteSuccessToLog(lexer, parser_debug_match_pos, "TypeName");
+                        #endif
+                        return soul::parser::Match(true, arrayType.release());
+                    }
+                }
+                *parentMatch7 = match;
+            }
+            if (match.hit)
+            {
+                *parentMatch0 = match;
+            }
+            break;
+        }
+        case ID:
+        {
+            soul::parser::Match match(false);
+            soul::parser::Match* parentMatch8 = &match;
             {
                 int64_t pos = lexer.GetPos();
                 soul::parser::Match match = CommonParser<LexerT>::Identifier(lexer);
@@ -226,7 +252,7 @@ soul::parser::Match TypeParser<LexerT>::TypeName(LexerT& lexer, ParsingContext* 
                         return soul::parser::Match(true, identifier.release());
                     }
                 }
-                *parentMatch7 = match;
+                *parentMatch8 = match;
             }
             if (match.hit)
             {

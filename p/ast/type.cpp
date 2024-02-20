@@ -306,6 +306,23 @@ void ObjectTypeNode::AddMethod(SubroutineHeadingNode* method)
     methods.push_back(std::unique_ptr<SubroutineHeadingNode>(method));
 }
 
+void ObjectTypeNode::SetFilePath(const std::string& filePath_)
+{
+    filePath = filePath_;
+}
+
+const std::string& ObjectTypeNode::FilePath() const
+{
+    if (!filePath.empty())
+    {
+        return filePath;
+    }
+    else
+    {
+        return Node::FilePath();
+    }
+}
+
 Node* ObjectTypeNode::Clone() const
 {
     ObjectTypeNode* clone = new ObjectTypeNode(Span());
@@ -325,6 +342,7 @@ Node* ObjectTypeNode::Clone() const
     {
         clone->AddMethod(static_cast<SubroutineHeadingNode*>(method->Clone()));
     }
+    clone->SetFilePath(filePath);
     return clone;
 }
 
@@ -349,6 +367,7 @@ void ObjectTypeNode::Write(AstWriter& writer)
     {
         writer.WriteNode(method.get());
     }
+    writer.GetBinaryWriter().Write(filePath);
 }
 
 void ObjectTypeNode::Read(AstReader& reader)
@@ -376,6 +395,7 @@ void ObjectTypeNode::Read(AstReader& reader)
         SubroutineHeadingNode* headingNode = static_cast<SubroutineHeadingNode*>(reader.ReadNode());
         AddMethod(headingNode);
     }
+    filePath = reader.GetBinaryReader().ReadUtf8String();
 }
 
 ArrayTypeNode::ArrayTypeNode(const soul::ast::Span& span_) : Node(NodeKind::arrayTypeNode, span_)

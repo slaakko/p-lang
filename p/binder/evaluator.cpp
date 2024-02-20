@@ -67,31 +67,31 @@ void Evaluator::Visit(BinaryExprNode& node)
                 case Operator::equal:
                 {
                     value.reset(new BooleanValue(BooleanTypeSymbol::Equal(left->ToBoolean(), right->ToBoolean())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::notEqual:
                 {
                     value.reset(new BooleanValue(BooleanTypeSymbol::NotEqual(left->ToBoolean(), right->ToBoolean())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::and_:
                 {
                     value.reset(new BooleanValue(BooleanTypeSymbol::And(left->ToBoolean(), right->ToBoolean())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::or_:
                 {
                     value.reset(new BooleanValue(BooleanTypeSymbol::Or(left->ToBoolean(), right->ToBoolean())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::xor_:
                 {
                     value.reset(new BooleanValue(BooleanTypeSymbol::Xor(left->ToBoolean(), right->ToBoolean())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 default:
@@ -109,103 +109,103 @@ void Evaluator::Visit(BinaryExprNode& node)
                 case Operator::equal:
                 {
                     value.reset(new BooleanValue(IntegerTypeSymbol::Equal(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::notEqual:
                 {
                     value.reset(new BooleanValue(IntegerTypeSymbol::NotEqual(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::less:
                 {
                     value.reset(new BooleanValue(IntegerTypeSymbol::Less(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::greater:
                 {
                     value.reset(new BooleanValue(IntegerTypeSymbol::Greater(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::lessOrEqual:
                 {
                     value.reset(new BooleanValue(IntegerTypeSymbol::LessOrEqual(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::greaterOrEqual:
                 {
                     value.reset(new BooleanValue(IntegerTypeSymbol::GreaterOrEqual(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::plus:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Plus(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::minus:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Minus(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::mul:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Multiply(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::fractionalDivide:
                 {
                     value.reset(new RealValue(IntegerTypeSymbol::FractionalDivide(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context));
                     break;
                 }
                 case Operator::div:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Div(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::mod:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Mod(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::and_:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::And(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::or_:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Or(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::xor_:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Xor(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::shl:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Shl(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::shr:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Shr(left->ToInteger(), right->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 default:
@@ -223,13 +223,13 @@ void Evaluator::Visit(BinaryExprNode& node)
                 case Operator::equal:
                 {
                     value.reset(new BooleanValue(CharTypeSymbol::Equal(left->ToChar(), right->ToChar())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::notEqual:
                 {
                     value.reset(new BooleanValue(CharTypeSymbol::NotEqual(left->ToChar(), right->ToChar())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 default:
@@ -247,61 +247,61 @@ void Evaluator::Visit(BinaryExprNode& node)
                 case Operator::equal:
                 {
                     value.reset(new BooleanValue(RealTypeSymbol::Equal(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::notEqual:
                 {
                     value.reset(new BooleanValue(RealTypeSymbol::NotEqual(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::less:
                 {
                     value.reset(new BooleanValue(RealTypeSymbol::Less(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::greater:
                 {
                     value.reset(new BooleanValue(RealTypeSymbol::Greater(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::lessOrEqual:
                 {
                     value.reset(new BooleanValue(RealTypeSymbol::LessOrEqual(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::greaterOrEqual:
                 {
                     value.reset(new BooleanValue(RealTypeSymbol::GreaterOrEqual(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::plus:
                 {
                     value.reset(new RealValue(RealTypeSymbol::Plus(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context));
                     break;
                 }
                 case Operator::minus:
                 {
                     value.reset(new RealValue(RealTypeSymbol::Minus(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context));
                     break;
                 }
                 case Operator::mul:
                 {
                     value.reset(new RealValue(RealTypeSymbol::Multiply(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context));
                     break;
                 }
                 case Operator::fractionalDivide:
                 {
                     value.reset(new RealValue(RealTypeSymbol::FractionalDivide(left->ToReal(), right->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context));
                     break;
                 }
                 default:
@@ -319,43 +319,43 @@ void Evaluator::Visit(BinaryExprNode& node)
                 case Operator::equal:
                 {
                     value.reset(new BooleanValue(StringTypeSymbol::Equal(left->ToString(), right->ToString())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::notEqual:
                 {
                     value.reset(new BooleanValue(StringTypeSymbol::NotEqual(left->ToString(), right->ToString())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::less:
                 {
                     value.reset(new BooleanValue(StringTypeSymbol::Less(left->ToString(), right->ToString())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::greater:
                 {
                     value.reset(new BooleanValue(StringTypeSymbol::Greater(left->ToString(), right->ToString())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::lessOrEqual:
                 {
                     value.reset(new BooleanValue(StringTypeSymbol::LessOrEqual(left->ToString(), right->ToString())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::greaterOrEqual:
                 {
                     value.reset(new BooleanValue(StringTypeSymbol::GreaterOrEqual(left->ToString(), right->ToString())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 case Operator::plus:
                 {
                     value.reset(new StringValue(StringTypeSymbol::Plus(left->ToString(), right->ToString())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetStringTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetStringTypeId(), &node, context));
                     break;
                 }
                 default:
@@ -384,7 +384,7 @@ void Evaluator::Visit(UnaryExprNode& node)
                 case Operator::not_:
                 {
                     value.reset(new BooleanValue(BooleanTypeSymbol::Not(operandValue->ToBoolean())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
                     break;
                 }
                 default:
@@ -402,19 +402,19 @@ void Evaluator::Visit(UnaryExprNode& node)
                 case Operator::not_:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::Not(operandValue->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::plus:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::UnaryPlus(operandValue->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 case Operator::minus:
                 {
                     value.reset(new IntegerValue(IntegerTypeSymbol::UnaryMinus(operandValue->ToInteger())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
                     break;
                 }
                 default:
@@ -432,13 +432,13 @@ void Evaluator::Visit(UnaryExprNode& node)
                 case Operator::plus:
                 {
                     value.reset(new RealValue(RealTypeSymbol::UnaryPlus(operandValue->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context));
                     break;
                 }
                 case Operator::minus:
                 {
                     value.reset(new RealValue(RealTypeSymbol::UnaryMinus(operandValue->ToReal())));
-                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node));
+                    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context));
                     break;
                 }
                 default:
@@ -465,31 +465,31 @@ void Evaluator::Visit(ParenthesizedExprNode& node)
 void Evaluator::Visit(IntegerLiteralNode& node)
 {
     value.reset(new IntegerValue(node.Value()));
-    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node));
+    value->SetType(context->GetSymbolTable()->GetType(GetIntegerTypeId(), &node, context));
 }
 
 void Evaluator::Visit(RealLiteralNode& node)
 {
     value.reset(new RealValue(node.Value()));
-    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node));
+    value->SetType(context->GetSymbolTable()->GetType(GetRealTypeId(), &node, context));
 }
 
 void Evaluator::Visit(BooleanLiteralNode& node)
 {
     value.reset(new BooleanValue(node.Value()));
-    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node));
+    value->SetType(context->GetSymbolTable()->GetType(GetBooleanTypeId(), &node, context));
 }
 
 void Evaluator::Visit(StringLiteralNode& node)
 {
     value.reset(new StringValue(node.Value()));
-    value->SetType(context->GetSymbolTable()->GetType(GetStringTypeId(), &node));
+    value->SetType(context->GetSymbolTable()->GetType(GetStringTypeId(), &node, context));
 }
 
 void Evaluator::Visit(CharLiteralNode& node)
 {
     value.reset(new CharValue(node.Value()));
-    value->SetType(context->GetSymbolTable()->GetType(GetCharTypeId(), &node));
+    value->SetType(context->GetSymbolTable()->GetType(GetCharTypeId(), &node, context));
 }
 
 void Evaluator::Visit(IdentifierNode& node)

@@ -12,8 +12,9 @@ import std.core;
 export namespace p {
 
 class TypeSymbol;
-class BlockSymbol;
+class ContainerSymbol;
+class Context;
 
-TypeSymbol* GetType(Node* node, BlockSymbol* block);
+TypeSymbol* GetType(Node* node, ContainerSymbol* container, Context* context);
 
 } // namespace p

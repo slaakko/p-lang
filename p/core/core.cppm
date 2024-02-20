@@ -22,6 +22,7 @@ export import p.core.reader;
 export import p.core.type_symbol;
 export import p.core.array_type_symbol;
 export import p.core.object_type_symbol;
+export import p.core.specialization_symbol;
 export import p.core.alias_type_symbol;
 export import p.core.constant_symbol;
 export import p.core.variable_symbol;

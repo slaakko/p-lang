@@ -4,11 +4,14 @@ interface
 
 type
   List = object of T
-    items: array of T;
+    items:  array of T;
     count: integer;
     constructor();
-    procedure Add(T item);
+    function IsEmpty(): boolean;
+    procedure Add(item: T);
     function Get(index: integer): T;
+    function IndexOf(item: T): integer;
+    procedure Remove(index: integer);
   end;
 
 implementation
@@ -19,12 +22,17 @@ begin
   count := 0;
 end;
 
-procedure List.Add(T item);
+function List.IsEmpty(): boolean;
+begin
+  IsEmpty := count = 0;
+end;
+
+procedure List.Add(item: T);
 var
   length, newLength, i: integer;
   newItems: array of T;
 begin
-  length := items.Length;
+  length := items.Length();
   if count = length then 
   begin
     if length < 4 then newLength := 4 else newLength := 2 * length;
@@ -39,6 +47,27 @@ end;
 function List.Get(index: integer): T;
 begin
   if (index >= 0) and (index < count) then Get := items[index] else Panic('invalid List index');
+end;
+
+function List.IndexOf(item: T): integer;
+var
+  i, index: integer;
+begin
+  index := -1;
+  for i := 0 to count - 1 do if items[i] = item then index := i;
+  IndexOf := index;
+end;
+
+procedure List.Remove(index: integer);
+var
+  i: integer;
+begin
+  if (index >= 0) and (index < count) then 
+  begin
+    for i := index to count - 2 do items[i] := items[i + 1];
+    count := Pred(count);
+  end 
+  else Panic('invalid List index');
 end;
 
 end.

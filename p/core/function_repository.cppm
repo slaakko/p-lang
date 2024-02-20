@@ -54,6 +54,7 @@ private:
     TypeSymbol* sourceType;
 };
 
+void AddBinaryOperatorFunction(const soul::ast::Span& span, Operator op, TypeSymbol* type, TypeSymbol* resultType);
 FunctionSymbol* GetBinaryOperatorFunction(Operator op, TypeSymbol* type, Node* node);
 FunctionSymbol* GetUnaryOperatorFunction(Operator op, TypeSymbol* type, Node* node);
 FunctionSymbol* GetConversionFunction(TypeSymbol* targetType, TypeSymbol* sourceType, Node* node, bool throw_);

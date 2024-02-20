@@ -168,7 +168,7 @@ void CollectArrayElementArray(ArrayObject* arrayObject, ArrayObject* parent, int
         parent->SetElement(elementIndex, newObject, context);
         ArrayTypeSymbol* arrayType = arrayObject->GetArrayType();
         TypeSymbol* elementType = arrayType->ElementType();
-        if (elementType->IsObjectTypeSymbol() || elementType->IsArrayTypeSymbol() || elementType->IsStringTypeSymbol())
+        if (elementType->IsObjectTypeOrSpecializationSymbol() || elementType->IsArrayTypeSymbol() || elementType->IsStringTypeSymbol())
         {
             int32_t length = arrayObject->Length();
             for (int32_t elementIndex = 0; elementIndex < length; ++elementIndex)
@@ -231,7 +231,7 @@ void CollectArray(ArrayObject* arrayObject, HeapObject* parent, int32_t index, s
         parent->SetField(index, newObject, context);
         ArrayTypeSymbol* arrayType = arrayObject->GetArrayType();
         TypeSymbol* elementType = arrayType->ElementType();
-        if (elementType->IsObjectTypeSymbol() || elementType->IsArrayTypeSymbol() || elementType->IsStringTypeSymbol())
+        if (elementType->IsObjectTypeOrSpecializationSymbol() || elementType->IsArrayTypeSymbol() || elementType->IsStringTypeSymbol())
         {
             int32_t length = arrayObject->Length();
             for (int32_t elementIndex = 0; elementIndex < length; ++elementIndex)
@@ -440,7 +440,7 @@ void CollectFrameArray(ArrayObject* arrayObject, Frame* frame, int32_t index, st
         frame->SetRawObject(index, newObject);
         ArrayTypeSymbol* arrayType = arrayObject->GetArrayType();
         TypeSymbol* elementType = arrayType->ElementType();
-        if (elementType->IsObjectTypeSymbol() || elementType->IsArrayTypeSymbol() || elementType->IsStringTypeSymbol())
+        if (elementType->IsObjectTypeOrSpecializationSymbol() || elementType->IsArrayTypeSymbol() || elementType->IsStringTypeSymbol())
         {
             int32_t length = arrayObject->Length();
             for (int32_t elementIndex = 0; elementIndex < length; ++elementIndex)
@@ -778,7 +778,7 @@ void CollectStackArray(ArrayObject* arrayObject, Stack* stack, int32_t stackInde
         }
         ArrayTypeSymbol* arrayType = arrayObject->GetArrayType();
         TypeSymbol* elementType = arrayType->ElementType();
-        if (elementType->IsObjectTypeSymbol() || elementType->IsArrayTypeSymbol() || elementType->IsStringTypeSymbol())
+        if (elementType->IsObjectTypeOrSpecializationSymbol() || elementType->IsArrayTypeSymbol() || elementType->IsStringTypeSymbol())
         {
             int32_t length = arrayObject->Length();
             for (int32_t elementIndex = 0; elementIndex < length; ++elementIndex)

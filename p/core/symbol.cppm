@@ -26,7 +26,7 @@ enum class SymbolKind
 {
     none, programSymbol, unitSymbol, unitPartSymbol, blockSymbol,
     booleanTypeSymbol, integerTypeSymbol, charTypeSymbol, enumeratedTypeSymbol, subrangeTypeSymbol, realTypeSymbol, stringTypeSymbol, pointerTypeSymbol, nilTypeSymbol,
-    objectTypeSymbol, arrayTypeSymbol, aliasTypeSymbol,
+    objectTypeSymbol, arrayTypeSymbol, aliasTypeSymbol, typeParamSymbol, boundTypeParamSymbol, specializationSymbol,
     constantSymbol, variableSymbol, parameterSymbol, fieldSymbol, procedureSymbol, functionSymbol, constructorSymbol, constructorGroupSymbol, externalSubroutineSymbol,
     ordSymbol, chrSymbol, sinSymbol, cosSymbol, arcTanSymbol, sqrtSymbol, absSymbol, succSymbol, predSymbol, minSymbol, maxSymbol, writeSymbol, writelnSymbol
 };
@@ -58,6 +58,10 @@ public:
     bool IsParameterSymbol() const { return kind == SymbolKind::parameterSymbol; }
     bool IsVariableSymbol() const { return kind == SymbolKind::variableSymbol; }
     bool IsFieldSymbol() const { return kind == SymbolKind::fieldSymbol; }
+    bool IsTypeParamSymbol() const { return kind == SymbolKind::typeParamSymbol; }
+    bool IsBoundTypeParamSymbol() const { return kind == SymbolKind::boundTypeParamSymbol; }
+    bool IsSpecializationSymbol() const { return kind == SymbolKind::specializationSymbol; }
+    bool IsObjectTypeOrSpecializationSymbol() const { return IsObjectTypeSymbol() || IsSpecializationSymbol(); }
     const soul::ast::Span& Span() const { return span; }
     const std::string& Name() const { return name; }
     std::string FullName() const;
