@@ -603,9 +603,9 @@ begin
   base.Measure(graphics);
   w := 0;
   h := 0;
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    s := SyntaxShape(components[i]);
+    s := SyntaxShape(components.Get(i));
     w := w + s.bounds.size.w;
     h := Max(h, s.bounds.size.h);
   end;
@@ -620,9 +620,9 @@ var
   y: real;
 begin
   loc := new Point(padding.left + bounds.location.x, padding.top + bounds.location.y);
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    s := SyntaxShape(components[i]);
+    s := SyntaxShape(components.Get(i));
     y := bounds.location.y + (bounds.size.h - s.bounds.size.h) / 2;
     s.bounds.location := new Point(loc.x, y);
     loc.Offset(s.bounds.size.w, 0);
@@ -638,11 +638,11 @@ function SyntaxRow.GetCell(column: integer): SyntaxCell;
 var
   cell: SyntaxCell;
 begin
-  while column >= count do
+  while column >= components.count do
   begin
-    Add(new SyntaxCell(row, count));
+    Add(new SyntaxCell(row, components.count));
   end;
-  cell := SyntaxCell(components[column]);
+  cell := SyntaxCell(components.Get(column));
   GetCell := cell;
 end;
 
@@ -660,9 +660,9 @@ var
 begin
   w := 0;
   h := 0;
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    cell := SyntaxCell(components[i]);
+    cell := SyntaxCell(components.Get(i));
     w := w + cell.bounds.size.w;
     h := Max(h, cell.bounds.size.h);
   end;
@@ -677,9 +677,9 @@ var
   cell: SyntaxCell;
 begin
   loc := new Point(bounds.location.x, bounds.location.y);
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    cell := SyntaxCell(components[i]);
+    cell := SyntaxCell(components.Get(i));
     y := loc.y + (bounds.size.h - cell.bounds.size.h) / 2;
     cell.bounds.location := new Point(loc.x, y);
     loc.Offset(cell.bounds.size.w, 0);
@@ -696,9 +696,9 @@ var
   i: integer;
   syntaxRow: SyntaxRow;
 begin
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    syntaxRow := SyntaxRow(components[i]);
+    syntaxRow := SyntaxRow(components.Get(i));
     syntaxRow.Print();
   end;
 end;
@@ -707,11 +707,11 @@ function SyntaxGrid.GetRow(row: integer): SyntaxRow;
 var
   syntaxRow: SyntaxRow;
 begin
-  while row >= count do
+  while row >= components.count do
   begin
-    Add(new SyntaxRow(count));
+    Add(new SyntaxRow(components.count));
   end;
-  syntaxRow := SyntaxRow(components[row]);
+  syntaxRow := SyntaxRow(components.Get(row));
   GetRow := syntaxRow;
 end;
 
@@ -734,31 +734,31 @@ var
 begin
   base.Measure(graphics);
   n := 0;
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    r := SyntaxRow(components[i]);
-    n := Max(n, r.count);
+    r := SyntaxRow(components.Get(i));
+    n := Max(n, r.components.count);
   end;
   for c := 0 to n - 1 do
   begin
     w := 0;
     h := 0;
-    for i := 0 to count - 1 do
+    for i := 0 to components.count - 1 do
     begin
       cell := GetCell(i, c);
       w := Max(w, cell.bounds.size.w);
       h := Max(h, cell.bounds.size.h);
     end;
-    for i := 0 to count - 1 do
+    for i := 0 to components.count - 1 do
     begin
       cell := GetCell(i, c);
       cell.bounds.size.w := w;
       cell.bounds.size.h := h;
     end;
   end;
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    r := SyntaxRow(components[i]);
+    r := SyntaxRow(components.Get(i));
     r.MeasureRow(graphics);
   end;
 end;
@@ -769,7 +769,7 @@ var
 begin
   if shape = nil then
   begin
-    Writeln('trying to add nil shape');
+    Panic('trying to add nil shape');
   end else
   begin
     syntaxCell := GetCell(row, column);
@@ -784,9 +784,9 @@ var
   loc: Point;
 begin
   loc := new Point(bounds.location.x, bounds.location.y);
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    row := SyntaxRow(components[i]);
+    row := SyntaxRow(components.Get(i));
     row.bounds.location := new Point(loc.x, loc.y);
     row.SetLocations();
     loc.Offset(0, row.bounds.size.h);
@@ -819,7 +819,7 @@ var
   h: real;
   loc: Point;
 begin
-  firstRow := SyntaxRow(grid.components[0]);
+  firstRow := SyntaxRow(grid.components.Get(0));
   h := (firstRow.bounds.size.h - title.bounds.size.h) / 2;
   loc := new Point(padding.left, padding.top);
   title.bounds.location := new Point(loc.x, loc.y + h);
@@ -833,9 +833,9 @@ var
   i: integer;
   connector: SyntaxShape;
 begin
-  for i := 0 to connectors.count - 1 do
+  for i := 0 to connectors.components.count - 1 do
   begin
-    connector := SyntaxShape(connectors.components[i]);
+    connector := SyntaxShape(connectors.components.Get(i));
     connector.Measure(graphics);
   end
 end;
@@ -876,9 +876,9 @@ var
   i: integer;
   connector: SyntaxShape;
 begin
-  for i := 0 to connectors.count - 1 do
+  for i := 0 to connectors.components.count - 1 do
   begin
-    connector := SyntaxShape(connectors.components[i]);
+    connector := SyntaxShape(connectors.components.Get(i));
     connector.Draw(graphics);
   end;
 end;

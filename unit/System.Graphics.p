@@ -2,7 +2,9 @@ unit System.Graphics;
 
 interface
 
-uses System.Graphics.Primitive;
+uses 
+  System.Graphics.Primitive,
+  System.List;
 
 const 
   dpiX: real = 96;
@@ -97,11 +99,10 @@ type
     function Bounds(): Rect; override;
   end;
 
-  ShapeArray = array of Shape;
+  ShapeList = List of Shape;
 
   CompoundShape = object(Shape)
-    count: integer;
-    components: ShapeArray;
+    components: ShapeList;
     constructor();
     procedure Print(); override;
     procedure Add(shape: Shape);
@@ -427,8 +428,7 @@ end;
 
 constructor CompoundShape();
 begin
-  count := 0;
-  components := new Shape[4];
+  components := new ShapeList();
 end;
 
 procedure CompoundShape.Print(); 
@@ -436,28 +436,17 @@ var
   i: integer;
 begin
   base.Print();
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
     Writeln('  component ', i, ': ');
     Write('    ');
-    components[i].Print();
+    components.Get(i).Print();
   end;
 end;
 
 procedure CompoundShape.Add(shape: Shape);
-var
-  newLength, i: integer;
-  newComponents: ShapeArray;
 begin
-  if count = components.Length then
-  begin
-    if components.Length < 4 then newLength := 4 else newLength := 2 * components.Length;
-    newComponents := new Shape[newLength];
-    for i := 0 to count - 1 do newComponents[i] := components[i];
-    components := newComponents;
-  end;
-  components[count] := shape;
-  count := Succ(count);
+  components.Add(shape);
 end;
 
 procedure CompoundShape.Measure(graphics: Graphics); 
@@ -465,9 +454,9 @@ var
   i: integer;
   s: Shape;
 begin
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    s := components[i];
+    s := components.Get(i);
     s.Measure(graphics);
   end;
 end;
@@ -477,9 +466,9 @@ var
   i: integer;
   s: Shape;
 begin
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    s := components[i];
+    s := components.Get(i);
     s.Draw(graphics);
   end;
 end;
@@ -491,9 +480,9 @@ var
   bounds, r: Rect;
 begin
   bounds := new Rect();
-  for i := 0 to count - 1 do
+  for i := 0 to components.count - 1 do
   begin
-    s := components[i];
+    s := components.Get(i);
     r := s.Bounds();
     if not r.IsEmpty() then
     begin

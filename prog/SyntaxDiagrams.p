@@ -1,31 +1,23 @@
 program SyntaxDiagrams;
 
-uses System.Graphics.Primitive, System.Graphics, Syntax;
+uses 
+  System.Graphics.Primitive, 
+  System.Graphics, 
+  Syntax,
+  System.List;
  
 type
-  DiagramArray = array of Diagram;
+  DiagramList = List of Diagram;
 
 var
-  diagrams: DiagramArray;
-  diagramCount: integer;
+  diagrams: DiagramList;
   x, y: integer;
   initialBitmap: Bitmap;
   initialGraphics: Graphics;
 
 procedure AddDiagram(diagram: Diagram);
-var
-  newLength, i: integer;
-  newDiagrams: DiagramArray;
 begin
-  if diagramCount = diagrams.Length then
-  begin
-    if diagrams.Length < 4 then newLength := 4 else newLength := 2 * diagrams.Length;
-    newDiagrams := new Diagram[newLength];
-    for i := 0 to diagramCount - 1 do newDiagrams[i] := diagrams[i];
-    diagrams := newDiagrams;
-  end;
-  diagrams[diagramCount] := diagram;
-  diagramCount := Succ(diagramCount);
+  diagrams.Add(diagram);
 end;
 
 procedure MakeDiagrams();
@@ -4628,9 +4620,9 @@ var
   i: integer;
   diagram: Diagram;
 begin
-  for i := 0 to diagramCount - 1 do 
+  for i := 0 to diagrams.count - 1 do 
   begin
-    diagram := diagrams[i];
+    diagram := diagrams.Get(i);
     diagram.Measure(initialGraphics);
   end;
 end;
@@ -4640,9 +4632,9 @@ var
   i: integer;
   diagram: Diagram;
 begin
-  for i := 0 to diagramCount - 1 do 
+  for i := 0 to diagrams.count - 1 do 
   begin
-    diagram := diagrams[i];
+    diagram := diagrams.Get(i);
     diagram.Print();
   end;
 end;
@@ -4657,9 +4649,9 @@ var
   dir, filePath: string;
 begin
   dir := '../doc/image_temp/';
-  for i := 0 to diagramCount - 1 do 
+  for i := 0 to diagrams.count - 1 do 
   begin
-    diagram := diagrams[i];
+    diagram := diagrams.Get(i);
     x := MMToPixels(diagram.bounds.size.w, dpiX);
     y := MMToPixels(diagram.bounds.size.h, dpiY);
     bm := new Bitmap(x, y);
@@ -4675,8 +4667,7 @@ begin
   y := MMToPixels(100, dpiY);
   initialBitmap := new Bitmap(x, y);
   initialGraphics := initialBitmap.GetGraphics();
-  diagrams := new Diagram[0];
-  diagramCount := 0;
+  diagrams := new DiagramList();
   MakeDiagrams();
   MeasureDiagrams();
   PrintDiagrams();

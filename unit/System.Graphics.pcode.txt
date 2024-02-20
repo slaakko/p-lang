@@ -1,129 +1,130 @@
 unit 'System.Graphics'
   global variable map:
-  3c6e86d1-cabd-7c8e-25eb-408ea1c5f761: variable 'black'
-  4af91244-c30a-dd25-08c6-d1a962e1635d: variable 'blackBrush'
-  afd18d20-c068-f164-427b-49c334db141c: variable 'white'
-  de352128-0e45-984c-758e-232e7cfcf1bf: variable 'blackPen'
-  3c6e86d1-cabd-7c8e-25eb-408ea1c5f761: 0
-  4af91244-c30a-dd25-08c6-d1a962e1635d: 3
-  afd18d20-c068-f164-427b-49c334db141c: 1
-  de352128-0e45-984c-758e-232e7cfcf1bf: 2
-uses: System
-uses: System.Graphics.Primitive
+  1059ba14-52af-3b3a-4333-f0112f23e1ae: variable 'white'
+  1ac1acf2-7e63-2025-1ade-0963d00e0509: variable 'blackBrush'
+  c18b05c7-50f9-dba2-a8ec-12e702ebefc4: variable 'blackPen'
+  e0353d52-b52e-5733-d751-3e58534ea613: variable 'black'
+  1059ba14-52af-3b3a-4333-f0112f23e1ae: 1
+  1ac1acf2-7e63-2025-1ade-0963d00e0509: 3
+  c18b05c7-50f9-dba2-a8ec-12e702ebefc4: 2
+  e0353d52-b52e-5733-d751-3e58534ea613: 0
+uses: 'System'
+uses: 'System.Graphics.Primitive'
+uses: 'System.List'
 source file path: C:/work/p-lang/unit/System.Graphics.p
 pcode file path: C:/work/p-lang/unit/System.Graphics.pcode
 block 'System.Graphics'
-  unit part 'interface_BC8C6AB43A721A23CC3A3EF143D7C75692796AF6'
+  unit part 'interface_0A1F240A5A283A701361DE200BD4AF52069BB1E9'
     variable 'black'
     type: object type 'Color'
-    id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+    id: 8746a183-b678-3407-f222-54b4ac321976
     global
-    global id: 3c6e86d1-cabd-7c8e-25eb-408ea1c5f761
+    global id: e0353d52-b52e-5733-d751-3e58534ea613
     variable 'white'
     type: object type 'Color'
-    id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+    id: 8746a183-b678-3407-f222-54b4ac321976
     global
-    global id: afd18d20-c068-f164-427b-49c334db141c
+    global id: 1059ba14-52af-3b3a-4333-f0112f23e1ae
     variable 'blackPen'
     type: object type 'Pen'
-    id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+    id: d43f9427-de5d-0453-51ed-cb9d99b590fd
     global
-    global id: de352128-0e45-984c-758e-232e7cfcf1bf
+    global id: c18b05c7-50f9-dba2-a8ec-12e702ebefc4
     variable 'blackBrush'
     type: object type 'Brush'
-    id: 6a3759a4-e49f-4670-cf61-929d857bf085
+    id: 6868b78b-c846-6d32-c7cf-ee7a59490430
     global
-    global id: 4af91244-c30a-dd25-08c6-d1a962e1635d
+    global id: 1ac1acf2-7e63-2025-1ade-0963d00e0509
   unit part: inteface
-  block 'interface_BC8C6AB43A721A23CC3A3EF143D7C75692796AF6'
+  block 'interface_0A1F240A5A283A701361DE200BD4AF52069BB1E9'
     constant 'dpiX'
-    id: 792cbb70-8532-51c8-54a0-0ad664c351f4
+    id: 31eea0b0-e6ef-c272-906e-d762fe836900
     type: real type 'real'
     id: 00000000-0000-0000-0000-000000000004
     constant 'dpiY'
-    id: 7ee2c1ec-88c2-b1c1-aac2-eef24b9e9e84
+    id: 9e15e72e-dece-1f32-1c86-1f2fa6636562
     type: real type 'real'
     id: 00000000-0000-0000-0000-000000000004
     constant 'inchMM'
-    id: 34260d18-1830-c25b-3db1-ab8a70745287
+    id: 547e4ab0-d517-1f5e-d2b8-f25e371c3a3d
     type: real type 'real'
     id: 00000000-0000-0000-0000-000000000004
     constant 'pointMM'
-    id: e93dce04-fb67-351a-c2ca-9970cfbed0ae
+    id: 993bdc54-3fe8-7a30-10bc-e147cb57f561
     type: real type 'real'
     id: 00000000-0000-0000-0000-000000000004
     constant 'regularFontStyle'
-    id: 2bb4cff2-402e-5a2f-28d0-618657e8b27d
+    id: f9f47f72-6049-7bc1-f3fa-78f0da03c1a8
     type: integer type 'integer'
     id: 00000000-0000-0000-0000-000000000002
     constant 'boldFontStyle'
-    id: baeea223-6189-828a-2b61-f5d57f43de16
+    id: 4ba41784-eb35-a783-efa1-f10317b1b598
     type: integer type 'integer'
     id: 00000000-0000-0000-0000-000000000002
     constant 'italicFontStyle'
-    id: d0782330-814d-3093-ff5f-d876431e5c22
+    id: 72e3359d-aa90-c9f6-b1dd-37c1a2caf2f0
     type: integer type 'integer'
     id: 00000000-0000-0000-0000-000000000002
     constant 'underlineFontStyle'
-    id: cc26448d-3a20-af13-a8f3-81ef985b223e
+    id: 85d0f1bf-5a5a-2114-0969-25a34a8f21c5
     type: integer type 'integer'
     id: 00000000-0000-0000-0000-000000000002
     constant 'strikeOutFontStyle'
-    id: 147d3e1e-3f2d-ce15-b247-77c305d484ec
+    id: 288ca028-f939-1e2d-8d35-c84256bc5ba9
     type: integer type 'integer'
     id: 00000000-0000-0000-0000-000000000002
     array type 'PointArray'
-    id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
+    id: e0100199-ee5d-974a-1ded-917abde58093
     element type: object type 'Point'
-    id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+    id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
     object type 'Color'
       field 'a'['Color.a']
       type: subrange type 'Byte'
-      id: bccda794-4964-e3a7-b60a-eaa8090fd59b
+      id: 3fecb9b1-32f6-38f1-1225-5f60426178d1
       index: 0
       field 'r'['Color.r']
       type: subrange type 'Byte'
-      id: bccda794-4964-e3a7-b60a-eaa8090fd59b
+      id: 3fecb9b1-32f6-38f1-1225-5f60426178d1
       index: 1
       field 'g'['Color.g']
       type: subrange type 'Byte'
-      id: bccda794-4964-e3a7-b60a-eaa8090fd59b
+      id: 3fecb9b1-32f6-38f1-1225-5f60426178d1
       index: 2
       field 'b'['Color.b']
       type: subrange type 'Byte'
-      id: bccda794-4964-e3a7-b60a-eaa8090fd59b
+      id: 3fecb9b1-32f6-38f1-1225-5f60426178d1
       index: 3
       constructor group '@constructor_group'['Color.@constructor_group']
       constructor 'constructor'['Color.constructor']
         parameter 'this'
         type: object type 'Color'
-        id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+        id: 8746a183-b678-3407-f222-54b4ac321976
         index: 0
         qualifier: value
         parameter 'a'
         type: subrange type 'Byte'
-        id: bccda794-4964-e3a7-b60a-eaa8090fd59b
+        id: 3fecb9b1-32f6-38f1-1225-5f60426178d1
         index: 1
         qualifier: value
         parameter 'r'
         type: subrange type 'Byte'
-        id: bccda794-4964-e3a7-b60a-eaa8090fd59b
+        id: 3fecb9b1-32f6-38f1-1225-5f60426178d1
         index: 2
         qualifier: value
         parameter 'g'
         type: subrange type 'Byte'
-        id: bccda794-4964-e3a7-b60a-eaa8090fd59b
+        id: 3fecb9b1-32f6-38f1-1225-5f60426178d1
         index: 3
         qualifier: value
         parameter 'b'
         type: subrange type 'Byte'
-        id: bccda794-4964-e3a7-b60a-eaa8090fd59b
+        id: 3fecb9b1-32f6-38f1-1225-5f60426178d1
         index: 4
         qualifier: value
         block '@Color.constructor'
         level: 1
       flags: defined
-      id: c72b7e36-dc3d-5ad9-0f8e-8269f70baed9
+      id: ea2b5ff5-1220-6e73-c1af-3f9f54d264e6
       level: 1
       block '@Color.constructor'
       level: 1
@@ -146,18 +147,18 @@ block 'System.Graphics'
       constructor 'constructor'['Color.constructor']
         parameter 'this'
         type: object type 'Color'
-        id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+        id: 8746a183-b678-3407-f222-54b4ac321976
         index: 0
         qualifier: value
       flags: generated
-      id: 0c605491-c2d6-b5f5-e6ea-bf3b8868ee65
+      id: d1ecfc66-5691-baf6-8447-77aa7ec64fdb
       level: 1
       frame size: 1
-    id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+    id: 8746a183-b678-3407-f222-54b4ac321976
     object type 'Pen'
       field 'color'['Pen.color']
       type: object type 'Color'
-      id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+      id: 8746a183-b678-3407-f222-54b4ac321976
       index: 0
       field 'width'['Pen.width']
       type: real type 'real'
@@ -167,18 +168,18 @@ block 'System.Graphics'
       constructor 'constructor'['Pen.constructor']
         parameter 'this'
         type: object type 'Pen'
-        id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+        id: d43f9427-de5d-0453-51ed-cb9d99b590fd
         index: 0
         qualifier: value
         parameter 'color'
         type: object type 'Color'
-        id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+        id: 8746a183-b678-3407-f222-54b4ac321976
         index: 1
         qualifier: value
         block '@Pen.constructor'
         level: 1
       flags: defined
-      id: 54e546b4-f122-d20a-e15e-e1611c840aa8
+      id: 1ff770ef-eb04-1efa-b908-cd0273ca0647
       level: 1
       block '@Pen.constructor'
       level: 1
@@ -190,19 +191,19 @@ block 'System.Graphics'
         3 : store_field(0)
         4 : push_value(1)
         5 : push_value(96)
-        6 : call_subroutine(PixelsToMM, f452205c-ccd2-59ac-2c8f-3a773d4c3672, 2)
+        6 : call_subroutine(PixelsToMM, d08852f8-37b2-3dfd-95d7-8a3c3b0a077e, 2)
         7 : load_local(0)
         8 : store_field(1)
         9 : nop
       constructor 'constructor'['Pen.constructor']
         parameter 'this'
         type: object type 'Pen'
-        id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+        id: d43f9427-de5d-0453-51ed-cb9d99b590fd
         index: 0
         qualifier: value
         parameter 'color'
         type: object type 'Color'
-        id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+        id: 8746a183-b678-3407-f222-54b4ac321976
         index: 1
         qualifier: value
         parameter 'width'
@@ -213,7 +214,7 @@ block 'System.Graphics'
         block '@Pen.constructor'
         level: 1
       flags: defined
-      id: e40b978a-4ae4-1959-47c0-4ea34a217233
+      id: de4dace7-e806-a1bf-5c9b-ecc12e4ca0bf
       level: 1
       block '@Pen.constructor'
       level: 1
@@ -230,35 +231,35 @@ block 'System.Graphics'
       constructor 'constructor'['Pen.constructor']
         parameter 'this'
         type: object type 'Pen'
-        id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+        id: d43f9427-de5d-0453-51ed-cb9d99b590fd
         index: 0
         qualifier: value
       flags: generated
-      id: 459e8548-0e34-bac7-67e0-a7378a1487d6
+      id: 60ecc46b-6da5-9992-6a88-f1da07be7338
       level: 1
       frame size: 1
-    id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+    id: d43f9427-de5d-0453-51ed-cb9d99b590fd
     object type 'Brush'
       field 'color'['Brush.color']
       type: object type 'Color'
-      id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+      id: 8746a183-b678-3407-f222-54b4ac321976
       index: 0
       constructor group '@constructor_group'['Brush.@constructor_group']
       constructor 'constructor'['Brush.constructor']
         parameter 'this'
         type: object type 'Brush'
-        id: 6a3759a4-e49f-4670-cf61-929d857bf085
+        id: 6868b78b-c846-6d32-c7cf-ee7a59490430
         index: 0
         qualifier: value
         parameter 'color'
         type: object type 'Color'
-        id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+        id: 8746a183-b678-3407-f222-54b4ac321976
         index: 1
         qualifier: value
         block '@Brush.constructor'
         level: 1
       flags: defined
-      id: 75e7b865-5c02-03ee-f16a-9f9b3174f087
+      id: 76a6d7b6-4ffa-8648-bb6c-c82517d04cbb
       level: 1
       block '@Brush.constructor'
       level: 1
@@ -272,14 +273,14 @@ block 'System.Graphics'
       constructor 'constructor'['Brush.constructor']
         parameter 'this'
         type: object type 'Brush'
-        id: 6a3759a4-e49f-4670-cf61-929d857bf085
+        id: 6868b78b-c846-6d32-c7cf-ee7a59490430
         index: 0
         qualifier: value
       flags: generated
-      id: e75a3e90-724b-f82c-6c76-f0f46b8085cd
+      id: 77a11771-6623-eab6-86d9-5fe4226a0a03
       level: 1
       frame size: 1
-    id: 6a3759a4-e49f-4670-cf61-929d857bf085
+    id: 6868b78b-c846-6d32-c7cf-ee7a59490430
     object type 'Font'
       field 'family'['Font.family']
       type: string type 'string'
@@ -297,7 +298,7 @@ block 'System.Graphics'
       constructor 'constructor'['Font.constructor']
         parameter 'this'
         type: object type 'Font'
-        id: 96e48e5e-58ad-7a15-8853-c8bb796c1965
+        id: 7007535b-ef1f-3fe4-9e6e-8b0d1ddc59a0
         index: 0
         qualifier: value
         parameter 'family'
@@ -318,7 +319,7 @@ block 'System.Graphics'
         block '@Font.constructor'
         level: 1
       flags: defined
-      id: 704456ce-f7f6-3292-3326-48e089ce1b6c
+      id: f57e70bd-38c9-b1a4-d0df-f41c67bb07e8
       level: 1
       block '@Font.constructor'
       level: 1
@@ -338,14 +339,14 @@ block 'System.Graphics'
       constructor 'constructor'['Font.constructor']
         parameter 'this'
         type: object type 'Font'
-        id: 96e48e5e-58ad-7a15-8853-c8bb796c1965
+        id: 7007535b-ef1f-3fe4-9e6e-8b0d1ddc59a0
         index: 0
         qualifier: value
       flags: generated
-      id: 10aab0ef-f3ff-db90-9f27-a8399c513ad7
+      id: 5bbd0e65-2aed-98a6-7761-d79ec1e7b033
       level: 1
       frame size: 1
-    id: 96e48e5e-58ad-7a15-8853-c8bb796c1965
+    id: 7007535b-ef1f-3fe4-9e6e-8b0d1ddc59a0
     object type 'Padding'
       field 'left'['Padding.left']
       type: real type 'real'
@@ -367,7 +368,7 @@ block 'System.Graphics'
       constructor 'constructor'['Padding.constructor']
         parameter 'this'
         type: object type 'Padding'
-        id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
+        id: 841fa4a7-a667-dabf-bf85-c9cd4a9b9bf3
         index: 0
         qualifier: value
         parameter 'left'
@@ -393,7 +394,7 @@ block 'System.Graphics'
         block '@Padding.constructor'
         level: 1
       flags: defined
-      id: 9160c140-346b-f0b3-ee04-ce5ba48079fa
+      id: a179eae4-1e1e-8e4e-e327-fecf1c6d8c96
       level: 1
       block '@Padding.constructor'
       level: 1
@@ -416,23 +417,23 @@ block 'System.Graphics'
       constructor 'constructor'['Padding.constructor']
         parameter 'this'
         type: object type 'Padding'
-        id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
+        id: 841fa4a7-a667-dabf-bf85-c9cd4a9b9bf3
         index: 0
         qualifier: value
       flags: generated
-      id: a0a9093f-57cd-3488-f022-931a24491911
+      id: 70947371-311b-4809-04a5-97d7a29b3dff
       level: 1
       frame size: 1
       procedure 'Print'['Padding.Print']
         parameter 'this'
         type: object type 'Padding'
-        id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
+        id: 841fa4a7-a667-dabf-bf85-c9cd4a9b9bf3
         index: 0
         qualifier: value
         block '@Padding.Print'
         level: 1
       flags: defined
-      id: 979b6126-60ff-8dcf-0a0f-c195782c3b59
+      id: 7c054cf6-3de6-f98e-4a88-6e9c9666d205
       level: 1
       block '@Padding.Print'
       level: 1
@@ -451,13 +452,13 @@ block 'System.Graphics'
         10 : push_value(', bottom: ')
         11 : load_local(0)
         12 : load_field(3)
-        13 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 8)
-        14 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 0)
+        13 : call_subroutine(Write, 1aaefd6d-0153-589f-38b4-2d460f6f025f, 8)
+        14 : call_subroutine(Writeln, 58eca025-9b8d-b10a-00d9-160d90c7925c, 0)
         15 : nop
       function 'Horizontal'['Padding.Horizontal']
         parameter 'this'
         type: object type 'Padding'
-        id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
+        id: 841fa4a7-a667-dabf-bf85-c9cd4a9b9bf3
         index: 0
         qualifier: value
         variable '@result'
@@ -467,7 +468,7 @@ block 'System.Graphics'
         block '@Padding.Horizontal'
         level: 1
       flags: defined
-      id: 4cf05f83-3f35-c369-bc77-54fe493b4a60
+      id: c3a7a634-25ee-4141-b6fe-f8ead3905e2f
       level: 1
       block '@Padding.Horizontal'
       level: 1
@@ -485,7 +486,7 @@ block 'System.Graphics'
       function 'Vertical'['Padding.Vertical']
         parameter 'this'
         type: object type 'Padding'
-        id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
+        id: 841fa4a7-a667-dabf-bf85-c9cd4a9b9bf3
         index: 0
         qualifier: value
         variable '@result'
@@ -495,7 +496,7 @@ block 'System.Graphics'
         block '@Padding.Vertical'
         level: 1
       flags: defined
-      id: 62e24e03-901d-2b69-3723-524f0cc94e2d
+      id: b07c8c03-cf17-c97f-744b-ec68dd7545b5
       level: 1
       block '@Padding.Vertical'
       level: 1
@@ -510,7 +511,7 @@ block 'System.Graphics'
         6 : store_local(1)
         7 : nop
         8 : load_result_var(1)
-    id: f3115d55-22c2-dac6-d2b3-4c038d8155ab
+    id: 841fa4a7-a667-dabf-bf85-c9cd4a9b9bf3
     object type 'Graphics'
       field 'native'['Graphics.native']
       type: pointer type 'pointer'
@@ -528,13 +529,13 @@ block 'System.Graphics'
       constructor 'constructor'['Graphics.constructor']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         block '@Graphics.constructor'
         level: 1
       flags: defined
-      id: aea07f5f-117c-4668-9262-e8c789321d34
+      id: ee88e5f3-9a5a-ad5b-2375-e4af76ad81bd
       level: 1
       block '@Graphics.constructor'
       level: 1
@@ -545,70 +546,70 @@ block 'System.Graphics'
       procedure 'Clear'['Graphics.Clear']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         parameter 'color'
         type: object type 'Color'
-        id: 92d58fb2-30a6-8890-baea-76de0de33fd6
+        id: 8746a183-b678-3407-f222-54b4ac321976
         index: 1
         qualifier: value
       flags: external defined
-      id: 70d912d2-63be-8ae2-f56e-e78659d11640
+      id: ab96d8f2-9d14-9368-67ee-ddbf52acd7f1
       level: 1
       external subroutine id: 01000000-0000-0000-0000-00000000000e
       frame size: 0
       procedure 'DrawLine'['Graphics.DrawLine']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         parameter 'pen'
         type: object type 'Pen'
-        id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+        id: d43f9427-de5d-0453-51ed-cb9d99b590fd
         index: 1
         qualifier: value
         parameter 's'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 2
         qualifier: value
         parameter 'e'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 3
         qualifier: value
       flags: external defined
-      id: 7113fa55-4972-8f26-7afd-a696a7d8a338
+      id: a9b19a14-37dc-2c30-e076-1968d4b6197b
       level: 1
       external subroutine id: 01000000-0000-0000-0000-00000000000f
       frame size: 0
       procedure 'DrawRectangle'['Graphics.DrawRectangle']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         parameter 'pen'
         type: object type 'Pen'
-        id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+        id: d43f9427-de5d-0453-51ed-cb9d99b590fd
         index: 1
         qualifier: value
         parameter 'rectangle'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 2
         qualifier: value
       flags: external defined
-      id: cb794515-2bc0-7856-4b44-2507e0300849
+      id: 9ad417aa-b6e3-780e-0bd6-17f324a7e84a
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000010
       frame size: 0
       function 'MeasureString'['Graphics.MeasureString']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         parameter 'text'
@@ -618,22 +619,22 @@ block 'System.Graphics'
         qualifier: value
         parameter 'font'
         type: object type 'Font'
-        id: 96e48e5e-58ad-7a15-8853-c8bb796c1965
+        id: 7007535b-ef1f-3fe4-9e6e-8b0d1ddc59a0
         index: 2
         qualifier: value
         variable '@result'
         type: object type 'Size'
-        id: df16497c-f6f3-9038-46b6-301df4f4adf3
+        id: cb2cd25d-a239-329c-84af-e8bba74bdf55
         index: 3
       flags: external defined
-      id: 1394de52-7b3f-cab8-a9f9-876c645f4f70
+      id: 9de06b30-1bc4-4aae-c748-3187927f8d45
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000011
       frame size: 0
       procedure 'DrawString'['Graphics.DrawString']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         parameter 'text'
@@ -643,80 +644,80 @@ block 'System.Graphics'
         qualifier: value
         parameter 'font'
         type: object type 'Font'
-        id: 96e48e5e-58ad-7a15-8853-c8bb796c1965
+        id: 7007535b-ef1f-3fe4-9e6e-8b0d1ddc59a0
         index: 2
         qualifier: value
         parameter 'brush'
         type: object type 'Brush'
-        id: 6a3759a4-e49f-4670-cf61-929d857bf085
+        id: 6868b78b-c846-6d32-c7cf-ee7a59490430
         index: 3
         qualifier: value
         parameter 'location'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 4
         qualifier: value
       flags: external defined
-      id: 5f37837a-812b-2dbd-4d82-cd796ed9c48c
+      id: 98c439fb-bf4c-42e7-68ec-629451b51450
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000012
       frame size: 0
       procedure 'FillPolygon'['Graphics.FillPolygon']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         parameter 'brush'
         type: object type 'Brush'
-        id: 6a3759a4-e49f-4670-cf61-929d857bf085
+        id: 6868b78b-c846-6d32-c7cf-ee7a59490430
         index: 1
         qualifier: value
         parameter 'points'
         type: array type 'PointArray'
-        id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
+        id: e0100199-ee5d-974a-1ded-917abde58093
         index: 2
         qualifier: value
       flags: external defined
-      id: c296e43e-a9c3-e020-fbe3-59e4e203bd32
+      id: 1a22330f-9fe8-fe52-ee17-1b09e30325cb
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000013
       frame size: 0
       procedure 'DrawEllipse'['Graphics.DrawEllipse']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         parameter 'pen'
         type: object type 'Pen'
-        id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+        id: d43f9427-de5d-0453-51ed-cb9d99b590fd
         index: 1
         qualifier: value
         parameter 'rect'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 2
         qualifier: value
       flags: external defined
-      id: fea9cebf-07d7-fcd1-b8bd-eee101833b96
+      id: 8e1ee67a-f5a5-afc7-c27c-e9d5c603b851
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000014
       frame size: 0
       procedure 'DrawArc'['Graphics.DrawArc']
         parameter 'this'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 0
         qualifier: value
         parameter 'pen'
         type: object type 'Pen'
-        id: 566f14e8-7230-471d-fd5c-5667a2f846e1
+        id: d43f9427-de5d-0453-51ed-cb9d99b590fd
         index: 1
         qualifier: value
         parameter 'rect'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 2
         qualifier: value
         parameter 'startAngle'
@@ -730,11 +731,11 @@ block 'System.Graphics'
         index: 4
         qualifier: value
       flags: external defined
-      id: 7f2d6a87-513b-6f57-129b-4c67554fb9a8
+      id: 611cf109-38a1-ea2c-9de6-d8da45e85516
       level: 1
       external subroutine id: 01000000-0000-0000-0000-000000000015
       frame size: 0
-    id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+    id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
     object type 'Bitmap'
       field 'x'['Bitmap.x']
       type: integer type 'integer'
@@ -752,7 +753,7 @@ block 'System.Graphics'
       constructor 'constructor'['Bitmap.constructor']
         parameter 'this'
         type: object type 'Bitmap'
-        id: fb40e1ba-c443-2fe9-03a9-1b491def3b9d
+        id: 96fd1b04-2aa0-ac79-4760-2f08b29fba6c
         index: 0
         qualifier: value
         parameter 'x'
@@ -768,7 +769,7 @@ block 'System.Graphics'
         block '@Bitmap.constructor'
         level: 1
       flags: defined
-      id: 494a70c3-6e54-7ef0-7c4c-30202a789b08
+      id: fafdc958-92c5-93c3-5270-eeecc48070e9
       level: 1
       block '@Bitmap.constructor'
       level: 1
@@ -785,32 +786,32 @@ block 'System.Graphics'
       constructor 'constructor'['Bitmap.constructor']
         parameter 'this'
         type: object type 'Bitmap'
-        id: fb40e1ba-c443-2fe9-03a9-1b491def3b9d
+        id: 96fd1b04-2aa0-ac79-4760-2f08b29fba6c
         index: 0
         qualifier: value
       flags: generated
-      id: 839f906d-ef06-e932-19b0-28801d152ae7
+      id: e1ccdfe1-b99a-30ad-e8b6-8c3a9f60e4c9
       level: 1
       frame size: 1
       function 'GetGraphics'['Bitmap.GetGraphics']
         parameter 'this'
         type: object type 'Bitmap'
-        id: fb40e1ba-c443-2fe9-03a9-1b491def3b9d
+        id: 96fd1b04-2aa0-ac79-4760-2f08b29fba6c
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 1
       flags: external defined
-      id: 0f56b4e6-6a9f-2fab-acb1-d4d7bc449dfb
+      id: 41589066-fcde-a993-d201-f4a3115a2cb7
       level: 1
       external subroutine id: 01000000-0000-0000-0000-00000000000c
       frame size: 0
       procedure 'Save'['Bitmap.Save']
         parameter 'this'
         type: object type 'Bitmap'
-        id: fb40e1ba-c443-2fe9-03a9-1b491def3b9d
+        id: 96fd1b04-2aa0-ac79-4760-2f08b29fba6c
         index: 0
         qualifier: value
         parameter 'fileName'
@@ -819,23 +820,23 @@ block 'System.Graphics'
         index: 1
         qualifier: value
       flags: external defined
-      id: d4df29f7-163c-5ded-0b17-36f58efeea98
+      id: 6122898d-4114-b103-f528-14b23b1f529f
       level: 1
       external subroutine id: 01000000-0000-0000-0000-00000000000d
       frame size: 0
-    id: fb40e1ba-c443-2fe9-03a9-1b491def3b9d
+    id: 96fd1b04-2aa0-ac79-4760-2f08b29fba6c
     object type 'Shape'
       constructor group '@constructor_group'['Shape.@constructor_group']
       constructor 'constructor'['Shape.constructor']
         parameter 'this'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 0
         qualifier: value
         block '@Shape.constructor'
         level: 1
       flags: defined
-      id: 0a93cbfd-026d-d7e1-04ec-a7ec2c19ebd4
+      id: 2f5b758d-c0c3-7ac6-edb9-fa523029311b
       level: 1
       block '@Shape.constructor'
       level: 1
@@ -846,13 +847,13 @@ block 'System.Graphics'
       procedure 'Print'['Shape.Print']
         parameter 'this'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 0
         qualifier: value
         block '@Shape.Print'
         level: 1
       flags: defined
-      id: cdeffb93-0f02-1c13-3353-ef99f56ab13f
+      id: 87e816f4-4bca-d9de-c407-64066c22264c
       level: 1
       VMT index: 0
       virtual: virtual
@@ -865,18 +866,18 @@ block 'System.Graphics'
       procedure 'Measure'['Shape.Measure']
         parameter 'this'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 1
         qualifier: value
         block '@Shape.Measure'
         level: 1
       flags: defined
-      id: f29063dd-e1bd-278d-83bf-52558e1d2443
+      id: 2cd798de-6008-d73b-097e-c31f648740b6
       level: 1
       VMT index: 1
       virtual: virtual
@@ -889,18 +890,18 @@ block 'System.Graphics'
       procedure 'Draw'['Shape.Draw']
         parameter 'this'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 1
         qualifier: value
         block '@Shape.Draw'
         level: 1
       flags: defined
-      id: a325b9c2-41c4-1869-41df-a1ecbbcdf578
+      id: 9f65da59-4576-a160-547c-5ea2fb291e59
       level: 1
       VMT index: 2
       virtual: virtual
@@ -913,17 +914,17 @@ block 'System.Graphics'
       function 'Bounds'['Shape.Bounds']
         parameter 'this'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 1
         block '@Shape.Bounds'
         level: 1
       flags: defined
-      id: dda6dca0-d749-aa65-9c08-3e2d77fe5d62
+      id: fb061714-6ca2-ba7e-169b-70601a7ac8b7
       level: 1
       VMT index: 3
       virtual: virtual
@@ -933,14 +934,14 @@ block 'System.Graphics'
       code
         0 : receive(1)
         1 : new_object(Rect)
-        2 : call_ctor(Rect.constructor, b4563fd2-251e-8121-11fa-e93921ff5f9c)
+        2 : call_ctor(Rect.constructor, 90936892-6bee-afce-8d52-5314523ccb75)
         3 : store_local(1)
         4 : nop
         5 : load_result_var(1)
       field '@vmt'['Shape.@vmt']
       type: null
       index: 0
-    id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+    id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
     VMT pointer field index: 0
     object type 'Line'
       field '@vmt'['Line.@vmt']
@@ -948,24 +949,24 @@ block 'System.Graphics'
       index: 0
       field 'routingPoints'['Line.routingPoints']
       type: array type 'PointArray'
-      id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
+      id: e0100199-ee5d-974a-1ded-917abde58093
       index: 1
       constructor group '@constructor_group'['Line.@constructor_group']
       constructor 'constructor'['Line.constructor']
         parameter 'this'
         type: object type 'Line'
-        id: 184ecb6c-278b-d714-da55-fb0c89a11a2b
+        id: 14593fb6-18b5-f9b1-17c3-454ceb22c629
         index: 0
         qualifier: value
         parameter 'routingPoints'
         type: array type 'PointArray'
-        id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
+        id: e0100199-ee5d-974a-1ded-917abde58093
         index: 1
         qualifier: value
         block '@Line.constructor'
         level: 1
       flags: defined
-      id: cc7becab-a242-b367-6486-9c520689f9c4
+      id: b230ec5c-7f3a-e00a-1c67-735ee9083b17
       level: 1
       block '@Line.constructor'
       level: 1
@@ -973,7 +974,7 @@ block 'System.Graphics'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : call_ctor(Shape.constructor, 0a93cbfd-026d-d7e1-04ec-a7ec2c19ebd4)
+        2 : call_ctor(Shape.constructor, 2f5b758d-c0c3-7ac6-edb9-fa523029311b)
         3 : load_local(1)
         4 : load_local(0)
         5 : store_field(1)
@@ -981,17 +982,17 @@ block 'System.Graphics'
       constructor 'constructor'['Line.constructor']
         parameter 'this'
         type: object type 'Line'
-        id: 184ecb6c-278b-d714-da55-fb0c89a11a2b
+        id: 14593fb6-18b5-f9b1-17c3-454ceb22c629
         index: 0
         qualifier: value
       flags: generated
-      id: d5d61fd3-fcec-5d01-718f-802e5500293a
+      id: c26254e2-9417-aa9e-22a5-4ab3f4211dae
       level: 1
       frame size: 1
       procedure 'Print'['Line.Print']
         parameter 'this'
         type: object type 'Line'
-        id: 184ecb6c-278b-d714-da55-fb0c89a11a2b
+        id: 14593fb6-18b5-f9b1-17c3-454ceb22c629
         index: 0
         qualifier: value
         block '@Line.Print'
@@ -1006,7 +1007,7 @@ block 'System.Graphics'
         index: 2
         variable 'p'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 3
         variable '@tmp0'
         type: integer type 'integer'
@@ -1017,7 +1018,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 5
       flags: defined
-      id: 3b0759fd-6596-3cca-7bec-e0694e40aa6e
+      id: 211766fa-ef45-abb3-0e00-18386cde1f72
       level: 1
       VMT index: 0
       virtual: override
@@ -1027,7 +1028,7 @@ block 'System.Graphics'
       code
         0 : receive(1)
         1 : push_value('line:')
-        2 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
+        2 : call_subroutine(Writeln, 58eca025-9b8d-b10a-00d9-160d90c7925c, 1)
         3 : load_local(0)
         4 : load_field(1)
         5 : array_length
@@ -1048,14 +1049,14 @@ block 'System.Graphics'
         20 : push_value('  routingPoint ')
         21 : load_local(1)
         22 : push_value(': ')
-        23 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 3)
+        23 : call_subroutine(Write, 1aaefd6d-0153-589f-38b4-2d460f6f025f, 3)
         24 : load_local(1)
         25 : load_local(0)
         26 : load_field(1)
         27 : load_element
         28 : store_local(3)
         29 : load_local(3)
-        30 : call_subroutine(Point.Print, 0e2256ab-9499-aa64-cfb1-a3f8986e6e2c, 1)
+        30 : call_subroutine(Point.Print, f350ffa5-7bab-e01c-29fe-b49f0c38efb8, 1)
         31 : nop
         32 : jump(33)
         33 : load_local(1)
@@ -1063,19 +1064,19 @@ block 'System.Graphics'
         35 : not_equal_int
         36 : branch(37, 53)
         37 : load_local(1)
-        38 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
+        38 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
         39 : store_local(1)
         40 : push_value('  routingPoint ')
         41 : load_local(1)
         42 : push_value(': ')
-        43 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 3)
+        43 : call_subroutine(Write, 1aaefd6d-0153-589f-38b4-2d460f6f025f, 3)
         44 : load_local(1)
         45 : load_local(0)
         46 : load_field(1)
         47 : load_element
         48 : store_local(3)
         49 : load_local(3)
-        50 : call_subroutine(Point.Print, 0e2256ab-9499-aa64-cfb1-a3f8986e6e2c, 1)
+        50 : call_subroutine(Point.Print, f350ffa5-7bab-e01c-29fe-b49f0c38efb8, 1)
         51 : nop
         52 : jump(33)
         53 : nop
@@ -1085,12 +1086,12 @@ block 'System.Graphics'
       procedure 'Draw'['Line.Draw']
         parameter 'this'
         type: object type 'Line'
-        id: 184ecb6c-278b-d714-da55-fb0c89a11a2b
+        id: 14593fb6-18b5-f9b1-17c3-454ceb22c629
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 1
         qualifier: value
         block '@Line.Draw'
@@ -1105,11 +1106,11 @@ block 'System.Graphics'
         index: 3
         variable 's'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 4
         variable 'e'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 5
         variable '@tmp0'
         type: integer type 'integer'
@@ -1120,7 +1121,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 7
       flags: defined
-      id: 62731cdd-cd90-3fbb-1e20-3adced890508
+      id: 01589aea-d646-d0b7-34b0-c1ad8fb251c7
       level: 1
       VMT index: 2
       virtual: override
@@ -1164,7 +1165,7 @@ block 'System.Graphics'
         33 : load_element
         34 : store_local(5)
         35 : load_local(1)
-        36 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+        36 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
         37 : load_local(4)
         38 : load_local(5)
         39 : call_external(Graphics.DrawLine, 01000000-0000-0000-0000-00000000000f)
@@ -1175,7 +1176,7 @@ block 'System.Graphics'
         44 : not_equal_int
         45 : branch(46, 68)
         46 : load_local(2)
-        47 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
+        47 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
         48 : store_local(2)
         49 : load_local(2)
         50 : push_value(1)
@@ -1190,7 +1191,7 @@ block 'System.Graphics'
         59 : load_element
         60 : store_local(5)
         61 : load_local(1)
-        62 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+        62 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
         63 : load_local(4)
         64 : load_local(5)
         65 : call_external(Graphics.DrawLine, 01000000-0000-0000-0000-00000000000f)
@@ -1205,12 +1206,12 @@ block 'System.Graphics'
       function 'Bounds'['Line.Bounds']
         parameter 'this'
         type: object type 'Line'
-        id: 184ecb6c-278b-d714-da55-fb0c89a11a2b
+        id: 14593fb6-18b5-f9b1-17c3-454ceb22c629
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 1
         block '@Line.Bounds'
         level: 1
@@ -1224,7 +1225,7 @@ block 'System.Graphics'
         index: 3
         variable 'p'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 4
         variable 'minX'
         type: real type 'real'
@@ -1251,7 +1252,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 10
       flags: defined
-      id: 57ea327c-5670-475f-f72f-5ec3fe0a5278
+      id: 3c820c0b-1efa-f199-d81a-c2338bf72b5e
       level: 1
       VMT index: 3
       virtual: override
@@ -1304,22 +1305,22 @@ block 'System.Graphics'
         42 : load_local(4)
         43 : load_field(0)
         44 : load_local(5)
-        45 : call_subroutine(Min, 4609684e-d580-ea9a-682f-f6c01e276bac, 2)
+        45 : call_subroutine(Min, 54d496f5-24ed-334d-d855-3a2e4b1e4c5a, 2)
         46 : store_local(5)
         47 : load_local(4)
         48 : load_field(0)
         49 : load_local(6)
-        50 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
+        50 : call_subroutine(Max, ecc63e1b-9db1-29dd-ea91-548fe3243d79, 2)
         51 : store_local(6)
         52 : load_local(4)
         53 : load_field(1)
         54 : load_local(7)
-        55 : call_subroutine(Min, 4609684e-d580-ea9a-682f-f6c01e276bac, 2)
+        55 : call_subroutine(Min, 54d496f5-24ed-334d-d855-3a2e4b1e4c5a, 2)
         56 : store_local(7)
         57 : load_local(4)
         58 : load_field(1)
         59 : load_local(8)
-        60 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
+        60 : call_subroutine(Max, ecc63e1b-9db1-29dd-ea91-548fe3243d79, 2)
         61 : store_local(8)
         62 : nop
         63 : jump(64)
@@ -1328,7 +1329,7 @@ block 'System.Graphics'
         66 : not_equal_int
         67 : branch(68, 98)
         68 : load_local(2)
-        69 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
+        69 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
         70 : store_local(2)
         71 : load_local(2)
         72 : load_local(0)
@@ -1338,22 +1339,22 @@ block 'System.Graphics'
         76 : load_local(4)
         77 : load_field(0)
         78 : load_local(5)
-        79 : call_subroutine(Min, 4609684e-d580-ea9a-682f-f6c01e276bac, 2)
+        79 : call_subroutine(Min, 54d496f5-24ed-334d-d855-3a2e4b1e4c5a, 2)
         80 : store_local(5)
         81 : load_local(4)
         82 : load_field(0)
         83 : load_local(6)
-        84 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
+        84 : call_subroutine(Max, ecc63e1b-9db1-29dd-ea91-548fe3243d79, 2)
         85 : store_local(6)
         86 : load_local(4)
         87 : load_field(1)
         88 : load_local(7)
-        89 : call_subroutine(Min, 4609684e-d580-ea9a-682f-f6c01e276bac, 2)
+        89 : call_subroutine(Min, 54d496f5-24ed-334d-d855-3a2e4b1e4c5a, 2)
         90 : store_local(7)
         91 : load_local(4)
         92 : load_field(1)
         93 : load_local(8)
-        94 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
+        94 : call_subroutine(Max, ecc63e1b-9db1-29dd-ea91-548fe3243d79, 2)
         95 : store_local(8)
         96 : nop
         97 : jump(64)
@@ -1364,7 +1365,7 @@ block 'System.Graphics'
         102 : new_object(Point)
         103 : load_local(5)
         104 : load_local(7)
-        105 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+        105 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
         106 : new_object(Size)
         107 : load_local(6)
         108 : load_local(5)
@@ -1372,20 +1373,20 @@ block 'System.Graphics'
         110 : load_local(8)
         111 : load_local(7)
         112 : minus_real
-        113 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
-        114 : call_ctor(Rect.constructor, 9ed2f905-baf8-e429-dd3c-6a0eda4a57da)
+        113 : call_ctor(Size.constructor, 44a32b4a-f06a-ab40-444d-aadd6af1ad13)
+        114 : call_ctor(Rect.constructor, 221510d4-35c2-d16c-b9d6-e9df1cd88869)
         115 : store_local(1)
         116 : nop
         117 : jump(122)
         118 : new_object(Rect)
-        119 : call_ctor(Rect.constructor, b4563fd2-251e-8121-11fa-e93921ff5f9c)
+        119 : call_ctor(Rect.constructor, 90936892-6bee-afce-8d52-5314523ccb75)
         120 : store_local(1)
         121 : jump(122)
         122 : nop
         123 : load_result_var(1)
-    id: 184ecb6c-278b-d714-da55-fb0c89a11a2b
+    id: 14593fb6-18b5-f9b1-17c3-454ceb22c629
     base type: object type 'Shape'
-    id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+    id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
     VMT pointer field index: 0
     object type 'Arrow'
       field '@vmt'['Arrow.@vmt']
@@ -1393,7 +1394,7 @@ block 'System.Graphics'
       index: 0
       field 'routingPoints'['Arrow.routingPoints']
       type: array type 'PointArray'
-      id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
+      id: e0100199-ee5d-974a-1ded-917abde58093
       index: 1
       field 'lineArrowWidth'['Arrow.lineArrowWidth']
       type: real type 'real'
@@ -1407,18 +1408,18 @@ block 'System.Graphics'
       constructor 'constructor'['Arrow.constructor']
         parameter 'this'
         type: object type 'Arrow'
-        id: e5e46a45-719d-0812-541f-dde098f6a8fa
+        id: da5d0a14-0eff-88c2-a7b8-511858fae5c5
         index: 0
         qualifier: value
         parameter 'routingPoints'
         type: array type 'PointArray'
-        id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
+        id: e0100199-ee5d-974a-1ded-917abde58093
         index: 1
         qualifier: value
         block '@Arrow.constructor'
         level: 1
       flags: defined
-      id: e4ebc76d-24a8-7951-0a84-665bc105068e
+      id: f942a3e6-e829-74a4-80dc-ae9ae7f2ab0d
       level: 1
       block '@Arrow.constructor'
       level: 1
@@ -1426,7 +1427,7 @@ block 'System.Graphics'
       code
         0 : receive(2)
         1 : load_local(0)
-        2 : call_ctor(Shape.constructor, 0a93cbfd-026d-d7e1-04ec-a7ec2c19ebd4)
+        2 : call_ctor(Shape.constructor, 2f5b758d-c0c3-7ac6-edb9-fa523029311b)
         3 : load_local(1)
         4 : load_local(0)
         5 : store_field(1)
@@ -1442,17 +1443,17 @@ block 'System.Graphics'
       constructor 'constructor'['Arrow.constructor']
         parameter 'this'
         type: object type 'Arrow'
-        id: e5e46a45-719d-0812-541f-dde098f6a8fa
+        id: da5d0a14-0eff-88c2-a7b8-511858fae5c5
         index: 0
         qualifier: value
       flags: generated
-      id: c37aee0a-7f0e-402d-dcc6-e8ee45c74244
+      id: 428d771d-f9a7-eb5a-f18a-5263c01379fe
       level: 1
       frame size: 1
       procedure 'Print'['Arrow.Print']
         parameter 'this'
         type: object type 'Arrow'
-        id: e5e46a45-719d-0812-541f-dde098f6a8fa
+        id: da5d0a14-0eff-88c2-a7b8-511858fae5c5
         index: 0
         qualifier: value
         block '@Arrow.Print'
@@ -1467,7 +1468,7 @@ block 'System.Graphics'
         index: 2
         variable 'p'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 3
         variable '@tmp0'
         type: integer type 'integer'
@@ -1478,7 +1479,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 5
       flags: defined
-      id: c5092eba-d5dc-6b58-788c-837b6fa16965
+      id: 5cd56fd0-9079-44dd-53dc-9c501c53f087
       level: 1
       VMT index: 0
       virtual: override
@@ -1488,7 +1489,7 @@ block 'System.Graphics'
       code
         0 : receive(1)
         1 : push_value('arrow:')
-        2 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 1)
+        2 : call_subroutine(Writeln, 58eca025-9b8d-b10a-00d9-160d90c7925c, 1)
         3 : load_local(0)
         4 : load_field(1)
         5 : array_length
@@ -1509,14 +1510,14 @@ block 'System.Graphics'
         20 : push_value('  routingPoint ')
         21 : load_local(1)
         22 : push_value(': ')
-        23 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 3)
+        23 : call_subroutine(Write, 1aaefd6d-0153-589f-38b4-2d460f6f025f, 3)
         24 : load_local(1)
         25 : load_local(0)
         26 : load_field(1)
         27 : load_element
         28 : store_local(3)
         29 : load_local(3)
-        30 : call_subroutine(Point.Print, 0e2256ab-9499-aa64-cfb1-a3f8986e6e2c, 1)
+        30 : call_subroutine(Point.Print, f350ffa5-7bab-e01c-29fe-b49f0c38efb8, 1)
         31 : nop
         32 : jump(33)
         33 : load_local(1)
@@ -1524,19 +1525,19 @@ block 'System.Graphics'
         35 : not_equal_int
         36 : branch(37, 53)
         37 : load_local(1)
-        38 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
+        38 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
         39 : store_local(1)
         40 : push_value('  routingPoint ')
         41 : load_local(1)
         42 : push_value(': ')
-        43 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 3)
+        43 : call_subroutine(Write, 1aaefd6d-0153-589f-38b4-2d460f6f025f, 3)
         44 : load_local(1)
         45 : load_local(0)
         46 : load_field(1)
         47 : load_element
         48 : store_local(3)
         49 : load_local(3)
-        50 : call_subroutine(Point.Print, 0e2256ab-9499-aa64-cfb1-a3f8986e6e2c, 1)
+        50 : call_subroutine(Point.Print, f350ffa5-7bab-e01c-29fe-b49f0c38efb8, 1)
         51 : nop
         52 : jump(33)
         53 : nop
@@ -1546,12 +1547,12 @@ block 'System.Graphics'
       procedure 'Draw'['Arrow.Draw']
         parameter 'this'
         type: object type 'Arrow'
-        id: e5e46a45-719d-0812-541f-dde098f6a8fa
+        id: da5d0a14-0eff-88c2-a7b8-511858fae5c5
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 1
         qualifier: value
         block '@Arrow.Draw'
@@ -1566,11 +1567,11 @@ block 'System.Graphics'
         index: 3
         variable 's'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 4
         variable 'e'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 5
         variable '@tmp0'
         type: integer type 'integer'
@@ -1581,7 +1582,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 7
       flags: defined
-      id: 2036b3b3-0737-8dd8-146a-db06fc596147
+      id: 2815640b-1af4-0132-6ed8-e1a2fbce67f1
       level: 1
       VMT index: 2
       virtual: override
@@ -1632,7 +1633,7 @@ block 'System.Graphics'
         40 : less_int
         41 : branch(42, 48)
         42 : load_local(1)
-        43 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+        43 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
         44 : load_local(4)
         45 : load_local(5)
         46 : call_external(Graphics.DrawLine, 01000000-0000-0000-0000-00000000000f)
@@ -1644,7 +1645,7 @@ block 'System.Graphics'
         52 : load_field(2)
         53 : load_local(0)
         54 : load_field(3)
-        55 : call_subroutine(DrawArrowLine, 3499a990-9d8a-b187-a39d-ac1dab5c0f47, 5)
+        55 : call_subroutine(DrawArrowLine, 639c307b-3b16-0ffc-dab1-7c48af405979, 5)
         56 : jump(57)
         57 : nop
         58 : jump(59)
@@ -1653,7 +1654,7 @@ block 'System.Graphics'
         61 : not_equal_int
         62 : branch(63, 102)
         63 : load_local(2)
-        64 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
+        64 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
         65 : store_local(2)
         66 : load_local(2)
         67 : push_value(1)
@@ -1675,7 +1676,7 @@ block 'System.Graphics'
         83 : less_int
         84 : branch(85, 91)
         85 : load_local(1)
-        86 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+        86 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
         87 : load_local(4)
         88 : load_local(5)
         89 : call_external(Graphics.DrawLine, 01000000-0000-0000-0000-00000000000f)
@@ -1687,7 +1688,7 @@ block 'System.Graphics'
         95 : load_field(2)
         96 : load_local(0)
         97 : load_field(3)
-        98 : call_subroutine(DrawArrowLine, 3499a990-9d8a-b187-a39d-ac1dab5c0f47, 5)
+        98 : call_subroutine(DrawArrowLine, 639c307b-3b16-0ffc-dab1-7c48af405979, 5)
         99 : jump(100)
         100 : nop
         101 : jump(59)
@@ -1700,12 +1701,12 @@ block 'System.Graphics'
       function 'Bounds'['Arrow.Bounds']
         parameter 'this'
         type: object type 'Arrow'
-        id: e5e46a45-719d-0812-541f-dde098f6a8fa
+        id: da5d0a14-0eff-88c2-a7b8-511858fae5c5
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 1
         block '@Arrow.Bounds'
         level: 1
@@ -1719,7 +1720,7 @@ block 'System.Graphics'
         index: 3
         variable 'p'
         type: object type 'Point'
-        id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+        id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
         index: 4
         variable 'minX'
         type: real type 'real'
@@ -1746,7 +1747,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 10
       flags: defined
-      id: c27ac851-b796-3bfa-4ad7-68d99797e4ae
+      id: 80753bc5-1429-0b16-5976-b7e50900c5e0
       level: 1
       VMT index: 3
       virtual: override
@@ -1799,22 +1800,22 @@ block 'System.Graphics'
         42 : load_local(4)
         43 : load_field(0)
         44 : load_local(5)
-        45 : call_subroutine(Min, 4609684e-d580-ea9a-682f-f6c01e276bac, 2)
+        45 : call_subroutine(Min, 54d496f5-24ed-334d-d855-3a2e4b1e4c5a, 2)
         46 : store_local(5)
         47 : load_local(4)
         48 : load_field(0)
         49 : load_local(6)
-        50 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
+        50 : call_subroutine(Max, ecc63e1b-9db1-29dd-ea91-548fe3243d79, 2)
         51 : store_local(6)
         52 : load_local(4)
         53 : load_field(1)
         54 : load_local(7)
-        55 : call_subroutine(Min, 4609684e-d580-ea9a-682f-f6c01e276bac, 2)
+        55 : call_subroutine(Min, 54d496f5-24ed-334d-d855-3a2e4b1e4c5a, 2)
         56 : store_local(7)
         57 : load_local(4)
         58 : load_field(1)
         59 : load_local(8)
-        60 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
+        60 : call_subroutine(Max, ecc63e1b-9db1-29dd-ea91-548fe3243d79, 2)
         61 : store_local(8)
         62 : nop
         63 : jump(64)
@@ -1823,7 +1824,7 @@ block 'System.Graphics'
         66 : not_equal_int
         67 : branch(68, 98)
         68 : load_local(2)
-        69 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
+        69 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
         70 : store_local(2)
         71 : load_local(2)
         72 : load_local(0)
@@ -1833,22 +1834,22 @@ block 'System.Graphics'
         76 : load_local(4)
         77 : load_field(0)
         78 : load_local(5)
-        79 : call_subroutine(Min, 4609684e-d580-ea9a-682f-f6c01e276bac, 2)
+        79 : call_subroutine(Min, 54d496f5-24ed-334d-d855-3a2e4b1e4c5a, 2)
         80 : store_local(5)
         81 : load_local(4)
         82 : load_field(0)
         83 : load_local(6)
-        84 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
+        84 : call_subroutine(Max, ecc63e1b-9db1-29dd-ea91-548fe3243d79, 2)
         85 : store_local(6)
         86 : load_local(4)
         87 : load_field(1)
         88 : load_local(7)
-        89 : call_subroutine(Min, 4609684e-d580-ea9a-682f-f6c01e276bac, 2)
+        89 : call_subroutine(Min, 54d496f5-24ed-334d-d855-3a2e4b1e4c5a, 2)
         90 : store_local(7)
         91 : load_local(4)
         92 : load_field(1)
         93 : load_local(8)
-        94 : call_subroutine(Max, c375f8b3-4a3a-b0b1-3910-d79e532bd7c8, 2)
+        94 : call_subroutine(Max, ecc63e1b-9db1-29dd-ea91-548fe3243d79, 2)
         95 : store_local(8)
         96 : nop
         97 : jump(64)
@@ -1859,7 +1860,7 @@ block 'System.Graphics'
         102 : new_object(Point)
         103 : load_local(5)
         104 : load_local(7)
-        105 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+        105 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
         106 : new_object(Size)
         107 : load_local(6)
         108 : load_local(5)
@@ -1867,48 +1868,474 @@ block 'System.Graphics'
         110 : load_local(8)
         111 : load_local(7)
         112 : minus_real
-        113 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
-        114 : call_ctor(Rect.constructor, 9ed2f905-baf8-e429-dd3c-6a0eda4a57da)
+        113 : call_ctor(Size.constructor, 44a32b4a-f06a-ab40-444d-aadd6af1ad13)
+        114 : call_ctor(Rect.constructor, 221510d4-35c2-d16c-b9d6-e9df1cd88869)
         115 : store_local(1)
         116 : nop
         117 : jump(122)
         118 : new_object(Rect)
-        119 : call_ctor(Rect.constructor, b4563fd2-251e-8121-11fa-e93921ff5f9c)
+        119 : call_ctor(Rect.constructor, 90936892-6bee-afce-8d52-5314523ccb75)
         120 : store_local(1)
         121 : jump(122)
         122 : nop
         123 : load_result_var(1)
-    id: e5e46a45-719d-0812-541f-dde098f6a8fa
+    id: da5d0a14-0eff-88c2-a7b8-511858fae5c5
     base type: object type 'Shape'
-    id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+    id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
     VMT pointer field index: 0
-    array type 'ShapeArray'
-    id: c438fa31-3395-cdc2-0aea-b218c0477d4b
-    element type: object type 'Shape'
-    id: 3abffc5b-eade-c6ac-b654-75cd353d365a
-    object type 'CompoundShape'
-      field '@vmt'['CompoundShape.@vmt']
-      type: null
+    specialization '@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8'
+      bound type parameter 'T'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.T']
+      id: 4035b357-dd55-e1dd-3c12-98034bca9305
+      type argument: object type 'Shape'
+      id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
+      array type '@array_type_F02B0F37E504187123F3FAE70F1FA179FD77F85D'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.@array_type_F02B0F37E504187123F3FAE70F1FA179FD77F85D']
+      id: 37cdbe59-71d0-2172-3dbf-73c8c17992a6
+      element type: object type 'Shape'
+      id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
+      field 'items'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.items']
+      type: array type '@array_type_F02B0F37E504187123F3FAE70F1FA179FD77F85D'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.@array_type_F02B0F37E504187123F3FAE70F1FA179FD77F85D']
+      id: 37cdbe59-71d0-2172-3dbf-73c8c17992a6
       index: 0
-      field 'count'['CompoundShape.count']
+      field 'count'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.count']
       type: integer type 'integer'
       id: 00000000-0000-0000-0000-000000000002
       index: 1
+      constructor group '@constructor_group'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.@constructor_group']
+      constructor 'constructor'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.constructor']
+        parameter 'this'
+        type: index: 0
+        qualifier: value
+        block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.constructor'
+        level: 1
+      flags: defined
+      id: 9b6f2f39-21b4-dc4e-0a63-04666b639e2b
+      level: 1
+      block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.constructor'
+      level: 1
+      frame size: 1
+      code
+        0 : receive(1)
+        1 : push_value(0)
+        2 : new_array(@array_type_F02B0F37E504187123F3FAE70F1FA179FD77F85D)
+        3 : load_local(0)
+        4 : store_field(0)
+        5 : push_value(0)
+        6 : load_local(0)
+        7 : store_field(1)
+        8 : nop
+      function 'IsEmpty'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.IsEmpty']
+        parameter 'this'
+        type: index: 0
+        qualifier: value
+        variable '@result'
+        type: boolean type 'boolean'
+        id: 00000000-0000-0000-0000-000000000001
+        index: 1
+        block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.IsEmpty'
+        level: 1
+      flags: defined
+      id: 720522dd-2d2f-84c5-0038-6827f18dc10f
+      level: 1
+      block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.IsEmpty'
+      level: 1
+      frame size: 2
+      code
+        0 : receive(1)
+        1 : load_local(0)
+        2 : load_field(1)
+        3 : push_value(0)
+        4 : equal_int
+        5 : store_local(1)
+        6 : nop
+        7 : load_result_var(1)
+      procedure 'Add'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Add']
+        parameter 'this'
+        type: index: 0
+        qualifier: value
+        parameter 'item'
+        type: object type 'Shape'
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
+        index: 1
+        qualifier: value
+        block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Add'
+        level: 1
+        variable 'length'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 2
+        variable 'newLength'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 3
+        variable 'i'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 4
+        variable 'newItems'
+        type: array type '@array_type_F02B0F37E504187123F3FAE70F1FA179FD77F85D'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.@array_type_F02B0F37E504187123F3FAE70F1FA179FD77F85D']
+        id: 37cdbe59-71d0-2172-3dbf-73c8c17992a6
+        index: 5
+        variable '@tmp0'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 6
+        variable '@tmp1'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 7
+      flags: defined
+      id: 6db2167a-6af6-0ab1-c6f4-e8f2051c944c
+      level: 1
+      block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Add'
+      level: 1
+      frame size: 8
+      code
+        0 : receive(2)
+        1 : load_local(0)
+        2 : load_field(0)
+        3 : array_length
+        4 : store_local(2)
+        5 : jump(6)
+        6 : load_local(0)
+        7 : load_field(1)
+        8 : load_local(2)
+        9 : equal_int
+        10 : branch(11, 72)
+        11 : jump(12)
+        12 : load_local(2)
+        13 : push_value(4)
+        14 : less_int
+        15 : branch(16, 19)
+        16 : push_value(4)
+        17 : store_local(3)
+        18 : jump(24)
+        19 : push_value(2)
+        20 : load_local(2)
+        21 : mul_int
+        22 : store_local(3)
+        23 : jump(24)
+        24 : load_local(3)
+        25 : new_array(@array_type_F02B0F37E504187123F3FAE70F1FA179FD77F85D)
+        26 : store_local(5)
+        27 : push_value(0)
+        28 : store_local(6)
+        29 : load_local(0)
+        30 : load_field(1)
+        31 : push_value(1)
+        32 : minus_int
+        33 : store_local(7)
+        34 : jump(35)
+        35 : load_local(6)
+        36 : load_local(7)
+        37 : less_or_equal_int
+        38 : branch(39, 66)
+        39 : load_local(6)
+        40 : store_local(4)
+        41 : load_local(4)
+        42 : load_local(0)
+        43 : load_field(0)
+        44 : load_element
+        45 : load_local(4)
+        46 : load_local(5)
+        47 : store_element
+        48 : jump(49)
+        49 : load_local(4)
+        50 : load_local(7)
+        51 : not_equal_int
+        52 : branch(53, 64)
+        53 : load_local(4)
+        54 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
+        55 : store_local(4)
+        56 : load_local(4)
+        57 : load_local(0)
+        58 : load_field(0)
+        59 : load_element
+        60 : load_local(4)
+        61 : load_local(5)
+        62 : store_element
+        63 : jump(49)
+        64 : nop
+        65 : jump(66)
+        66 : nop
+        67 : load_local(5)
+        68 : load_local(0)
+        69 : store_field(0)
+        70 : nop
+        71 : jump(72)
+        72 : load_local(1)
+        73 : load_local(0)
+        74 : load_field(1)
+        75 : load_local(0)
+        76 : load_field(0)
+        77 : store_element
+        78 : load_local(0)
+        79 : load_field(1)
+        80 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
+        81 : load_local(0)
+        82 : store_field(1)
+        83 : nop
+      function 'Get'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get']
+        parameter 'this'
+        type: index: 0
+        qualifier: value
+        parameter 'index'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 1
+        qualifier: value
+        variable '@result'
+        type: object type 'Shape'
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
+        index: 2
+        block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get'
+        level: 1
+      flags: defined
+      id: ceb7160c-ff29-f669-f056-d0d007b45c5a
+      level: 1
+      block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get'
+      level: 1
+      frame size: 3
+      code
+        0 : receive(2)
+        1 : jump(2)
+        2 : load_local(1)
+        3 : push_value(0)
+        4 : greater_or_equal_int
+        5 : load_local(1)
+        6 : load_local(0)
+        7 : load_field(1)
+        8 : less_int
+        9 : and_bool
+        10 : branch(11, 17)
+        11 : load_local(1)
+        12 : load_local(0)
+        13 : load_field(0)
+        14 : load_element
+        15 : store_local(2)
+        16 : jump(20)
+        17 : push_value('invalid List index')
+        18 : call_external(Panic, 01000000-0000-0000-0000-000000000001)
+        19 : jump(20)
+        20 : nop
+        21 : load_result_var(2)
+      function 'IndexOf'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.IndexOf']
+        parameter 'this'
+        type: index: 0
+        qualifier: value
+        parameter 'item'
+        type: object type 'Shape'
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
+        index: 1
+        qualifier: value
+        variable '@result'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 2
+        block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.IndexOf'
+        level: 1
+        variable 'i'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 3
+        variable 'index'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 4
+        variable '@tmp0'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 5
+        variable '@tmp1'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 6
+      flags: defined
+      id: 19ce6c53-1512-4166-7821-e3b8acaed796
+      level: 1
+      block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.IndexOf'
+      level: 1
+      frame size: 7
+      code
+        0 : receive(2)
+        1 : push_value(1)
+        2 : unary_minus_int
+        3 : store_local(4)
+        4 : push_value(0)
+        5 : store_local(5)
+        6 : load_local(0)
+        7 : load_field(1)
+        8 : push_value(1)
+        9 : minus_int
+        10 : store_local(6)
+        11 : jump(12)
+        12 : load_local(5)
+        13 : load_local(6)
+        14 : less_or_equal_int
+        15 : branch(16, 52)
+        16 : load_local(5)
+        17 : store_local(3)
+        18 : jump(19)
+        19 : load_local(3)
+        20 : load_local(0)
+        21 : load_field(0)
+        22 : load_element
+        23 : load_local(1)
+        24 : equal_object
+        25 : branch(26, 29)
+        26 : load_local(3)
+        27 : store_local(4)
+        28 : jump(29)
+        29 : jump(30)
+        30 : load_local(3)
+        31 : load_local(6)
+        32 : not_equal_int
+        33 : branch(34, 50)
+        34 : load_local(3)
+        35 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
+        36 : store_local(3)
+        37 : jump(38)
+        38 : load_local(3)
+        39 : load_local(0)
+        40 : load_field(0)
+        41 : load_element
+        42 : load_local(1)
+        43 : equal_object
+        44 : branch(45, 48)
+        45 : load_local(3)
+        46 : store_local(4)
+        47 : jump(48)
+        48 : nop
+        49 : jump(30)
+        50 : nop
+        51 : jump(52)
+        52 : nop
+        53 : load_local(4)
+        54 : store_local(2)
+        55 : nop
+        56 : load_result_var(2)
+      procedure 'Remove'['@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Remove']
+        parameter 'this'
+        type: index: 0
+        qualifier: value
+        parameter 'index'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 1
+        qualifier: value
+        block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Remove'
+        level: 1
+        variable 'i'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 2
+        variable '@tmp0'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 3
+        variable '@tmp1'
+        type: integer type 'integer'
+        id: 00000000-0000-0000-0000-000000000002
+        index: 4
+      flags: defined
+      id: 5b866f60-125a-df5c-ff47-08277cbd1e7d
+      level: 1
+      block '@@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Remove'
+      level: 1
+      frame size: 5
+      code
+        0 : receive(2)
+        1 : jump(2)
+        2 : load_local(1)
+        3 : push_value(0)
+        4 : greater_or_equal_int
+        5 : load_local(1)
+        6 : load_local(0)
+        7 : load_field(1)
+        8 : less_int
+        9 : and_bool
+        10 : branch(11, 64)
+        11 : load_local(1)
+        12 : store_local(3)
+        13 : load_local(0)
+        14 : load_field(1)
+        15 : push_value(2)
+        16 : minus_int
+        17 : store_local(4)
+        18 : jump(19)
+        19 : load_local(3)
+        20 : load_local(4)
+        21 : less_or_equal_int
+        22 : branch(23, 56)
+        23 : load_local(3)
+        24 : store_local(2)
+        25 : load_local(2)
+        26 : push_value(1)
+        27 : plus_int
+        28 : load_local(0)
+        29 : load_field(0)
+        30 : load_element
+        31 : load_local(2)
+        32 : load_local(0)
+        33 : load_field(0)
+        34 : store_element
+        35 : jump(36)
+        36 : load_local(2)
+        37 : load_local(4)
+        38 : not_equal_int
+        39 : branch(40, 54)
+        40 : load_local(2)
+        41 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
+        42 : store_local(2)
+        43 : load_local(2)
+        44 : push_value(1)
+        45 : plus_int
+        46 : load_local(0)
+        47 : load_field(0)
+        48 : load_element
+        49 : load_local(2)
+        50 : load_local(0)
+        51 : load_field(0)
+        52 : store_element
+        53 : jump(36)
+        54 : nop
+        55 : jump(56)
+        56 : nop
+        57 : load_local(0)
+        58 : load_field(1)
+        59 : call_subroutine(Pred, 472f4ac5-488f-2e35-9383-2fd44cbee152, 1)
+        60 : load_local(0)
+        61 : store_field(1)
+        62 : nop
+        63 : jump(67)
+        64 : push_value('invalid List index')
+        65 : call_external(Panic, 01000000-0000-0000-0000-000000000001)
+        66 : jump(67)
+        67 : nop
+    id: c368adc7-c172-c13a-82e3-04ab00e03a16
+    generic type: object type 'List'
+    id: 1255f7f9-3759-89ba-be27-432dea5f067c
+    type argument: object type 'Shape'
+    id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
+    true
+    alias type 'ShapeList'
+    id: 6ffa74ad-33c1-fd8d-a8cd-eaab2ecbce58
+    type: object type 'CompoundShape'
+      field '@vmt'['CompoundShape.@vmt']
+      type: null
+      index: 0
       field 'components'['CompoundShape.components']
-      type: array type 'ShapeArray'
-      id: c438fa31-3395-cdc2-0aea-b218c0477d4b
-      index: 2
+      type: index: 1
       constructor group '@constructor_group'['CompoundShape.@constructor_group']
       constructor 'constructor'['CompoundShape.constructor']
         parameter 'this'
         type: object type 'CompoundShape'
-        id: 87105f6e-28c8-03c3-f252-4171788c27fe
+        id: 56611ec4-a730-5992-7ef2-5dadfeca7606
         index: 0
         qualifier: value
         block '@CompoundShape.constructor'
         level: 1
       flags: defined
-      id: 81c4b2f7-893d-7f7d-ee5d-ff85518bfba4
+      id: 933c7338-2f0d-ead3-55a6-7fcf0bdb18ae
       level: 1
       block '@CompoundShape.constructor'
       level: 1
@@ -1916,19 +2343,16 @@ block 'System.Graphics'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : call_ctor(Shape.constructor, 0a93cbfd-026d-d7e1-04ec-a7ec2c19ebd4)
-        3 : push_value(0)
-        4 : load_local(0)
-        5 : store_field(1)
-        6 : push_value(4)
-        7 : new_array(ShapeArray)
-        8 : load_local(0)
-        9 : store_field(2)
-        10 : nop
+        2 : call_ctor(Shape.constructor, 2f5b758d-c0c3-7ac6-edb9-fa523029311b)
+        3 : new_object(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8)
+        4 : call_ctor(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.constructor, 9b6f2f39-21b4-dc4e-0a63-04666b639e2b)
+        5 : load_local(0)
+        6 : store_field(1)
+        7 : nop
       procedure 'Print'['CompoundShape.Print']
         parameter 'this'
         type: object type 'CompoundShape'
-        id: 87105f6e-28c8-03c3-f252-4171788c27fe
+        id: 56611ec4-a730-5992-7ef2-5dadfeca7606
         index: 0
         qualifier: value
         block '@CompoundShape.Print'
@@ -1946,7 +2370,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 3
       flags: defined
-      id: 6e6ecaf7-ae16-9611-9749-d2f2d34b0d3a
+      id: 9d068499-0e7d-62fc-29fc-eed2beeb20d9
       level: 1
       VMT index: 0
       virtual: override
@@ -1956,201 +2380,102 @@ block 'System.Graphics'
       code
         0 : receive(1)
         1 : load_local(0)
-        2 : call_subroutine(Shape.Print, cdeffb93-0f02-1c13-3353-ef99f56ab13f, 1)
+        2 : call_subroutine(Shape.Print, 87e816f4-4bca-d9de-c407-64066c22264c, 1)
         3 : push_value(0)
         4 : store_local(2)
         5 : load_local(0)
         6 : load_field(1)
-        7 : push_value(1)
-        8 : minus_int
-        9 : store_local(3)
-        10 : jump(11)
-        11 : load_local(2)
-        12 : load_local(3)
-        13 : less_or_equal_int
-        14 : branch(15, 60)
-        15 : load_local(2)
-        16 : store_local(1)
-        17 : push_value('  component ')
-        18 : load_local(1)
-        19 : push_value(': ')
-        20 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 3)
-        21 : push_value('    ')
-        22 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 1)
-        23 : load_local(1)
+        7 : load_field(1)
+        8 : push_value(1)
+        9 : minus_int
+        10 : store_local(3)
+        11 : jump(12)
+        12 : load_local(2)
+        13 : load_local(3)
+        14 : less_or_equal_int
+        15 : branch(16, 61)
+        16 : load_local(2)
+        17 : store_local(1)
+        18 : push_value('  component ')
+        19 : load_local(1)
+        20 : push_value(': ')
+        21 : call_subroutine(Writeln, 58eca025-9b8d-b10a-00d9-160d90c7925c, 3)
+        22 : push_value('    ')
+        23 : call_subroutine(Write, 1aaefd6d-0153-589f-38b4-2d460f6f025f, 1)
         24 : load_local(0)
-        25 : load_field(2)
-        26 : load_element
-        27 : load_local(1)
+        25 : load_field(1)
+        26 : load_local(1)
+        27 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
         28 : load_local(0)
-        29 : load_field(2)
-        30 : load_element
-        31 : call_virtual(Shape.Print, 0)
-        32 : nop
-        33 : jump(34)
-        34 : load_local(1)
-        35 : load_local(3)
-        36 : not_equal_int
-        37 : branch(38, 58)
-        38 : load_local(1)
-        39 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
-        40 : store_local(1)
-        41 : push_value('  component ')
-        42 : load_local(1)
-        43 : push_value(': ')
-        44 : call_subroutine(Writeln, ddc05cad-8fca-213c-fdd3-db7c36142352, 3)
-        45 : push_value('    ')
-        46 : call_subroutine(Write, 0befceac-05c1-2d44-5c39-824ce1453eb6, 1)
-        47 : load_local(1)
+        29 : load_field(1)
+        30 : load_local(1)
+        31 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
+        32 : call_virtual(Shape.Print, 0)
+        33 : nop
+        34 : jump(35)
+        35 : load_local(1)
+        36 : load_local(3)
+        37 : not_equal_int
+        38 : branch(39, 59)
+        39 : load_local(1)
+        40 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
+        41 : store_local(1)
+        42 : push_value('  component ')
+        43 : load_local(1)
+        44 : push_value(': ')
+        45 : call_subroutine(Writeln, 58eca025-9b8d-b10a-00d9-160d90c7925c, 3)
+        46 : push_value('    ')
+        47 : call_subroutine(Write, 1aaefd6d-0153-589f-38b4-2d460f6f025f, 1)
         48 : load_local(0)
-        49 : load_field(2)
-        50 : load_element
-        51 : load_local(1)
+        49 : load_field(1)
+        50 : load_local(1)
+        51 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
         52 : load_local(0)
-        53 : load_field(2)
-        54 : load_element
-        55 : call_virtual(Shape.Print, 0)
-        56 : nop
-        57 : jump(34)
-        58 : nop
-        59 : jump(60)
-        60 : nop
+        53 : load_field(1)
+        54 : load_local(1)
+        55 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
+        56 : call_virtual(Shape.Print, 0)
+        57 : nop
+        58 : jump(35)
+        59 : nop
+        60 : jump(61)
         61 : nop
+        62 : nop
       procedure 'Add'['CompoundShape.Add']
         parameter 'this'
         type: object type 'CompoundShape'
-        id: 87105f6e-28c8-03c3-f252-4171788c27fe
+        id: 56611ec4-a730-5992-7ef2-5dadfeca7606
         index: 0
         qualifier: value
         parameter 'shape'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 1
         qualifier: value
         block '@CompoundShape.Add'
         level: 1
-        variable 'newLength'
-        type: integer type 'integer'
-        id: 00000000-0000-0000-0000-000000000002
-        index: 2
-        variable 'i'
-        type: integer type 'integer'
-        id: 00000000-0000-0000-0000-000000000002
-        index: 3
-        variable 'newComponents'
-        type: array type 'ShapeArray'
-        id: c438fa31-3395-cdc2-0aea-b218c0477d4b
-        index: 4
-        variable '@tmp0'
-        type: integer type 'integer'
-        id: 00000000-0000-0000-0000-000000000002
-        index: 5
-        variable '@tmp1'
-        type: integer type 'integer'
-        id: 00000000-0000-0000-0000-000000000002
-        index: 6
       flags: defined
-      id: 6246747b-6875-5145-ca21-97f9f93e5508
+      id: 1afa1ae7-a665-1594-0bfb-67a2c4f790c2
       level: 1
       block '@CompoundShape.Add'
       level: 1
-      frame size: 7
+      frame size: 2
       code
         0 : receive(2)
-        1 : jump(2)
-        2 : load_local(0)
-        3 : load_field(1)
-        4 : load_local(0)
-        5 : load_field(2)
-        6 : array_length
-        7 : equal_int
-        8 : branch(9, 74)
-        9 : jump(10)
-        10 : load_local(0)
-        11 : load_field(2)
-        12 : array_length
-        13 : push_value(4)
-        14 : less_int
-        15 : branch(16, 19)
-        16 : push_value(4)
-        17 : store_local(2)
-        18 : jump(26)
-        19 : push_value(2)
-        20 : load_local(0)
-        21 : load_field(2)
-        22 : array_length
-        23 : mul_int
-        24 : store_local(2)
-        25 : jump(26)
-        26 : load_local(2)
-        27 : new_array(ShapeArray)
-        28 : store_local(4)
-        29 : push_value(0)
-        30 : store_local(5)
-        31 : load_local(0)
-        32 : load_field(1)
-        33 : push_value(1)
-        34 : minus_int
-        35 : store_local(6)
-        36 : jump(37)
-        37 : load_local(5)
-        38 : load_local(6)
-        39 : less_or_equal_int
-        40 : branch(41, 68)
-        41 : load_local(5)
-        42 : store_local(3)
-        43 : load_local(3)
-        44 : load_local(0)
-        45 : load_field(2)
-        46 : load_element
-        47 : load_local(3)
-        48 : load_local(4)
-        49 : store_element
-        50 : jump(51)
-        51 : load_local(3)
-        52 : load_local(6)
-        53 : not_equal_int
-        54 : branch(55, 66)
-        55 : load_local(3)
-        56 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
-        57 : store_local(3)
-        58 : load_local(3)
-        59 : load_local(0)
-        60 : load_field(2)
-        61 : load_element
-        62 : load_local(3)
-        63 : load_local(4)
-        64 : store_element
-        65 : jump(51)
-        66 : nop
-        67 : jump(68)
-        68 : nop
-        69 : load_local(4)
-        70 : load_local(0)
-        71 : store_field(2)
-        72 : nop
-        73 : jump(74)
-        74 : load_local(1)
-        75 : load_local(0)
-        76 : load_field(1)
-        77 : load_local(0)
-        78 : load_field(2)
-        79 : store_element
-        80 : load_local(0)
-        81 : load_field(1)
-        82 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
-        83 : load_local(0)
-        84 : store_field(1)
-        85 : nop
+        1 : load_local(0)
+        2 : load_field(1)
+        3 : load_local(1)
+        4 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Add, 6db2167a-6af6-0ab1-c6f4-e8f2051c944c, 2)
+        5 : nop
       procedure 'Measure'['CompoundShape.Measure']
         parameter 'this'
         type: object type 'CompoundShape'
-        id: 87105f6e-28c8-03c3-f252-4171788c27fe
+        id: 56611ec4-a730-5992-7ef2-5dadfeca7606
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 1
         qualifier: value
         block '@CompoundShape.Measure'
@@ -2161,7 +2486,7 @@ block 'System.Graphics'
         index: 2
         variable 's'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 3
         variable '@tmp0'
         type: integer type 'integer'
@@ -2172,7 +2497,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 5
       flags: defined
-      id: 18ef789d-0fdc-f5da-95f4-4ad59f272bda
+      id: 46f0c52f-fdf3-075d-2f3e-d464ed5f51dd
       level: 1
       VMT index: 1
       virtual: override
@@ -2185,58 +2510,59 @@ block 'System.Graphics'
         2 : store_local(4)
         3 : load_local(0)
         4 : load_field(1)
-        5 : push_value(1)
-        6 : minus_int
-        7 : store_local(5)
-        8 : jump(9)
-        9 : load_local(4)
-        10 : load_local(5)
-        11 : less_or_equal_int
-        12 : branch(13, 46)
-        13 : load_local(4)
-        14 : store_local(2)
-        15 : load_local(2)
+        5 : load_field(1)
+        6 : push_value(1)
+        7 : minus_int
+        8 : store_local(5)
+        9 : jump(10)
+        10 : load_local(4)
+        11 : load_local(5)
+        12 : less_or_equal_int
+        13 : branch(14, 47)
+        14 : load_local(4)
+        15 : store_local(2)
         16 : load_local(0)
-        17 : load_field(2)
-        18 : load_element
-        19 : store_local(3)
-        20 : load_local(3)
-        21 : load_local(1)
-        22 : load_local(3)
-        23 : call_virtual(Shape.Measure, 1)
-        24 : nop
-        25 : jump(26)
-        26 : load_local(2)
-        27 : load_local(5)
-        28 : not_equal_int
-        29 : branch(30, 44)
-        30 : load_local(2)
-        31 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
-        32 : store_local(2)
-        33 : load_local(2)
+        17 : load_field(1)
+        18 : load_local(2)
+        19 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
+        20 : store_local(3)
+        21 : load_local(3)
+        22 : load_local(1)
+        23 : load_local(3)
+        24 : call_virtual(Shape.Measure, 1)
+        25 : nop
+        26 : jump(27)
+        27 : load_local(2)
+        28 : load_local(5)
+        29 : not_equal_int
+        30 : branch(31, 45)
+        31 : load_local(2)
+        32 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
+        33 : store_local(2)
         34 : load_local(0)
-        35 : load_field(2)
-        36 : load_element
-        37 : store_local(3)
-        38 : load_local(3)
-        39 : load_local(1)
-        40 : load_local(3)
-        41 : call_virtual(Shape.Measure, 1)
-        42 : nop
-        43 : jump(26)
-        44 : nop
-        45 : jump(46)
-        46 : nop
+        35 : load_field(1)
+        36 : load_local(2)
+        37 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
+        38 : store_local(3)
+        39 : load_local(3)
+        40 : load_local(1)
+        41 : load_local(3)
+        42 : call_virtual(Shape.Measure, 1)
+        43 : nop
+        44 : jump(27)
+        45 : nop
+        46 : jump(47)
         47 : nop
+        48 : nop
       procedure 'Draw'['CompoundShape.Draw']
         parameter 'this'
         type: object type 'CompoundShape'
-        id: 87105f6e-28c8-03c3-f252-4171788c27fe
+        id: 56611ec4-a730-5992-7ef2-5dadfeca7606
         index: 0
         qualifier: value
         parameter 'graphics'
         type: object type 'Graphics'
-        id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+        id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
         index: 1
         qualifier: value
         block '@CompoundShape.Draw'
@@ -2247,7 +2573,7 @@ block 'System.Graphics'
         index: 2
         variable 's'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 3
         variable '@tmp0'
         type: integer type 'integer'
@@ -2258,7 +2584,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 5
       flags: defined
-      id: aed14504-b823-e722-c8d4-2a04700dd7cd
+      id: be08699f-cb33-0b5f-20fd-aba3ea995471
       level: 1
       VMT index: 2
       virtual: override
@@ -2271,58 +2597,59 @@ block 'System.Graphics'
         2 : store_local(4)
         3 : load_local(0)
         4 : load_field(1)
-        5 : push_value(1)
-        6 : minus_int
-        7 : store_local(5)
-        8 : jump(9)
-        9 : load_local(4)
-        10 : load_local(5)
-        11 : less_or_equal_int
-        12 : branch(13, 46)
-        13 : load_local(4)
-        14 : store_local(2)
-        15 : load_local(2)
+        5 : load_field(1)
+        6 : push_value(1)
+        7 : minus_int
+        8 : store_local(5)
+        9 : jump(10)
+        10 : load_local(4)
+        11 : load_local(5)
+        12 : less_or_equal_int
+        13 : branch(14, 47)
+        14 : load_local(4)
+        15 : store_local(2)
         16 : load_local(0)
-        17 : load_field(2)
-        18 : load_element
-        19 : store_local(3)
-        20 : load_local(3)
-        21 : load_local(1)
-        22 : load_local(3)
-        23 : call_virtual(Shape.Draw, 2)
-        24 : nop
-        25 : jump(26)
-        26 : load_local(2)
-        27 : load_local(5)
-        28 : not_equal_int
-        29 : branch(30, 44)
-        30 : load_local(2)
-        31 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
-        32 : store_local(2)
-        33 : load_local(2)
+        17 : load_field(1)
+        18 : load_local(2)
+        19 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
+        20 : store_local(3)
+        21 : load_local(3)
+        22 : load_local(1)
+        23 : load_local(3)
+        24 : call_virtual(Shape.Draw, 2)
+        25 : nop
+        26 : jump(27)
+        27 : load_local(2)
+        28 : load_local(5)
+        29 : not_equal_int
+        30 : branch(31, 45)
+        31 : load_local(2)
+        32 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
+        33 : store_local(2)
         34 : load_local(0)
-        35 : load_field(2)
-        36 : load_element
-        37 : store_local(3)
-        38 : load_local(3)
-        39 : load_local(1)
-        40 : load_local(3)
-        41 : call_virtual(Shape.Draw, 2)
-        42 : nop
-        43 : jump(26)
-        44 : nop
-        45 : jump(46)
-        46 : nop
+        35 : load_field(1)
+        36 : load_local(2)
+        37 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
+        38 : store_local(3)
+        39 : load_local(3)
+        40 : load_local(1)
+        41 : load_local(3)
+        42 : call_virtual(Shape.Draw, 2)
+        43 : nop
+        44 : jump(27)
+        45 : nop
+        46 : jump(47)
         47 : nop
+        48 : nop
       function 'CombinedBounds'['CompoundShape.CombinedBounds']
         parameter 'this'
         type: object type 'CompoundShape'
-        id: 87105f6e-28c8-03c3-f252-4171788c27fe
+        id: 56611ec4-a730-5992-7ef2-5dadfeca7606
         index: 0
         qualifier: value
         variable '@result'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 1
         block '@CompoundShape.CombinedBounds'
         level: 1
@@ -2332,15 +2659,15 @@ block 'System.Graphics'
         index: 2
         variable 's'
         type: object type 'Shape'
-        id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+        id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
         index: 3
         variable 'bounds'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 4
         variable 'r'
         type: object type 'Rect'
-        id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+        id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
         index: 5
         variable '@tmp0'
         type: integer type 'integer'
@@ -2351,7 +2678,7 @@ block 'System.Graphics'
         id: 00000000-0000-0000-0000-000000000002
         index: 7
       flags: defined
-      id: d6d12c82-07f6-81c3-52c7-c4c9e16e3f72
+      id: c3357992-7d93-e9b4-236c-2530a1dfe70d
       level: 1
       block '@CompoundShape.CombinedBounds'
       level: 1
@@ -2359,99 +2686,100 @@ block 'System.Graphics'
       code
         0 : receive(1)
         1 : new_object(Rect)
-        2 : call_ctor(Rect.constructor, b4563fd2-251e-8121-11fa-e93921ff5f9c)
+        2 : call_ctor(Rect.constructor, 90936892-6bee-afce-8d52-5314523ccb75)
         3 : store_local(4)
         4 : push_value(0)
         5 : store_local(6)
         6 : load_local(0)
         7 : load_field(1)
-        8 : push_value(1)
-        9 : minus_int
-        10 : store_local(7)
-        11 : jump(12)
-        12 : load_local(6)
-        13 : load_local(7)
-        14 : less_or_equal_int
-        15 : branch(16, 87)
-        16 : load_local(6)
-        17 : store_local(2)
-        18 : load_local(2)
+        8 : load_field(1)
+        9 : push_value(1)
+        10 : minus_int
+        11 : store_local(7)
+        12 : jump(13)
+        13 : load_local(6)
+        14 : load_local(7)
+        15 : less_or_equal_int
+        16 : branch(17, 88)
+        17 : load_local(6)
+        18 : store_local(2)
         19 : load_local(0)
-        20 : load_field(2)
-        21 : load_element
-        22 : store_local(3)
-        23 : load_local(3)
+        20 : load_field(1)
+        21 : load_local(2)
+        22 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
+        23 : store_local(3)
         24 : load_local(3)
-        25 : call_virtual(Shape.Bounds, 3)
-        26 : store_local(5)
-        27 : jump(28)
-        28 : load_local(5)
-        29 : call_subroutine(Rect.IsEmpty, fda4d9a1-507e-76eb-ec11-2673368ea5c8, 1)
-        30 : not_bool
-        31 : branch(32, 46)
-        32 : jump(33)
-        33 : load_local(4)
-        34 : call_subroutine(Rect.IsEmpty, fda4d9a1-507e-76eb-ec11-2673368ea5c8, 1)
-        35 : branch(36, 39)
-        36 : load_local(5)
-        37 : store_local(4)
-        38 : jump(44)
-        39 : load_local(4)
-        40 : load_local(5)
-        41 : call_subroutine(Union, 4af06d0a-0775-9cbe-b202-92ecc993dc8d, 2)
-        42 : store_local(4)
-        43 : jump(44)
-        44 : nop
-        45 : jump(46)
-        46 : nop
-        47 : jump(48)
-        48 : load_local(2)
-        49 : load_local(7)
-        50 : not_equal_int
-        51 : branch(52, 85)
-        52 : load_local(2)
-        53 : call_subroutine(Succ, 72d95748-2aa7-ab91-98c9-4e73b97ed0bc, 1)
-        54 : store_local(2)
-        55 : load_local(2)
+        25 : load_local(3)
+        26 : call_virtual(Shape.Bounds, 3)
+        27 : store_local(5)
+        28 : jump(29)
+        29 : load_local(5)
+        30 : call_subroutine(Rect.IsEmpty, b9f2471c-a9e0-9a73-46fd-2b215102ded3, 1)
+        31 : not_bool
+        32 : branch(33, 47)
+        33 : jump(34)
+        34 : load_local(4)
+        35 : call_subroutine(Rect.IsEmpty, b9f2471c-a9e0-9a73-46fd-2b215102ded3, 1)
+        36 : branch(37, 40)
+        37 : load_local(5)
+        38 : store_local(4)
+        39 : jump(45)
+        40 : load_local(4)
+        41 : load_local(5)
+        42 : call_subroutine(Union, 9786fe2b-1e77-de9f-263f-5b00d2a22cb6, 2)
+        43 : store_local(4)
+        44 : jump(45)
+        45 : nop
+        46 : jump(47)
+        47 : nop
+        48 : jump(49)
+        49 : load_local(2)
+        50 : load_local(7)
+        51 : not_equal_int
+        52 : branch(53, 86)
+        53 : load_local(2)
+        54 : call_subroutine(Succ, bfbf6000-a218-df29-5bb0-d1fd2e4a329c, 1)
+        55 : store_local(2)
         56 : load_local(0)
-        57 : load_field(2)
-        58 : load_element
-        59 : store_local(3)
-        60 : load_local(3)
+        57 : load_field(1)
+        58 : load_local(2)
+        59 : call_subroutine(@specialization_ShapeList_15D9D4215DD15E3F304A9C4DB7577103A66A76F8.Get, ceb7160c-ff29-f669-f056-d0d007b45c5a, 2)
+        60 : store_local(3)
         61 : load_local(3)
-        62 : call_virtual(Shape.Bounds, 3)
-        63 : store_local(5)
-        64 : jump(65)
-        65 : load_local(5)
-        66 : call_subroutine(Rect.IsEmpty, fda4d9a1-507e-76eb-ec11-2673368ea5c8, 1)
-        67 : not_bool
-        68 : branch(69, 83)
-        69 : jump(70)
-        70 : load_local(4)
-        71 : call_subroutine(Rect.IsEmpty, fda4d9a1-507e-76eb-ec11-2673368ea5c8, 1)
-        72 : branch(73, 76)
-        73 : load_local(5)
-        74 : store_local(4)
-        75 : jump(81)
-        76 : load_local(4)
-        77 : load_local(5)
-        78 : call_subroutine(Union, 4af06d0a-0775-9cbe-b202-92ecc993dc8d, 2)
-        79 : store_local(4)
-        80 : jump(81)
-        81 : nop
-        82 : jump(83)
-        83 : nop
-        84 : jump(48)
-        85 : nop
-        86 : jump(87)
-        87 : nop
-        88 : load_local(4)
-        89 : store_local(1)
-        90 : nop
-        91 : load_result_var(1)
-    id: 87105f6e-28c8-03c3-f252-4171788c27fe
+        62 : load_local(3)
+        63 : call_virtual(Shape.Bounds, 3)
+        64 : store_local(5)
+        65 : jump(66)
+        66 : load_local(5)
+        67 : call_subroutine(Rect.IsEmpty, b9f2471c-a9e0-9a73-46fd-2b215102ded3, 1)
+        68 : not_bool
+        69 : branch(70, 84)
+        70 : jump(71)
+        71 : load_local(4)
+        72 : call_subroutine(Rect.IsEmpty, b9f2471c-a9e0-9a73-46fd-2b215102ded3, 1)
+        73 : branch(74, 77)
+        74 : load_local(5)
+        75 : store_local(4)
+        76 : jump(82)
+        77 : load_local(4)
+        78 : load_local(5)
+        79 : call_subroutine(Union, 9786fe2b-1e77-de9f-263f-5b00d2a22cb6, 2)
+        80 : store_local(4)
+        81 : jump(82)
+        82 : nop
+        83 : jump(84)
+        84 : nop
+        85 : jump(49)
+        86 : nop
+        87 : jump(88)
+        88 : nop
+        89 : load_local(4)
+        90 : store_local(1)
+        91 : nop
+        92 : load_result_var(1)
+    id: 56611ec4-a730-5992-7ef2-5dadfeca7606
     base type: object type 'Shape'
-    id: 3abffc5b-eade-c6ac-b654-75cd353d365a
+    id: 1a0c7516-30f0-3c9b-ad7b-96f327983772
     VMT pointer field index: 0
     function 'MMToPixels'
       parameter 'mm'
@@ -2475,7 +2803,7 @@ block 'System.Graphics'
       id: 00000000-0000-0000-0000-000000000002
       index: 3
     flags: defined
-    id: 6a49e3f5-1895-0a5c-123f-809e44a836ed
+    id: 46827a31-529f-924c-74c4-d1ca062f1f1c
     level: 1
     block '@MMToPixels'
     level: 1
@@ -2511,7 +2839,7 @@ block 'System.Graphics'
       block '@PixelsToMM'
       level: 1
     flags: defined
-    id: f452205c-ccd2-59ac-2c8f-3a773d4c3672
+    id: d08852f8-37b2-3dfd-95d7-8a3c3b0a077e
     level: 1
     block '@PixelsToMM'
     level: 1
@@ -2530,17 +2858,17 @@ block 'System.Graphics'
     procedure 'DrawArrowLine'
       parameter 'graphics'
       type: object type 'Graphics'
-      id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+      id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
       index: 0
       qualifier: value
       parameter 's'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 1
       qualifier: value
       parameter 'e'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 2
       qualifier: value
       parameter 'lineArrowWidth'
@@ -2557,39 +2885,39 @@ block 'System.Graphics'
       level: 1
       variable 'arrowLine'
       type: object type 'LineSegment'
-      id: 7f5711b5-b0cb-67cf-e8d1-97cc9b8a4a0f
+      id: 7d9bf17b-9e6c-2336-cbd2-34bf3793ec34
       index: 5
       variable 'arrowStartLine'
       type: object type 'LineSegment'
-      id: 7f5711b5-b0cb-67cf-e8d1-97cc9b8a4a0f
+      id: 7d9bf17b-9e6c-2336-cbd2-34bf3793ec34
       index: 6
       variable 'arrowEndLine'
       type: object type 'LineSegment'
-      id: 7f5711b5-b0cb-67cf-e8d1-97cc9b8a4a0f
+      id: 7d9bf17b-9e6c-2336-cbd2-34bf3793ec34
       index: 7
       variable 'leftArrowLine'
       type: object type 'LineSegment'
-      id: 7f5711b5-b0cb-67cf-e8d1-97cc9b8a4a0f
+      id: 7d9bf17b-9e6c-2336-cbd2-34bf3793ec34
       index: 8
       variable 'rightArrowLine'
       type: object type 'LineSegment'
-      id: 7f5711b5-b0cb-67cf-e8d1-97cc9b8a4a0f
+      id: 7d9bf17b-9e6c-2336-cbd2-34bf3793ec34
       index: 9
       variable 'av'
       type: object type 'Vector'
-      id: fe268c74-4dc0-83b0-94c5-a8d99b291ce2
+      id: 7684acdd-a661-fef7-bb99-03afaa1cd995
       index: 10
       variable 'uv'
       type: object type 'Vector'
-      id: fe268c74-4dc0-83b0-94c5-a8d99b291ce2
+      id: 7684acdd-a661-fef7-bb99-03afaa1cd995
       index: 11
       variable 'la'
       type: object type 'Vector'
-      id: fe268c74-4dc0-83b0-94c5-a8d99b291ce2
+      id: 7684acdd-a661-fef7-bb99-03afaa1cd995
       index: 12
       variable 'ra'
       type: object type 'Vector'
-      id: fe268c74-4dc0-83b0-94c5-a8d99b291ce2
+      id: 7684acdd-a661-fef7-bb99-03afaa1cd995
       index: 13
       variable 'a'
       type: real type 'real'
@@ -2597,10 +2925,10 @@ block 'System.Graphics'
       index: 14
       variable 'points'
       type: array type 'PointArray'
-      id: df24b8a9-7a53-7e93-e318-6a6a11b156eb
+      id: e0100199-ee5d-974a-1ded-917abde58093
       index: 15
     flags: defined
-    id: 3499a990-9d8a-b187-a39d-ac1dab5c0f47
+    id: 639c307b-3b16-0ffc-dab1-7c48af405979
     level: 1
     block '@DrawArrowLine'
     level: 1
@@ -2610,14 +2938,14 @@ block 'System.Graphics'
       1 : new_object(LineSegment)
       2 : load_local(2)
       3 : load_local(1)
-      4 : call_ctor(LineSegment.constructor, 6dcc1aba-b415-51f6-ea21-fc2411b994a2)
+      4 : call_ctor(LineSegment.constructor, 9e35fb26-fac6-2a96-fc35-dd59f5546a4e)
       5 : store_local(5)
       6 : load_local(5)
-      7 : call_subroutine(LineSegment.ToVector, 29238003-3502-1f33-ef09-7a69225d1b16, 1)
+      7 : call_subroutine(LineSegment.ToVector, 38b97e38-9f63-c892-c227-b671d6a232de, 1)
       8 : store_local(10)
       9 : load_local(3)
       10 : push_value(3)
-      11 : call_subroutine(Sqrt, 0965c665-258d-2345-c720-c16cf2f115de, 1)
+      11 : call_subroutine(Sqrt, b827adf4-c7cc-efa8-6956-80ea66d144c4, 1)
       12 : mul_real
       13 : push_value(2)
       14 : int_to_real
@@ -2625,19 +2953,19 @@ block 'System.Graphics'
       16 : store_local(14)
       17 : load_local(14)
       18 : load_local(10)
-      19 : call_subroutine(Unit, 64b66604-52d5-bde1-ae8d-5b98a3ad9562, 1)
-      20 : call_subroutine(Product, 7eb7a027-6005-ebf0-91d4-1ca9cbcf7281, 2)
+      19 : call_subroutine(Unit, ae523569-742c-8a90-613d-a05728b3050b, 1)
+      20 : call_subroutine(Product, e23b4198-e97a-8895-a32b-a0583d41675b, 2)
       21 : store_local(11)
       22 : new_object(LineSegment)
       23 : load_local(2)
       24 : load_local(11)
-      25 : call_ctor(LineSegment.constructor, a7fcdcc4-01c5-4198-46e5-2c18e84ea3ef)
+      25 : call_ctor(LineSegment.constructor, 1fa5c2ec-5b06-c5e8-830f-a15b2e827ed5)
       26 : store_local(6)
       27 : new_object(LineSegment)
       28 : load_local(6)
       29 : load_field(1)
       30 : load_local(2)
-      31 : call_ctor(LineSegment.constructor, 6dcc1aba-b415-51f6-ea21-fc2411b994a2)
+      31 : call_ctor(LineSegment.constructor, 9e35fb26-fac6-2a96-fc35-dd59f5546a4e)
       32 : store_local(7)
       33 : load_local(4)
       34 : push_value(2)
@@ -2645,10 +2973,10 @@ block 'System.Graphics'
       36 : fractional_divide_real
       37 : load_local(7)
       38 : push_value(90.000000)
-      39 : call_subroutine(RotateLineSegment, 1f502d38-6f57-ab92-7563-e874ab8eeb7b, 2)
-      40 : call_subroutine(LineSegment.ToVector, 29238003-3502-1f33-ef09-7a69225d1b16, 1)
-      41 : call_subroutine(Unit, 64b66604-52d5-bde1-ae8d-5b98a3ad9562, 1)
-      42 : call_subroutine(Product, 7eb7a027-6005-ebf0-91d4-1ca9cbcf7281, 2)
+      39 : call_subroutine(RotateLineSegment, cc36133e-4cb6-a1cc-a021-4f30002e30f9, 2)
+      40 : call_subroutine(LineSegment.ToVector, 38b97e38-9f63-c892-c227-b671d6a232de, 1)
+      41 : call_subroutine(Unit, ae523569-742c-8a90-613d-a05728b3050b, 1)
+      42 : call_subroutine(Product, e23b4198-e97a-8895-a32b-a0583d41675b, 2)
       43 : store_local(12)
       44 : load_local(4)
       45 : push_value(2)
@@ -2657,22 +2985,22 @@ block 'System.Graphics'
       48 : load_local(7)
       49 : push_value(90.000000)
       50 : unary_minus_real
-      51 : call_subroutine(RotateLineSegment, 1f502d38-6f57-ab92-7563-e874ab8eeb7b, 2)
-      52 : call_subroutine(LineSegment.ToVector, 29238003-3502-1f33-ef09-7a69225d1b16, 1)
-      53 : call_subroutine(Unit, 64b66604-52d5-bde1-ae8d-5b98a3ad9562, 1)
-      54 : call_subroutine(Product, 7eb7a027-6005-ebf0-91d4-1ca9cbcf7281, 2)
+      51 : call_subroutine(RotateLineSegment, cc36133e-4cb6-a1cc-a021-4f30002e30f9, 2)
+      52 : call_subroutine(LineSegment.ToVector, 38b97e38-9f63-c892-c227-b671d6a232de, 1)
+      53 : call_subroutine(Unit, ae523569-742c-8a90-613d-a05728b3050b, 1)
+      54 : call_subroutine(Product, e23b4198-e97a-8895-a32b-a0583d41675b, 2)
       55 : store_local(13)
       56 : new_object(LineSegment)
       57 : load_local(7)
       58 : load_field(0)
       59 : load_local(12)
-      60 : call_ctor(LineSegment.constructor, a7fcdcc4-01c5-4198-46e5-2c18e84ea3ef)
+      60 : call_ctor(LineSegment.constructor, 1fa5c2ec-5b06-c5e8-830f-a15b2e827ed5)
       61 : store_local(8)
       62 : new_object(LineSegment)
       63 : load_local(7)
       64 : load_field(0)
       65 : load_local(13)
-      66 : call_ctor(LineSegment.constructor, a7fcdcc4-01c5-4198-46e5-2c18e84ea3ef)
+      66 : call_ctor(LineSegment.constructor, 1fa5c2ec-5b06-c5e8-830f-a15b2e827ed5)
       67 : store_local(9)
       68 : push_value(3)
       69 : new_array(PointArray)
@@ -2692,11 +3020,11 @@ block 'System.Graphics'
       83 : load_local(15)
       84 : store_element
       85 : load_local(0)
-      86 : load_global(4af91244-c30a-dd25-08c6-d1a962e1635d)
+      86 : load_global(1ac1acf2-7e63-2025-1ade-0963d00e0509)
       87 : load_local(15)
       88 : call_external(Graphics.FillPolygon, 01000000-0000-0000-0000-000000000013)
       89 : load_local(0)
-      90 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      90 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       91 : load_local(7)
       92 : load_field(0)
       93 : load_local(5)
@@ -2706,12 +3034,12 @@ block 'System.Graphics'
     procedure 'DrawRoundedRectangle'
       parameter 'graphics'
       type: object type 'Graphics'
-      id: f12d75d8-81ad-2b42-2b83-c38d30466abf
+      id: 3b02e15a-8a1c-c68d-55c0-681b19e9f5c0
       index: 0
       qualifier: value
       parameter 'rect'
       type: object type 'Rect'
-      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+      id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
       index: 1
       qualifier: value
       parameter 'roundingRadius'
@@ -2723,58 +3051,58 @@ block 'System.Graphics'
       level: 1
       variable 'rounding1'
       type: object type 'Rect'
-      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+      id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
       index: 3
       variable 'rounding2'
       type: object type 'Rect'
-      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+      id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
       index: 4
       variable 'rounding3'
       type: object type 'Rect'
-      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+      id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
       index: 5
       variable 'rounding4'
       type: object type 'Rect'
-      id: fa954cd4-b9e2-fe48-e24d-e7962ad89a5c
+      id: 9493fad2-488c-91c4-f8b3-c1a948a13d2b
       index: 6
       variable 'roundingSize'
       type: object type 'Size'
-      id: df16497c-f6f3-9038-46b6-301df4f4adf3
+      id: cb2cd25d-a239-329c-84af-e8bba74bdf55
       index: 7
       variable 'topLeft'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 8
       variable 'topRight'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 9
       variable 'rightTop'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 10
       variable 'rightBottom'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 11
       variable 'bottomLeft'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 12
       variable 'bottomRight'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 13
       variable 'leftTop'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 14
       variable 'leftBottom'
       type: object type 'Point'
-      id: 0f544f60-28b3-3e4b-35fb-9311eb1aadcd
+      id: 0bd2d4d6-5c46-55f9-c2fe-c5032a61abdc
       index: 15
     flags: defined
-    id: 1f1b3f98-50eb-a4aa-629a-3635d5a027d6
+    id: 35c59c09-0808-5fec-a29c-93df9e6f84f8
     level: 1
     block '@DrawRoundedRectangle'
     level: 1
@@ -2790,7 +3118,7 @@ block 'System.Graphics'
       7 : load_local(1)
       8 : load_field(0)
       9 : load_field(1)
-      10 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      10 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       11 : store_local(8)
       12 : new_object(Point)
       13 : load_local(1)
@@ -2805,7 +3133,7 @@ block 'System.Graphics'
       22 : load_local(1)
       23 : load_field(0)
       24 : load_field(1)
-      25 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      25 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       26 : store_local(9)
       27 : new_object(Point)
       28 : load_local(1)
@@ -2820,7 +3148,7 @@ block 'System.Graphics'
       37 : load_field(1)
       38 : load_local(2)
       39 : plus_real
-      40 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      40 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       41 : store_local(10)
       42 : new_object(Point)
       43 : load_local(1)
@@ -2839,7 +3167,7 @@ block 'System.Graphics'
       56 : plus_real
       57 : load_local(2)
       58 : minus_real
-      59 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      59 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       60 : store_local(11)
       61 : new_object(Point)
       62 : load_local(1)
@@ -2854,7 +3182,7 @@ block 'System.Graphics'
       71 : load_field(1)
       72 : load_field(1)
       73 : plus_real
-      74 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      74 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       75 : store_local(12)
       76 : new_object(Point)
       77 : load_local(1)
@@ -2873,7 +3201,7 @@ block 'System.Graphics'
       90 : load_field(1)
       91 : load_field(1)
       92 : plus_real
-      93 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      93 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       94 : store_local(13)
       95 : new_object(Point)
       96 : load_local(1)
@@ -2884,7 +3212,7 @@ block 'System.Graphics'
       101 : load_field(1)
       102 : load_local(2)
       103 : plus_real
-      104 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      104 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       105 : store_local(14)
       106 : new_object(Point)
       107 : load_local(1)
@@ -2899,7 +3227,7 @@ block 'System.Graphics'
       116 : plus_real
       117 : load_local(2)
       118 : minus_real
-      119 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      119 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       120 : store_local(15)
       121 : new_object(Size)
       122 : load_local(2)
@@ -2910,13 +3238,13 @@ block 'System.Graphics'
       127 : push_value(2)
       128 : int_to_real
       129 : mul_real
-      130 : call_ctor(Size.constructor, 55c33114-d4e8-15bf-1df6-f891f0276740)
+      130 : call_ctor(Size.constructor, 44a32b4a-f06a-ab40-444d-aadd6af1ad13)
       131 : store_local(7)
       132 : new_object(Rect)
       133 : load_local(1)
       134 : load_field(0)
       135 : load_local(7)
-      136 : call_ctor(Rect.constructor, 9ed2f905-baf8-e429-dd3c-6a0eda4a57da)
+      136 : call_ctor(Rect.constructor, 221510d4-35c2-d16c-b9d6-e9df1cd88869)
       137 : store_local(3)
       138 : new_object(Rect)
       139 : new_object(Point)
@@ -2935,9 +3263,9 @@ block 'System.Graphics'
       152 : load_local(1)
       153 : load_field(0)
       154 : load_field(1)
-      155 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      155 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       156 : load_local(7)
-      157 : call_ctor(Rect.constructor, 9ed2f905-baf8-e429-dd3c-6a0eda4a57da)
+      157 : call_ctor(Rect.constructor, 221510d4-35c2-d16c-b9d6-e9df1cd88869)
       158 : store_local(4)
       159 : new_object(Rect)
       160 : new_object(Point)
@@ -2965,9 +3293,9 @@ block 'System.Graphics'
       182 : int_to_real
       183 : mul_real
       184 : minus_real
-      185 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      185 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       186 : load_local(7)
-      187 : call_ctor(Rect.constructor, 9ed2f905-baf8-e429-dd3c-6a0eda4a57da)
+      187 : call_ctor(Rect.constructor, 221510d4-35c2-d16c-b9d6-e9df1cd88869)
       188 : store_local(5)
       189 : new_object(Rect)
       190 : new_object(Point)
@@ -2986,32 +3314,32 @@ block 'System.Graphics'
       203 : int_to_real
       204 : mul_real
       205 : minus_real
-      206 : call_ctor(Point.constructor, 0551b5bb-77ff-7781-495f-82d589b91225)
+      206 : call_ctor(Point.constructor, 867ccd42-80cc-9d18-a2b3-851ff1b540ec)
       207 : load_local(7)
-      208 : call_ctor(Rect.constructor, 9ed2f905-baf8-e429-dd3c-6a0eda4a57da)
+      208 : call_ctor(Rect.constructor, 221510d4-35c2-d16c-b9d6-e9df1cd88869)
       209 : store_local(6)
       210 : load_local(0)
-      211 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      211 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       212 : load_local(8)
       213 : load_local(9)
       214 : call_external(Graphics.DrawLine, 01000000-0000-0000-0000-00000000000f)
       215 : load_local(0)
-      216 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      216 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       217 : load_local(10)
       218 : load_local(11)
       219 : call_external(Graphics.DrawLine, 01000000-0000-0000-0000-00000000000f)
       220 : load_local(0)
-      221 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      221 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       222 : load_local(12)
       223 : load_local(13)
       224 : call_external(Graphics.DrawLine, 01000000-0000-0000-0000-00000000000f)
       225 : load_local(0)
-      226 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      226 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       227 : load_local(14)
       228 : load_local(15)
       229 : call_external(Graphics.DrawLine, 01000000-0000-0000-0000-00000000000f)
       230 : load_local(0)
-      231 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      231 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       232 : load_local(3)
       233 : push_value(180)
       234 : int_to_real
@@ -3019,7 +3347,7 @@ block 'System.Graphics'
       236 : int_to_real
       237 : call_external(Graphics.DrawArc, 01000000-0000-0000-0000-000000000015)
       238 : load_local(0)
-      239 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      239 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       240 : load_local(4)
       241 : push_value(90)
       242 : unary_minus_int
@@ -3028,7 +3356,7 @@ block 'System.Graphics'
       245 : int_to_real
       246 : call_external(Graphics.DrawArc, 01000000-0000-0000-0000-000000000015)
       247 : load_local(0)
-      248 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      248 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       249 : load_local(5)
       250 : push_value(0)
       251 : int_to_real
@@ -3036,7 +3364,7 @@ block 'System.Graphics'
       253 : int_to_real
       254 : call_external(Graphics.DrawArc, 01000000-0000-0000-0000-000000000015)
       255 : load_local(0)
-      256 : load_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      256 : load_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       257 : load_local(6)
       258 : push_value(180)
       259 : int_to_real
@@ -3046,18 +3374,18 @@ block 'System.Graphics'
       263 : call_external(Graphics.DrawArc, 01000000-0000-0000-0000-000000000015)
       264 : nop
   level: 0
-  unit part 'implementation_BC8C6AB43A721A23CC3A3EF143D7C75692796AF6'
+  unit part 'implementation_0A1F240A5A283A701361DE200BD4AF52069BB1E9'
   unit part: implementation
-  block 'implementation_BC8C6AB43A721A23CC3A3EF143D7C75692796AF6'
+  block 'implementation_0A1F240A5A283A701361DE200BD4AF52069BB1E9'
   level: 0
-  unit part 'initialization_BC8C6AB43A721A23CC3A3EF143D7C75692796AF6'
+  unit part 'initialization_0A1F240A5A283A701361DE200BD4AF52069BB1E9'
   unit part: initialization
-  block 'initialization_BC8C6AB43A721A23CC3A3EF143D7C75692796AF6'
+  block 'initialization_0A1F240A5A283A701361DE200BD4AF52069BB1E9'
     procedure '@init'
       block '@@init'
       level: 0
     flags: generated
-    id: 68594200-34d0-1e52-1d76-6c617af51c44
+    id: 6e98118d-375d-b84e-0986-58612f6935ae
     level: 0
     block '@@init'
     level: 0
@@ -3073,8 +3401,8 @@ block 'System.Graphics'
       7 : identity
       8 : push_value(0)
       9 : identity
-      10 : call_ctor(Color.constructor, c72b7e36-dc3d-5ad9-0f8e-8269f70baed9)
-      11 : store_global(3c6e86d1-cabd-7c8e-25eb-408ea1c5f761)
+      10 : call_ctor(Color.constructor, ea2b5ff5-1220-6e73-c1af-3f9f54d264e6)
+      11 : store_global(e0353d52-b52e-5733-d751-3e58534ea613)
       12 : new_object(Color)
       13 : push_value(255)
       14 : identity
@@ -3084,16 +3412,16 @@ block 'System.Graphics'
       18 : identity
       19 : push_value(255)
       20 : identity
-      21 : call_ctor(Color.constructor, c72b7e36-dc3d-5ad9-0f8e-8269f70baed9)
-      22 : store_global(afd18d20-c068-f164-427b-49c334db141c)
+      21 : call_ctor(Color.constructor, ea2b5ff5-1220-6e73-c1af-3f9f54d264e6)
+      22 : store_global(1059ba14-52af-3b3a-4333-f0112f23e1ae)
       23 : new_object(Pen)
-      24 : load_global(3c6e86d1-cabd-7c8e-25eb-408ea1c5f761)
-      25 : call_ctor(Pen.constructor, 54e546b4-f122-d20a-e15e-e1611c840aa8)
-      26 : store_global(de352128-0e45-984c-758e-232e7cfcf1bf)
+      24 : load_global(e0353d52-b52e-5733-d751-3e58534ea613)
+      25 : call_ctor(Pen.constructor, 1ff770ef-eb04-1efa-b908-cd0273ca0647)
+      26 : store_global(c18b05c7-50f9-dba2-a8ec-12e702ebefc4)
       27 : new_object(Brush)
-      28 : load_global(3c6e86d1-cabd-7c8e-25eb-408ea1c5f761)
-      29 : call_ctor(Brush.constructor, 75e7b865-5c02-03ee-f16a-9f9b3174f087)
-      30 : store_global(4af91244-c30a-dd25-08c6-d1a962e1635d)
+      28 : load_global(e0353d52-b52e-5733-d751-3e58534ea613)
+      29 : call_ctor(Brush.constructor, 76a6d7b6-4ffa-8648-bb6c-c82517d04cbb)
+      30 : store_global(1ac1acf2-7e63-2025-1ade-0963d00e0509)
       31 : nop
   level: 0
 level: 0
