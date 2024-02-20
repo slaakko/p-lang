@@ -25,6 +25,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;2.3 <a href="#pointer-type">Pointer type</a><br />
         &nbsp;&nbsp;&nbsp;&nbsp;2.4 <a href="#object-types">Object types</a><br />
         &nbsp;&nbsp;&nbsp;&nbsp;2.5 <a href="#array-types">Array types</a><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;2.6 <a href="#specializations">Specializations</a><br />
         3 <a href="#variables-and-constants">Variables and constants</a><br />
         4 <a href="#expressions">Expression</a><br />
         &nbsp;&nbsp;&nbsp;&nbsp;4.1 <a href="#primary-expressions">Primary expressions</a><br />
@@ -243,11 +244,12 @@
 
     <img src="../image/object-type.png"/><br/>
     <img src="../image/heritage.png"/><br/>
+    <img src="../image/generic-part.png"/><br/>
     <img src="../image/component-list.png"/><br/>
     <img src="../image/object-field-list.png"/><br/>
     <img src="../image/method-list.png"/><br/>
     <img src="../image/method-heading.png"/><br/>
-    <img src="../image/virtuality.png"/><br/>
+    <img src="../image/virtual.png"/><br/>
 
     <ref file="code/object-types.p.div"/>
 
@@ -262,6 +264,14 @@
     <img src="../image/array-type.png"/><br/>
 
     <ref file="code/array-types.p.div"/>
+
+    <h3 id="specializations">
+        2.6 Specializations
+    </h3>
+
+    <img src="../image/specialization.png"/><br/>
+
+    <ref file="code/specializations.p.div"/>
 
     <h2 id="variables-and-constants">
         3 Variables and constants
@@ -287,17 +297,9 @@
     </h3>
 
     <img src="../image/primary.png"/><br/>
-    <img src="../image/variable-reference.png"/><br/>
-    <img src="../image/variable-identifier.png"/><br/>
-    <img src="../image/variable-typecast.png"/><br/>
     <img src="../image/unsigned-constant.png"/><br/>
-    <img src="../image/constant-identifier.png"/><br/>
-    <img src="../image/function-identifier.png"/><br/>
-    <img src="../image/value-typecast.png"/><br/>
     <img src="../image/new-expression.png"/><br/>
-    <img src="../image/field-identifier.png"/><br/>
-    <img src="../image/method-identifier.png"/><br/>
-
+    
     <ref file="code/primary-expr.p.div"/>
 
     <h3 id="factors">
@@ -374,8 +376,7 @@
 
     <img src="../image/simple-statement.png"/><br/>
     <img src="../image/assignment-statement.png"/><br/>
-    <img src="../image/procedure-statement.png"/><br/>
-    <img src="../image/procedure-identifier.png"/><br/>
+    <img src="../image/expression-statement.png"/><br/>
 
     <ref file="code/simple-statements.p.div"/>
 

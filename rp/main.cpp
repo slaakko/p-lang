@@ -80,6 +80,11 @@ void Run(const std::string& pcodeFilePath, int32_t heapSize, bool verbose)
     {
         throw std::runtime_error("error: module '" + pcodeFilePath + "' does not contain procedure '@program'");
     }
+    if (verbose)
+    {
+        std::cout << "Heap size was " << heapSize / 1024 / 1024 << " MB." << "\n";
+        std::cout << "Collected " << heap.CollectionCount() << " times." << "\n";
+    }
     p::Done();
 }
 

@@ -495,25 +495,33 @@ void Evaluator::Visit(CharLiteralNode& node)
 void Evaluator::Visit(IdentifierNode& node)
 {
     Symbol* symbol = currentBlock->GetSymbol(node.Str(), &node, true, true);
-    switch (symbol->Kind())
+    if (symbol->IsFunctionSymbol())
     {
-        case SymbolKind::constantSymbol:
+        FunctionSymbol* function = static_cast<FunctionSymbol*>(symbol);
+        value.reset(new FunctionValue(function));
+    }
+    else
+    {
+        switch (symbol->Kind())
         {
-            ConstantSymbol* constant = static_cast<ConstantSymbol*>(symbol);
-            value.reset(new ConstantValue(constant->GetValue()));
-            value->SetType(constant->Type());
-            break;
-        }
-        case SymbolKind::functionSymbol:
-        {
-            FunctionSymbol* function = static_cast<FunctionSymbol*>(symbol);
-            value.reset(new FunctionValue(function));
-            break;
-        }
-        default:
-        {
-            ThrowError("error: constant or function identifier expected", node.FilePath(), node.Span());
-            break;
+            case SymbolKind::constantSymbol:
+            {
+                ConstantSymbol* constant = static_cast<ConstantSymbol*>(symbol);
+                value.reset(new ConstantValue(constant->GetValue()));
+                value->SetType(constant->Type());
+                break;
+            }
+            case SymbolKind::functionSymbol:
+            {
+                FunctionSymbol* function = static_cast<FunctionSymbol*>(symbol);
+                value.reset(new FunctionValue(function));
+                break;
+            }
+            default:
+            {
+                ThrowError("error: constant or function identifier expected", node.FilePath(), node.Span());
+                break;
+            }
         }
     }
 }

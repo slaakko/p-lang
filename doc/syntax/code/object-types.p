@@ -46,11 +46,21 @@ type
     function Bounds(): Rect; virtual;
   end;
 
-  ShapeArray = array of Shape;
+  List = object of T
+    items:  array of T;
+    count: integer;
+    constructor();
+    function IsEmpty(): boolean;
+    procedure Add(item: T);
+    function Get(index: integer): T;
+    function IndexOf(item: T): integer;
+    procedure Remove(index: integer);
+  end;
+
+  ShapeList = List of Shape;
 
   CompoundShape = object(Shape)
-    count: integer;
-    components: ShapeArray;
+    components: ShapeList;
     constructor();
     procedure Print(); override;
     procedure Add(shape: Shape);

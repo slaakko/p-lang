@@ -95,15 +95,35 @@
   <br/>
   <span xml:space="preserve"/>
   <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ShapeArray</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Shape</span><span class="other">;</span></span>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">List</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">T</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">items</span><span class="other">:</span>&nbsp;&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">T</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">count</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">IsEmpty</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">boolean</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Add</span><span class="other">(</span><span class="id">item</span><span class="other">:</span>&nbsp;<span class="id">T</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">Get</span><span class="other">(</span><span class="id">index</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="id">T</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">function</span>&nbsp;<span class="id">IndexOf</span><span class="other">(</span><span class="id">item</span><span class="other">:</span>&nbsp;<span class="id">T</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">Remove</span><span class="other">(</span><span class="id">index</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">)</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ShapeList</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">List</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Shape</span><span class="other">;</span></span>
   <br/>
   <span xml:space="preserve"/>
   <br/>
   <span xml:space="preserve">&nbsp;&nbsp;<span class="id">CompoundShape</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span><span class="other">(</span><span class="id">Shape</span><span class="other">)</span></span>
   <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">count</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">components</span><span class="other">:</span>&nbsp;<span class="id">ShapeArray</span><span class="other">;</span></span>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">components</span><span class="other">:</span>&nbsp;<span class="id">ShapeList</span><span class="other">;</span></span>
   <br/>
   <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">constructor</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
   <br/>

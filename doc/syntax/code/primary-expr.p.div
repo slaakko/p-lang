@@ -3,9 +3,9 @@
   <br/>
   <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Foo</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">object</span></span>
   <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">foo_field</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">field</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
   <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">foo_method</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
+  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">procedure</span>&nbsp;<span class="id">method</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
   <br/>
   <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
   <br/>
@@ -25,29 +25,17 @@
   <br/>
   <span xml:space="preserve"/>
   <br/>
-  <span xml:space="preserve"><span class="kw">const</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">MB</span><span class="other">:</span>&nbsp;<span class="kw">integer</span>&nbsp;<span class="other">=</span>&nbsp;<span class="number">1024</span>&nbsp;<span class="other">*</span>&nbsp;<span class="number">1024</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve"/>
-  <br/>
-  <span xml:space="preserve"><span class="kw">function</span>&nbsp;<span class="id">foo</span><span class="other">(</span><span class="other">)</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve"/>
-  <br/>
   <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Primary</span><span class="comment"> </span><span class="comment">expressions</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
   <span xml:space="preserve"/>
   <br/>
-  <span xml:space="preserve"><span class="id">x</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">variable</span><span class="comment"> </span><span class="comment">reference</span><span class="comment"> </span><span class="comment">}</span></span>
+  <span xml:space="preserve"><span class="id">x</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">identifier</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
-  <span xml:space="preserve"><span class="kw">real</span><span class="other">(</span><span class="id">x</span><span class="other">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">variable</span><span class="comment"> </span><span class="comment">typecast</span><span class="comment"> </span><span class="comment">}</span></span>
+  <span xml:space="preserve"><span class="kw">real</span><span class="other">(</span><span class="id">x</span><span class="other">)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">typecast</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
   <span xml:space="preserve"><span class="number">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">unsigned</span><span class="comment"> </span><span class="comment">constant</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
   <span xml:space="preserve"><span class="string">'string'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">unsigned</span><span class="comment"> </span><span class="comment">constant</span><span class="comment"> </span><span class="comment">}</span></span>
-  <br/>
-  <span xml:space="preserve"><span class="id">MB</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">unsigned</span><span class="comment"> </span><span class="comment">constant</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
   <span xml:space="preserve"><span class="kw">true</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">unsigned</span><span class="comment"> </span><span class="comment">constant</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
@@ -61,9 +49,7 @@
   <br/>
   <span xml:space="preserve"><span class="other">-</span><span class="number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">negative</span><span class="comment"> </span><span class="comment">number</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
-  <span xml:space="preserve"><span class="id">foo</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">function</span><span class="comment"> </span><span class="comment">identifier</span><span class="comment"> </span><span class="comment">}</span></span>
-  <br/>
-  <span xml:space="preserve"><span class="kw">integer</span><span class="other">(</span><span class="number">1234.5</span><span class="other">)</span>&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">value</span><span class="comment"> </span><span class="comment">typecast</span><span class="comment"> </span><span class="comment">}</span></span>
+  <span xml:space="preserve"><span class="kw">integer</span><span class="other">(</span><span class="number">1234.5</span><span class="other">)</span>&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">typecast</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
   <span xml:space="preserve"><span class="kw">new</span>&nbsp;<span class="id">Foo</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">new</span><span class="comment">-</span><span class="comment">expression</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
@@ -72,9 +58,5 @@
   <span xml:space="preserve"><span class="kw">this</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">reference</span><span class="comment"> </span><span class="comment">to</span><span class="comment"> </span><span class="comment">this</span><span class="comment">-</span><span class="comment">object</span><span class="comment"> </span><span class="comment">(</span><span class="comment">inside</span><span class="comment"> </span><span class="comment">a</span><span class="comment"> </span><span class="comment">method</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
   <span xml:space="preserve"><span class="kw">base</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">reference</span><span class="comment"> </span><span class="comment">to</span><span class="comment"> </span><span class="comment">base</span><span class="comment">-</span><span class="comment">object</span><span class="comment"> </span><span class="comment">(</span><span class="comment">inside</span><span class="comment"> </span><span class="comment">a</span><span class="comment"> </span><span class="comment">method</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
-  <br/>
-  <span xml:space="preserve"><span class="id">foo_field</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">field</span><span class="comment"> </span><span class="comment">identifier</span><span class="comment"> </span><span class="comment">(</span><span class="comment">inside</span><span class="comment"> </span><span class="comment">Foo</span><span class="comment">-</span><span class="comment">object</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
-  <br/>
-  <span xml:space="preserve"><span class="id">foo_method</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">{</span><span class="comment"> </span><span class="comment">method</span><span class="comment"> </span><span class="comment">identifier</span><span class="comment"> </span><span class="comment">(</span><span class="comment">inside</span><span class="comment"> </span><span class="comment">Foo</span><span class="comment">-</span><span class="comment">object</span><span class="comment">)</span><span class="comment"> </span><span class="comment">}</span></span>
   <br/>
 </div>

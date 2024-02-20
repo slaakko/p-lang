@@ -1,0 +1,18 @@
+<div class="plang">
+  <span xml:space="preserve"><span class="comment">{</span><span class="comment"> </span><span class="comment">Specializations</span><span class="comment">:</span><span class="comment"> </span><span class="comment">}</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve"><span class="kw">type</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">IntList</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">List</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">StringList</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">List</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="kw">string</span><span class="other">;</span></span>
+  <br/>
+  <span xml:space="preserve"/>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">ShapeList</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">List</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Shape</span><span class="other">;</span></span>
+  <br/>
+</div>

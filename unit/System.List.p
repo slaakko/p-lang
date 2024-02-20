@@ -52,9 +52,15 @@ end;
 function List.IndexOf(item: T): integer;
 var
   i, index: integer;
+  found: boolean;
 begin
   index := -1;
-  for i := 0 to count - 1 do if items[i] = item then index := i;
+  found := false;
+  i := 0;
+  while (i < count) and (not found) do 
+  begin
+    if items[i] = item then begin index := i; found := true; end else i := Succ(i);
+  end;
   IndexOf := index;
 end;
 

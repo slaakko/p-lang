@@ -7,6 +7,7 @@ p2html -v subrange-types.p
 p2html -v enumerated-types.p
 p2html -v object-types.p
 p2html -v array-types.p
+p2html -v specializations.p
 p2html -v variables.p
 p2html -v constants.p
 p2html -v primary-expr.p

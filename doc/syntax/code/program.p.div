@@ -7,21 +7,27 @@
   <br/>
   <span xml:space="preserve"/>
   <br/>
-  <span xml:space="preserve"><span class="kw">uses</span>&nbsp;<span class="id">System</span><span class="other">.</span><span class="id">Graphics</span><span class="other">.</span><span class="id">Primitive</span><span class="other">,</span>&nbsp;<span class="id">System</span><span class="other">.</span><span class="id">Graphics</span><span class="other">,</span>&nbsp;<span class="id">Syntax</span><span class="other">;</span></span>
+  <span xml:space="preserve"><span class="kw">uses</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">System</span><span class="other">.</span><span class="id">Graphics</span><span class="other">.</span><span class="id">Primitive</span><span class="other">,</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">System</span><span class="other">.</span><span class="id">Graphics</span><span class="other">,</span>&nbsp;</span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">Syntax</span><span class="other">,</span></span>
+  <br/>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">System</span><span class="other">.</span><span class="id">List</span><span class="other">;</span></span>
   <br/>
   <span xml:space="preserve">&nbsp;</span>
   <br/>
   <span xml:space="preserve"><span class="kw">type</span></span>
   <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">DiagramArray</span>&nbsp;<span class="other">=</span>&nbsp;<span class="kw">array</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Diagram</span><span class="other">;</span></span>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">DiagramList</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">List</span>&nbsp;<span class="kw">of</span>&nbsp;<span class="id">Diagram</span><span class="other">;</span></span>
   <br/>
   <span xml:space="preserve"/>
   <br/>
   <span xml:space="preserve"><span class="kw">var</span></span>
   <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagrams</span><span class="other">:</span>&nbsp;<span class="id">DiagramArray</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagramCount</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagrams</span><span class="other">:</span>&nbsp;<span class="id">DiagramList</span><span class="other">;</span></span>
   <br/>
   <span xml:space="preserve">&nbsp;&nbsp;<span class="id">x</span><span class="other">,</span>&nbsp;<span class="id">y</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
   <br/>
@@ -33,33 +39,9 @@
   <br/>
   <span xml:space="preserve"><span class="kw">procedure</span>&nbsp;<span class="id">AddDiagram</span><span class="other">(</span><span class="id">diagram</span><span class="other">:</span>&nbsp;<span class="id">Diagram</span><span class="other">)</span><span class="other">;</span></span>
   <br/>
-  <span xml:space="preserve"><span class="kw">var</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">newLength</span><span class="other">,</span>&nbsp;<span class="id">i</span><span class="other">:</span>&nbsp;<span class="kw">integer</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">newDiagrams</span><span class="other">:</span>&nbsp;<span class="id">DiagramArray</span><span class="other">;</span></span>
-  <br/>
   <span xml:space="preserve"><span class="kw">begin</span></span>
   <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">diagramCount</span>&nbsp;<span class="other">=</span>&nbsp;<span class="id">diagrams</span><span class="other">.</span><span class="id">Length</span>&nbsp;<span class="kw">then</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">begin</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span>&nbsp;<span class="id">diagrams</span><span class="other">.</span><span class="id">Length</span>&nbsp;<span class="other">&lt;</span>&nbsp;<span class="number">4</span>&nbsp;<span class="kw">then</span>&nbsp;<span class="id">newLength</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">4</span>&nbsp;</span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>&nbsp;<span class="id">newLength</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">2</span>&nbsp;<span class="other">*</span>&nbsp;<span class="id">diagrams</span><span class="other">.</span><span class="id">Length</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">newDiagrams</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Diagram</span><span class="other">[</span><span class="id">newLength</span><span class="other">]</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">for</span>&nbsp;<span class="id">i</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span>&nbsp;<span class="kw">to</span>&nbsp;<span class="id">diagramCount</span>&nbsp;<span class="other">-</span>&nbsp;<span class="number">1</span>&nbsp;<span class="kw">do</span>&nbsp;<span class="id">newDiagrams</span><span class="other">[</span><span class="id">i</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">diagrams</span><span class="other">[</span><span class="id">i</span><span class="other">]</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;&nbsp;&nbsp;<span class="id">diagrams</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">newDiagrams</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="kw">end</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagrams</span><span class="other">[</span><span class="id">diagramCount</span><span class="other">]</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">diagram</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagramCount</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">Succ</span><span class="other">(</span><span class="id">diagramCount</span><span class="other">)</span><span class="other">;</span></span>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagrams</span><span class="other">.</span><span class="id">Add</span><span class="other">(</span><span class="id">diagram</span><span class="other">)</span><span class="other">;</span></span>
   <br/>
   <span xml:space="preserve"><span class="kw">end</span><span class="other">;</span></span>
   <br/>
@@ -115,9 +97,7 @@
   <br/>
   <span xml:space="preserve">&nbsp;&nbsp;<span class="id">initialGraphics</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="id">initialBitmap</span><span class="other">.</span><span class="id">GetGraphics</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
   <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagrams</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">Diagram</span><span class="other">[</span><span class="number">0</span><span class="other">]</span><span class="other">;</span></span>
-  <br/>
-  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagramCount</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="number">0</span><span class="other">;</span></span>
+  <span xml:space="preserve">&nbsp;&nbsp;<span class="id">diagrams</span>&nbsp;<span class="other">:=</span>&nbsp;<span class="kw">new</span>&nbsp;<span class="id">DiagramList</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
   <br/>
   <span xml:space="preserve">&nbsp;&nbsp;<span class="id">MakeDiagrams</span><span class="other">(</span><span class="other">)</span><span class="other">;</span></span>
   <br/>

@@ -2,33 +2,24 @@
 
 program SyntaxDiagrams;
 
-uses System.Graphics.Primitive, System.Graphics, Syntax;
+uses 
+  System.Graphics.Primitive, 
+  System.Graphics, 
+  Syntax,
+  System.List;
  
 type
-  DiagramArray = array of Diagram;
+  DiagramList = List of Diagram;
 
 var
-  diagrams: DiagramArray;
-  diagramCount: integer;
+  diagrams: DiagramList;
   x, y: integer;
   initialBitmap: Bitmap;
   initialGraphics: Graphics;
 
 procedure AddDiagram(diagram: Diagram);
-var
-  newLength, i: integer;
-  newDiagrams: DiagramArray;
 begin
-  if diagramCount = diagrams.Length then
-  begin
-    if diagrams.Length < 4 then newLength := 4 
-    else newLength := 2 * diagrams.Length;
-    newDiagrams := new Diagram[newLength];
-    for i := 0 to diagramCount - 1 do newDiagrams[i] := diagrams[i];
-    diagrams := newDiagrams;
-  end;
-  diagrams[diagramCount] := diagram;
-  diagramCount := Succ(diagramCount);
+  diagrams.Add(diagram);
 end;
 
 procedure MakeDiagrams();
@@ -56,8 +47,7 @@ begin
   y := MMToPixels(100, dpiY);
   initialBitmap := new Bitmap(x, y);
   initialGraphics := initialBitmap.GetGraphics();
-  diagrams := new Diagram[0];
-  diagramCount := 0;
+  diagrams := new DiagramList();
   MakeDiagrams();
   MeasureDiagrams();
   PrintDiagrams();
