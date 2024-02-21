@@ -259,114 +259,6 @@ void TypeBinder::Visit(IdentifierListNode& node)
 {
 }
 
-void TypeBinder::Visit(BinaryExprNode& node)
-{
-}
-
-void TypeBinder::Visit(UnaryExprNode& node)
-{
-}
-
-void TypeBinder::Visit(ParenthesizedExprNode& node)
-{
-}
-
-void TypeBinder::Visit(IntegerLiteralNode& node)
-{
-}
-
-void TypeBinder::Visit(RealLiteralNode& node)
-{
-}
-
-void TypeBinder::Visit(BooleanLiteralNode& node)
-{
-}
-
-void TypeBinder::Visit(StringLiteralNode& node)
-{
-}
-
-void TypeBinder::Visit(CharLiteralNode& node)
-{
-}
-
-void TypeBinder::Visit(ThisNode& node)
-{
-}
-
-void TypeBinder::Visit(BaseNode& node)
-{
-}
-
-void TypeBinder::Visit(NilNode& node)
-{
-}
-
-void TypeBinder::Visit(NewExprNode& node)
-{
-}
-
-void TypeBinder::Visit(NewArrayExprNode& node)
-{
-}
-
-void TypeBinder::Visit(InvokeExprNode& node)
-{
-}
-
-void TypeBinder::Visit(IndexExprNode& node)
-{
-}
-
-void TypeBinder::Visit(DotNode& node)
-{
-}
-
-void TypeBinder::Visit(AssignmentStatementNode& node)
-{
-}
-
-void TypeBinder::Visit(ExpressionStatementNode& node)
-{
-}
-
-void TypeBinder::Visit(EmptyStatementNode& node)
-{
-}
-
-void TypeBinder::Visit(CompoundStatementNode& node)
-{
-}
-
-void TypeBinder::Visit(IfStatementNode& node)
-{
-}
-
-void TypeBinder::Visit(CaseNode& node)
-{
-}
-
-void TypeBinder::Visit(ConstantRangeNode& node)
-{
-}
-
-void TypeBinder::Visit(CaseStatementNode& node)
-{
-}
-
-void TypeBinder::Visit(RepeatStatementNode& node)
-{
-}
-
-void TypeBinder::Visit(WhileStatementNode& node)
-{
-}
-
-void TypeBinder::Visit(ForStatementNode& node)
-{
-}
-
 void TypeBinder::Visit(BlockNode& node)
 {
     BlockSymbol* prevBlock = currentBlock;
@@ -470,18 +362,6 @@ void TypeBinder::Visit(EnumeratedTypeNode& node)
         ++index;
     }
     currentBlock->AddSymbol(enumTypeSymbol);
-}
-
-void TypeBinder::Visit(FieldListNode& node)
-{
-}
-
-void TypeBinder::Visit(SubroutineIdNode& node)
-{
-}
-
-void TypeBinder::Visit(ParameterListNode& node)
-{
 }
 
 void TypeBinder::Visit(ProcedureHeadingNode& node)

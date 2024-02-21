@@ -11,7 +11,8 @@ import p.binder.expression_binder;
 
 namespace p {
 
-StatementBinder::StatementBinder(Context* context_, SubroutineSymbol* currentSubroutine_) : context(context_), currentSubroutine(currentSubroutine_), level(0)
+StatementBinder::StatementBinder(Context* context_, SubroutineSymbol* currentSubroutine_) : 
+    context(context_), currentSubroutine(currentSubroutine_), thisNode(nullptr), baseNode(nullptr), level(0)
 {
     if (context->CurrentConstructor())
     {
