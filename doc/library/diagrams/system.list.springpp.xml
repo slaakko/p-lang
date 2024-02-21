@@ -1,0 +1,29 @@
+<diagram>
+ <classElement abstract="false" keyword="" name="List of T">
+  <bounds height="44.495506" width="53.675446" x="14.000000" y="8.000000"/>
+  <attribute name="items: array of T">
+   <bounds height="3.943945" width="24.680141" x="15.500000" y="16.443945"/>
+  </attribute>
+  <attribute name="count: integer">
+   <bounds height="3.943945" width="20.872622" x="15.500000" y="20.387890"/>
+  </attribute>
+  <operation abstract="false" name="constructor()">
+   <bounds height="3.943945" width="19.409145" x="15.500000" y="27.331835"/>
+  </operation>
+  <operation abstract="false" name="function IsEmpty(): boolean">
+   <bounds height="3.943945" width="40.863644" x="15.500000" y="31.275780"/>
+  </operation>
+  <operation abstract="false" name="procedure Add(item: T)">
+   <bounds height="3.943945" width="34.677975" x="15.500000" y="35.219723"/>
+  </operation>
+  <operation abstract="false" name="function Get(index: integer): T">
+   <bounds height="3.943945" width="44.316147" x="15.500000" y="39.163666"/>
+  </operation>
+  <operation abstract="false" name="function IndexOf(item: T): integer">
+   <bounds height="3.943945" width="48.856953" x="15.500000" y="43.107609"/>
+  </operation>
+  <operation abstract="false" name="procedure Remove(index: integer)">
+   <bounds height="3.943945" width="50.675446" x="15.500000" y="47.051552"/>
+  </operation>
+ </classElement>
+</diagram>

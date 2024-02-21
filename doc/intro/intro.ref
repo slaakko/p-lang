@@ -13,8 +13,8 @@
   <p>
     P is a small garbage collected programming language whose programs run in a virtual machine.
     I have been inspired by Borland Pascal with Objects version 7.0 manual from 1992 that 
-    I have in my bookshelf. When comparing P to the Borland Pascal with Objects, this 0.1.0 version
-    of P lacks a proper standard library. On the other hand I have added simple copying garbage 
+    I have in my bookshelf. When comparing P to the Borland Pascal with Objects, this 0.2.0 version
+    of P still lacks a proper standard library. On the other hand I have added simple copying garbage 
     collector and overloaded constructors that the Borland Pascal does not have.
      Otherwise P is pretty close to the original Borland Pascal with Objects.
   </p>
@@ -74,19 +74,27 @@
   </p>
 
   <div class="plang">
-    module Hello, id=1925189483<br/>
-    implementation<br/>
-    uses System<br/>
-    procedure '@program'<br/>
-    definition<br/>
-    module id 1925189483<br/>
-    id 1<br/>
-    frame size: 0<br/>
-    code<br/>
-      0 : receive(0)<br/>
-      1 : push_value('Hello, world!')<br/>
-      2 : call_stdproc(Writeln, 1)<br/>
-      3 : nop<br/>
+    program 'Hello'<br/>
+      global variable map:<br/>
+    uses: 'System'<br/>
+    source file path: C:/work/p-lang/prog/Hello.p<br/>
+    pcode file path: C:/work/p-lang/prog/Hello.pcode<br/>
+    block 'Hello'<br/>
+      procedure '@program'<br/>
+        block '@@program'<br/>
+        level: 0<br/>
+      flags: generated<br/>
+      id: bd5f304a-dcba-b9aa-2ead-bc73939fe2d3<br/>
+      level: 0<br/>
+      block '@@program'<br/>
+      level: 0<br/>
+      frame size: 0<br/>
+      code<br/>
+        0 : receive(0)<br/>
+        1 : push_value('Hello, world!')<br/>
+        2 : call_subroutine(Writeln, d17cbef6-653a-fecf-cce1-3b500ef8185e, 1)<br/>
+        3 : nop<br/>
+    level: 0<br/>
   </div>
 
   <h2>

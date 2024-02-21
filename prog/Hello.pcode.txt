@@ -8,7 +8,7 @@ block 'Hello'
     block '@@program'
     level: 0
   flags: generated
-  id: fc1b07f8-c6bf-c732-52a5-b60fb4aa2dc8
+  id: bd5f304a-dcba-b9aa-2ead-bc73939fe2d3
   level: 0
   block '@@program'
   level: 0
@@ -16,6 +16,6 @@ block 'Hello'
   code
     0 : receive(0)
     1 : push_value('Hello, world!')
-    2 : call_subroutine(Writeln, dad0a8b6-6ce1-9cfc-948a-2eb1a89cd2f5, 1)
+    2 : call_subroutine(Writeln, d17cbef6-653a-fecf-cce1-3b500ef8185e, 1)
     3 : nop
 level: 0
