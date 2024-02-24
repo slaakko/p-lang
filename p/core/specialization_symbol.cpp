@@ -64,7 +64,7 @@ SpecializationSymbol::SpecializationSymbol(const soul::ast::Span& span_, const s
 
 void SpecializationSymbol::Write(SymbolWriter& writer)
 {
-    TypeSymbol::Write(writer);
+    ObjectTypeSymbol::Write(writer);
     writer.GetBinaryWriter().Write(genericType->Id());
     writer.GetBinaryWriter().Write(typeArgumentSymbol->Id());
     writer.GetBinaryWriter().Write(instantiated);
@@ -72,7 +72,7 @@ void SpecializationSymbol::Write(SymbolWriter& writer)
 
 void SpecializationSymbol::Read(SymbolReader& reader)
 {
-    TypeSymbol::Read(reader);
+    ObjectTypeSymbol::Read(reader);
     reader.GetBinaryReader().ReadUuid(genericTypeId);
     reader.GetBinaryReader().ReadUuid(typeArgumentId);
     instantiated = reader.GetBinaryReader().ReadBool();
@@ -80,7 +80,7 @@ void SpecializationSymbol::Read(SymbolReader& reader)
 
 void SpecializationSymbol::Resolve()
 {
-    TypeSymbol::Resolve();
+    ObjectTypeSymbol::Resolve();
     SymbolTable* symbolTable = GetSymbolTable();
     TypeSymbol* type = symbolTable->GetType(genericTypeId, SourceFilePath(), Span());
     if (type->IsObjectTypeSymbol())
